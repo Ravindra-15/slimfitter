@@ -1,0 +1,277 @@
+/**
+ * CUSTOMER MODULE — Appointment Card
+ * Single appointment row: doctor info + date + time + Join Video Call button.
+ * Used in upcoming + past sections of My Appointments page.
+ */
+
+import React, { useState } from "react";
+import {
+  Calendar,
+  Clock,
+  Video,
+  CheckCircle2,
+  User,
+  X,
+  CheckCircle,
+  Loader2,
+} from "lucide-react";
+
+import toast from "react-hot-toast";
+
+import { buildDoctorPhotoUrl } from "../../../../services/customerDoctorService";
+
+import {
+  cancelMyAppointment,
+  markMyAppointmentComplete,
+} from "../../../../services/customerAppointmentService";
+
+// 🗓️ Format helpers
+const formatDate = (iso) => {
+  if (!iso) return "—";
+
+  return new Date(iso).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+};
+
+const formatTime = (iso) => {
+  if (!iso) return "—";
+
+  return new Date(iso).toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+    timeZone: "UTC",
+  });
+};
+
+// 🟢 STATUS PILL
+const StatusPill = ({ status }) => {
+  const styles = {
+    pending: "bg-amber-50 text-amber-600 border-amber-100",
+    confirmed: "bg-emerald-50 text-emerald-600 border-emerald-100",
+    completed: "bg-blue-50 text-blue-600 border-blue-100",
+    cancelled: "bg-red-50 text-red-500 border-red-100",
+    no_show: "bg-gray-100 text-gray-500 border-gray-200",
+  };
+
+  const labels = {
+    pending: "Pending",
+    confirmed: "Confirmed",
+    completed: "Completed",
+    cancelled: "Cancelled",
+    no_show: "No-show",
+  };
+
+  return (
+    <span
+      className={`inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-semibold border ${
+        styles[status] || styles.pending
+      }`}
+    >
+      {labels[status] || status}
+    </span>
+  );
+};
+
+const AppointmentCard = ({ appointment, isUpcoming = false, onUpdated }) => {
+  const {
+    doctor,
+    doctorName,
+    scheduledAt,
+    status,
+    meetingLink,
+    meetingLinkSentAt,
+  } = appointment;
+
+  const photoUrl = doctor
+    ? buildDoctorPhotoUrl(doctor.photo, doctor.updatedAt)
+    : null;
+
+  // 🎯 Show "Join Video Call" only on upcoming + confirmed/pending + link sent
+  const canJoinVideo =
+    isUpcoming &&
+    ["pending", "confirmed"].includes(status) &&
+    !!meetingLink &&
+    !!meetingLinkSentAt;
+
+  // 🎯 Show "Awaiting link" if upcoming but link not sent yet
+  const awaitingLink =
+    isUpcoming &&
+    ["pending", "confirmed"].includes(status) &&
+    !meetingLinkSentAt;
+
+  // ✅ Cancel + Complete logic
+  const [cancelling, setCancelling] = useState(false);
+  const [completing, setCompleting] = useState(false);
+
+  const canCancel = isUpcoming && ["pending", "confirmed"].includes(status);
+  const canMarkComplete =
+    ["pending", "confirmed"].includes(status) && !!meetingLinkSentAt;
+
+  const handleCancel = async () => {
+    if (!window.confirm("Cancel this appointment? This cannot be undone."))
+      return;
+    try {
+      setCancelling(true);
+      const updated = await cancelMyAppointment(appointment._id);
+      toast.success("Appointment cancelled");
+      onUpdated?.(updated);
+    } catch (err) {
+      toast.error(err?.response?.data?.message || "Failed to cancel");
+    } finally {
+      setCancelling(false);
+    }
+  };
+
+  const handleComplete = async () => {
+    try {
+      setCompleting(true);
+      const updated = await markMyAppointmentComplete(appointment._id);
+      toast.success("Consultation marked complete");
+      onUpdated?.(updated);
+    } catch (err) {
+      toast.error(err?.response?.data?.message || "Failed to mark complete");
+    } finally {
+      setCompleting(false);
+    }
+  };
+
+  return (
+    <div
+      className="
+        bg-white rounded-xl border border-gray-100
+        p-4 sm:p-5
+        flex flex-col sm:flex-row sm:items-center gap-4
+        hover:border-gray-200 transition-colors
+      "
+    >
+      {/* 🩺 Doctor info */}
+      <div className="flex items-center gap-3 flex-1 min-w-0">
+        <div className="w-14 h-14 rounded-full overflow-hidden border border-gray-200 bg-gradient-to-br from-orange-100 to-pink-100 flex-shrink-0">
+          {photoUrl ? (
+            <img
+              src={photoUrl}
+              alt={doctor?.fullName || doctorName}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.currentTarget.style.display = "none";
+              }}
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center text-orange-400">
+              <User size={22} />
+            </div>
+          )}
+        </div>
+
+        <div className="min-w-0">
+          <div className="flex items-center gap-1">
+            <p className="text-sm font-bold text-gray-900 truncate">
+              {doctor?.fullName || doctorName}
+            </p>
+
+            <CheckCircle2 size={13} className="text-orange-500 flex-shrink-0" />
+          </div>
+
+          {doctor?.domain && (
+            <p className="text-xs text-gray-500 truncate">{doctor.domain}</p>
+          )}
+
+          {/* 📅 Date + Time */}
+          <div className="flex items-center gap-3 mt-2">
+            <div className="flex items-center gap-1 text-[11px] text-gray-600">
+              <Calendar size={11} />
+
+              <span className="font-semibold text-gray-700">
+                {formatDate(scheduledAt)}
+              </span>
+            </div>
+
+            <div className="flex items-center gap-1 text-[11px] text-gray-600">
+              <Clock size={11} />
+
+              <span className="font-semibold text-gray-700">
+                {formatTime(scheduledAt)}
+              </span>
+            </div>
+          </div>
+          {isUpcoming && ["pending", "confirmed"].includes(status) && (
+            <div className="mt-2.5 inline-flex items-start gap-1.5 px-2.5 py-1.5 rounded-lg bg-amber-50 border border-red-100">
+              <span className="text-xs text-amber-700 font-medium leading-tight">
+                ⏱️ Consultation duration: <strong>20 mins</strong>. Please use
+                the time efficiently — discuss your concerns directly.
+              </span>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* 🎯 Right-side action */}
+      <div className="flex flex-col items-end gap-1.5 flex-shrink-0">
+        <StatusPill status={status} />
+
+        {canJoinVideo && (
+          <a
+            href={meetingLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              inline-flex items-center gap-1.5
+              px-4 py-2 rounded-full
+              text-xs font-semibold text-white
+              bg-orange-500 hover:bg-orange-600
+              transition-colors
+              shadow-[0_4px_10px_rgba(249,115,22,0.25)]
+            "
+          >
+            <Video size={12} />
+            Join Video Call
+          </a>
+        )}
+
+        {awaitingLink && (
+          <p className="text-[10px] text-gray-400 text-right max-w-[140px]">
+            *Doctor will share the meeting link soon
+          </p>
+        )}
+
+        {canMarkComplete && (
+          <button
+            type="button"
+            onClick={handleComplete}
+            disabled={completing}
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-white bg-emerald-500 hover:bg-emerald-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {completing ? (
+              <Loader2 size={12} className="animate-spin" />
+            ) : (
+              <CheckCircle size={12} />
+            )}
+            Consultation Completed
+          </button>
+        )}
+
+        {canCancel && (
+          <button
+            type="button"
+            onClick={handleCancel}
+            disabled={cancelling}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-red-600 border border-red-200 hover:bg-red-50 transition-colors disabled:opacity-50"
+          >
+            {cancelling ? (
+              <Loader2 size={12} className="animate-spin" />
+            ) : (
+              <X size={12} />
+            )}
+            Cancel
+          </button>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default AppointmentCard;
