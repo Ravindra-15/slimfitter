@@ -31,7 +31,7 @@ const DoctorLayout = () => {
   }, [isMobileMenuOpen]);
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="min-h-screen bg-[#F6F8FC] flex">
       {/* ============================================ */}
       {/* 🖥️ DESKTOP SIDEBAR (lg+) */}
       {/* ============================================ */}
@@ -62,18 +62,18 @@ const DoctorLayout = () => {
       {/* ============================================ */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Mobile top bar */}
-        <header className="lg:hidden sticky top-0 z-30 bg-white border-b border-gray-100 px-4 py-3 flex items-center justify-between">
+        <header className="lg:hidden sticky top-0 z-30 bg-white border-b border-[#E7EAF3] px-4 py-3 flex items-center justify-between">
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(true)}
-            className="p-2 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors"
+            className="p-2 rounded-lg text-[#6B7280] hover:bg-[#F6F8FC] transition-colors"
             aria-label="Open menu"
           >
             <Menu className="w-5 h-5" />
           </button>
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-600 to-purple-600" />
-            <span className="text-sm font-bold text-gray-900">Zealtho</span>
+            <span className="text-sm font-bold text-[#1F2937]">Zealtho</span>
           </div>
           <div className="w-9" /> {/* spacer for symmetry */}
         </header>

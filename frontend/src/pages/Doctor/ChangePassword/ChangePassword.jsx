@@ -33,7 +33,7 @@ const getPasswordChecks = (pw) => ({
 const getStrengthLevel = (checks) => {
   const score = Object.values(checks).filter(Boolean).length;
   if (score <= 1) return { level: 1, label: "Weak", color: "bg-red-400" };
-  if (score === 2) return { level: 2, label: "Fair", color: "bg-orange-400" };
+  if (score === 2) return { level: 2, label: "Fair", color: "bg-[#4F46E5]" };
   if (score === 3) return { level: 3, label: "Good", color: "bg-yellow-400" };
   return { level: 4, label: "Strong", color: "bg-green-500" };
 };
@@ -155,7 +155,7 @@ const ChangePassword = () => {
     <div>
       <label
         htmlFor={name}
-        className="block text-sm font-semibold text-gray-700 mb-1.5"
+        className="block text-sm font-semibold text-[#374151] mb-1.5"
       >
         {label}
       </label>
@@ -170,17 +170,17 @@ const ChangePassword = () => {
           value={formData[name]}
           onChange={handleChange}
           disabled={isSubmitting}
-          className={`w-full pl-11 pr-11 py-3 text-sm rounded-xl border transition-colors bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 disabled:opacity-60 ${
+          className={`w-full pl-11 pr-11 py-3 text-sm rounded-xl border transition-colors bg-white text-[#1F2937] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 disabled:opacity-60 ${
             error
               ? "border-red-300 focus:border-red-400"
-              : "border-gray-200 focus:border-indigo-500"
+              : "border-[#D9DDF0] focus:border-indigo-500"
           }`}
         />
         <button
           type="button"
           onClick={() => setShow((s) => ({ ...s, [showKey]: !s[showKey] }))}
           aria-label={show[showKey] ? "Hide password" : "Show password"}
-          className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600 transition-colors"
+          className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-[#6B7280] transition-colors"
           tabIndex={-1}
         >
           {show[showKey] ? (
@@ -199,14 +199,14 @@ const ChangePassword = () => {
       {/* ============================================ */}
       {/* 🔝 TOP BAR */}
       {/* ============================================ */}
-      <header className="border-b border-gray-100 bg-white/70 backdrop-blur-sm">
+      <header className="border-b border-[#E7EAF3] bg-white/70 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center shadow-md">
               <ShieldCheck className="w-[18px] h-[18px] text-white" strokeWidth={2.2} />
             </div>
             <div>
-              <p className="text-sm font-bold text-gray-900 leading-tight">
+              <p className="text-sm font-bold text-[#1F2937] leading-tight">
                 Zealtho
               </p>
               <p className="text-[10px] tracking-[0.18em] text-indigo-600 font-semibold">
@@ -219,7 +219,7 @@ const ChangePassword = () => {
             type="button"
             onClick={handleLogout}
             disabled={isSubmitting}
-            className="flex items-center gap-1.5 text-xs font-medium text-gray-500 hover:text-gray-900 transition-colors disabled:opacity-50"
+            className="flex items-center gap-1.5 text-xs font-medium text-[#6B7280] hover:text-[#1F2937] transition-colors disabled:opacity-50"
           >
             <LogOut className="w-3.5 h-3.5" />
             Sign out
@@ -234,12 +234,12 @@ const ChangePassword = () => {
         <div className="max-w-md mx-auto">
           {/* Greeting */}
           {doctor?.fullName && (
-            <p className="text-center text-sm text-gray-500 mb-4">
-              Signed in as <span className="font-medium text-gray-700">{doctor.fullName}</span>
+            <p className="text-center text-sm text-[#6B7280] mb-4">
+              Signed in as <span className="font-medium text-[#374151]">{doctor.fullName}</span>
             </p>
           )}
 
-          <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_4px_24px_rgba(16,24,40,0.06)] p-8 sm:p-10">
+          <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_4px_24px_rgba(16,24,40,0.06)] p-8 sm:p-10">
             {/* Lock icon header */}
             <div className="flex justify-center">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center">
@@ -247,10 +247,10 @@ const ChangePassword = () => {
               </div>
             </div>
 
-            <h1 className="mt-5 text-center text-2xl font-bold text-gray-900 tracking-tight">
+            <h1 className="mt-5 text-center text-2xl font-bold text-[#1F2937] tracking-tight">
               Set a new password
             </h1>
-            <p className="mt-2 text-center text-sm text-gray-500">
+            <p className="mt-2 text-center text-sm text-[#6B7280]">
               For security, please replace the temporary password
               <br />
               given by your administrator.
@@ -289,8 +289,8 @@ const ChangePassword = () => {
                         />
                       ))}
                     </div>
-                    <p className="mt-1.5 text-[11px] text-gray-500">
-                      Strength: <span className="font-medium text-gray-700">{strength.label}</span>
+                    <p className="mt-1.5 text-[11px] text-[#6B7280]">
+                      Strength: <span className="font-medium text-[#374151]">{strength.label}</span>
                     </p>
                   </div>
                 )}

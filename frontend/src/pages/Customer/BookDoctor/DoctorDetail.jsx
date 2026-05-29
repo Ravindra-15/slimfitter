@@ -72,7 +72,7 @@ const DoctorDetail = () => {
   // ============================================
   const { data: dayData, loading: slotsLoading } = useDoctorDayAvailability(
     id,
-    selectedDate
+    selectedDate,
   );
 
   // 🔄 Reset selected time when date changes
@@ -96,7 +96,7 @@ const DoctorDetail = () => {
       scheduledTime: selectedTime,
       // Build full ISO timestamp (UTC)
       scheduledAt: new Date(
-        `${selectedDate}T${selectedTime}:00.000Z`
+        `${selectedDate}T${selectedTime}:00.000Z`,
       ).toISOString(),
     };
     sessionStorage.setItem("bookingIntent", JSON.stringify(intent));
@@ -108,7 +108,7 @@ const DoctorDetail = () => {
   // 🎨 RENDER
   // ============================================
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-[#F6F8FC] flex flex-col">
       <CustomerNavbar />
 
       <main className="flex-1">
@@ -117,29 +117,31 @@ const DoctorDetail = () => {
           <button
             type="button"
             onClick={() => navigate("/book-doctor")}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-orange-600 transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-[#6B7280] hover:text-[#5B4FF7] transition-colors"
           >
             <ArrowLeft size={16} />
             Back to doctors
           </button>
 
           {/* 🏷️ Page title */}
-          <h1 className="text-xl sm:text-2xl font-bold text-gray-900 text-center tracking-tight">
-            Book Doctor{" "}
-            <span className="text-orange-500">Consultations</span>
+          <h1 className="text-xl sm:text-2xl font-bold text-[#1F2937] text-center tracking-tight">
+            Book Doctor <span className="text-[#5B4FF7]">Consultations</span>
           </h1>
 
           {/* ============================================ */}
           {/* 👤 DOCTOR HEADER                              */}
           {/* ============================================ */}
           {doctorLoading ? (
-            <div className="bg-white rounded-2xl border border-gray-100 p-6 animate-pulse h-44" />
+            <div className="bg-white rounded-[28px] border border-[#E7EAF3] p-6 animate-pulse h-44 shadow-sm" />
           ) : doctorError || !doctor ? (
-            <div className="bg-white rounded-2xl border border-gray-100 px-6 py-12 text-center">
-              <p className="text-sm font-medium text-gray-700 mb-1">
+            <div
+              className="bg-white rounded-[28px] border border-[#E7EAF3]
+               shadow-smpx-6 py-12 text-center"
+            >
+              <p className="text-sm font-medium text-[#1F2937] mb-1">
                 {doctorError || "Doctor not found"}
               </p>
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-[#6B7280]">
                 Try going back and choosing another doctor.
               </p>
             </div>
@@ -152,15 +154,16 @@ const DoctorDetail = () => {
               {/* ============================================ */}
               <div
                 className="
-                  bg-white rounded-2xl border border-gray-100
-                  shadow-[0_1px_3px_rgba(16,24,40,0.04)]
-                  p-5 sm:p-6
-                "
+                                          bg-white rounded-[32px]
+                        border border-[#E7EAF3]
+                        shadow-[0_10px_30px_rgba(15,23,42,0.05)]
+                        p-5 sm:p-7
+                                        "
               >
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   {/* Calendar */}
                   <div>
-                    <p className="text-sm font-bold text-gray-900 mb-3">
+                    <p className="text-sm font-bold text-[#1F2937] mb-3">
                       Select A Date
                     </p>
                     <DateCalendar
@@ -171,7 +174,7 @@ const DoctorDetail = () => {
 
                   {/* Time slots */}
                   <div>
-                    <p className="text-sm font-bold text-gray-900 mb-3">
+                    <p className="text-sm font-bold text-[#1F2937] mb-3">
                       Select A Time
                     </p>
                     <TimeSlotGrid
@@ -191,15 +194,16 @@ const DoctorDetail = () => {
                     onClick={handleProceed}
                     disabled={!selectedDate || !selectedTime}
                     className="
-                      inline-flex items-center justify-center gap-2
-                      px-8 py-3 rounded-full
-                      text-sm font-semibold text-white
-                      bg-orange-500 hover:bg-orange-600
-                      transition-colors
-                      shadow-[0_4px_14px_rgba(249,115,22,0.3)]
-                      disabled:opacity-50 disabled:cursor-not-allowed
-                      w-full sm:w-auto
-                    "
+                          inline-flex items-center justify-center gap-2
+                          px-10 py-3 rounded-full
+                          text-sm font-semibold text-white
+                          bg-[#5B4FF7]
+                          hover:bg-[#4338CA]
+                          transition-all duration-200
+                          shadow-[0_10px_25px_rgba(91,79,247,0.22)]
+                          disabled:opacity-50 disabled:cursor-not-allowed
+                          w-full sm:w-auto
+                        "
                   >
                     <Calendar size={15} />
                     Get Appointment

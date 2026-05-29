@@ -54,7 +54,7 @@ const StatusPill = ({ status }) => {
     confirmed: "bg-emerald-50 text-emerald-600 border-emerald-100",
     completed: "bg-blue-50 text-blue-600 border-blue-100",
     cancelled: "bg-red-50 text-red-500 border-red-100",
-    no_show: "bg-gray-100 text-gray-500 border-gray-200",
+    no_show: "bg-gray-100 text-[#6B7280] border-[#D9DDF0]",
   };
 
   const labels = {
@@ -142,15 +142,15 @@ const AppointmentCard = ({ appointment, isUpcoming = false, onUpdated }) => {
   return (
     <div
       className="
-        bg-white rounded-xl border border-gray-100
+        bg-white rounded-[24px] border border-[#E7EAF3]
         p-4 sm:p-5
         flex flex-col sm:flex-row sm:items-center gap-4
-        hover:border-gray-200 transition-colors
+        hover:border-[#D9DDF0] transition-colors
       "
     >
       {/* 🩺 Doctor info */}
       <div className="flex items-center gap-3 flex-1 min-w-0">
-        <div className="w-14 h-14 rounded-full overflow-hidden border border-gray-200 bg-gradient-to-br from-orange-100 to-pink-100 flex-shrink-0">
+        <div className="w-14 h-14 rounded-full overflow-hidden border border-[#D9DDF0] bg-gradient-to-br from-[#EEF2FF] to-[#F5F3FF] flex-shrink-0">
           {photoUrl ? (
             <img
               src={photoUrl}
@@ -161,7 +161,7 @@ const AppointmentCard = ({ appointment, isUpcoming = false, onUpdated }) => {
               }}
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-orange-400">
+            <div className="w-full h-full flex items-center justify-center text-[#5B4FF7]">
               <User size={22} />
             </div>
           )}
@@ -169,37 +169,37 @@ const AppointmentCard = ({ appointment, isUpcoming = false, onUpdated }) => {
 
         <div className="min-w-0">
           <div className="flex items-center gap-1">
-            <p className="text-sm font-bold text-gray-900 truncate">
+            <p className="text-sm font-bold text-[#1F2937] truncate">
               {doctor?.fullName || doctorName}
             </p>
 
-            <CheckCircle2 size={13} className="text-orange-500 flex-shrink-0" />
+            <CheckCircle2 size={13} className="text-[#5B4FF7] flex-shrink-0" />
           </div>
 
           {doctor?.domain && (
-            <p className="text-xs text-gray-500 truncate">{doctor.domain}</p>
+            <p className="text-xs text-[#6B7280] truncate">{doctor.domain}</p>
           )}
 
           {/* 📅 Date + Time */}
           <div className="flex items-center gap-3 mt-2">
-            <div className="flex items-center gap-1 text-[11px] text-gray-600">
+            <div className="flex items-center gap-1 text-[11px] text-[#6B7280]">
               <Calendar size={11} />
 
-              <span className="font-semibold text-gray-700">
+              <span className="font-semibold text-[#374151]">
                 {formatDate(scheduledAt)}
               </span>
             </div>
 
-            <div className="flex items-center gap-1 text-[11px] text-gray-600">
+            <div className="flex items-center gap-1 text-[11px] text-[#6B7280]">
               <Clock size={11} />
 
-              <span className="font-semibold text-gray-700">
+              <span className="font-semibold text-[#374151]">
                 {formatTime(scheduledAt)}
               </span>
             </div>
           </div>
           {isUpcoming && ["pending", "confirmed"].includes(status) && (
-            <div className="mt-2.5 inline-flex items-start gap-1.5 px-2.5 py-1.5 rounded-lg bg-amber-50 border border-red-100">
+            <div className="mt-2.5 inline-flex items-start gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#FFF7ED] border border-[#FED7AA]">
               <span className="text-xs text-amber-700 font-medium leading-tight">
                 ⏱️ Consultation duration: <strong>20 mins</strong>. Please use
                 the time efficiently — discuss your concerns directly.
@@ -222,9 +222,9 @@ const AppointmentCard = ({ appointment, isUpcoming = false, onUpdated }) => {
               inline-flex items-center gap-1.5
               px-4 py-2 rounded-full
               text-xs font-semibold text-white
-              bg-orange-500 hover:bg-orange-600
+              bg-[#5B4FF7] hover:bg-[#4338CA]
               transition-colors
-              shadow-[0_4px_10px_rgba(249,115,22,0.25)]
+              shadow-[0_8px_18px_rgba(91,79,247,0.22)]
             "
           >
             <Video size={12} />

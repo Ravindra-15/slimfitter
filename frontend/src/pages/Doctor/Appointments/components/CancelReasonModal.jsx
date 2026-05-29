@@ -21,22 +21,22 @@ const CancelReasonModal = ({ open, onClose, onConfirm, loading }) => {
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-6">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h3 className="text-base font-bold text-gray-900">Cancel Appointment</h3>
-            <p className="text-xs text-gray-500 mt-1">
+            <h3 className="text-base font-bold text-[#1F2937]">Cancel Appointment</h3>
+            <p className="text-xs text-[#6B7280] mt-1">
               The patient will be notified and receive a free appointment credit.
             </p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600"
+            className="text-gray-400 hover:text-[#6B7280]"
             disabled={loading}
           >
             <X size={18} />
           </button>
         </div>
 
-        <label className="block text-xs font-semibold text-gray-700 mb-2">
+        <label className="block text-xs font-semibold text-[#374151] mb-2">
           Reason for cancellation <span className="text-red-500">*</span>
         </label>
         <textarea
@@ -46,7 +46,7 @@ const CancelReasonModal = ({ open, onClose, onConfirm, loading }) => {
           placeholder="e.g. Personal emergency, will be back tomorrow"
           disabled={loading}
           maxLength={500}
-          className="w-full px-3 py-2.5 text-sm text-gray-900 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 resize-none disabled:bg-gray-50"
+          className="w-full px-3 py-2.5 text-sm text-[#1F2937] bg-white border border-[#D9DDF0] rounded-xl focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 resize-none disabled:bg-[#F6F8FC]"
         />
         <p className="text-[10px] text-gray-400 mt-1 text-right">
           {reason.length}/500
@@ -57,7 +57,7 @@ const CancelReasonModal = ({ open, onClose, onConfirm, loading }) => {
             type="button"
             onClick={onClose}
             disabled={loading}
-            className="flex-1 px-4 py-2.5 rounded-xl text-sm font-semibold text-gray-700 border border-gray-200 hover:bg-gray-50 transition-colors disabled:opacity-50"
+            className="flex-1 px-4 py-2.5 rounded-xl text-sm font-semibold text-[#374151] border border-[#D9DDF0] hover:bg-[#F6F8FC] transition-colors disabled:opacity-50"
           >
             Keep Appointment
           </button>

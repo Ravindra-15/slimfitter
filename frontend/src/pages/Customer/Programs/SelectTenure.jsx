@@ -1,17 +1,44 @@
-// Zealtho Programs - Select Tenure
-// Plan picker between landing PricingSection and ProgramCheckout
-// Plans fetched dynamically from API (admin-configured pricing)
+/**
+ * Customer — Select Tenure / Design Your Recovery Path
+ * Weekly programs (diabmukt/mommyfit/slimfitter): slider to pick weeks.
+ * Fixed programs (yogat20): falls back to plan cards.
+ */
 
+import { useEffect, useState, useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Calendar } from "lucide-react";
+import { getPublicProgramPlans } from "../../../services/programPlanPublicService";
 import { getSubscriptionRedirect } from "../../../utils/subscriptionGuard";
-import { getProgramPlans } from "../../../services/programPlanService";
+import SubscriptionCallbackCTA from "./components/SubscriptionCallbackCTA";
 
 const programNames = {
   yogat20: "Yoga T20",
   diabmukt: "Diabmukt",
   mommyfit: "MommyFit",
   slimfitter: "Slimfitter",
+};
+
+const formatPrice = (n) => `$${Number(n || 0).toLocaleString("en-US")}`;
+
+// 🧮 Discount for a given weeks count (mirrors backend logic)
+const getDiscount = (breakpoints, weeks) => {
+  let discount = 0;
+  let badge = "";
+  if (Array.isArray(breakpoints)) {
+    breakpoints.forEach((bp) => {
+      if (weeks >= bp.minWeeks && bp.discountPercent > discount) {
+        discount = bp.discountPercent;
+        badge = bp.badgeText || `${bp.discountPercent}% off`;
+      }
+    });
+  }
+  return { discount, badge };
+};
+
+const calcWeeklyPrice = (plan, weeks) => {
+  const base = Number(plan.baseRatePerWeek) || 0;
+  const { discount } = getDiscount(plan.breakpoints, weeks);
+  return Math.round(base * weeks * (1 - discount / 100));
 };
 
 export default function SelectTenure() {
@@ -21,130 +48,301 @@ export default function SelectTenure() {
 
   const [plans, setPlans] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [weeks, setWeeks] = useState(null);
 
-  // 🔒 Subscription guard (existing logic preserved)
-  useEffect(() => {
-    const redirect = getSubscriptionRedirect(`/programs/${id}/tenure`);
-    if (redirect) navigate(redirect, { replace: true });
-  }, [id, navigate]);
+  // 🙋 First name for heading
+  let firstName = "";
+  try {
+    const raw = localStorage.getItem("user") || sessionStorage.getItem("user");
+    const user = raw ? JSON.parse(raw) : null;
+    firstName = user?.nickName || user?.fullName?.split(" ")[0] || "";
+  } catch {
+    firstName = "";
+  }
 
-  // 📥 Load plans
+  // 📥 Fetch plans
   useEffect(() => {
     let mounted = true;
     const load = async () => {
       setLoading(true);
+      setError(null);
       try {
-        // Subscription flow shows ALL active plans (not just landing-visible)
-        const fetched = await getProgramPlans(id);
-        // const fetched = await getProgramPlans(id, { landingOnly: true });
+        const fetched = await getPublicProgramPlans(id);
         if (!mounted) return;
-        setPlans(fetched);
+        setPlans(fetched || []);
       } catch (err) {
         console.error("Failed to load plans:", err);
-        if (mounted) setPlans([]);
+        if (mounted) setError("Failed to load plans. Please try again.");
       } finally {
         if (mounted) setLoading(false);
       }
     };
-    load();
+    if (id) load();
     return () => {
       mounted = false;
     };
   }, [id]);
 
-  const handleSelect = (plan) => {
-    navigate(`/programs/${id}/checkout`, {
+  // 🟦 The weekly plan (if this program is weekly)
+  const weeklyPlan = useMemo(
+    () => plans.find((p) => (p.pricingType || "fixed") === "weekly") || null,
+    [plans]
+  );
+
+  // 🟧 Fixed plans (yogat20)
+  const fixedPlans = useMemo(
+    () => plans.filter((p) => (p.pricingType || "fixed") === "fixed"),
+    [plans]
+  );
+
+  // 🎚️ Initialize slider to minWeeks once weekly plan loads
+  useEffect(() => {
+    if (weeklyPlan && weeks === null) {
+      setWeeks(weeklyPlan.minWeeks || 5);
+    }
+  }, [weeklyPlan, weeks]);
+
+  // 🟦 WEEKLY: continue to checkout
+  const handleWeeklyContinue = () => {
+    const amount = calcWeeklyPrice(weeklyPlan, weeks);
+    const intendedPath = `/programs/${id}/checkout`;
+    const redirect = getSubscriptionRedirect(intendedPath);
+    if (redirect) {
+      navigate(redirect);
+      return;
+    }
+    navigate(intendedPath, {
       state: {
-        tenure: plan.planName,
-        price: plan.offerPrice,
         programId: id,
         programName,
+        pricingType: "weekly",
+        weeks,
+        tenure: `${weeks} Weeks`,
+        price: amount,
       },
     });
   };
 
+  // 🟧 FIXED: select a plan
+  const handleFixedSelect = (plan) => {
+    navigate(`/programs/${id}/checkout`, {
+      state: {
+        programId: id,
+        programName,
+        pricingType: "fixed",
+        tenure: plan.planName,
+        price: plan.offerPrice,
+        originalPrice: plan.originalPrice,
+        offerBadge: plan.offerBadge,
+        planId: plan._id,
+      },
+    });
+  };
+
+  // ════════ LOADING / ERROR ════════
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#EEEBFB] flex items-center justify-center px-4">
+        <p className="text-sm text-gray-500">Loading plans...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-[#EEEBFB] flex items-center justify-center px-4">
+        <p className="text-sm text-red-500">{error}</p>
+      </div>
+    );
+  }
+
+  // ════════════════════════════════════════
+  // 🟦 WEEKLY SLIDER VIEW
+  // ════════════════════════════════════════
+  if (weeklyPlan && weeks !== null) {
+    const min = weeklyPlan.minWeeks || 5;
+    const max = weeklyPlan.maxWeeks || 24;
+    const amount = calcWeeklyPrice(weeklyPlan, weeks);
+    const pct = max > min ? ((weeks - min) / (max - min)) * 100 : 0;
+
+    // Marker positions for each breakpoint (for the red badges under track)
+    const markers = (weeklyPlan.breakpoints || [])
+      .filter((bp) => bp.minWeeks >= min && bp.minWeeks <= max)
+      .map((bp) => ({
+        ...bp,
+        left: max > min ? ((bp.minWeeks - min) / (max - min)) * 100 : 0,
+      }));
+
+    return (
+      <div className="min-h-screen bg-[#EEEBFB] px-4 py-10">
+        <div className="w-full max-w-[820px] mx-auto flex flex-col gap-5">
+        <div className="bg-white rounded-3xl shadow-xl w-full px-6 sm:px-10 py-9">
+          {/* Heading */}
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#0F172A] mb-2">
+              Design your Recovery Path
+            </h2>
+            <p className="text-sm text-[#6B7280]">
+              {firstName ? (
+                <>
+                  Hey{" "}
+                  <span className="text-[#4F46E5] font-semibold">
+                    {firstName}
+                  </span>
+                  ,{" "}
+                </>
+              ) : null}
+              Select your Program Duration . Minimum Commitment should be{" "}
+              {min} weeks
+            </p>
+          </div>
+
+          {/* Selected tenure box */}
+          <div className="border border-[#D9DDF0] rounded-2xl px-5 py-4 flex items-center justify-between mb-8 max-w-sm mx-auto">
+            <span className="text-sm text-gray-400">Selected Tenure</span>
+            <div className="flex items-center gap-2">
+              <span className="text-lg font-bold text-[#0F172A]">
+                {weeks} Weeks
+              </span>
+              <Calendar size={20} className="text-[#4F46E5]" />
+            </div>
+          </div>
+
+          {/* Slider */}
+          <div className="px-2 mb-2">
+            <input
+              type="range"
+              min={min}
+              max={max}
+              step={1}
+              value={weeks}
+              onChange={(e) => setWeeks(Number(e.target.value))}
+              className="w-full accent-[#4F46E5] cursor-pointer"
+              style={{
+                background: `linear-gradient(to right, #4F46E5 ${pct}%, #E5E7EB ${pct}%)`,
+              }}
+            />
+          </div>
+
+          {/* Breakpoint markers */}
+          <div className="relative h-12 mb-6 px-2">
+            {markers.map((m) => (
+              <div
+                key={m.minWeeks}
+                className="absolute -translate-x-1/2 flex flex-col items-center"
+                style={{ left: `${m.left}%` }}
+              >
+                <span className="bg-red-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded mb-1 whitespace-nowrap">
+                  {m.badgeText || `${m.discountPercent}% off`}
+                </span>
+                <span className="text-[10px] text-gray-500 whitespace-nowrap">
+                  {m.minWeeks}w
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Price */}
+          <div className="text-center mb-7">
+            <span className="text-[34px] sm:text-[40px] font-bold text-[#0F172A] leading-none">
+              {formatPrice(amount)}
+            </span>
+            <p className="text-xs text-gray-400 mt-1">
+              for {weeks} weeks ({formatPrice(weeklyPlan.baseRatePerWeek)}/week
+              base)
+            </p>
+          </div>
+
+         {/* Continue */}
+          <button
+            onClick={handleWeeklyContinue}
+            className="w-full bg-[#4F46E5] hover:bg-[#4338CA] text-white text-sm font-semibold py-3.5 rounded-full transition-colors shadow-[0_6px_18px_rgba(79,70,229,0.3)]"
+          >
+            Continue
+          </button>
+       </div>
+
+        {/* Callback CTA below the slider card */}
+        <SubscriptionCallbackCTA programId={id} />
+        </div>
+      </div>
+    );
+  }
+
+  // ════════════════════════════════════════
+  // 🟧 FIXED PLAN VIEW (yogat20)
+  // ════════════════════════════════════════
   return (
     <div className="min-h-screen bg-gray-900/80 flex items-center justify-center px-4 py-12">
-      <div className="bg-white rounded-3xl shadow-xl w-full max-w-lg px-8 py-10">
+      <div className="bg-white rounded-3xl shadow-xl w-full max-w-3xl px-6 sm:px-10 py-10">
         <div className="text-center mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#0F172A] mb-2">
             Select your Tenure
           </h2>
-          <p className="text-sm text-gray-500">
-            Hey{" "}
-            <span className="text-orange-500 font-semibold">{programName}</span>
-            , Select your Program Duration
+          <p className="text-sm text-[#6B7280]">
+            {firstName ? (
+              <>
+                Hey{" "}
+                <span className="text-[#4F46E5] font-semibold">
+                  {firstName}
+                </span>
+                ,{" "}
+              </>
+            ) : null}
+            Select your Program Duration
           </p>
         </div>
 
-        {/* Loading state */}
-        {loading ? (
+        {fixedPlans.length === 0 ? (
           <p className="text-center text-sm text-gray-400 py-10">
-            Loading plans...
+            No plans available for this program yet.
           </p>
-        ) : plans.length === 0 ? (
-          <div className="text-center py-8">
-            <p className="text-sm text-gray-500 mb-4">
-              No plans available right now. Please check back soon.
-            </p>
-            <button
-              onClick={() => navigate(`/programs/${id}`)}
-              className="text-sm text-orange-500 hover:underline font-medium"
-            >
-              ← Back to program
-            </button>
-          </div>
         ) : (
           <div
             className={`grid gap-4 ${
-              plans.length === 1 ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2"
+              fixedPlans.length === 1
+                ? "grid-cols-1 max-w-sm mx-auto"
+                : fixedPlans.length === 2
+                ? "grid-cols-1 sm:grid-cols-2"
+                : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
             }`}
           >
-            {plans.map((plan, idx) => {
-              const isBestseller = plan.isBestseller || idx === 0;
+            {fixedPlans.map((plan) => {
+              const hasDiscount =
+                plan.originalPrice && plan.originalPrice > plan.offerPrice;
               return (
                 <div
                   key={plan._id}
-                  className={`relative border rounded-2xl p-5 hover:border-orange-400 hover:shadow-md transition-all cursor-pointer flex flex-col ${
-                    isBestseller
-                      ? "border-orange-300 bg-orange-50/30"
-                      : "border-gray-200"
-                  }`}
-                  onClick={() => handleSelect(plan)}
+                  onClick={() => handleFixedSelect(plan)}
+                  className="border border-[#D9DDF0] rounded-2xl p-5 hover:border-[#4F46E5] hover:shadow-[0_8px_22px_rgba(79,70,229,0.18)] transition-all cursor-pointer flex flex-col"
                 >
-                  {isBestseller && (
-                    <div className="absolute -top-2 left-4 bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">
-                      ★ Bestseller
-                    </div>
-                  )}
-
-                  <div className="flex items-center justify-between mb-2 mt-1">
-                    <span className="font-semibold text-gray-800 text-base">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-semibold text-[#0F172A] text-base">
                       {plan.planName}
                     </span>
                     {plan.offerBadge && (
-                      <span className="bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">
+                      <span className="bg-[#4F46E5] text-white text-[10px] font-bold px-2 py-0.5 rounded-md">
                         {plan.offerBadge}
                       </span>
                     )}
                   </div>
-
-                  <p className="text-xs text-gray-400 line-through mb-1 min-h-[16px]">
-                    {plan.originalPrice > plan.offerPrice
-                      ? `$ ${plan.originalPrice}`
-                      : "\u00A0"}
+                  <p
+                    className={`text-xs text-gray-400 line-through mb-1 ${
+                      hasDiscount ? "" : "invisible"
+                    }`}
+                  >
+                    {formatPrice(plan.originalPrice)}
                   </p>
-
-                  <p className="text-2xl font-bold text-gray-800 mb-4">
-                    $ {plan.offerPrice}
+                  <p className="text-2xl font-bold text-[#0F172A] mb-4">
+                    {formatPrice(plan.offerPrice)}
                   </p>
-
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      handleSelect(plan);
+                      handleFixedSelect(plan);
                     }}
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold py-2.5 rounded-full transition-colors shadow-[0_4px_14px_rgba(249,115,22,0.35)] mt-auto"
+                    className="mt-auto w-full bg-[#4F46E5] hover:bg-[#4338CA] text-white text-sm font-semibold py-2.5 rounded-full transition-colors shadow-[0_4px_14px_rgba(79,70,229,0.32)]"
                   >
                     Select Plan
                   </button>

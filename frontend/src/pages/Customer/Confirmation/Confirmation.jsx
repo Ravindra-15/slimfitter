@@ -74,7 +74,7 @@ const Confirmation = () => {
   // 🎨 RENDER
   // ============================================
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-[#F6F8FC] flex flex-col">
       <CustomerNavbar />
 
       <main className="flex-1 py-14 sm:py-20">
@@ -99,7 +99,7 @@ const Confirmation = () => {
                         relative
                     "
                 >
-                  <PartyPopper size={32} className="text-orange-500" />
+                  <PartyPopper size={32} className="text-[#4F46E5]" />
 
                   <CheckCircle2
                     size={20}
@@ -113,10 +113,10 @@ const Confirmation = () => {
               )}
             </div>
 
-            <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mt-4 tracking-tight">
+            <h1 className="text-xl sm:text-2xl font-bold text-[#1F2937] mt-4 tracking-tight">
               Your Consultation is Confirmed!
             </h1>
-            <p className="text-xs sm:text-sm text-gray-500 mt-1.5">
+            <p className="text-xs sm:text-sm text-[#6B7280] mt-1.5">
               You will receive a reminder 15 minutes before your appointment
             </p>
           </div>
@@ -125,16 +125,16 @@ const Confirmation = () => {
           {/* 📋 DETAILS                                    */}
           {/* ============================================ */}
           {loading ? (
-            <div className="bg-white rounded-2xl border border-gray-100 p-6 animate-pulse h-56" />
+            <div className="bg-white rounded-2xl border border-[#E7EAF3] p-6 animate-pulse h-56" />
           ) : error || !appointment ? (
-            <div className="bg-white rounded-2xl border border-gray-100 px-6 py-12 text-center">
-              <p className="text-sm font-medium text-gray-700 mb-1">
+            <div className="bg-white rounded-2xl border border-[#E7EAF3] px-6 py-12 text-center">
+              <p className="text-sm font-medium text-[#374151] mb-1">
                 {error || "Appointment not found"}
               </p>
               <button
                 type="button"
                 onClick={() => navigate("/my-appointments")}
-                className="mt-3 text-xs font-semibold text-orange-600 hover:underline"
+                className="mt-3 text-xs font-semibold text- [#4338CA] hover:underline"
               >
                 View my appointments
               </button>
@@ -156,7 +156,7 @@ const Confirmation = () => {
                   className="
                     inline-flex items-center gap-1.5
                     px-5 py-2 rounded-full
-                    text-sm font-semibold text-orange-600
+                    text-sm font-semibold text- [#4338CA]
                     hover:underline
                     transition-colors
                   "

@@ -231,24 +231,24 @@ const DoctorForm = ({
       {/* ============================================ */}
       <div
         className="
-          bg-white rounded-2xl border border-gray-100
+          bg-white rounded-2xl border border-[#E7EAF3]
           shadow-[0_1px_3px_rgba(16,24,40,0.04)]
           p-6 sm:p-8
         "
       >
         {/* 📋 Section header */}
-        <div className="flex items-center gap-3 pb-5 mb-6 border-b border-gray-100">
+        <div className="flex items-center gap-3 pb-5 mb-6 border-b border-[#E7EAF3]">
           <div className="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center">
             <User size={18} className="text-indigo-500" />
           </div>
-          <h2 className="text-base font-bold text-gray-900">
+          <h2 className="text-base font-bold text-[#1F2937]">
             Create Doctor Profile
           </h2>
         </div>
 
         {/* 📷 Photo */}
         <div className="mb-8">
-          <label className="block text-sm font-medium text-gray-700 mb-3">
+          <label className="block text-sm font-medium text-[#374151] mb-3">
             Professional Photo
           </label>
 
@@ -274,7 +274,7 @@ const DoctorForm = ({
           <div>
             <label
               htmlFor="fullName"
-              className="block text-sm font-medium text-gray-700 mb-2"
+              className="block text-sm font-medium text-[#374151] mb-2"
             >
               Full Name <span className="text-red-500">*</span>
             </label>
@@ -288,10 +288,10 @@ const DoctorForm = ({
               placeholder="e.g., Dr. Sarah Johnson"
               className="
                 w-full px-4 py-3
-                bg-white border border-gray-200 rounded-xl
-                text-sm text-gray-900 placeholder-gray-400
+                bg-white border border-[#D9DDF0] rounded-xl
+                text-sm text-[#1F2937] placeholder-gray-400
                 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500
-                disabled:bg-gray-50 disabled:cursor-not-allowed
+                disabled:bg-[#F6F8FC] disabled:cursor-not-allowed
                 transition-colors
               "
             />
@@ -338,7 +338,7 @@ const DoctorForm = ({
           <div>
             <label
               htmlFor="shortBio"
-              className="block text-sm font-medium text-gray-700 mb-2"
+              className="block text-sm font-medium text-[#374151] mb-2"
             >
               Short Bio / Expertise <span className="text-red-500">*</span>
             </label>
@@ -346,7 +346,7 @@ const DoctorForm = ({
             <div
               className={`
                 quill-wrapper
-                bg-white border border-gray-200 rounded-xl overflow-hidden
+                bg-white border border-[#D9DDF0] rounded-xl overflow-hidden
                 focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500
                 transition-colors
                 ${submitting ? "opacity-60 pointer-events-none" : ""}
@@ -371,7 +371,7 @@ const DoctorForm = ({
               <span
                 className={`text-xs ${
                   countVisibleChars(form.shortBio) > LIMITS.BIO_MAX * 0.9
-                    ? "text-orange-500"
+                    ? "text-[#4F46E5]"
                     : "text-gray-400"
                 }`}
               >
@@ -387,7 +387,7 @@ const DoctorForm = ({
       {/* ============================================ */}
       <div
         className="
-          bg-white rounded-2xl border border-gray-100
+          bg-white rounded-2xl border border-[#E7EAF3]
           shadow-[0_1px_3px_rgba(16,24,40,0.04)]
           p-4 sm:p-5
           flex flex-col sm:flex-row gap-3 sm:justify-between
@@ -399,9 +399,9 @@ const DoctorForm = ({
           disabled={submitting}
           className="
             px-6 py-2.5 rounded-xl
-            bg-white border border-gray-200
-            text-sm font-semibold text-gray-700
-            hover:bg-gray-50
+            bg-white border border-[#D9DDF0]
+            text-sm font-semibold text-[#374151]
+            hover:bg-[#F6F8FC]
             disabled:opacity-50 disabled:cursor-not-allowed
             transition-colors
           "

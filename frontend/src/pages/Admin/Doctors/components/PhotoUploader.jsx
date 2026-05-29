@@ -154,8 +154,8 @@ const PhotoUploader = ({
               : isDragging
                 ? "border-indigo-500 bg-indigo-50 scale-105"
                 : displayUrl
-                  ? "border-2 border-gray-200 hover:border-indigo-400"
-                  : "border-2 border-dashed border-gray-300 hover:border-indigo-400 hover:bg-gray-50"
+                  ? "border-2 border-[#D9DDF0] hover:border-indigo-400"
+                  : "border-2 border-dashed border-gray-300 hover:border-indigo-400 hover:bg-[#F6F8FC]"
           }
           ${displayUrl ? "" : "border-2 border-dashed"}
           group
@@ -215,7 +215,7 @@ const PhotoUploader = ({
               size={20}
               className="text-gray-400 group-hover:text-indigo-500 transition-colors"
             />
-            <p className="text-xs font-medium text-gray-500 group-hover:text-indigo-600 transition-colors">
+            <p className="text-xs font-medium text-[#6B7280] group-hover:text-indigo-600 transition-colors">
               Upload Photo
             </p>
           </div>

@@ -25,7 +25,7 @@ const StatCard = ({
   return (
     <div
       className="
-        bg-white rounded-2xl border border-gray-100
+        bg-white rounded-2xl border border-[#E7EAF3]
         shadow-[0_1px_3px_rgba(16,24,40,0.04)]
         p-5 sm:p-6
         flex flex-col gap-3
@@ -49,12 +49,12 @@ const StatCard = ({
 
       {/* 🔢 ADMIN: Stat value — large, bold */}
       <div className="flex flex-col gap-1">
-        <p className="text-2xl sm:text-3xl font-bold text-gray-900 leading-none">
+        <p className="text-2xl sm:text-3xl font-bold text-[#1F2937] leading-none">
           {value}
         </p>
 
         {/* 📝 ADMIN: Stat label — small, gray */}
-        <p className="text-sm text-gray-500 font-medium">{label}</p>
+        <p className="text-sm text-[#6B7280] font-medium">{label}</p>
       </div>
     </div>
   );

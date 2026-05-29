@@ -119,8 +119,8 @@ const DoctorDangerZone = ({ doctor, onStatusChange, onPasswordReset }) => {
             <AlertTriangle size={18} className="text-red-500" />
           </div>
           <div>
-            <h3 className="text-sm font-bold text-gray-900">Danger Zone</h3>
-            <p className="text-xs text-gray-600 mt-0.5">
+            <h3 className="text-sm font-bold text-[#1F2937]">Danger Zone</h3>
+            <p className="text-xs text-[#6B7280] mt-0.5">
               Sensitive actions for this doctor account
             </p>
           </div>
@@ -131,10 +131,10 @@ const DoctorDangerZone = ({ doctor, onStatusChange, onPasswordReset }) => {
         {/* ============================================ */}
         <div className="px-6 sm:px-8 py-5 border-b border-red-100/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex-1">
-            <h4 className="text-sm font-semibold text-gray-900 mb-0.5">
+            <h4 className="text-sm font-semibold text-[#1F2937] mb-0.5">
               Reset Password
             </h4>
-            <p className="text-xs text-gray-500 leading-relaxed">
+            <p className="text-xs text-[#6B7280] leading-relaxed">
               Generate a new temporary password. Old password will be
               invalidated immediately.
             </p>
@@ -148,8 +148,8 @@ const DoctorDangerZone = ({ doctor, onStatusChange, onPasswordReset }) => {
               inline-flex items-center justify-center gap-2
               px-4 py-2.5 rounded-xl
               text-sm font-semibold
-              bg-white border border-gray-200 text-gray-700
-              hover:bg-gray-50 hover:border-gray-300
+              bg-white border border-[#D9DDF0] text-[#374151]
+              hover:bg-[#F6F8FC] hover:border-gray-300
               disabled:opacity-50 disabled:cursor-not-allowed
               transition-colors
               flex-shrink-0
@@ -176,10 +176,10 @@ const DoctorDangerZone = ({ doctor, onStatusChange, onPasswordReset }) => {
         {/* ============================================ */}
         <div className="px-6 sm:px-8 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex-1">
-            <h4 className="text-sm font-semibold text-gray-900 mb-0.5">
+            <h4 className="text-sm font-semibold text-[#1F2937] mb-0.5">
               {doctor.isActive ? "Deactivate Doctor" : "Activate Doctor"}
             </h4>
-            <p className="text-xs text-gray-500 leading-relaxed">
+            <p className="text-xs text-[#6B7280] leading-relaxed">
               {doctor.isActive
                 ? "Doctor will lose access to their account. This action can be reversed."
                 : "Doctor will regain access to their account."}

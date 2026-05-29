@@ -107,10 +107,10 @@ const Enquiries = () => {
       />
 
       {/* FILTERS */}
-      <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-4 sm:p-5">
+      <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-4 sm:p-5">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="min-w-0">
-            <label className="flex items-center gap-1.5 text-xs font-semibold text-gray-600 mb-2">
+            <label className="flex items-center gap-1.5 text-xs font-semibold text-[#6B7280] mb-2">
               <Calendar size={14} />
               Date Range
             </label>
@@ -119,20 +119,20 @@ const Enquiries = () => {
                 type="date"
                 value={startDate}
                 onChange={(e) => setStartDate(e.target.value)}
-                className="w-full min-w-0 px-3 py-2.5 bg-white border border-gray-200 rounded-xl text-sm text-gray-900 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+                className="w-full min-w-0 px-3 py-2.5 bg-white border border-[#D9DDF0] rounded-xl text-sm text-[#1F2937] focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
               />
               <span className="hidden sm:inline text-gray-400 text-xs shrink-0">to</span>
               <input
                 type="date"
                 value={endDate}
                 onChange={(e) => setEndDate(e.target.value)}
-                className="w-full min-w-0 px-3 py-2.5 bg-white border border-gray-200 rounded-xl text-sm text-gray-900 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+                className="w-full min-w-0 px-3 py-2.5 bg-white border border-[#D9DDF0] rounded-xl text-sm text-[#1F2937] focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
               />
             </div>
           </div>
 
           <div className="min-w-0">
-            <label className="flex items-center gap-1.5 text-xs font-semibold text-gray-600 mb-2">
+            <label className="flex items-center gap-1.5 text-xs font-semibold text-[#6B7280] mb-2">
               <Search size={14} />
               Search
             </label>
@@ -146,7 +146,7 @@ const Enquiries = () => {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search by Name or Mobile Number"
-                className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+                className="w-full pl-10 pr-4 py-2.5 bg-white border border-[#D9DDF0] rounded-xl text-sm text-[#1F2937] placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
               />
             </div>
           </div>
@@ -154,12 +154,12 @@ const Enquiries = () => {
       </div>
 
       {/* TABLE */}
-      <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_1px_3px_rgba(16,24,40,0.04)] overflow-hidden">
+      <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] overflow-hidden">
         {/* Desktop table */}
         <div className="hidden md:block overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-gray-100">
+              <tr className="border-b border-[#E7EAF3]">
                 <th className="px-6 py-4 text-left">
                   <span className="flex items-center gap-1.5 text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
                     <User size={12} />
@@ -204,16 +204,16 @@ const Enquiries = () => {
                   <tr
                     key={enq._id}
                     onClick={() => setSelectedEnquiry(enq)}
-                    className="border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-colors cursor-pointer"
+                    className="border-b border-gray-50 last:border-0 hover:bg-[#F6F8FC] transition-colors cursor-pointer"
                   >
                     <td className="px-6 py-4 text-sm font-medium text-gray-800">
                       {enq.name}
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-700">{enq.phone}</td>
-                    <td className="px-6 py-4 text-sm text-gray-700 truncate max-w-[220px]">
+                    <td className="px-6 py-4 text-sm text-[#374151]">{enq.phone}</td>
+                    <td className="px-6 py-4 text-sm text-[#374151] truncate max-w-[220px]">
                       {enq.email || "—"}
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-700">
+                    <td className="px-6 py-4 text-sm text-[#374151]">
                       {formatDateTime(enq.createdAt)}
                     </td>
                   </tr>
@@ -238,7 +238,7 @@ const Enquiries = () => {
               <button
                 key={enq._id}
                 onClick={() => setSelectedEnquiry(enq)}
-                className="w-full text-left px-5 py-4 hover:bg-gray-50 transition-colors"
+                className="w-full text-left px-5 py-4 hover:bg-[#F6F8FC] transition-colors"
               >
                 <div className="flex items-start justify-between gap-3 mb-2">
                   <p className="font-semibold text-gray-800 text-sm">{enq.name}</p>
@@ -246,12 +246,12 @@ const Enquiries = () => {
                     {formatDateTime(enq.createdAt)}
                   </span>
                 </div>
-                <p className="text-xs text-gray-600">{enq.phone}</p>
+                <p className="text-xs text-[#6B7280]">{enq.phone}</p>
                 {enq.email && (
-                  <p className="text-xs text-gray-500 mt-0.5">{enq.email}</p>
+                  <p className="text-xs text-[#6B7280] mt-0.5">{enq.email}</p>
                 )}
                 {enq.message && (
-                  <p className="text-xs text-gray-500 mt-2 leading-relaxed line-clamp-2">
+                  <p className="text-xs text-[#6B7280] mt-2 leading-relaxed line-clamp-2">
                     {enq.message}
                   </p>
                 )}
@@ -263,11 +263,11 @@ const Enquiries = () => {
 
       {/* PAGINATION */}
       {pagination.totalPages > 1 && (
-        <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_1px_3px_rgba(16,24,40,0.04)] px-5 py-3 flex items-center justify-between gap-3">
-          <p className="text-xs text-gray-500">
+        <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] px-5 py-3 flex items-center justify-between gap-3">
+          <p className="text-xs text-[#6B7280]">
             Page{" "}
-            <span className="font-semibold text-gray-700">{pagination.page}</span> of{" "}
-            <span className="font-semibold text-gray-700">{pagination.totalPages}</span>{" "}
+            <span className="font-semibold text-[#374151]">{pagination.page}</span> of{" "}
+            <span className="font-semibold text-[#374151]">{pagination.totalPages}</span>{" "}
             ({pagination.total} total)
           </p>
           <div className="flex items-center gap-1">
@@ -275,7 +275,7 @@ const Enquiries = () => {
               type="button"
               onClick={prevPage}
               disabled={pagination.page <= 1 || loading}
-              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium text-[#374151] bg-white border border-[#D9DDF0] hover:bg-[#F6F8FC] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               <ChevronLeft size={14} />
               Prev
@@ -284,7 +284,7 @@ const Enquiries = () => {
               type="button"
               onClick={nextPage}
               disabled={!pagination.hasMore || loading}
-              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium text-[#374151] bg-white border border-[#D9DDF0] hover:bg-[#F6F8FC] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               Next
               <ChevronRight size={14} />

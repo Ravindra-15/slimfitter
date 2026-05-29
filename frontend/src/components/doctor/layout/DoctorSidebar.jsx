@@ -43,17 +43,17 @@ const DoctorSidebar = ({ onClose }) => {
     : null;
 
   return (
-    <aside className="h-full w-64 bg-white border-r border-gray-100 flex flex-col">
+    <aside className="h-full w-64 bg-white border-r border-[#E7EAF3] flex flex-col">
       {/* ============================================ */}
       {/* 🎨 BRAND BLOCK */}
       {/* ============================================ */}
-      <div className="px-5 py-5 border-b border-gray-100 flex items-center justify-between">
+      <div className="px-5 py-5 border-b border-[#E7EAF3] flex items-center justify-between">
         <div className="flex items-center gap-2.5">
           <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center shadow-md">
             <ShieldCheck className="w-[18px] h-[18px] text-white" strokeWidth={2.2} />
           </div>
           <div>
-            <p className="text-sm font-bold text-gray-900 leading-tight">
+            <p className="text-sm font-bold text-[#1F2937] leading-tight">
               Zealtho
             </p>
             <p className="text-[10px] tracking-[0.18em] text-indigo-600 font-semibold">
@@ -67,7 +67,7 @@ const DoctorSidebar = ({ onClose }) => {
           <button
             type="button"
             onClick={onClose}
-            className="lg:hidden p-1.5 rounded-lg text-gray-400 hover:bg-gray-50 hover:text-gray-700 transition-colors"
+            className="lg:hidden p-1.5 rounded-lg text-gray-400 hover:bg-[#F6F8FC] hover:text-[#374151] transition-colors"
             aria-label="Close menu"
           >
             <X className="w-5 h-5" />
@@ -92,7 +92,7 @@ const DoctorSidebar = ({ onClose }) => {
                     `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                       isActive
                         ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-[0_2px_8px_rgba(79,70,229,0.25)]"
-                        : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                        : "text-[#6B7280] hover:bg-[#F6F8FC] hover:text-[#1F2937]"
                     }`
                   }
                 >
@@ -108,13 +108,13 @@ const DoctorSidebar = ({ onClose }) => {
       {/* ============================================ */}
       {/* 👤 USER CARD (bottom) */}
       {/* ============================================ */}
-      <div className="border-t border-gray-100 p-3">
+      <div className="border-t border-[#E7EAF3] p-3">
         <div className="flex items-center gap-3 px-2 py-2 rounded-xl">
           {photoUrl ? (
             <img
               src={photoUrl}
               alt={doctor?.fullName || "Doctor"}
-              className="w-10 h-10 rounded-full object-cover border border-gray-200 flex-shrink-0"
+              className="w-10 h-10 rounded-full object-cover border border-[#D9DDF0] flex-shrink-0"
             />
           ) : (
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center flex-shrink-0">
@@ -122,10 +122,10 @@ const DoctorSidebar = ({ onClose }) => {
             </div>
           )}
           <div className="min-w-0 flex-1">
-            <p className="text-sm font-semibold text-gray-900 truncate">
+            <p className="text-sm font-semibold text-[#1F2937] truncate">
               {doctor?.fullName || "Doctor"}
             </p>
-            <p className="text-[11px] text-gray-500 truncate">
+            <p className="text-[11px] text-[#6B7280] truncate">
               {doctor?.domain || "Physician"}
             </p>
           </div>

@@ -44,7 +44,7 @@ const UserDirectory = () => {
       {/* ============================================ */}
       <div
         className="
-          bg-white rounded-2xl border border-gray-100
+          bg-white rounded-2xl border border-[#E7EAF3]
           shadow-[0_1px_3px_rgba(16,24,40,0.04)]
           p-4 sm:p-5
           flex flex-col sm:flex-row sm:items-center gap-3
@@ -63,8 +63,8 @@ const UserDirectory = () => {
             placeholder="Search users by name, nickname, email, or phone..."
             className="
               w-full pl-10 pr-4 py-2.5
-              bg-white border border-gray-200 rounded-xl
-              text-sm text-gray-900 placeholder-gray-400
+              bg-white border border-[#D9DDF0] rounded-xl
+              text-sm text-[#1F2937] placeholder-gray-400
               focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500
               transition-colors
             "
@@ -83,7 +83,7 @@ const UserDirectory = () => {
                 ${
                   status === opt.value
                     ? "bg-white text-indigo-600 shadow-sm"
-                    : "text-gray-500 hover:text-gray-900"
+                    : "text-[#6B7280] hover:text-[#1F2937]"
                 }
               `}
             >
@@ -104,15 +104,15 @@ const UserDirectory = () => {
       {pagination.totalPages > 1 && (
         <div
           className="
-            bg-white rounded-2xl border border-gray-100
+            bg-white rounded-2xl border border-[#E7EAF3]
             shadow-[0_1px_3px_rgba(16,24,40,0.04)]
             px-5 py-3
             flex items-center justify-between gap-3
           "
         >
-          <p className="text-xs text-gray-500">
-            Page <span className="font-semibold text-gray-700">{pagination.page}</span>{" "}
-            of <span className="font-semibold text-gray-700">{pagination.totalPages}</span>{" "}
+          <p className="text-xs text-[#6B7280]">
+            Page <span className="font-semibold text-[#374151]">{pagination.page}</span>{" "}
+            of <span className="font-semibold text-[#374151]">{pagination.totalPages}</span>{" "}
             ({pagination.total} total)
           </p>
 
@@ -124,9 +124,9 @@ const UserDirectory = () => {
               className="
                 inline-flex items-center gap-1
                 px-3 py-1.5 rounded-lg
-                text-sm font-medium text-gray-700
-                bg-white border border-gray-200
-                hover:bg-gray-50
+                text-sm font-medium text-[#374151]
+                bg-white border border-[#D9DDF0]
+                hover:bg-[#F6F8FC]
                 disabled:opacity-40 disabled:cursor-not-allowed
                 transition-colors
               "
@@ -142,9 +142,9 @@ const UserDirectory = () => {
               className="
                 inline-flex items-center gap-1
                 px-3 py-1.5 rounded-lg
-                text-sm font-medium text-gray-700
-                bg-white border border-gray-200
-                hover:bg-gray-50
+                text-sm font-medium text-[#374151]
+                bg-white border border-[#D9DDF0]
+                hover:bg-[#F6F8FC]
                 disabled:opacity-40 disabled:cursor-not-allowed
                 transition-colors
               "

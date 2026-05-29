@@ -64,13 +64,13 @@ export default function Notifications() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-[#F6F8FC] flex flex-col">
       <CustomerNavbar />
 
       <main className="flex-1 max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-10 py-8">
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-gray-500 hover:text-orange-500 text-sm mb-6 transition-colors"
+          className="flex items-center gap-2 text-[#6B7280] hover:text-[#4F46E5] text-sm mb-6 transition-colors"
         >
           <ArrowLeft size={18} />
           Back
@@ -78,15 +78,15 @@ export default function Notifications() {
 
         <div className="text-center mb-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Notifications</h1>
-          <p className="text-gray-500 text-sm mt-1">Manage all notifications here</p>
+          <p className="text-[#6B7280] text-sm mt-1">Manage all notifications here</p>
         </div>
 
-        <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6 sm:p-8">
+        <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6 sm:p-8">
           <div className="flex items-center justify-between mb-5">
             <h3 className="text-base font-bold text-gray-800">
               Recent Notifications
               {unreadCount > 0 && (
-                <span className="ml-2 inline-flex items-center justify-center bg-orange-500 text-white text-xs font-semibold rounded-full px-2 py-0.5">
+                <span className="ml-2 inline-flex items-center justify-center bg-[#4F46E5] text-white text-xs font-semibold rounded-full px-2 py-0.5">
                   {unreadCount}
                 </span>
               )}
@@ -94,7 +94,7 @@ export default function Notifications() {
             {unreadCount > 0 && (
               <button
                 onClick={handleMarkAll}
-                className="flex items-center gap-1.5 text-xs font-medium text-orange-500 hover:text-orange-600 transition-colors"
+                className="flex items-center gap-1.5 text-xs font-medium text-[#4F46E5] hover:text- [#4338CA] transition-colors"
               >
                 <CheckCheck size={14} />
                 Mark all as read

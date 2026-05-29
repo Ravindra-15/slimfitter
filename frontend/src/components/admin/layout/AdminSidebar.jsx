@@ -134,8 +134,8 @@ const AdminSidebar = ({ onNavigate }) => {
           <Shield size={20} className="text-white" />
         </div>
         <div className="min-w-0">
-          <p className="font-bold text-gray-900 leading-tight">Zealtho</p>
-          <p className="text-[10px] font-semibold text-gray-500 tracking-wider">
+          <p className="font-bold text-[#1F2937] leading-tight">Zealtho</p>
+          <p className="text-[10px] font-semibold text-[#6B7280] tracking-wider">
             SUPER ADMIN
           </p>
         </div>
@@ -145,7 +145,7 @@ const AdminSidebar = ({ onNavigate }) => {
       <div className="px-4 pb-4">
         <button
           onClick={() => setIsTenantOpen((prev) => !prev)}
-          className="w-full flex items-center justify-between px-3 py-2 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 transition-colors"
+          className="w-full flex items-center justify-between px-3 py-2 rounded-lg border border-[#D9DDF0] bg-white hover:bg-[#F6F8FC] transition-colors"
           aria-haspopup="listbox"
           aria-expanded={isTenantOpen}
         >
@@ -157,7 +157,7 @@ const AdminSidebar = ({ onNavigate }) => {
           </span>
           <ChevronDown
             size={16}
-            className={`text-gray-500 transition-transform ${
+            className={`text-[#6B7280] transition-transform ${
               isTenantOpen ? "rotate-180" : ""
             }`}
           />
@@ -191,7 +191,7 @@ const AdminSidebar = ({ onNavigate }) => {
       </nav>
 
       {/* 👤 ADMIN: Profile + Logout block at bottom */}
-      <div className="border-t border-gray-200 mt-auto">
+      <div className="border-t border-[#D9DDF0] mt-auto">
         {/* Admin user info */}
         <div className="flex items-center gap-3 px-5 py-4">
           <div className="w-9 h-9 rounded-full bg-gray-200 flex-shrink-0 overflow-hidden">
@@ -199,17 +199,17 @@ const AdminSidebar = ({ onNavigate }) => {
             <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400" />
           </div>
           <div className="min-w-0 flex-1">
-            <p className="text-sm font-semibold text-gray-900 truncate">
+            <p className="text-sm font-semibold text-[#1F2937] truncate">
               Admin User
             </p>
-            <p className="text-xs text-gray-500 truncate">admin@zealtho.com</p>
+            <p className="text-xs text-[#6B7280] truncate">admin@zealtho.com</p>
           </div>
         </div>
 
         {/* 🚪 Logout button */}
         <button
           onClick={handleLogout}
-          className="w-full flex items-center gap-2 px-5 py-3 text-red-600 hover:bg-red-50 transition-colors text-sm font-semibold border-t border-gray-100"
+          className="w-full flex items-center gap-2 px-5 py-3 text-red-600 hover:bg-red-50 transition-colors text-sm font-semibold border-t border-[#E7EAF3]"
           aria-label="Logout from admin panel"
         >
           <LogOut size={16} />

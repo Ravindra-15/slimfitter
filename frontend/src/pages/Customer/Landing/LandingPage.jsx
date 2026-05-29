@@ -15,6 +15,7 @@ import FAQSection from "./sections/FAQSection";
 import CallbackSection from "./sections/CallbackSection";
 import ReferAndEarnSection from "./sections/ReferAndEarnSection";
 import WelcomePopup from "./components/WelcomePopup";
+import TrackDailyWinsSection from "./sections/TrackDailyWinsSection";
 
 export default function LandingPage() {
   return (
@@ -26,9 +27,10 @@ export default function LandingPage() {
         <HeroSection />
         <ConditionsSection />
         <OurStructureSection />
+        <HealingCTASection />
+        <TrackDailyWinsSection />
         <WhatYouGetSection />
         <PricingSection />
-        <HealingCTASection />
         <ReviewsSection />
         <ProgramsSection />
         <FAQSection />

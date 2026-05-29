@@ -54,8 +54,8 @@ const UserDangerZone = ({ user, onUserUpdated }) => {
           <AlertTriangle size={16} className="text-red-500" />
         </div>
         <div>
-          <h3 className="text-sm font-bold text-gray-900">Danger Zone</h3>
-          <p className="text-xs text-gray-500 mt-0.5">
+          <h3 className="text-sm font-bold text-[#1F2937]">Danger Zone</h3>
+          <p className="text-xs text-[#6B7280] mt-0.5">
             Account-level actions. Use with care.
           </p>
         </div>
@@ -64,10 +64,10 @@ const UserDangerZone = ({ user, onUserUpdated }) => {
       {/* Toggle action row */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div className="min-w-0">
-          <p className="text-sm font-semibold text-gray-900">
+          <p className="text-sm font-semibold text-[#1F2937]">
             {user.isActive ? "Deactivate Account" : "Activate Account"}
           </p>
-          <p className="text-xs text-gray-500 mt-1">
+          <p className="text-xs text-[#6B7280] mt-1">
             {user.isActive
               ? "User will lose access immediately. Existing data is preserved."
               : "User will regain access. All existing data remains intact."}

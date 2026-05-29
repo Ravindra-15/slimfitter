@@ -112,7 +112,7 @@ const CredentialsModal = ({
           className="
             absolute top-4 right-4
             w-8 h-8 rounded-full
-            text-gray-400 hover:text-gray-600 hover:bg-gray-100
+            text-gray-400 hover:text-[#6B7280] hover:bg-gray-100
             flex items-center justify-center
             transition-colors
           "
@@ -122,22 +122,22 @@ const CredentialsModal = ({
         </button>
 
         {/* 🎉 Header with success icon */}
-        <div className="px-6 pt-8 pb-4 text-center border-b border-gray-100">
+        <div className="px-6 pt-8 pb-4 text-center border-b border-[#E7EAF3]">
           <div className="w-14 h-14 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-3">
             <CheckCircle size={28} className="text-emerald-500" />
           </div>
 
           <h2
             id="credentials-modal-title"
-            className="text-lg font-bold text-gray-900 mb-1"
+            className="text-lg font-bold text-[#1F2937] mb-1"
           >
             Doctor Created Successfully
           </h2>
 
           {doctorName && (
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-[#6B7280]">
               Account created for{" "}
-              <span className="font-medium text-gray-700">{doctorName}</span>
+              <span className="font-medium text-[#374151]">{doctorName}</span>
             </p>
           )}
         </div>
@@ -158,7 +158,7 @@ const CredentialsModal = ({
         <div className="px-6 pt-5 pb-2 space-y-4">
           {/* Username */}
           <div>
-            <label className="block text-xs font-semibold tracking-wider text-gray-500 uppercase mb-2">
+            <label className="block text-xs font-semibold tracking-wider text-[#6B7280] uppercase mb-2">
               Generated Username
             </label>
             <div className="relative">
@@ -168,8 +168,8 @@ const CredentialsModal = ({
                 readOnly
                 className="
                   w-full pl-4 pr-12 py-3
-                  bg-gray-50 border border-gray-200 rounded-xl
-                  text-sm font-mono text-gray-900
+                  bg-[#F6F8FC] border border-[#D9DDF0] rounded-xl
+                  text-sm font-mono text-[#1F2937]
                   focus:outline-none
                 "
                 onClick={(e) => e.target.select()}
@@ -181,7 +181,7 @@ const CredentialsModal = ({
                 className="
                   absolute right-2 top-1/2 -translate-y-1/2
                   w-8 h-8 rounded-lg
-                  text-gray-500 hover:text-indigo-600 hover:bg-indigo-50
+                  text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
                   flex items-center justify-center
                   transition-colors
                 "
@@ -198,7 +198,7 @@ const CredentialsModal = ({
 
           {/* Password */}
           <div>
-            <label className="block text-xs font-semibold tracking-wider text-gray-500 uppercase mb-2">
+            <label className="block text-xs font-semibold tracking-wider text-[#6B7280] uppercase mb-2">
               Temporary Password
             </label>
             <div className="relative">
@@ -208,8 +208,8 @@ const CredentialsModal = ({
                 readOnly
                 className="
                   w-full pl-4 pr-12 py-3
-                  bg-gray-50 border border-gray-200 rounded-xl
-                  text-sm font-mono text-gray-900
+                  bg-[#F6F8FC] border border-[#D9DDF0] rounded-xl
+                  text-sm font-mono text-[#1F2937]
                   focus:outline-none
                 "
                 onClick={(e) => e.target.select()}
@@ -221,7 +221,7 @@ const CredentialsModal = ({
                 className="
                   absolute right-2 top-1/2 -translate-y-1/2
                   w-8 h-8 rounded-lg
-                  text-gray-500 hover:text-indigo-600 hover:bg-indigo-50
+                  text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
                   flex items-center justify-center
                   transition-colors
                 "
@@ -237,22 +237,22 @@ const CredentialsModal = ({
           </div>
 
           {/* ℹ️ Info */}
-          <p className="text-xs text-gray-500 leading-relaxed pt-1">
+          <p className="text-xs text-[#6B7280] leading-relaxed pt-1">
             The doctor will be required to change this password upon first
             login.
           </p>
         </div>
 
         {/* 🎯 Actions */}
-        <div className="px-6 py-5 mt-2 border-t border-gray-100 flex flex-col-reverse sm:flex-row gap-2.5 sm:justify-between">
+        <div className="px-6 py-5 mt-2 border-t border-[#E7EAF3] flex flex-col-reverse sm:flex-row gap-2.5 sm:justify-between">
           <button
             type="button"
             onClick={handleCopyBoth}
             className="
               px-5 py-2.5 rounded-xl
-              bg-white border border-gray-200
-              text-sm font-semibold text-gray-700
-              hover:bg-gray-50
+              bg-white border border-[#D9DDF0]
+              text-sm font-semibold text-[#374151]
+              hover:bg-[#F6F8FC]
               transition-colors
               inline-flex items-center justify-center gap-2
             "

@@ -30,3 +30,39 @@ export const submitEnquiry = async (payload) => {
   const response = await publicApi.post("/customer/enquiries", payload);
   return response.data;
 };
+
+// 🔒 Auth'd instance — attaches user JWT (for status check + linked enquiries)
+const authApi = axios.create({
+  baseURL: BASE_URL,
+  headers: { "Content-Type": "application/json" },
+  timeout: 15000,
+});
+
+authApi.interceptors.request.use((config) => {
+  const token =
+    localStorage.getItem("token") || sessionStorage.getItem("token");
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
+
+// ============================================
+// 📩 SUBMIT CALLBACK ENQUIRY (logged-in / subscription)
+// Sends token so backend links the enquiry to the user.
+// ============================================
+export const submitSubscriptionCallback = async (payload) => {
+  const response = await authApi.post("/customer/enquiries", {
+    ...payload,
+    type: "subscription",
+  });
+  return response.data;
+};
+
+// ============================================
+// 🔎 CHECK IF USER ALREADY REQUESTED A CALLBACK
+// ============================================
+export const checkSubscriptionCallback = async (source) => {
+  const response = await authApi.get("/customer/enquiries/check", {
+    params: { source },
+  });
+  return response.data?.data?.alreadyRequested || false;
+};

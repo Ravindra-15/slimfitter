@@ -43,16 +43,17 @@ export const buildThumbnailSrc = (relativePath) => {
 // ============================================
 /**
  * @param {string} programId - yogat20 | diabmukt | mommyfit | slimfitter
- * @param {string} yogaType  - normal_yoga | chair_yoga | high_intensity
- * @returns Promise<{ video, completedToday, isScheduled, message? }>
+ * @param {string} [yogaType] - optional; omit for weekly programs (defaults to normal_yoga)
  */
 export const getCurrentVideo = async (programId, yogaType) => {
+  const params = { programId };
+  if (yogaType) params.yogaType = yogaType;
+
   const response = await customerApi.get("/customer/clinical-videos/current", {
-    params: { programId, yogaType },
+    params,
   });
   return response.data.data;
 };
-
 // ============================================
 // ✅ MARK VIDEO COMPLETE
 // ============================================

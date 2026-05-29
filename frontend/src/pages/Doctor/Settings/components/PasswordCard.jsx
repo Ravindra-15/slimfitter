@@ -25,7 +25,7 @@ const getPasswordChecks = (pw) => ({
 const getStrengthLevel = (checks) => {
   const score = Object.values(checks).filter(Boolean).length;
   if (score <= 1) return { level: 1, label: "Weak", color: "bg-red-400" };
-  if (score === 2) return { level: 2, label: "Fair", color: "bg-orange-400" };
+  if (score === 2) return { level: 2, label: "Fair", color: "bg-[#4F46E5]" };
   if (score === 3) return { level: 3, label: "Good", color: "bg-yellow-400" };
   return { level: 4, label: "Strong", color: "bg-green-500" };
 };
@@ -151,7 +151,7 @@ const PasswordCard = () => {
     <div>
       <label
         htmlFor={`pw-${name}`}
-        className="block text-sm font-medium text-gray-700 mb-2"
+        className="block text-sm font-medium text-[#374151] mb-2"
       >
         {label}
       </label>
@@ -166,17 +166,17 @@ const PasswordCard = () => {
           value={formData[name]}
           onChange={handleChange}
           disabled={isSubmitting}
-          className={`w-full pl-11 pr-11 py-3 text-sm rounded-xl border bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors disabled:bg-gray-50 disabled:cursor-not-allowed ${
+          className={`w-full pl-11 pr-11 py-3 text-sm rounded-xl border bg-white text-[#1F2937] placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors disabled:bg-[#F6F8FC] disabled:cursor-not-allowed ${
             error
               ? "border-red-300 focus:border-red-400 focus:ring-red-300"
-              : "border-gray-200 focus:border-indigo-500 focus:ring-indigo-500"
+              : "border-[#D9DDF0] focus:border-indigo-500 focus:ring-indigo-500"
           }`}
         />
         <button
           type="button"
           onClick={() => setShow((s) => ({ ...s, [showKey]: !s[showKey] }))}
           aria-label={show[showKey] ? "Hide password" : "Show password"}
-          className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600 transition-colors"
+          className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-[#6B7280] transition-colors"
           tabIndex={-1}
         >
           {show[showKey] ? (
@@ -193,19 +193,19 @@ const PasswordCard = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white rounded-2xl border border-gray-100 shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6 sm:p-8"
+      className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6 sm:p-8"
       noValidate
     >
       {/* Card header */}
-      <div className="flex items-center gap-3 pb-5 mb-6 border-b border-gray-100">
+      <div className="flex items-center gap-3 pb-5 mb-6 border-b border-[#E7EAF3]">
         <div className="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center">
           <Lock size={18} className="text-red-500" />
         </div>
         <div>
-          <h2 className="text-base font-bold text-gray-900">
+          <h2 className="text-base font-bold text-[#1F2937]">
             Change System-Assigned Password
           </h2>
-          <p className="text-xs text-gray-500 mt-0.5">
+          <p className="text-xs text-[#6B7280] mt-0.5">
             Update your secure login credentials
           </p>
         </div>
@@ -257,9 +257,9 @@ const PasswordCard = () => {
                   />
                 ))}
               </div>
-              <p className="mt-1.5 text-[11px] text-gray-500">
+              <p className="mt-1.5 text-[11px] text-[#6B7280]">
                 Strength:{" "}
-                <span className="font-medium text-gray-700">{strength.label}</span>
+                <span className="font-medium text-[#374151]">{strength.label}</span>
               </p>
             </div>
           )}
@@ -310,7 +310,7 @@ const PasswordCard = () => {
       </div>
 
       {/* Submit */}
-      <div className="mt-7 pt-5 border-t border-gray-100 flex justify-end">
+      <div className="mt-7 pt-5 border-t border-[#E7EAF3] flex justify-end">
         <button
           type="submit"
           disabled={isSubmitting || !isFormFilled}

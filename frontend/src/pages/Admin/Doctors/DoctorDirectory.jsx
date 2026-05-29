@@ -53,8 +53,8 @@ const DoctorDirectory = () => {
             placeholder="Search doctors..."
             className="
               w-full pl-10 pr-4 py-2.5
-              bg-white border border-gray-200 rounded-xl
-              text-sm text-gray-900 placeholder-gray-400
+              bg-white border border-[#D9DDF0] rounded-xl
+              text-sm text-[#1F2937] placeholder-gray-400
               focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500
               transition-colors
             "
@@ -90,9 +90,9 @@ const DoctorDirectory = () => {
             pt-2
           "
         >
-          <p className="text-xs text-gray-500">
-            Showing page <span className="font-semibold text-gray-700">{page}</span>{" "}
-            of <span className="font-semibold text-gray-700">{pagination.totalPages}</span>
+          <p className="text-xs text-[#6B7280]">
+            Showing page <span className="font-semibold text-[#374151]">{page}</span>{" "}
+            of <span className="font-semibold text-[#374151]">{pagination.totalPages}</span>
             {" "}<span className="text-gray-400">
               ({pagination.total} total)
             </span>
@@ -105,9 +105,9 @@ const DoctorDirectory = () => {
               className="
                 inline-flex items-center gap-1
                 px-3 py-2 rounded-lg
-                bg-white border border-gray-200
-                text-sm font-medium text-gray-700
-                hover:bg-gray-50
+                bg-white border border-[#D9DDF0]
+                text-sm font-medium text-[#374151]
+                hover:bg-[#F6F8FC]
                 disabled:opacity-40 disabled:cursor-not-allowed
                 transition-colors
               "
@@ -123,9 +123,9 @@ const DoctorDirectory = () => {
               className="
                 inline-flex items-center gap-1
                 px-3 py-2 rounded-lg
-                bg-white border border-gray-200
-                text-sm font-medium text-gray-700
-                hover:bg-gray-50
+                bg-white border border-[#D9DDF0]
+                text-sm font-medium text-[#374151]
+                hover:bg-[#F6F8FC]
                 disabled:opacity-40 disabled:cursor-not-allowed
                 transition-colors
               "

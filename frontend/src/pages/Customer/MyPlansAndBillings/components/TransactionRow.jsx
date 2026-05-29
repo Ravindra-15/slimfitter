@@ -38,7 +38,7 @@ export default function TransactionRow({ tx, variant = "desktop" }) {
 
   if (variant === "mobile") {
     return (
-      <div className="border border-gray-100 rounded-xl p-4">
+      <div className="border border-[#E7EAF3] rounded-xl p-4">
         <div className="flex items-start justify-between gap-3 mb-3">
           <div className="min-w-0">
             <p className="text-xs text-gray-400">{formatDate(tx.date)}</p>
@@ -61,7 +61,7 @@ export default function TransactionRow({ tx, variant = "desktop" }) {
           {canDownload ? (
             <button
               onClick={handleDownload}
-              className="flex items-center gap-1.5 bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-[0_4px_14px_rgba(249,115,22,0.25)] transition-colors"
+              className="flex items-center gap-1.5 bg-[#5B4FF7] hover:bg-[#4338CA] text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-[0_4px_14px_rgba(91,79,247,0.25)] transition-colors"
             >
               <Download size={12} />
               Download
@@ -75,9 +75,9 @@ export default function TransactionRow({ tx, variant = "desktop" }) {
   }
 
   return (
-    <tr className="border-b border-gray-100 last:border-0 hover:bg-gray-50/50 transition-colors">
-      <td className="py-4 pr-4 text-xs text-gray-700">{formatDate(tx.date)}</td>
-      <td className="py-4 pr-4 text-xs text-gray-700">{tx.description}</td>
+    <tr className="border-b border-[#E7EAF3] last:border-0 hover:bg-[#F6F8FC]/50 transition-colors">
+      <td className="py-4 pr-4 text-xs text-[#374151]">{formatDate(tx.date)}</td>
+      <td className="py-4 pr-4 text-xs text-[#374151]">{tx.description}</td>
       <td className="py-4 pr-4 text-xs font-semibold text-gray-800">
         {formatAmount(tx.amount, tx.currency)}
       </td>
@@ -93,7 +93,7 @@ export default function TransactionRow({ tx, variant = "desktop" }) {
         {canDownload ? (
           <button
             onClick={handleDownload}
-            className="flex items-center gap-1.5 bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-[0_4px_14px_rgba(249,115,22,0.25)] transition-colors"
+            className="flex items-center gap-1.5 bg-[#5B4FF7] hover:bg-[#4338CA] text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-[0_4px_14px_rgba(91,79,247,0.25)] transition-colors"
           >
             <Download size={12} />
             Download

@@ -50,16 +50,16 @@ const reviews = [
 
 function ReviewCard({ review }) {
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 shadow-md p-5 sm:p-6 flex flex-col gap-3 h-[260px] sm:h-[280px] w-[300px] sm:w-[340px]">
-      <span className="text-orange-400 text-5xl font-serif leading-none select-none -mb-2">
+    <div className="bg-[#FAFAFA] rounded-2xl border border-[#F1F1F1] shadow-[0_8px_24px_rgba(16,24,40,0.06)] p-5 sm:p-6 flex flex-col gap-3 h-[260px] sm:h-[280px] w-[300px] sm:w-[340px]">
+     <span className="text-[#4F46E5] text-6xl font-serif leading-none select-none -mb-2">
         &ldquo;
       </span>
-      <p className="text-gray-700 text-sm leading-relaxed flex-1 line-clamp-5">
+      <p className="text-[#374151] text-sm leading-relaxed flex-1 line-clamp-5">
         {review.text}
       </p>
       <div className="pt-2">
-        <p className="text-gray-900 font-bold text-sm">{review.name}</p>
-        <p className="text-gray-500 text-xs mt-0.5">{review.role}</p>
+        <p className="text-[#1F2937] font-bold text-sm">{review.name}</p>
+        <p className="text-[#6B7280] text-xs mt-0.5">{review.role}</p>
       </div>
     </div>
   );
@@ -143,14 +143,14 @@ function LoopingRow({ items }) {
       <div className="flex justify-center gap-3 mt-6">
         <button
           onClick={() => scrollBy(-1)}
-          className="w-10 h-10 rounded-full border border-gray-300 hover:border-orange-400 hover:text-orange-500 text-gray-500 flex items-center justify-center transition-colors"
+          className="w-10 h-10 rounded-full border border-gray-300 hover:border-[#4F46E5] hover:text-[#4F46E5] text-[#6B7280] flex items-center justify-center transition-colors"
           aria-label="Previous"
         >
           <ChevronLeft size={18} />
         </button>
         <button
           onClick={() => scrollBy(1)}
-          className="w-10 h-10 rounded-full border border-gray-300 hover:border-orange-400 hover:text-orange-500 text-gray-500 flex items-center justify-center transition-colors"
+          className="w-10 h-10 rounded-full border border-gray-300 hover:border-[#4F46E5] hover:text-[#4F46E5] text-[#6B7280] flex items-center justify-center transition-colors"
           aria-label="Next"
         >
           <ChevronRight size={18} />
@@ -168,13 +168,14 @@ export default function ReviewsSection() {
     <section className="py-10 sm:py-14 lg:py-5 bg-white w-full overflow-hidden">
       <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-3">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-teal-900">
-            Reviews from <span className="text-orange-500">Real People</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#111827]">
+            Reviews from <span className="text-[#4F46E5]">Real People</span>
           </h2>
         </div>
 
-        <p className="text-center text-gray-600 text-sm sm:text-base max-w-xl mx-auto mb-10 sm:mb-12 leading-relaxed">
-          "From building daily yoga habits to managing diabetes reversal, hear how our members are taking control of their health"
+        <p className="text-center text-[#083B44] text-sm sm:text-base max-w-xl mx-auto mb-10 sm:mb-12 leading-relaxed">
+          "From building daily yoga habits to managing diabetes reversal, hear
+          how our members are taking control of their health"
         </p>
 
         <StaticRow items={topRow} />

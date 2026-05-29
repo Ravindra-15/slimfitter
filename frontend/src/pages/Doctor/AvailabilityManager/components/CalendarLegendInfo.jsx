@@ -17,7 +17,7 @@ const CalendarLegendInfo = () => {
         <Info size={14} className="text-indigo-600" />
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-xs text-gray-700">
+        <p className="text-xs text-[#374151]">
           <span className="font-semibold">Click</span> empty slots to mark them available.{" "}
           <span className="font-semibold">Right-click</span> any slot for more options
           (block, cancel appointment, block whole day). Don't forget to{" "}
@@ -27,7 +27,7 @@ const CalendarLegendInfo = () => {
       <button
         type="button"
         onClick={() => setVisible(false)}
-        className="p-1 text-gray-400 hover:text-gray-700 transition-colors"
+        className="p-1 text-gray-400 hover:text-[#374151] transition-colors"
         aria-label="Dismiss"
       >
         <X size={14} />

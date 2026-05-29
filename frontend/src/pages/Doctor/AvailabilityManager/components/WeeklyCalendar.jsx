@@ -10,12 +10,11 @@ import React from "react";
 import { Lock, CheckCircle2 } from "lucide-react";
 
 import {
-  formatTime12h,
+  formatSlot24h,
   formatShortDay,
   formatMonthDay,
   isToday,
 } from "../../../../services/doctorAvailabilityService";
-
 // ============================================
 // 🎨 SLOT CELL
 // ============================================
@@ -27,7 +26,7 @@ const SlotCell = ({
   onClick,
   onContextMenu,
 }) => {
-  if (!slot) return <div className="h-12 border border-gray-100 rounded-md" />;
+  if (!slot) return <div className="h-12 border border-[#E7EAF3] rounded-md" />;
 
   const handleContextMenu = (e) => {
     e.preventDefault();
@@ -68,7 +67,7 @@ const SlotCell = ({
         onContextMenu={handleContextMenu}
         className="
           h-12 rounded-md
-          bg-gray-100 border border-gray-200
+          bg-gray-100 border border-[#D9DDF0]
           flex items-center justify-center
           gap-1
           cursor-pointer
@@ -77,8 +76,8 @@ const SlotCell = ({
         "
         title={slot.reason || "Blocked"}
       >
-        <Lock size={10} className="text-gray-500" />
-        <span className="text-[10px] font-semibold text-gray-600">Blocked</span>
+        <Lock size={10} className="text-[#6B7280]" />
+        <span className="text-[10px] font-semibold text-[#6B7280]">Blocked</span>
       </div>
     );
   }
@@ -117,7 +116,7 @@ const SlotCell = ({
       onContextMenu={handleContextMenu}
       className="
         h-12 rounded-md
-        bg-white border border-gray-100
+        bg-white border border-[#E7EAF3]
         cursor-pointer
         hover:bg-indigo-50
         transition-colors
@@ -140,7 +139,7 @@ const WeeklyCalendar = ({
 }) => {
   if (loading || !weekData) {
     return (
-      <div className="bg-white rounded-2xl border border-gray-100 p-6 animate-pulse">
+      <div className="bg-white rounded-2xl border border-[#E7EAF3] p-6 animate-pulse">
         <div className="grid grid-cols-8 gap-2">
           {Array.from({ length: 80 }).map((_, i) => (
             <div key={i} className="h-12 bg-gray-100 rounded-md" />
@@ -156,7 +155,7 @@ const WeeklyCalendar = ({
   return (
     <div
       className="
-        bg-white rounded-2xl border border-gray-100
+        bg-white rounded-2xl border border-[#E7EAF3]
         shadow-[0_1px_3px_rgba(16,24,40,0.04)]
         p-4 sm:p-5
         overflow-x-auto
@@ -166,8 +165,8 @@ const WeeklyCalendar = ({
         {/* ============================================ */}
         {/* 📅 HEADER ROW                                 */}
         {/* ============================================ */}
-        <div className="grid grid-cols-8 gap-2 mb-2 pb-2 border-b border-gray-100">
-          <div className="text-[11px] font-semibold tracking-wider text-gray-500 uppercase pl-1">
+        <div className="grid grid-cols-8 gap-2 mb-2 pb-2 border-b border-[#E7EAF3]">
+          <div className="text-[11px] font-semibold tracking-wider text-[#6B7280] uppercase pl-1">
             Time
           </div>
           {days.map((day) => {
@@ -176,7 +175,7 @@ const WeeklyCalendar = ({
               <div key={day.date} className="text-center">
                 <p
                   className={`text-[11px] font-semibold tracking-wider uppercase ${
-                    today ? "text-indigo-600" : "text-gray-500"
+                    today ? "text-indigo-600" : "text-[#6B7280]"
                   }`}
                 >
                   {formatShortDay(day.date)}
@@ -201,8 +200,8 @@ const WeeklyCalendar = ({
             <div key={time} className="grid grid-cols-8 gap-2 items-center">
               {/* Time label */}
               <div className="pl-1">
-                <p className="text-xs font-medium text-gray-500">
-                  {formatTime12h(time)}
+                <p className="text-xs font-medium text-[#6B7280]">
+                  {formatSlot24h(time)}
                 </p>
               </div>
 

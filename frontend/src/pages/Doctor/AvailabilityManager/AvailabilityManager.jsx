@@ -147,10 +147,10 @@ const AvailabilityManager = () => {
       {/* ============================================ */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-bold text-[#1F2937] tracking-tight">
             My Availability Calendar
           </h1>
-          <p className="mt-1 text-sm text-gray-500">
+          <p className="mt-1 text-sm text-[#6B7280]">
             Manage your consultation slots and patient appointments
           </p>
         </div>
@@ -160,7 +160,7 @@ const AvailabilityManager = () => {
             <button
               type="button"
               onClick={discardChanges}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-gray-600 bg-gray-50 border border-gray-200 hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-[#6B7280] bg-[#F6F8FC] border border-[#D9DDF0] hover:bg-gray-100 transition-colors"
             >
               <RotateCcw size={13} />
               Discard
@@ -206,10 +206,10 @@ const AvailabilityManager = () => {
             <Coffee size={16} className="text-amber-600" />
           </div>
           <div className="flex-1">
-            <p className="text-sm font-semibold text-gray-900">
+            <p className="text-sm font-semibold text-[#1F2937]">
               You're currently on a break
             </p>
-            <p className="text-xs text-gray-600 mt-0.5">
+            <p className="text-xs text-[#6B7280] mt-0.5">
               Until{" "}
               {new Date(weekData.onBreak.endsAt).toLocaleDateString("en-US", {
                 month: "short",
@@ -232,7 +232,7 @@ const AvailabilityManager = () => {
       {/* ============================================ */}
       {/* 📆 CARD: Header + Legend + Calendar           */}
       {/* ============================================ */}
-      <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-5 sm:p-6">
+      <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-5 sm:p-6">
         <WeekHeader
           weekData={weekData}
           isCurrentWeek={isCurrentWeek}
@@ -244,7 +244,7 @@ const AvailabilityManager = () => {
         <CalendarLegendInfo />
 
         {error ? (
-          <div className="text-center py-12 text-sm text-gray-500">{error}</div>
+          <div className="text-center py-12 text-sm text-[#6B7280]">{error}</div>
         ) : (
           <WeeklyCalendar
             weekData={weekData}

@@ -36,7 +36,7 @@ const FAQItem = ({ question, answer, isOpen, onToggle }) => {
         transition-all duration-200
         ${
           isOpen
-            ? "border border-gray-200 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
+            ? "border border-[#D9DDF0] bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
             : "border border-transparent bg-transparent"
         }
       `}
@@ -52,7 +52,7 @@ const FAQItem = ({ question, answer, isOpen, onToggle }) => {
         transition-colors
       "
       >
-        <span className="text-sm sm:text-base font-semibold text-[#0F2C3D] flex-1">
+        <span className="text-sm sm:text-base font-semibold text-[#083B44] flex-1">
           {question}
         </span>
 
@@ -65,8 +65,8 @@ const FAQItem = ({ question, answer, isOpen, onToggle }) => {
             transition-colors
             ${
               isOpen
-                ? "bg-gray-100 text-[#0F2C3D]"
-                : "bg-gray-50 text-[#0F2C3D]"
+                ? "bg-gray-100 text-[#083B44]"
+                : "bg-[#F6F8FC] text-[#083B44]"
             }
           `}
         >
@@ -84,7 +84,7 @@ const FAQItem = ({ question, answer, isOpen, onToggle }) => {
         className="overflow-hidden transition-[max-height] duration-300 ease-in-out"
       >
         <div ref={contentRef} className="px-5 sm:px-6 pb-4 sm:pb-5">
-          <p className="text-sm sm:text-[15px] text-gray-600 leading-relaxed">
+          <p className="text-sm sm:text-[15px] text-[#6B7280] leading-relaxed">
             {answer}
           </p>
         </div>

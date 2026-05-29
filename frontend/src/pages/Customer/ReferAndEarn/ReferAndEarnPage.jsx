@@ -49,7 +49,7 @@ export default function ReferAndEarnPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="min-h-screen bg-[#F6F8FC] flex flex-col">
       <CustomerNavbar />
 
       <main className="flex-1 w-full">
@@ -57,7 +57,7 @@ export default function ReferAndEarnPage() {
           {/* ============================================ */}
           {/* 🎉 HERO BANNER                                 */}
           {/* ============================================ */}
-          <div className="relative overflow-hidden bg-gray-50 rounded-3xl border border-gray-100 px-6 sm:px-12 py-10 sm:py-14 mb-10">
+          <div className="relative overflow-hidden bg-white rounded-3xl border border-[#E7EAF3] px-6 sm:px-12 py-10 sm:py-14 mb-10">
             {/* Top-right decorative image */}
             <img
               src="/images/referandearn.png"
@@ -65,10 +65,10 @@ export default function ReferAndEarnPage() {
               className="absolute -top-6 -right-6 sm:-top-24 sm:-right-24 lg:-top-28 lg:-right-28 w-20 sm:w-64 lg:w-80 pointer-events-none select-none"
             />
             <div className="relative z-10 text-center max-w-3xl mx-auto">
-              <h1 className="text-3xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+              <h1 className="text-3xl sm:text-3xl lg:text-4xl font-bold text-[#1F2937] mb-2">
                 Refer and Earn
               </h1>
-              <p className="text-base sm:text-lg text-gray-600">
+              <p className="text-base sm:text-lg text-[#6B7280]">
                 Wellness is better with friends{" "}
                 <span className="inline-block">👋</span>
               </p>
@@ -79,7 +79,7 @@ export default function ReferAndEarnPage() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-4 relative">
                 {/* Dashed line — desktop only */}
                 <div
-                  className="hidden sm:block absolute top-6 left-[16.66%] right-[16.66%] border-t-2 border-dashed border-gray-300"
+                  className="hidden sm:block absolute top-6 left-[16.66%] right-[16.66%] border-t-2 border-dashed border-[#D9DDF0]"
                   aria-hidden
                 />
 
@@ -105,22 +105,22 @@ export default function ReferAndEarnPage() {
           {/* ============================================ */}
           {/* 🔗 UNIQUE REFERRAL LINK                       */}
           {/* ============================================ */}
-          <div className="bg-white rounded-3xl border border-gray-100 shadow-[0_8px_30px_rgba(32,24,80,0.2)] px-6 sm:px-10 py-10 sm:py-12 mb-10">
-            <h2 className="text-xl sm:text-3xl font-bold text-gray-900 text-center mb-10">
+          <div className="bg-white rounded-3xl border border-[#E7EAF3] shadow-[0_10px_30px_rgba(15,23,42,0.05)] px-6 sm:px-10 py-10 sm:py-12 mb-10">
+            <h2 className="text-xl sm:text-3xl font-bold text-[#1F2937] text-center mb-10">
               Your Unique Referral Link
             </h2>
 
             <div className="max-w-2xl mx-auto">
               <div className="flex flex-col sm:flex-row items-stretch gap-3">
-                <div className="flex-1 flex items-center gap-2 px-5 py-4 bg-gray-50 border border-gray-200 rounded-full">
+                <div className="flex-1 flex items-center gap-2 px-5 py-4 bg-[#F6F8FC] border border-[#D9DDF0] rounded-full">
                   <Link2 size={18} className="text-gray-400 shrink-0" />
-                  <span className="text-base text-gray-700 truncate">
+                  <span className="text-base text-[#374151] truncate">
                     {referralLink}
                   </span>
                 </div>
                 <button
                   onClick={handleCopy}
-                  className="inline-flex items-center justify-center gap-2 px-7 py-4 bg-orange-400 hover:bg-orange-500 text-white text-sm font-semibold rounded-full shadow-[0_4px_14px_rgba(249,115,22,0.3)] transition-colors whitespace-nowrap"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-4 bg-[#5B4FF7] hover:bg-[#4338CA] text-white text-sm font-semibold rounded-full shadow-[0_4px_14px_rgba(91,79,247,0.3)] transition-colors whitespace-nowrap"
                 >
                   {copied ? (
                     <>
@@ -137,20 +137,20 @@ export default function ReferAndEarnPage() {
               </div>
 
               <div className="flex items-center gap-3 my-6">
-                <div className="flex-1 border-t border-gray-100" />
+                <div className="flex-1 border-t border-[#E7EAF3]" />
                 <span className="text-xs text-gray-400">or</span>
-                <div className="flex-1 border-t border-gray-100" />
+                <div className="flex-1 border-t border-[#E7EAF3]" />
               </div>
 
               <button
                 onClick={handleWhatsAppShare}
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 sm:px-6 sm:py-4 bg-orange-400 hover:bg-orange-500 text-white text-sm sm:text-xl font-semibold rounded-full shadow-[0_4px_14px_rgba(249,115,22,0.3)] transition-colors"
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 sm:px-6 sm:py-4 bg-[#5B4FF7] hover:bg-[#4338CA] text-white text-sm sm:text-xl font-semibold rounded-full shadow-[0_4px_14px_rgba(91,79,247,0.3)] transition-colors"
               >
                 <Share2 className="w-4 h-4 sm:w-8 sm:h-8" />
                 Share directly to WhatsApp
               </button>
 
-              <p className="text-sm sm:text-xl text-gray-600 text-center mt-4">
+              <p className="text-sm sm:text-xl text-[#6B7280] text-center mt-4">
                 Share on social media, email, or messaging apps
               </p>
             </div>
@@ -159,7 +159,7 @@ export default function ReferAndEarnPage() {
           {/* ============================================ */}
           {/* 📊 YOUR REFERRAL PROGRESS                     */}
           {/* ============================================ */}
-          <h2 className="text-xl sm:text-3xl font-bold text-gray-900 text-center mb-10 mt-12">
+          <h2 className="text-xl sm:text-3xl font-bold text-[#1F2937] text-center mb-10 mt-12">
             Your Referral Progress
           </h2>
 
@@ -194,11 +194,11 @@ export default function ReferAndEarnPage() {
 // ============================================
 const StepCircle = ({ icon: Icon, title, subtitle }) => (
   <div className="flex flex-col items-center text-center relative z-10">
-    <div className="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center shadow-sm mb-3">
-      <Icon size={18} className="text-gray-600" />
+    <div className="w-12 h-12 rounded-full bg-white border border-[#D9DDF0] flex items-center justify-center shadow-sm mb-3">
+      <Icon size={18} className="text-[#6B7280]" />
     </div>
-    <p className="text-sm font-medium text-gray-800">{title}</p>
-    <p className="text-sm text-gray-600">{subtitle}</p>
+    <p className="text-sm font-medium text-[#1F2937]">{title}</p>
+    <p className="text-sm text-[#6B7280]">{subtitle}</p>
   </div>
 );
 
@@ -208,7 +208,7 @@ const StepCircle = ({ icon: Icon, title, subtitle }) => (
 const ProgressCard = ({ icon: Icon, label, value, highlight, footer }) => {
   if (highlight) {
     return (
-      <div className="bg-gradient-to-br from-orange-400 to-orange-500 rounded-2xl p-8 sm:p-10 text-white shadow-[0_8px_30px_rgba(249,115,22,0.25)] flex flex-col items-center justify-center min-h-[300px]">
+      <div className="bg-gradient-to-br from-[#5B4FF7] to-[#4338CA] rounded-2xl p-8 sm:p-10 text-white shadow-[0_12px_35px_rgba(91,79,247,0.22)] flex flex-col items-center justify-center min-h-[300px]">
         <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center mb-4">
           <Icon size={22} className="text-white" />
         </div>
@@ -220,12 +220,12 @@ const ProgressCard = ({ icon: Icon, label, value, highlight, footer }) => {
   }
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(16,24,40,0.06)] p-8 sm:p-10 flex flex-col items-center justify-center min-h-[240px]">
-      <div className="w-14 h-14 rounded-full bg-orange-50 flex items-center justify-center mb-4">
-        <Icon size={22} className="text-orange-400" />
+    <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_4px_20px_rgba(16,24,40,0.06)] p-8 sm:p-10 flex flex-col items-center justify-center min-h-[240px]">
+      <div className="w-14 h-14 rounded-full bg-[#F5F7FF] flex items-center justify-center mb-4">
+        <Icon size={22} className="text-[#5B4FF7]" />
       </div>
-      <p className="text-base font-medium text-gray-600 text-center">{label}</p>
-      <p className="text-5xl font-bold text-gray-900 text-center mt-3">{value}</p>
+      <p className="text-base font-medium text-[#6B7280] text-center">{label}</p>
+      <p className="text-5xl font-bold text-[#1F2937] text-center mt-3">{value}</p>
     </div>
   );
 };

@@ -56,7 +56,7 @@ const UserProfileHeader = ({ user, bodyProfile, onUserUpdated }) => {
   return (
     <div
       className="
-        bg-white rounded-2xl border border-gray-100
+        bg-white rounded-2xl border border-[#E7EAF3]
         shadow-[0_1px_3px_rgba(16,24,40,0.04)]
         p-5 sm:p-6
       "
@@ -68,7 +68,7 @@ const UserProfileHeader = ({ user, bodyProfile, onUserUpdated }) => {
             w-16 h-16 rounded-full flex-shrink-0
             bg-gradient-to-br from-indigo-100 to-purple-100
             flex items-center justify-center
-            border border-gray-200
+            border border-[#D9DDF0]
           "
         >
           <User size={28} className="text-indigo-400" />
@@ -77,14 +77,14 @@ const UserProfileHeader = ({ user, bodyProfile, onUserUpdated }) => {
         {/* 📛 Name + masked contact */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
-            <h2 className="text-xl font-bold text-gray-900 truncate">
+            <h2 className="text-xl font-bold text-[#1F2937] truncate">
               {user.nickName || user.fullName || "Unnamed"}
             </h2>
             <span className="text-xs text-gray-400 font-medium">
               {buildUserDisplayId(user._id)}
             </span>
           </div>
-          <p className="text-xs text-gray-500 mt-1 truncate">
+          <p className="text-xs text-[#6B7280] mt-1 truncate">
             {maskEmail(user.email)} • {maskPhone(user.phone)}
           </p>
         </div>
@@ -99,7 +99,7 @@ const UserProfileHeader = ({ user, bodyProfile, onUserUpdated }) => {
                 ${
                   user.isActive
                     ? "bg-emerald-50 text-emerald-600 border border-emerald-100"
-                    : "bg-gray-100 text-gray-500 border border-gray-200"
+                    : "bg-gray-100 text-[#6B7280] border border-[#D9DDF0]"
                 }
               `}
             >
@@ -135,10 +135,10 @@ const UserProfileHeader = ({ user, bodyProfile, onUserUpdated }) => {
           {/* 📅 Week progress */}
           {bodyProfile && weekTotal > 0 && (
             <div className="w-full sm:w-56">
-              <div className="flex items-center justify-between text-[11px] text-gray-500 mb-1">
+              <div className="flex items-center justify-between text-[11px] text-[#6B7280] mb-1">
                 <span>
                   Week{" "}
-                  <span className="font-semibold text-gray-700">
+                  <span className="font-semibold text-[#374151]">
                     {weekCurrent}/{weekTotal}
                   </span>
                 </span>

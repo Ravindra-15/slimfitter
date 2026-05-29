@@ -1,14 +1,13 @@
-// Yoga T20 - Hero Section
+// Diabmukt - Hero Section
 
 import { useNavigate } from "react-router-dom";
 import { getSubscriptionRedirect } from "../../../../utils/subscriptionGuard";
-import yogaHero from "../../../../assets/yoga-hero.png";
 
 export default function HeroSection() {
   const navigate = useNavigate();
 
   const handleStartJourney = () => {
-    const intendedPath = "/programs/yogat20/tenure";
+    const intendedPath = "/programs/diabmukt/tenure";
     const redirect = getSubscriptionRedirect(intendedPath);
     navigate(redirect || intendedPath);
   };
@@ -19,74 +18,102 @@ export default function HeroSection() {
 
   return (
     <section className="relative bg-white overflow-hidden">
-      {/* Decorative background pattern */}
-      <div className="absolute -top-16 -left-16 sm:-top-24 sm:-left-24 lg:-top-28 lg:-left-28 opacity-30 pointer-events-none select-none">
-        <img
-          src="/images/bg-pattern.png"
-          alt="background pattern"
-          className="w-[180px] sm:w-[280px] lg:w-[420px] h-auto object-contain"
-        />
-      </div>
-
-      <div className="max-w-[1500px] mx-auto px-5 sm:px-10 lg:px-16 pt-6 sm:pt-8 lg:pt-10 pb-0">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] items-center gap-6 lg:gap-2">
+      <div className="max-w-[1500px] mx-auto px-5 sm:px-10 lg:px-16 pt-8 sm:pt-12 lg:pt-16 pb-10 sm:pb-14 lg:pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-8">
           {/* LEFT — Copy + CTAs */}
-          <div className="relative z-10 max-w-[820px] mx-auto lg:mx-0 text-center lg:text-left order-2 lg:order-1">
-            <h1 className="text-[26px] sm:text-[36px] lg:text-[50px] leading-[1.15] lg:leading-[1.05] font-bold text-[#0F172A] mb-3 sm:mb-5 lg:mb-6">
-              Achieve your Results <br />
-              with <span className="text-orange-500">yoga & Meditation</span>
+          <div className="relative z-10 text-center lg:text-left order-2 lg:order-1">
+            <h1 className="text-[32px] sm:text-[44px] lg:text-[56px] leading-[1.1] font-bold text-[#0F172A] mb-4 sm:mb-5">
+              Reverse Diabetes <br />
+              <span className="text-[#4F46E5]">Naturally</span>
             </h1>
 
-            <p className="text-[#475569] text-[14px] sm:text-[16px] lg:text-[20px] leading-[1.6] mb-6 sm:mb-8 lg:mb-10 max-w-[540px] mx-auto lg:mx-0">
-              Build a Yoga Habit That Actually Sticks — in Just 20 Minutes a Day
+            <p className="text-[#475569] text-[14px] sm:text-[16px] lg:text-[17px] font-semibold leading-[1.6] mb-7 sm:mb-9">
+              Reverse Diabetes Naturally Or <br />
+              Talk To A Doctor <br />
+              Start Your Journey Today
             </p>
 
-            <div className="flex flex-col gap-3 lg:gap-4 max-w-[280px] sm:max-w-[320px] mx-auto lg:mx-0">
+            <div className="flex flex-col gap-3 sm:gap-4 max-w-[280px] sm:max-w-[300px] mx-auto lg:mx-0">
               <button
                 onClick={handleStartJourney}
-                className="bg-orange-500 hover:bg-orange-600 text-white text-[14px] sm:text-[16px] lg:text-[17px] font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-[0_8px_24px_rgba(249,115,22,0.28)] transition-all"
+                className="bg-[#4F46E5] hover:bg-[#4338CA] text-white text-[14px] sm:text-[15px] font-semibold px-6 py-3 sm:py-3.5 rounded-full shadow-[0_8px_24px_rgba(79,70,229,0.25)] transition-all"
               >
-                Start Your Yoga T20 Journey
+                Start Weekly Program
               </button>
 
               <button
                 onClick={handleConsultDoctor}
-                className="border border-gray-300 hover:border-orange-400 hover:text-orange-500 text-gray-700 text-[14px] sm:text-[16px] lg:text-[17px] font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-white transition-all"
+                className="border border-gray-300 hover:border-[#4F46E5] hover:text-[#4F46E5] text-[#0F172A] text-[14px] sm:text-[15px] font-semibold px-6 py-3 sm:py-3.5 rounded-full bg-white transition-all"
               >
                 Consult A Doctor Now
               </button>
             </div>
           </div>
 
-          {/* RIGHT — Yoga pose */}
-          <div className="relative flex items-center justify-center order-1 lg:order-2 min-h-[340px] sm:min-h-[480px] lg:min-h-[620px]">
-            {/* Peach Circle */}
+          {/* RIGHT — Pill-shaped windows */}
+          {/* RIGHT — Exact Figma Layout */}
+          <div className="relative flex items-center justify-center order-1 lg:order-2">
             <div
               className="
-                absolute
-                right-[15%] sm:right-[12%] lg:right-[8%]
-                top-[52%]
-                -translate-y-1/2
-                w-[260px] h-[260px]
-                sm:w-[380px] sm:h-[380px]
+                relative
+                w-[320px] h-[320px]
+                sm:w-[430px] sm:h-[430px]
                 lg:w-[520px] lg:h-[520px]
                 rounded-full
-                bg-[#F9EEDF]
+                bg-[#EEEBFB]
+                flex items-center justify-center
               "
-            />
+            >
+              <div className="relative flex items-center justify-center gap-2 lg:gap-3">
+                {/* LEFT PILL */}
+                <div
+                  className="
+                relative
+                overflow-hidden
+                rounded-[999px]
+                w-[140px] h-[230px]
+                sm:w-[175px] sm:h-[290px]
+                lg:w-[195px] lg:h-[320px]
+                shrink-0
+              "
+                >
+                  <img
+                    src="/images/halfman.png"
+                    alt="Couple"
+                    className="absolute inset-0 h-full max-w-none object-cover"
+                    style={{
+                      width: "200%",
+                      left: "-120%",
+                      objectPosition: "left center",
+                    }}
+                  />
+                </div>
 
-            {/* Girl */}
-            <img
-              src={yogaHero}
-              alt="Yoga warrior pose"
-              className="
-                relative z-10
-                w-[360px] sm:w-[540px] lg:w-[860px]
-                h-auto
-                object-contain
-                translate-x-4 sm:translate-x-6 lg:translate-x-8
-              "
-            />
+                {/* RIGHT PILL */}
+                <div
+                  className="
+                    relative
+                    overflow-hidden
+                    rounded-[999px]
+                    w-[92px] h-[180px]
+                    sm:w-[118px] sm:h-[230px]
+                    lg:w-[130px] lg:h-[260px]
+                    shrink-0
+                  "
+                >
+                  <img
+                    src="/images/halfwoman.png"
+                    alt="Couple"
+                    className="absolute inset-0 h-full max-w-none object-cover"
+                    style={{
+                      width: "320%",
+                      left: "-195%",
+                      objectPosition: "right center",
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

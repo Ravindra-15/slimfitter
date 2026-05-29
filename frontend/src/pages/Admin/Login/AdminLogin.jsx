@@ -177,15 +177,15 @@ const AdminLogin = () => {
       {/* 📝 RIGHT PANEL — Login form */}
       {/* ============================================ */}
       <div className="flex-1 flex items-center justify-center px-4 sm:px-6 py-10 lg:py-12 bg-gradient-to-b from-[#f5f6fa] to-[#eef1f7]">
-        <div className="w-full max-w-md bg-white/80 backdrop-blur-xl border border-gray-200 rounded-2xl shadow-lg p-6 sm:p-8">
+        <div className="w-full max-w-md bg-white/80 backdrop-blur-xl border border-[#D9DDF0] rounded-2xl shadow-lg p-6 sm:p-8">
           {/* Mobile-only: Brand logo (hidden on desktop where left panel shows it) */}
           <div className="lg:hidden flex flex-col items-center justify-center gap-3 mb-10">
             <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center shadow-md">
               <Shield size={24} className="text-white" />
             </div>
             <div className="text-center">
-              <p className="text-gray-900 font-bold text-lg">Zealtho</p>
-              <p className="text-gray-500 text-[11px] font-semibold tracking-wider">
+              <p className="text-[#1F2937] font-bold text-lg">Zealtho</p>
+              <p className="text-[#6B7280] text-[11px] font-semibold tracking-wider">
                 SUPER ADMIN PORTAL
               </p>
             </div>
@@ -193,10 +193,10 @@ const AdminLogin = () => {
 
           {/* Form heading */}
           <div className="mb-8">
-            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+            <h1 className="text-2xl sm:text-3xl font-bold text-[#1F2937] mb-2">
               Welcome back
             </h1>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-[#6B7280]">
               Sign in to access the admin dashboard.
             </p>
           </div>
@@ -207,7 +207,7 @@ const AdminLogin = () => {
             <div>
               <label
                 htmlFor="admin-email"
-                className="block text-sm font-medium text-gray-700 mb-2"
+                className="block text-sm font-medium text-[#374151] mb-2"
               >
                 Email address
               </label>
@@ -227,11 +227,11 @@ const AdminLogin = () => {
                   disabled={submitting}
                   className="
                     w-full pl-10 pr-4 py-3
-                    border border-gray-200 rounded-xl
-                    text-sm text-gray-900 placeholder-gray-400
+                    border border-[#D9DDF0] rounded-xl
+                    text-sm text-[#1F2937] placeholder-gray-400
                     bg-white
                     focus:outline-none focus:border-indigo-200 focus:ring-2 focus:ring-indigo-200
-                    disabled:bg-gray-50 disabled:cursor-not-allowed
+                    disabled:bg-[#F6F8FC] disabled:cursor-not-allowed
                     transition-colors
                   "
                 />
@@ -242,7 +242,7 @@ const AdminLogin = () => {
             <div>
               <label
                 htmlFor="admin-password"
-                className="block text-sm font-medium text-gray-700 mb-2"
+                className="block text-sm font-medium text-[#374151] mb-2"
               >
                 Password
               </label>
@@ -262,18 +262,18 @@ const AdminLogin = () => {
                   disabled={submitting}
                   className="
                     w-full pl-10 pr-11 py-3
-                    border border-gray-200 rounded-xl
-                    text-sm text-gray-900 placeholder-gray-400
+                    border border-[#D9DDF0] rounded-xl
+                    text-sm text-[#1F2937] placeholder-gray-400
                     bg-white
                     focus:outline-none focus:border-indigo-200 focus:ring-2 focus:ring-indigo-200
-                    disabled:bg-gray-50 disabled:cursor-not-allowed
+                    disabled:bg-[#F6F8FC] disabled:cursor-not-allowed
                     transition-colors
                   "
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword((prev) => !prev)}
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 transition-colors"
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-[#6B7280] transition-colors"
                   aria-label={showPassword ? "Hide password" : "Show password"}
                   tabIndex={-1}
                 >
@@ -293,7 +293,7 @@ const AdminLogin = () => {
                   disabled={submitting}
                   className="w-4 h-4 accent-indigo-600 cursor-pointer"
                 />
-                <span className="text-sm text-gray-700">Remember me</span>
+                <span className="text-sm text-[#374151]">Remember me</span>
               </label>
             </div>
 

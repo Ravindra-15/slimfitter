@@ -28,11 +28,11 @@ const AdminPageHeader = ({ title, subtitle, action, className = "" }) => {
     >
       {/* 📝 ADMIN: Title + subtitle block */}
       <div className="min-w-0">
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">
+        <h1 className="text-2xl sm:text-3xl font-bold text-[#1F2937] leading-tight">
           {title}
         </h1>
         {subtitle && (
-          <p className="text-sm text-gray-500 mt-1">{subtitle}</p>
+          <p className="text-sm text-[#6B7280] mt-1">{subtitle}</p>
         )}
       </div>
 

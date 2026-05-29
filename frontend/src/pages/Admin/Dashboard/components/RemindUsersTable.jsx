@@ -51,9 +51,9 @@ const FilterDropdown = ({ value, onChange }) => {
         onClick={() => setIsOpen((prev) => !prev)}
         className="
           flex items-center gap-2 px-3 py-2
-          bg-white border border-gray-200 rounded-lg
-          text-sm font-medium text-gray-700
-          hover:bg-gray-50 transition-colors
+          bg-white border border-[#D9DDF0] rounded-lg
+          text-sm font-medium text-[#374151]
+          hover:bg-[#F6F8FC] transition-colors
         "
         aria-haspopup="listbox"
         aria-expanded={isOpen}
@@ -61,7 +61,7 @@ const FilterDropdown = ({ value, onChange }) => {
         <span>{selected.label}</span>
         <ChevronDown
           size={14}
-          className={`text-gray-500 transition-transform ${
+          className={`text-[#6B7280] transition-transform ${
             isOpen ? "rotate-180" : ""
           }`}
         />
@@ -73,7 +73,7 @@ const FilterDropdown = ({ value, onChange }) => {
           className="
             absolute right-0 top-full mt-1 z-10
             min-w-[140px] py-1
-            bg-white border border-gray-200 rounded-lg
+            bg-white border border-[#D9DDF0] rounded-lg
             shadow-lg
           "
         >
@@ -88,11 +88,11 @@ const FilterDropdown = ({ value, onChange }) => {
               }}
               className={`
                 px-3 py-2 text-sm cursor-pointer
-                hover:bg-gray-50 transition-colors
+                hover:bg-[#F6F8FC] transition-colors
                 ${
                   option.value === value
                     ? "text-indigo-600 font-medium"
-                    : "text-gray-700"
+                    : "text-[#374151]"
                 }
               `}
             >
@@ -168,7 +168,7 @@ const RemindUsersTable = ({
       {/* 🚫 ADMIN: Empty state */}
       {users.length === 0 ? (
         <div className="px-6 py-12 text-center">
-          <p className="text-sm text-gray-500">No users to remind right now</p>
+          <p className="text-sm text-[#6B7280]">No users to remind right now</p>
         </div>
       ) : (
         <>
@@ -176,28 +176,28 @@ const RemindUsersTable = ({
           <div className="hidden md:block overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-y border-gray-100 bg-gray-50/50">
+                <tr className="border-y border-[#E7EAF3] bg-[#F6F8FC]/50">
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-[11px] font-semibold tracking-wider text-gray-500 uppercase"
+                    className="px-6 py-3 text-left text-[11px] font-semibold tracking-wider text-[#6B7280] uppercase"
                   >
                     Name
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-center text-[11px] font-semibold tracking-wider text-gray-500 uppercase"
+                    className="px-6 py-3 text-center text-[11px] font-semibold tracking-wider text-[#6B7280] uppercase"
                   >
                     Plan
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-center text-[11px] font-semibold tracking-wider text-gray-500 uppercase"
+                    className="px-6 py-3 text-center text-[11px] font-semibold tracking-wider text-[#6B7280] uppercase"
                   >
                     Subscription
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-right text-[11px] font-semibold tracking-wider text-gray-500 uppercase"
+                    className="px-6 py-3 text-right text-[11px] font-semibold tracking-wider text-[#6B7280] uppercase"
                   >
                     Actions
                   </th>
@@ -208,10 +208,10 @@ const RemindUsersTable = ({
                   <tr
                     key={user.id}
                     className={`
-                      hover:bg-gray-50 transition-colors
+                      hover:bg-[#F6F8FC] transition-colors
                       ${
                         idx !== users.length - 1
-                          ? "border-b border-gray-100"
+                          ? "border-b border-[#E7EAF3]"
                           : ""
                       }
                     `}
@@ -220,10 +220,10 @@ const RemindUsersTable = ({
                       <div className="flex items-center gap-3">
                         <UserAvatar user={user} />
                         <div className="min-w-0">
-                          <p className="text-sm font-semibold text-gray-900 truncate">
+                          <p className="text-sm font-semibold text-[#1F2937] truncate">
                             {user.name}
                           </p>
-                          <p className="text-xs text-gray-500">
+                          <p className="text-xs text-[#6B7280]">
                             {user.userId}
                           </p>
                         </div>
@@ -231,7 +231,7 @@ const RemindUsersTable = ({
                     </td>
 
                     <td className="px-6 py-4 text-center">
-                      <span className="text-sm text-gray-700">{user.plan}</span>
+                      <span className="text-sm text-[#374151]">{user.plan}</span>
                     </td>
 
                     <td className="px-6 py-4 text-center">
@@ -267,10 +267,10 @@ const RemindUsersTable = ({
                   <div className="flex items-center gap-3 min-w-0 flex-1">
                     <UserAvatar user={user} />
                     <div className="min-w-0">
-                      <p className="text-sm font-semibold text-gray-900 truncate">
+                      <p className="text-sm font-semibold text-[#1F2937] truncate">
                         {user.name}
                       </p>
-                      <p className="text-xs text-gray-500">{user.userId}</p>
+                      <p className="text-xs text-[#6B7280]">{user.userId}</p>
                     </div>
                   </div>
 
@@ -289,13 +289,13 @@ const RemindUsersTable = ({
 
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-semibold tracking-wider text-gray-500 uppercase">
+                    <span className="text-[10px] font-semibold tracking-wider text-[#6B7280] uppercase">
                       Plan
                     </span>
-                    <span className="text-sm text-gray-700">{user.plan}</span>
+                    <span className="text-sm text-[#374151]">{user.plan}</span>
                   </div>
                   <div className="flex flex-col items-end">
-                    <span className="text-[10px] font-semibold tracking-wider text-gray-500 uppercase">
+                    <span className="text-[10px] font-semibold tracking-wider text-[#6B7280] uppercase">
                       Subscription
                     </span>
                     <span className="text-sm font-medium text-red-500">

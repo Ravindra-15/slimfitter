@@ -113,7 +113,7 @@ const DateCalendar = ({ selectedDate, onSelect }) => {
   return (
     <div
       className="
-        bg-orange-50/50 rounded-2xl border border-orange-100
+        bg-[#F8FAFF] rounded-[24px] border border-[#E7EAF3]
         p-4 sm:p-5
       "
     >
@@ -126,7 +126,7 @@ const DateCalendar = ({ selectedDate, onSelect }) => {
           className="
             w-7 h-7 rounded-lg
             flex items-center justify-center
-            text-gray-600 hover:bg-white hover:text-orange-600
+            text-[#6B7280] hover:bg-white hover:text-[#5B4FF7]
             disabled:opacity-30 disabled:cursor-not-allowed
             transition-colors
           "
@@ -135,7 +135,7 @@ const DateCalendar = ({ selectedDate, onSelect }) => {
           <ChevronLeft size={16} />
         </button>
 
-        <p className="text-sm font-semibold text-gray-900">
+        <p className="text-sm font-semibold text-[#1F2937]">
           {MONTHS[view.month]} {view.year}
         </p>
 
@@ -146,7 +146,7 @@ const DateCalendar = ({ selectedDate, onSelect }) => {
           className="
             w-7 h-7 rounded-lg
             flex items-center justify-center
-            text-gray-600 hover:bg-white hover:text-orange-600
+            text-[#6B7280] hover:bg-white hover:text-[#4338CA]
             disabled:opacity-30 disabled:cursor-not-allowed
             transition-colors
           "
@@ -161,7 +161,7 @@ const DateCalendar = ({ selectedDate, onSelect }) => {
         {DAYS_OF_WEEK.map((d) => (
           <p
             key={d}
-            className="text-[10px] font-bold tracking-wider text-gray-400 text-center uppercase"
+            className="text-[10px] font-bold tracking-wider text-[#9CA3AF] text-center uppercase"
           >
             {d}
           </p>
@@ -188,13 +188,13 @@ const DateCalendar = ({ selectedDate, onSelect }) => {
                 text-xs font-semibold
                 transition-colors
                 ${
-                  isSelected
-                    ? "bg-orange-500 text-white shadow-[0_4px_10px_rgba(249,115,22,0.35)]"
+                 isSelected
+                    ? "bg-[#5B4FF7] text-white shadow-[0_8px_18px_rgba(91,79,247,0.22)]"
                     : isToday
-                    ? "bg-white text-orange-600 border border-orange-200"
+                    ? "bg-white text-[#5B4FF7] border border-[#C7D2FE]"
                     : disabled
-                    ? "text-gray-300 cursor-not-allowed"
-                    : "text-gray-700 hover:bg-white"
+                    ? "text-[#D1D5DB] cursor-not-allowed"
+                    : "text-[#374151] hover:bg-white hover:text-[#5B4FF7]"
                 }
               `}
               aria-pressed={isSelected}

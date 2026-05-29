@@ -12,10 +12,10 @@ const ComingSoon = ({ title, subtitle }) => {
         <div className="inline-flex w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 items-center justify-center mb-5">
           <Construction className="w-7 h-7 text-indigo-600" strokeWidth={2} />
         </div>
-        <h2 className="text-2xl font-bold text-gray-900 tracking-tight">
+        <h2 className="text-2xl font-bold text-[#1F2937] tracking-tight">
           {title}
         </h2>
-        <p className="mt-2 text-sm text-gray-500">
+        <p className="mt-2 text-sm text-[#6B7280]">
           {subtitle || "This module is under construction. Check back soon."}
         </p>
         <div className="mt-6 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-xs font-medium">

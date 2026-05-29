@@ -3,32 +3,30 @@
 // Uses YogaT20 colors, images and content
 
 const programs = [
+   {
+    id: "yogat20",
+    title: "Yoga T20",
+    subtitle: "Master the Art of Consistency. 20 Minutes to a Balanced Life",
+    bg: "bg-[#FFF3E8]",
+    accent: "bg-[#FFD8B5]",
+    textSide: "left",
+    image: "/images/yoga-hero.png",
+    btnBg:
+      "bg-[#4F46E5] hover:bg- [#4338CA] shadow-[0_6px_18px_rgba(79,70,229,0.28)]",
+    url: import.meta.env.VITE_YOGAT20_URL || "http://localhost:5174",
+  },
   {
     id: "zealtho",
     title: "Zealtho",
     subtitle: "Lifestyle wellness programs designed by holistic doctors",
     bg: "bg-[#E8F5F0]",
     accent: "bg-[#C8E6D6]",
-    textSide: "left",
+    textSide: "right",
     image: "/images/zealthoHero.png",
     btnBg:
       "bg-teal-700 hover:bg-teal-800 shadow-[0_4px_14px_rgba(15,90,83,0.30)]",
     url: import.meta.env.VITE_ZEALTHO_URL || "http://localhost:5173",
   },
-
-  {
-    id: "diabmukt",
-    title: "Diabmukt",
-    subtitle: "Data-Driven Reversal. Take Control of Your Metabolic Health.",
-    bg: "bg-[#EAF0FB]",
-    accent: "bg-[#DCE7FF]",
-    textSide: "right",
-    image: "/images/diabmuktCouple.png",
-    btnBg:
-      "bg-[#4F6EF7] hover:bg-[#3F5EE6] shadow-[0_4px_14px_rgba(79,110,247,0.30)]",
-    url: import.meta.env.VITE_DIABMUKT_URL || "#",
-  },
-
   {
     id: "slimfitter",
     title: "Slimfitter",
@@ -63,14 +61,15 @@ export default function ProgramsSection() {
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-14">
         {/* Heading */}
         <div className="text-center mb-10 lg:mb-14">
-          <h2 className="text-3xl sm:text-3xl lg:text-[40px] font-bold text-[#0F172A] mb-3">
-            Tailored Programs <span className="text-orange-500">for you !</span>
-          </h2>
+  <h2 className="text-3xl sm:text-3xl lg:text-[40px] font-bold text-[#111827] mb-3">
+    Have a Look into our{" "}
+    <span className="text-[#4F46E5]">Other Programs</span>
+  </h2>
 
-          <p className="text-gray-500 text-sm sm:text-base lg:text-lg">
-            Find the right path for your health goals
-          </p>
-        </div>
+  <p className="text-[#083B44] text-sm sm:text-base lg:text-lg">
+    Find the right path for your health goals
+  </p>
+</div>
 
         {/* Cards */}
         <div className="space-y-6 lg:space-y-8">
@@ -98,7 +97,7 @@ export default function ProgramsSection() {
                     top-1/2 -translate-y-1/2
 
                     ${
-                      prog.id === "zealtho"
+                      prog.id === "yogat20"
                         ? `
                           w-[180px] h-[180px]
                           sm:w-[240px] sm:h-[240px]
@@ -108,13 +107,14 @@ export default function ProgramsSection() {
                         : ""
                     }
 
+
                     ${
-                      prog.id === "diabmukt"
+                      prog.id === "zealtho"
                         ? `
-                          w-[190px] h-[190px]
-                          sm:w-[250px] sm:h-[250px]
+                          w-[180px] h-[180px]
+                          sm:w-[240px] sm:h-[240px]
                           lg:w-[520px] lg:h-[520px]
-                          left-[-30px] lg:left-[40px]
+                          left-[-20px] lg:left-[40px]
                         `
                         : ""
                     }
@@ -215,6 +215,29 @@ export default function ProgramsSection() {
                       lg:w-[560px]
                       xl:w-[600px]
 
+                      
+                  ${
+                    prog.id === "yogat20"
+                      ? `
+                       w-[360px]
+                        sm:w-[420px]
+                        md:w-[480px]
+                        lg:w-[560px]
+                        xl:w-[600px]
+
+                        right-[-10px]
+                        sm:right-[10px]
+                        lg:right-auto
+
+                        translate-y-1
+                        lg:translate-y-6
+
+                        lg:translate-x-16
+                        xl:translate-x-13
+                      `
+                      : ""
+                  }
+
                      ${
                        prog.id === "zealtho"
                          ? `
@@ -224,6 +247,7 @@ export default function ProgramsSection() {
                             right-[-10px]
                             sm:right-[10px]
                             lg:right-auto
+                            lg:left-[-90px]
 
                             translate-y-1
                             lg:translate-y-2
@@ -232,20 +256,6 @@ export default function ProgramsSection() {
     `
                          : ""
                      }
-                      ${
-                        prog.id === "diabmukt"
-                          ? `
-                            left-[-20px]
-                            sm:left-[0px]
-                            lg:left-auto
-
-                            bottom-[-10px]
-                            lg:bottom-auto
-
-                            lg:-translate-x-4
-                          `
-                          : ""
-                      }
 
                       ${
                         prog.id === "slimfitter"

@@ -31,7 +31,7 @@ const STATUS_STYLES = {
   },
   no_show: {
     label: "No-show",
-    className: "bg-gray-100 text-gray-500 border-gray-200",
+    className: "bg-gray-100 text-[#6B7280] border-[#D9DDF0]",
   },
 };
 
@@ -85,7 +85,7 @@ const AppointmentTable = ({ appointments = [], loading = false }) => {
     return (
       <div
         className="
-          bg-white rounded-2xl border border-gray-100
+          bg-white rounded-2xl border border-[#E7EAF3]
           shadow-[0_1px_3px_rgba(16,24,40,0.04)]
           px-6 py-16 text-center
         "
@@ -93,10 +93,10 @@ const AppointmentTable = ({ appointments = [], loading = false }) => {
         <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-3">
           <CalendarX size={20} className="text-gray-400" />
         </div>
-        <p className="text-sm font-medium text-gray-700 mb-1">
+        <p className="text-sm font-medium text-[#374151] mb-1">
           No appointments found
         </p>
-        <p className="text-xs text-gray-500">
+        <p className="text-xs text-[#6B7280]">
           Try adjusting your search or status filter.
         </p>
       </div>
@@ -106,7 +106,7 @@ const AppointmentTable = ({ appointments = [], loading = false }) => {
   return (
     <div
       className="
-        bg-white rounded-2xl border border-gray-100
+        bg-white rounded-2xl border border-[#E7EAF3]
         shadow-[0_1px_3px_rgba(16,24,40,0.04)]
         overflow-hidden
       "
@@ -117,20 +117,20 @@ const AppointmentTable = ({ appointments = [], loading = false }) => {
       <div className="hidden md:block overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-gray-100 bg-gray-50/40">
-              <th className="px-6 py-3.5 text-left text-[11px] font-semibold tracking-wider text-gray-500 uppercase">
+            <tr className="border-b border-[#E7EAF3] bg-[#F6F8FC]/40">
+              <th className="px-6 py-3.5 text-left text-[11px] font-semibold tracking-wider text-[#6B7280] uppercase">
                 Patient
               </th>
-              <th className="px-6 py-3.5 text-left text-[11px] font-semibold tracking-wider text-gray-500 uppercase">
+              <th className="px-6 py-3.5 text-left text-[11px] font-semibold tracking-wider text-[#6B7280] uppercase">
                 Doctor
               </th>
-              <th className="px-6 py-3.5 text-left text-[11px] font-semibold tracking-wider text-gray-500 uppercase">
+              <th className="px-6 py-3.5 text-left text-[11px] font-semibold tracking-wider text-[#6B7280] uppercase">
                 Date & Time
               </th>
-              <th className="px-6 py-3.5 text-left text-[11px] font-semibold tracking-wider text-gray-500 uppercase">
+              <th className="px-6 py-3.5 text-left text-[11px] font-semibold tracking-wider text-[#6B7280] uppercase">
                 Payment
               </th>
-              <th className="px-6 py-3.5 text-center text-[11px] font-semibold tracking-wider text-gray-500 uppercase">
+              <th className="px-6 py-3.5 text-center text-[11px] font-semibold tracking-wider text-[#6B7280] uppercase">
                 Status
               </th>
             </tr>
@@ -140,20 +140,20 @@ const AppointmentTable = ({ appointments = [], loading = false }) => {
               <tr
                 key={apt._id}
                 className={`
-                  hover:bg-gray-50/50 transition-colors
-                  ${idx !== appointments.length - 1 ? "border-b border-gray-100" : ""}
+                  hover:bg-[#F6F8FC]/50 transition-colors
+                  ${idx !== appointments.length - 1 ? "border-b border-[#E7EAF3]" : ""}
                 `}
               >
                 <td className="px-6 py-4">
-                  <span className="text-sm font-semibold text-gray-900">
+                  <span className="text-sm font-semibold text-[#1F2937]">
                     {apt.patientName}
                   </span>
                 </td>
                 <td className="px-6 py-4">
-                  <span className="text-sm text-gray-700">{apt.doctorName}</span>
+                  <span className="text-sm text-[#374151]">{apt.doctorName}</span>
                 </td>
                 <td className="px-6 py-4">
-                  <span className="text-sm text-gray-700">
+                  <span className="text-sm text-[#374151]">
                     {formatDateTime(apt.scheduledAt)}
                   </span>
                 </td>
@@ -178,16 +178,16 @@ const AppointmentTable = ({ appointments = [], loading = false }) => {
         {appointments.map((apt) => (
           <div key={apt._id} className="px-5 py-4">
             <div className="flex items-start justify-between gap-2 mb-1.5">
-              <p className="text-sm font-semibold text-gray-900 truncate">
+              <p className="text-sm font-semibold text-[#1F2937] truncate">
                 {apt.patientName}
               </p>
               <StatusPill status={apt.status} />
             </div>
-            <p className="text-xs text-gray-500 truncate mb-2">
+            <p className="text-xs text-[#6B7280] truncate mb-2">
               with {apt.doctorName}
             </p>
             <div className="flex items-center justify-between gap-2 text-xs">
-              <span className="text-gray-700">{formatDateTime(apt.scheduledAt)}</span>
+              <span className="text-[#374151]">{formatDateTime(apt.scheduledAt)}</span>
               <span className="font-semibold text-indigo-600">
                 {formatFee(apt.fee, apt.currency)}
               </span>

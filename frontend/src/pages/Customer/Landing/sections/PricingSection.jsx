@@ -1,42 +1,57 @@
-// Yoga T20 - Pricing Section
+// Diabmukt - Pricing Section
 
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Check } from "lucide-react";
+import { CheckCircle2, Phone } from "lucide-react";
 import { getSubscriptionRedirect } from "../../../../utils/subscriptionGuard";
-import { getProgramPlans } from "../../../../services/programPlanService";
+import { getPublicProgramPlans } from "../../../../services/programPlanPublicService";
 
+const PROGRAM_ID = "diabmukt";
+
+// 🏷️ Hardcoded per-program feature bullets (Diabmukt)
 const features = [
-  "Online Yoga",
-  "Pranayama",
-  "Meditation techniques",
-  "Chair Yoga",
-  "Mudras",
-  "Strength training",
-  "Pillates",
-  "Dance yoga",
-  "Face yoga",
-  "Online massage workshop",
-  "Fasting therapy",
-  "Healthy diet and nutrition awareness",
-  "Free doctor consultation *",
-  "Flexible Batch timings",
+  "Community Sessions",
+  "health activity tracking",
+  "sleep/water/steps/exercise tracking",
+  "stand and move reminder",
 ];
-
-const PROGRAM_ID = "yogat20";
 
 const formatPrice = (n) => `$${Number(n || 0).toLocaleString("en-US")}`;
 
+// 🧮 Monthly display price — handles both fixed and weekly plans
 const calcMonthlyPrice = (plan) => {
-  const months = plan.durationMonths || parseMonths(plan.planName) || 1;
+  // Weekly plan: price at minWeeks, converted to per-month
+  if ((plan.pricingType || "fixed") === "weekly") {
+    const base = Number(plan.baseRatePerWeek) || 0;
+    const weeks = Number(plan.minWeeks) || 1;
+
+    // best discount applicable at minWeeks
+    let discount = 0;
+    if (Array.isArray(plan.breakpoints)) {
+      plan.breakpoints.forEach((bp) => {
+        if (weeks >= bp.minWeeks && bp.discountPercent > discount) {
+          discount = bp.discountPercent;
+        }
+      });
+    }
+    const total = base * weeks * (1 - discount / 100);
+    const months = Math.max(1, Math.round(weeks / 4));
+    return Math.round(total / months);
+  }
+
+  // Fixed plan
+  let months = 1;
+  if (plan.durationMonths && Number(plan.durationMonths) > 0) {
+    months = Number(plan.durationMonths);
+  } else {
+    const name = String(plan.planName || "");
+    const m = name.match(/(\d+)\s*month/i);
+    const w = name.match(/(\d+)\s*week/i);
+    if (m) months = parseInt(m[1], 10);
+    else if (w) months = Math.max(1, Math.round(parseInt(w[1], 10) / 4));
+  }
   if (months <= 0) return plan.offerPrice;
   return Math.round(plan.offerPrice / months);
-};
-
-const parseMonths = (planName) => {
-  if (!planName) return null;
-  const m = String(planName).match(/(\d+)\s*month/i);
-  return m ? parseInt(m[1], 10) : null;
 };
 
 export default function PricingSection() {
@@ -49,11 +64,11 @@ export default function PricingSection() {
     const load = async () => {
       setLoading(true);
       try {
-        const fetched = await getProgramPlans(PROGRAM_ID, {
+        const fetched = await getPublicProgramPlans(PROGRAM_ID, {
           landingOnly: true,
         });
         if (!mounted) return;
-        setPlans(fetched.slice(0, 2));
+        setPlans(fetched || []);
       } catch (err) {
         console.error("Failed to load plans:", err);
         if (mounted) setPlans([]);
@@ -67,196 +82,112 @@ export default function PricingSection() {
     };
   }, []);
 
-  const handleBuy = (planName) => {
+  // 🎯 Pick the cheapest visible plan for landing display
+  const cheapestPlan =
+    plans.length > 0
+      ? [...plans].sort(
+          (a, b) => calcMonthlyPrice(a) - calcMonthlyPrice(b)
+        )[0]
+      : null;
+
+  const handleGetStarted = () => {
     const intendedPath = `/programs/${PROGRAM_ID}/tenure`;
     const redirect = getSubscriptionRedirect(intendedPath);
     navigate(redirect || intendedPath);
   };
 
+  const handleConnect = () => {
+    // 🔗 Scroll to callback section on landing
+    const el = document.getElementById("callback");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* HEADING */}
-        <div className="text-center mb-8 sm:mb-10">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
-            Simple, <span className="text-orange-500">transparent pricing</span>
+        <div className="text-center mb-10 sm:mb-12 lg:mb-14">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0F172A]">
+            Simple,{" "}
+            <span className="text-[#4F46E5]">transparent pricing</span>
           </h2>
-          <p className="text-gray-500 text-xs sm:text-sm lg:text-base">
-            Pricing Options which are affordable
-          </p>
         </div>
 
-        {/* PRICING CARDS */}
+        {/* CARDS ROW */}
         {loading ? (
-          <div className="flex justify-center mb-4">
-            <p className="text-sm text-gray-400 py-10">Loading plans...</p>
-          </div>
-        ) : plans.length === 0 ? (
-          <div className="flex justify-center mb-4">
-            <p className="text-sm text-gray-400 py-10">
-              No plans available right now. Please check back soon.
-            </p>
-          </div>
+          <p className="text-center text-sm text-gray-400 py-10">
+            Loading plans...
+          </p>
         ) : (
-          // <div className="flex flex-col md:flex-row items-stretch justify-end gap-4 mb-6 sm:mb-8 max-w-[calc(50%+40px)] ml-auto pr-0 sm:pr-2">
-            <div className="flex flex-col md:flex-row items-stretch justify-center gap-5 mb-8 sm:mb-10">
-            {plans.map((plan, idx) => {
-              const isBestseller = plan.isBestseller || idx === 0;
-              const monthlyPrice = calcMonthlyPrice(plan);
-
-              return (
-                <div
-                  key={plan._id}
-                  className={`relative rounded-[24px] sm:rounded-[28px] border transition-all duration-300 w-full md:w-[300px] lg:w-[330px] px-5 sm:px-6 py-5 flex flex-col ${
-                    // className={`relative rounded-[20px] sm:rounded-[24px] border transition-all duration-300 w-full md:w-[230px] lg:w-[260px] px-4 sm:px-5 py-4 flex flex-col ${
-                    isBestseller
-                      ? "bg-[#0F5A53] border-[#0F5A53] text-white shadow-lg"
-                      : "bg-white border-gray-200 text-gray-800 shadow-sm"
-                  }`}
-                >
-                  {/* Bestseller badge */}
-                  <div className="min-h-[24px] mb-3">
-                    {isBestseller && (
-                      <div className="flex items-center gap-1 text-yellow-400 text-xs font-semibold">
-                        <span>★</span>
-                        <span>Bestseller</span>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Plan name + offer badge */}
-                  <div className="flex items-start justify-between mb-2">
-                    <h3
-                      className={`text-[18px] sm:text-[20px] leading-none font-bold ${
-                        isBestseller ? "text-white" : "text-gray-900"
-                      }`}
-                    >
-                      {plan.planName}
-                    </h3>
-
-                    {plan.offerBadge && (
-                      <span className="bg-orange-500 text-white text-[10px] font-bold px-2 py-1 rounded-md">
-                        {plan.offerBadge}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Original price (strike-through) */}
-                  <p
-                    className={`text-xs sm:text-sm line-through mb-2 min-h-[18px] sm:min-h-[20px] ${
-                      isBestseller ? "text-teal-200" : "text-gray-400"
-                    }`}
-                  >
-                    {plan.originalPrice > plan.offerPrice
-                      ? formatPrice(plan.originalPrice)
-                      : "\u00A0"}
-                  </p>
-
-                  {/* Monthly price */}
-                  <div className="mb-5 sm:mb-6">
-                    <span
-                      className={`text-[24px] sm:text-[28px] font-extrabold leading-none ${
-                        isBestseller ? "text-white" : "text-gray-900"
-                      }`}
-                    >
-                      {formatPrice(monthlyPrice)}
-                    </span>
-                    <span
-                      className={`ml-2 text-xs sm:text-sm font-medium ${
-                        isBestseller ? "text-gray-100" : "text-gray-600"
-                      }`}
-                    >
-                      / month
-                    </span>
-                  </div>
-
-                  {/* Buy button */}
-                  <div className="mt-auto">
-                    <button
-                      onClick={() => handleBuy(plan.planName)}
-                      className="w-full h-10 rounded-xl bg-orange-500 hover:bg-orange-600 transition-all text-white text-xs sm:text-sm font-semibold shadow-md"
-                    >
-                      Buy now !
-                    </button>
-                  </div>
-
-                  {/* Corner dot for bestseller */}
-                  {isBestseller && (
-                    <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-orange-500" />
-                  )}
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-5 sm:gap-6 items-stretch">
+            {/* LEFT — Price + Features Card */}
+            <div className="bg-white rounded-3xl border border-[#D9DDF0] px-6 sm:px-8 lg:px-10 py-7 sm:py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-8">
+              {/* Price block */}
+              <div className="flex flex-col items-start">
+                <div className="flex items-start">
+                  <span className="text-[36px] sm:text-[42px] lg:text-[48px] font-bold text-[#0F172A] leading-none">
+                    {cheapestPlan
+                      ? formatPrice(calcMonthlyPrice(cheapestPlan))
+                      : "$0"}
+                  </span>
+                  <span className="text-[12px] sm:text-[13px] text-[#475569] font-medium ml-1 mt-2">
+                    /month
+                  </span>
+                  <span className="text-red-500 text-xs ml-0.5 mt-1">*</span>
                 </div>
-              );
-            })}
+
+                <button
+                  onClick={handleGetStarted}
+                  className="mt-5 bg-[#4F46E5] hover:bg-[#4338CA] text-white text-[13px] sm:text-sm font-semibold px-6 sm:px-7 py-2.5 rounded-full shadow-[0_6px_18px_rgba(79,70,229,0.28)] transition-all"
+                >
+                  Get Started
+                </button>
+              </div>
+
+              {/* Features list */}
+              <ul className="flex flex-col gap-2.5 sm:gap-3 w-full sm:w-auto">
+                {features.map((f) => (
+                  <li
+                    key={f}
+                    className="flex items-center gap-2.5 text-[#0F172A] text-sm lg:text-xl sm:text-[15px] font-medium"
+                  >
+                    <CheckCircle2
+                      size={18}
+                      className="text-[#4F46E5] flex-shrink-0"
+                      strokeWidth={2.2}
+                    />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* RIGHT — Contact Us Card */}
+            <div className="bg-gradient-to-br from-[#4F46E5] to-[#6366F1] rounded-3xl px-6 sm:px-7 py-7 sm:py-8 flex flex-col items-center text-center text-white shadow-[0_8px_24px_rgba(79,70,229,0.22)]">
+              <div className="w-11 h-11 rounded-full bg-white/15 flex items-center justify-center mb-3">
+                <Phone size={20} className="text-white" strokeWidth={2.2} />
+              </div>
+
+              <h3 className="text-lg sm:text-xl font-bold mb-2">
+                Contact Us !
+              </h3>
+
+              <p className="text-white/90 text-xs sm:text-sm leading-relaxed mb-5 max-w-[260px]">
+                Not sure about selecting the program tenure , Dont worry we
+                will help you out !
+              </p>
+
+              <button
+                onClick={handleConnect}
+                className="bg-white hover:bg-[#F6F8FC] text-[#4F46E5] text-sm font-semibold px-7 py-2.5 rounded-full transition-colors shadow-sm"
+              >
+                Connect
+              </button>
+            </div>
           </div>
         )}
-
-        {/* COMPARISON TABLE — with teal accent + blue divider lines */}
-        <p className="lg:hidden text-center text-xs text-gray-500 mb-3 italic">
-          ← Swipe to compare all plans →
-        </p>
-        <div className="overflow-x-auto rounded-[24px] sm:rounded-[28px] border-2 border-[#0F5A53]/15 shadow-sm bg-white">
-          <table className="w-full min-w-[700px] text-xs sm:text-sm">
-            <thead>
-              <tr className="border-b-2 border-[#0F5A53]/20">
-                <th className="text-left px-6 sm:px-10 py-4 sm:py-6 text-gray-400 font-normal w-[50%]" />
-
-                {plans.map((plan, idx) => (
-                  <th
-                    key={plan._id}
-                    className={`px-4 sm:px-6 py-4 sm:py-6 text-center font-bold text-[15px] sm:text-[18px] border-l-2 border-[#0F5A53]/15 ${
-                      idx === 0
-                        ? "text-[#0F5A53] bg-[#EAF7F5]"
-                        : "text-gray-800"
-                    }`}
-                  >
-                    {plan.planName}
-                  </th>
-                ))}
-
-                {plans.length === 0 && (
-                  <>
-                    <th className="px-4 sm:px-6 py-4 sm:py-6 text-center font-bold text-[#0F5A53] bg-[#EAF7F5] text-[15px] sm:text-[18px] border-l-2 border-[#0F5A53]/15">
-                      12 Months
-                    </th>
-                    <th className="px-4 sm:px-6 py-4 sm:py-6 text-center font-bold text-gray-800 text-[15px] sm:text-[18px] border-l-2 border-[#0F5A53]/15">
-                      3 Months
-                    </th>
-                  </>
-                )}
-              </tr>
-            </thead>
-
-            <tbody>
-              {features.map((feature, i) => (
-                <tr
-                  key={feature}
-                  className="border-b border-[#0F5A53]/10 last:border-b-0"
-                >
-                  <td className="px-6 sm:px-10 py-3 sm:py-4 text-gray-900 font-bold">
-                    {feature}
-                  </td>
-
-                  {(plans.length > 0
-                    ? plans
-                    : [{ _id: "fallback1" }, { _id: "fallback2" }]
-                  ).map((plan, idx) => (
-                    <td
-                      key={plan._id}
-                      className={`px-4 sm:px-6 py-3 sm:py-4 text-center border-l-2 border-[#0F5A53]/15 ${
-                        idx === 0 ? "bg-[#EAF7F5]" : ""
-                      }`}
-                    >
-                      <Check
-                        size={16}
-                        className="text-teal-600 mx-auto stroke-[3]"
-                      />
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
       </div>
     </section>
   );

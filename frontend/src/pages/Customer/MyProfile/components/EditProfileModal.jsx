@@ -85,11 +85,11 @@ export default function EditProfileModal({ user, onClose, onUpdated }) {
   return (
     <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center px-4 py-6 overflow-y-auto">
       <div className="bg-white rounded-2xl w-full max-w-lg shadow-xl my-auto">
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#E7EAF3]">
           <h3 className="text-lg font-bold text-gray-800">Edit Profile</h3>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 transition-colors"
+            className="text-gray-400 hover:text-[#6B7280] transition-colors"
           >
             <X size={20} />
           </button>
@@ -97,7 +97,7 @@ export default function EditProfileModal({ user, onClose, onUpdated }) {
 
         <form onSubmit={handleSubmit} className="px-6 py-6 space-y-4">
           <div>
-            <label className="block text-xs font-medium text-gray-600 mb-1">
+            <label className="block text-xs font-medium text-[#6B7280] mb-1">
               Full Name <span className="text-red-500">*</span>
             </label>
             <input
@@ -105,13 +105,13 @@ export default function EditProfileModal({ user, onClose, onUpdated }) {
               value={form.fullName}
               onChange={handleChange}
               required
-              className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-orange-400"
+              className="w-full border border-[#D9DDF0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C7D2FE]"
               placeholder="Your full name"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-gray-600 mb-1">
+            <label className="block text-xs font-medium text-[#6B7280] mb-1">
               Nickname <span className="text-red-500">*</span>
             </label>
             <input
@@ -119,13 +119,13 @@ export default function EditProfileModal({ user, onClose, onUpdated }) {
               value={form.nickName}
               onChange={handleChange}
               required
-              className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-orange-400"
+              className="w-full border border-[#D9DDF0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C7D2FE]"
               placeholder="Display name"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-gray-600 mb-1">
+            <label className="block text-xs font-medium text-[#6B7280] mb-1">
               Date of Birth <span className="text-red-500">*</span>
             </label>
             <input
@@ -135,13 +135,13 @@ export default function EditProfileModal({ user, onClose, onUpdated }) {
               onChange={handleChange}
               required
               max={new Date().toISOString().split("T")[0]}
-              className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-orange-400"
+              className="w-full border border-[#D9DDF0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C7D2FE]"
             />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-medium text-gray-600 mb-1">
+              <label className="block text-xs font-medium text-[#6B7280] mb-1">
                 Country <span className="text-red-500">*</span>
               </label>
               <input
@@ -149,12 +149,12 @@ export default function EditProfileModal({ user, onClose, onUpdated }) {
                 value={form.country}
                 onChange={handleChange}
                 required
-                className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-orange-400"
+                className="w-full border border-[#D9DDF0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C7D2FE]"
                 placeholder="India"
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-gray-600 mb-1">
+              <label className="block text-xs font-medium text-[#6B7280] mb-1">
                 City <span className="text-red-500">*</span>
               </label>
               <input
@@ -162,14 +162,14 @@ export default function EditProfileModal({ user, onClose, onUpdated }) {
                 value={form.city}
                 onChange={handleChange}
                 required
-                className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-orange-400"
+                className="w-full border border-[#D9DDF0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C7D2FE]"
                 placeholder="Mumbai"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-gray-600 mb-1">
+            <label className="block text-xs font-medium text-[#6B7280] mb-1">
               Whatsapp <span className="text-red-500">*</span>
             </label>
             <input
@@ -177,7 +177,7 @@ export default function EditProfileModal({ user, onClose, onUpdated }) {
               value={form.whatsapp}
               onChange={handleChange}
               required
-              className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-orange-400"
+              className="w-full border border-[#D9DDF0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C7D2FE]"
               placeholder="+91 9876543210"
             />
           </div>
@@ -186,7 +186,7 @@ export default function EditProfileModal({ user, onClose, onUpdated }) {
             <button
               type="submit"
               disabled={saving}
-              className="flex-1 bg-orange-500 hover:bg-orange-600 disabled:opacity-60 text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-[0_4px_14px_rgba(249,115,22,0.35)] transition-colors"
+              className="flex-1 bg-[#5B4FF7] hover:bg-[#4338CA] disabled:opacity-60 text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-[0_4px_14px_rgba(91,79,247,0.35)] transition-colors"
             >
               {saving ? "Saving..." : "Save Changes"}
             </button>

@@ -155,10 +155,10 @@ const OtpVerification = () => {
           <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
             <span className="text-teal-900">Your Wellness</span>
             <br />
-            <span className="text-orange-500">Journey Begins</span>
+            <span className="text-[#4F46E5]">Journey Begins</span>
           </h1>
 
-          <p className="text-base text-gray-700 leading-relaxed">
+          <p className="text-base text-[#374151] leading-relaxed">
             Your Privacy Matters , choose what
             <br />
             you want to be addressed
@@ -172,10 +172,10 @@ const OtpVerification = () => {
               Enter Verification Code
             </h2>
 
-            <p className="text-center text-sm text-gray-500 mb-1">
+            <p className="text-center text-sm text-[#6B7280] mb-1">
               We've sent a secure code to
             </p>
-            <p className="text-center text-sm font-medium text-gray-700 mb-6 break-all">
+            <p className="text-center text-sm font-medium text-[#374151] mb-6 break-all">
               {email}
             </p>
 
@@ -203,11 +203,11 @@ const OtpVerification = () => {
                 id="keepLoggedIn"
                 checked={keepLoggedIn}
                 onChange={() => setKeepLoggedIn(!keepLoggedIn)}
-                className="w-4 h-4 accent-orange-500 cursor-pointer"
+                className="w-4 h-4 accent-[#4F46E5] cursor-pointer"
               />
               <label
                 htmlFor="keepLoggedIn"
-                className="text-gray-700 cursor-pointer"
+                className="text-[#374151] cursor-pointer"
               >
                 Keep me Logged in
               </label>
@@ -221,11 +221,11 @@ const OtpVerification = () => {
             />
 
             {/* TIMER / RESEND */}
-            <p className="text-center text-sm mt-5 text-gray-500">
+            <p className="text-center text-sm mt-5 text-[#6B7280]">
               {timer > 0 ? (
                 <span>
                   Resend Code in{" "}
-                  <span className="font-semibold text-orange-500">
+                  <span className="font-semibold text-[#4F46E5]">
                     00:{timer < 10 ? `0${timer}` : timer}
                   </span>
                 </span>
@@ -233,7 +233,7 @@ const OtpVerification = () => {
                 <button
                   onClick={handleResend}
                   disabled={loading}
-                  className="text-orange-500 font-semibold hover:underline disabled:opacity-50"
+                  className="text-[#4F46E5] font-semibold hover:underline disabled:opacity-50"
                 >
                   Resend OTP
                 </button>
@@ -243,7 +243,7 @@ const OtpVerification = () => {
             {/* BACK */}
             <p
               onClick={() => navigate(-1)}
-              className="text-center mt-3 text-sm cursor-pointer text-gray-600 hover:text-gray-800 transition-colors"
+              className="text-center mt-3 text-sm cursor-pointer text-[#6B7280] hover:text-gray-800 transition-colors"
             >
               ← Back
             </p>

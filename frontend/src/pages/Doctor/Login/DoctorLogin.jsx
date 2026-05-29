@@ -104,7 +104,7 @@ const DoctorLogin = () => {
   };
 
   return (
-    <div className="min-h-screen flex bg-gray-50">
+    <div className="min-h-screen flex bg-[#F6F8FC]">
       {/* ============================================ */}
       {/* 🎨 LEFT PANEL — gradient + branding */}
       {/* ============================================ */}
@@ -159,7 +159,7 @@ const DoctorLogin = () => {
               <ShieldCheck className="w-5 h-5 text-white" strokeWidth={2.2} />
             </div>
             <div>
-              <p className="text-base font-bold text-gray-900 leading-tight">
+              <p className="text-base font-bold text-[#1F2937] leading-tight">
                 Zealtho
               </p>
               <p className="text-[10px] tracking-[0.18em] text-indigo-600 font-semibold">
@@ -168,13 +168,13 @@ const DoctorLogin = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_4px_24px_rgba(16,24,40,0.06)] p-8 sm:p-10">
-            <h2 className="text-3xl font-bold text-gray-900 tracking-tight">
+          <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_4px_24px_rgba(16,24,40,0.06)] p-8 sm:p-10">
+            <h2 className="text-3xl font-bold text-[#1F2937] tracking-tight">
               Log In
 
                
             </h2>
-            <p className="mt-2 text-sm text-gray-500">
+            <p className="mt-2 text-sm text-[#6B7280]">
               Sign in to access your doctor portal.
             </p>
 
@@ -183,7 +183,7 @@ const DoctorLogin = () => {
               <div>
                 <label
                   htmlFor="username"
-                  className="block text-sm font-semibold text-gray-700 mb-1.5"
+                  className="block text-sm font-semibold text-[#374151] mb-1.5"
                 >
                   Email ID
                 </label>
@@ -198,10 +198,10 @@ const DoctorLogin = () => {
                     value={formData.username}
                     onChange={handleChange}
                     disabled={isSubmitting}
-                    className={`w-full pl-11 pr-4 py-3 text-sm rounded-xl border transition-colors bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 disabled:opacity-60 ${
+                    className={`w-full pl-11 pr-4 py-3 text-sm rounded-xl border transition-colors bg-white text-[#1F2937] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 disabled:opacity-60 ${
                       errors.username
                         ? "border-red-300 focus:border-red-400"
-                        : "border-gray-200 focus:border-indigo-500"
+                        : "border-[#D9DDF0] focus:border-indigo-500"
                     }`}
                   />
                 </div>
@@ -216,7 +216,7 @@ const DoctorLogin = () => {
               <div>
                 <label
                   htmlFor="password"
-                  className="block text-sm font-semibold text-gray-700 mb-1.5"
+                  className="block text-sm font-semibold text-[#374151] mb-1.5"
                 >
                   Password
                 </label>
@@ -231,10 +231,10 @@ const DoctorLogin = () => {
                     value={formData.password}
                     onChange={handleChange}
                     disabled={isSubmitting}
-                    className={`w-full pl-11 pr-11 py-3 text-sm rounded-xl border transition-colors bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 disabled:opacity-60 ${
+                    className={`w-full pl-11 pr-11 py-3 text-sm rounded-xl border transition-colors bg-white text-[#1F2937] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 disabled:opacity-60 ${
                       errors.password
                         ? "border-red-300 focus:border-red-400"
-                        : "border-gray-200 focus:border-indigo-500"
+                        : "border-[#D9DDF0] focus:border-indigo-500"
                     }`}
                   />
                   <button
@@ -243,7 +243,7 @@ const DoctorLogin = () => {
                     aria-label={
                       showPassword ? "Hide password" : "Show password"
                     }
-                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600 transition-colors"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-[#6B7280] transition-colors"
                     tabIndex={-1}
                   >
                     {showPassword ? (
@@ -261,7 +261,7 @@ const DoctorLogin = () => {
               </div>
 
               {/* Remember me */}
-              <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer select-none">
+              <label className="flex items-center gap-2 text-sm text-[#6B7280] cursor-pointer select-none">
                 <input
                   type="checkbox"
                   checked={rememberMe}

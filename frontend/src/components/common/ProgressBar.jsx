@@ -9,7 +9,7 @@ const ProgressBar = ({ step, total }) => {
     <div className="w-full mb-4">
       
       {/* Header */}
-      <div className="flex justify-between text-xs text-gray-600 mb-1">
+      <div className="flex justify-between text-xs text-[#6B7280] mb-1">
         <span>Step {step} of {total}: Your Profile</span>
         <span>{Math.round(percentage)}%</span>
       </div>
@@ -17,7 +17,7 @@ const ProgressBar = ({ step, total }) => {
       {/* Bar */}
       <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
         <div
-          className="h-full bg-orange-500 rounded-full transition-all duration-700 ease-in-out"
+          className="h-full bg-[#4F46E5] rounded-full transition-all duration-700 ease-in-out"
           style={{ width: `${percentage}%` }}
         />
       </div>

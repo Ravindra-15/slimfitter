@@ -69,13 +69,13 @@ const UserProfile = () => {
       <div className="space-y-6">
         <button
           onClick={() => navigate("/admin/users")}
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-[#6B7280] hover:text-indigo-600 transition-colors"
         >
           <ArrowLeft size={16} />
           Back to User Directory
         </button>
 
-        <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6 animate-pulse">
+        <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6 animate-pulse">
           <div className="flex gap-5">
             <div className="w-16 h-16 bg-gray-200 rounded-full" />
             <div className="flex-1 space-y-3">
@@ -84,7 +84,7 @@ const UserProfile = () => {
             </div>
           </div>
         </div>
-        <div className="h-64 bg-white rounded-2xl border border-gray-100 animate-pulse" />
+        <div className="h-64 bg-white rounded-2xl border border-[#E7EAF3] animate-pulse" />
       </div>
     );
   }
@@ -97,17 +97,17 @@ const UserProfile = () => {
       <div className="space-y-6">
         <button
           onClick={() => navigate("/admin/users")}
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-[#6B7280] hover:text-indigo-600 transition-colors"
         >
           <ArrowLeft size={16} />
           Back to User Directory
         </button>
 
-        <div className="bg-white rounded-2xl border border-gray-100 px-6 py-16 text-center">
-          <p className="text-sm font-medium text-gray-700 mb-1">
+        <div className="bg-white rounded-2xl border border-[#E7EAF3] px-6 py-16 text-center">
+          <p className="text-sm font-medium text-[#374151] mb-1">
             {error || "User not found"}
           </p>
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-[#6B7280]">
             The user may have been deleted or the link is incorrect.
           </p>
         </div>
@@ -122,7 +122,7 @@ const UserProfile = () => {
       {/* 🔙 Back link */}
       <button
         onClick={() => navigate("/admin/users")}
-        className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors"
+        className="inline-flex items-center gap-1.5 text-sm font-medium text-[#6B7280] hover:text-indigo-600 transition-colors"
       >
         <ArrowLeft size={16} />
         Back to User Directory
@@ -140,7 +140,7 @@ const UserProfile = () => {
       {/* ============================================ */}
       <div
         className="
-          bg-white rounded-2xl border border-gray-100
+          bg-white rounded-2xl border border-[#E7EAF3]
           shadow-[0_1px_3px_rgba(16,24,40,0.04)]
           p-1.5
           inline-flex flex-wrap gap-1
@@ -162,7 +162,7 @@ const UserProfile = () => {
                 ${
                   isActive
                     ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-sm"
-                    : "text-gray-600 hover:bg-gray-50"
+                    : "text-[#6B7280] hover:bg-[#F6F8FC]"
                 }
               `}
             >

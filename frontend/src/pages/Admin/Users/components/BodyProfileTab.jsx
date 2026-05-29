@@ -19,7 +19,7 @@ import {
 // 🎨 Section icon styles
 // ============================================
 const SECTION_STYLES = {
-  metabolic: { icon: Activity, color: "text-orange-500", bg: "bg-orange-50" },
+  metabolic: { icon: Activity, color: "text-[#4F46E5]", bg: "bg-[#F3F1FF]" },
   physical: { icon: Ruler, color: "text-blue-500", bg: "bg-blue-50" },
   lifestyle: { icon: Leaf, color: "text-emerald-500", bg: "bg-emerald-50" },
   symptoms: { icon: Heart, color: "text-amber-500", bg: "bg-amber-50" },
@@ -30,11 +30,11 @@ const SECTION_STYLES = {
 // 🏷️ Field row (label + value)
 // ============================================
 const Field = ({ label, value }) => (
-  <div className="bg-white border border-gray-100 rounded-xl px-4 py-3">
+  <div className="bg-white border border-[#E7EAF3] rounded-xl px-4 py-3">
     <p className="text-[11px] uppercase tracking-wider text-gray-400 font-semibold">
       {label}
     </p>
-    <p className="text-sm font-semibold text-gray-900 mt-1.5">
+    <p className="text-sm font-semibold text-[#1F2937] mt-1.5">
       {value !== null && value !== undefined && value !== "" ? value : "—"}
     </p>
   </div>
@@ -51,7 +51,7 @@ const Section = ({ kind, title, children }) => {
         <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${bg}`}>
           <Icon size={15} className={color} />
         </div>
-        <h3 className="text-sm font-bold text-gray-900">{title}</h3>
+        <h3 className="text-sm font-bold text-[#1F2937]">{title}</h3>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {children}
@@ -66,17 +66,17 @@ const Section = ({ kind, title, children }) => {
 const EmptyState = () => (
   <div
     className="
-      bg-white rounded-2xl border border-dashed border-gray-200
+      bg-white rounded-2xl border border-dashed border-[#D9DDF0]
       px-6 py-16 text-center
     "
   >
-    <div className="w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mx-auto mb-3">
+    <div className="w-12 h-12 rounded-full bg-[#F6F8FC] flex items-center justify-center mx-auto mb-3">
       <ClipboardX size={20} className="text-gray-400" />
     </div>
-    <p className="text-sm font-medium text-gray-700 mb-1">
+    <p className="text-sm font-medium text-[#374151] mb-1">
       No body profile yet
     </p>
-    <p className="text-xs text-gray-500 max-w-xs mx-auto">
+    <p className="text-xs text-[#6B7280] max-w-xs mx-auto">
       The user hasn't completed their 27-point body profile. It's collected when
       they book their first consultation.
     </p>
@@ -94,7 +94,7 @@ const BodyProfileTab = ({ bodyProfile }) => {
   return (
     <div
       className="
-        bg-white rounded-2xl border border-gray-100
+        bg-white rounded-2xl border border-[#E7EAF3]
         shadow-[0_1px_3px_rgba(16,24,40,0.04)]
         p-5 sm:p-6
         space-y-7

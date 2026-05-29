@@ -36,13 +36,13 @@ export default function CallbackSection() {
         email: form.email.trim(),
         phone: form.phone.trim(),
         message: form.message.trim(),
-        source: "zealtho",
+        source: "diabmukt",
       });
       toast.success("We'll call you back within 12 hours!");
       setForm(initialForm);
     } catch (err) {
       toast.error(
-        err?.response?.data?.message || "Failed to submit. Please try again."
+        err?.response?.data?.message || "Failed to submit. Please try again.",
       );
     } finally {
       setLoading(false);
@@ -50,31 +50,30 @@ export default function CallbackSection() {
   };
 
   const inputClass =
-    "w-full border-0 border-b border-gray-300 focus:border-teal-700 outline-none py-2 text-sm text-gray-700 placeholder-gray-400 bg-transparent transition-colors";
+    "w-full border-0 border-b border-[#7C97A0] focus:border-[#5B4FF7] outline-none py-2 text-sm text-[#083B44] placeholder-[#083B44] bg-transparent transition-colors";
 
   return (
     <section id="callback" className="bg-white">
       <div className="max-w-[1600px] mx-auto px-5 sm:px-8 lg:px-12 py-10 sm:py-12 lg:py-14">
         {/* Heading */}
         <div className="text-center mb-8 sm:mb-10">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0F2C3D] mb-2">
-            Request a <span className="text-orange-500">Callback</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#083B44] mb-2">
+            Request a <span className="text-[#4F46E5]">Callback</span>
           </h2>
-          <p className="text-gray-500 text-sm sm:text-base">
+          <p className="text-[#083B44] text-sm sm:text-base">
             We typically respond within 12 hours.
           </p>
         </div>
 
         {/* Balanced row — centered inside the 1600px wrapper */}
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-32 items-center justify-center">
-
           {/* FORM */}
           <div className="w-full lg:w-1/2 space-y-5 sm:space-y-6 max-w-xl mx-auto lg:mx-0">
             <input
               name="name"
               value={form.name}
               onChange={handle}
-              placeholder="Name"
+              placeholder="Name *"
               className={inputClass}
             />
             <input
@@ -89,7 +88,7 @@ export default function CallbackSection() {
               name="phone"
               value={form.phone}
               onChange={handle}
-              placeholder="Mobile Number"
+              placeholder="Mobile Number *"
               type="tel"
               className={inputClass}
             />
@@ -97,13 +96,13 @@ export default function CallbackSection() {
               name="message"
               value={form.message}
               onChange={handle}
-              placeholder="Message"
+              placeholder="Message *"
               className={inputClass}
             />
             <button
               onClick={submit}
               disabled={loading}
-              className="w-full bg-orange-500 text-white py-3 rounded-full font-semibold shadow-[0_4px_14px_rgba(249,115,22,0.35)] hover:bg-orange-600 transition-colors disabled:opacity-60 mt-2"
+              className="w-full bg-[#4F46E5] text-white py-3 rounded-full font-semibold shadow-[0_6px_18px_rgba(79,70,229,0.28)] hover:bg-[#4338CA] transition-colors disabled:opacity-60 mt-2"
             >
               {loading ? "Submitting..." : "Submit"}
             </button>
@@ -132,7 +131,6 @@ export default function CallbackSection() {
               />
             </div>
           </div>
-
         </div>
       </div>
     </section>

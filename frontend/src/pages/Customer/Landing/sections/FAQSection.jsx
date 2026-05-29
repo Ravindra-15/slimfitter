@@ -37,20 +37,20 @@ export default function FAQSection() {
           
           {/* LEFT */}
           <div className="w-full lg:w-[40%]">
-            <h2 className="font-bold leading-[1.15] mb-4 text-3xl sm:text-4xl lg:text-[38px] xl:text-[42px] lg:whitespace-nowrap">
-              <span className="text-[#0F2C3D]">Frequently Asked </span>
-              <span className="text-orange-500">Questions</span>
-            </h2>
+          <h2 className="font-bold leading-[1.15] mb-4 text-3xl sm:text-4xl lg:text-[38px] xl:text-[42px] lg:whitespace-nowrap">
+  <span className="text-[#083B44]">Frequently Asked </span>
+  <span className="text-[#4F46E5]">Questions</span>
+</h2>
 
-            <p className="text-gray-500 text-sm sm:text-base leading-relaxed max-w-[420px] mb-6 lg:mb-8">
-              Find answers to common questions about our services,
-              therapy, and mental well-being.
-            </p>
+<p className="text-[#083B44] text-sm sm:text-base leading-relaxed max-w-[420px] mb-6 lg:mb-8">
+  Find answers to common questions about our services,
+  therapy, and mental well-being.
+</p>
 
             {/* IMAGE */}
             <div className="rounded-[40px] overflow-hidden">
               <img
-                src="/images/yogat20faqimg.png"
+                src="/images/FAQdiab.png"
                 alt="Yoga FAQ"
                 className="w-full h-[240px] sm:h-[320px] lg:h-[380px] object-cover"
               />

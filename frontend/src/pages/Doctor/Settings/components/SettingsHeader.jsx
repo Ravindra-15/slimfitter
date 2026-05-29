@@ -8,10 +8,10 @@ const SettingsHeader = () => {
         <SettingsIcon className="w-5 h-5 text-indigo-600" strokeWidth={2} />
       </div>
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 tracking-tight">
+        <h1 className="text-2xl font-bold text-[#1F2937] tracking-tight">
           Professional Profile Management
         </h1>
-        <p className="mt-1 text-sm text-gray-500">
+        <p className="mt-1 text-sm text-[#6B7280]">
           Update your credentials and how you appear to patients.
         </p>
       </div>

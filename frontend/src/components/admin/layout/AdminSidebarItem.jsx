@@ -29,7 +29,7 @@ const AdminSidebarItem = ({ icon: Icon, label, to, badge, onClick }) => {
         ${
           isActive
             ? "bg-indigo-600 text-white shadow-sm shadow-indigo-200"
-            : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+            : "text-[#374151] hover:bg-gray-100 hover:text-[#1F2937]"
         }
       `}
       aria-label={label}
@@ -41,7 +41,7 @@ const AdminSidebarItem = ({ icon: Icon, label, to, badge, onClick }) => {
             <Icon
               size={18}
               className={`flex-shrink-0 transition-colors ${
-                isActive ? "text-white" : "text-gray-500 group-hover:text-gray-700"
+                isActive ? "text-white" : "text-[#6B7280] group-hover:text-[#374151]"
               }`}
               aria-hidden="true"
             />

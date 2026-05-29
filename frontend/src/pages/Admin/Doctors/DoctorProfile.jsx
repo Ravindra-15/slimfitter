@@ -69,7 +69,7 @@ const SafeBioContent = ({ html }) => {
     }
     return (
       <div
-        className="text-sm text-gray-600 leading-relaxed mb-4 bio-content"
+        className="text-sm text-[#6B7280] leading-relaxed mb-4 bio-content"
         dangerouslySetInnerHTML={{ __html: sanitized }}
       />
     );
@@ -134,7 +134,7 @@ const DoctorProfile = () => {
       <div className="flex items-center justify-center py-20">
         <div className="flex flex-col items-center gap-3">
           <Loader2 size={28} className="text-indigo-600 animate-spin" />
-          <p className="text-sm text-gray-500">Loading doctor profile...</p>
+          <p className="text-sm text-[#6B7280]">Loading doctor profile...</p>
         </div>
       </div>
     );
@@ -150,7 +150,7 @@ const DoctorProfile = () => {
           <div className="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center">
             <AlertCircle size={20} className="text-red-500" />
           </div>
-          <p className="text-sm font-medium text-gray-700">
+          <p className="text-sm font-medium text-[#374151]">
             {error || "Doctor not found"}
           </p>
           <button
@@ -175,7 +175,7 @@ const DoctorProfile = () => {
         onClick={() => navigate("/admin/doctors")}
         className="
           inline-flex items-center gap-1.5
-          text-sm font-medium text-gray-600 hover:text-indigo-600
+          text-sm font-medium text-[#6B7280] hover:text-indigo-600
           transition-colors
         "
       >
@@ -188,7 +188,7 @@ const DoctorProfile = () => {
       {/* ============================================ */}
       <div
         className="
-          bg-white rounded-2xl border border-gray-100
+          bg-white rounded-2xl border border-[#E7EAF3]
           shadow-[0_1px_3px_rgba(16,24,40,0.04)]
           px-6 sm:px-8 py-6
         "
@@ -227,7 +227,7 @@ const DoctorProfile = () => {
 
           {/* 📝 Name + Domain */}
           <div className="flex-1 min-w-0">
-            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+            <h1 className="text-2xl sm:text-3xl font-bold text-[#1F2937] mb-2">
               {doctor.fullName}
             </h1>
 
@@ -235,7 +235,7 @@ const DoctorProfile = () => {
               <span
                 className="
                   inline-flex items-center px-3 py-1
-                  bg-gray-100 text-gray-700
+                  bg-gray-100 text-[#374151]
                   text-sm font-medium
                   rounded-full
                 "
@@ -296,7 +296,7 @@ const DoctorProfile = () => {
       {/* ============================================ */}
       <div
         className="
-          bg-white rounded-2xl border border-gray-100
+          bg-white rounded-2xl border border-[#E7EAF3]
           shadow-[0_1px_3px_rgba(16,24,40,0.04)]
           px-6 sm:px-8 py-6 sm:py-7
         "
@@ -304,7 +304,7 @@ const DoctorProfile = () => {
         {/* 🩺 Professional Information */}
         {/* 🩺 Professional Information */}
         <section>
-          <h2 className="text-base font-bold text-gray-900 mb-3">
+          <h2 className="text-base font-bold text-[#1F2937] mb-3">
             Professional Information
           </h2>
 
@@ -312,7 +312,7 @@ const DoctorProfile = () => {
          <div className="max-w-6xl">
             <div
               className="
-        text-sm text-gray-600 leading-relaxed mb-4
+        text-sm text-[#6B7280] leading-relaxed mb-4
         break-words
         [&>p]:mb-2
         [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:mb-2
@@ -345,11 +345,11 @@ const DoctorProfile = () => {
           )}
         </section>
         {/* Divider */}
-        <div className="my-6 border-t border-gray-100" />
+        <div className="my-6 border-t border-[#E7EAF3]" />
 
         {/* 📞 Contact Information */}
         <section>
-          <h2 className="text-base font-bold text-gray-900 mb-4">
+          <h2 className="text-base font-bold text-[#1F2937] mb-4">
             Contact Information
           </h2>
 
@@ -358,7 +358,7 @@ const DoctorProfile = () => {
             <div
               className="
                 flex items-start gap-3 p-4
-                bg-gray-50 rounded-xl border border-gray-100
+                bg-[#F6F8FC] rounded-xl border border-[#E7EAF3]
               "
             >
               <div
@@ -370,7 +370,7 @@ const DoctorProfile = () => {
                 <Mail size={18} className="text-indigo-500" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-[10px] font-semibold tracking-wider text-gray-500 uppercase mb-1">
+                <p className="text-[10px] font-semibold tracking-wider text-[#6B7280] uppercase mb-1">
                   Email Address
                 </p>
                 {hasEmail ? (
@@ -389,7 +389,7 @@ const DoctorProfile = () => {
             <div
               className="
                 flex items-start gap-3 p-4
-                bg-gray-50 rounded-xl border border-gray-100
+                bg-[#F6F8FC] rounded-xl border border-[#E7EAF3]
               "
             >
               <div
@@ -401,7 +401,7 @@ const DoctorProfile = () => {
                 <Phone size={18} className="text-emerald-500" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-[10px] font-semibold tracking-wider text-gray-500 uppercase mb-1">
+                <p className="text-[10px] font-semibold tracking-wider text-[#6B7280] uppercase mb-1">
                   Mobile Number
                 </p>
                 {hasPhone ? (
@@ -419,7 +419,7 @@ const DoctorProfile = () => {
 
           {/* ℹ️ Helper note */}
           {(!hasEmail || !hasPhone) && (
-            <p className="mt-4 text-xs text-gray-500 leading-relaxed italic">
+            <p className="mt-4 text-xs text-[#6B7280] leading-relaxed italic">
               Contact details will be filled in by the doctor during profile
               completion on first login.
             </p>
@@ -429,24 +429,24 @@ const DoctorProfile = () => {
         {/* Optional: Account activity */}
         {doctor.lastLogin && (
           <>
-            <div className="my-6 border-t border-gray-100" />
+            <div className="my-6 border-t border-[#E7EAF3]" />
             <section>
-              <h2 className="text-base font-bold text-gray-900 mb-3">
+              <h2 className="text-base font-bold text-[#1F2937] mb-3">
                 Account Activity
               </h2>
-              <div className="text-xs text-gray-500 space-y-1">
+              <div className="text-xs text-[#6B7280] space-y-1">
                 <p>
-                  <span className="font-semibold text-gray-700">Username:</span>{" "}
+                  <span className="font-semibold text-[#374151]">Username:</span>{" "}
                   <span className="font-mono">{doctor.username}</span>
                 </p>
                 <p>
-                  <span className="font-semibold text-gray-700">
+                  <span className="font-semibold text-[#374151]">
                     Last login:
                   </span>{" "}
                   {new Date(doctor.lastLogin).toLocaleString()}
                 </p>
                 <p>
-                  <span className="font-semibold text-gray-700">
+                  <span className="font-semibold text-[#374151]">
                     Profile complete:
                   </span>{" "}
                   {doctor.isProfileComplete ? "Yes" : "No"}

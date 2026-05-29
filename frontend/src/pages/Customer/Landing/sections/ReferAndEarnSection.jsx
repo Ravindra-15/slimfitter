@@ -8,7 +8,7 @@ function StepCircle({ icon: Icon, title, subtitle }) {
       <div className="w-12 h-12 rounded-full bg-gray-900 flex items-center justify-center shadow-md mb-4 relative z-10">
         <Icon size={20} className="text-white" />
       </div>
-      <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+      <p className="text-sm sm:text-base text-[#374151] leading-relaxed">
         {title}
         <br />
         {subtitle}
@@ -21,19 +21,19 @@ export default function ReferAndEarnSection() {
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-white">
       <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden bg-gray-50 rounded-3xl border border-gray-100 px-6 sm:px-12 py-10 sm:py-14 mb-10">
+        <div className="relative overflow-hidden bg-[#F6F8FC] rounded-3xl border border-[#E7EAF3] px-6 sm:px-12 py-10 sm:py-14 mb-10">
           {/* Top-right decorative image */}
           <img
-            src="/images/referandearn.png"
+            src="/images/referandearndiab.png"
             alt=""
-            className="absolute -top-6 -right-6 sm:-top-24 sm:-right-24 lg:-top-28 lg:-right-28 w-20 sm:w-64 lg:w-80 pointer-events-none select-none"
+            className="absolute -top-6 -right-12 sm:-top-24 sm:-right-24 lg:-top-28 lg:-right-40 w-36 sm:w-96 lg:w-[28rem] pointer-events-none select-none"
           />
 
           <div className="relative z-10 text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+            <h1 className="text-3xl sm:text-3xl lg:text-4xl font-bold text-[#1F2937] mb-2">
               Refer and Earn
             </h1>
-            <p className="text-base sm:text-lg text-gray-600">
+            <p className="text-base sm:text-lg text-[#6B7280]">
               Wellness is better with friends{" "}
               <span className="inline-block">👋</span>
             </p>

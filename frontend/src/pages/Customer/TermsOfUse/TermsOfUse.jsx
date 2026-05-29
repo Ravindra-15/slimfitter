@@ -70,9 +70,9 @@ const TermsOfUse = () => {
           <div className="text-center mb-10 sm:mb-12">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
               <span className="text-teal-700">Trust &amp; </span>
-              <span className="text-orange-500">Transparency Center</span>
+              <span className="text-[#4F46E5]">Transparency Center</span>
             </h1>
-            <p className="mt-4 text-sm sm:text-base text-gray-500 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-4 text-sm sm:text-base text-[#6B7280] max-w-2xl mx-auto leading-relaxed">
               Everything you need to know about how we protect your data
               and manage your health journey.
             </p>
@@ -80,13 +80,13 @@ const TermsOfUse = () => {
 
           {/* ---------- Identity Protected callout ---------- */}
           <div className="max-w-3xl mx-auto mb-12 sm:mb-16 text-center">
-            <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-orange-50 mb-3">
-              <ShieldCheck size={20} className="text-orange-500" />
+            <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#F3F1FF] mb-3">
+              <ShieldCheck size={20} className="text-[#4F46E5]" />
             </div>
-            <p className="text-sm sm:text-base font-semibold text-orange-500 mb-2">
+            <p className="text-sm sm:text-base font-semibold text-[#4F46E5] mb-2">
               Your Identity is 100% Protected
             </p>
-            <p className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-[#6B7280] leading-relaxed max-w-2xl mx-auto">
               To ensure your absolute privacy, your real name and phone number
               are strictly masked from all instructors and doctors. You will be
               identified on the platform only by your chosen Nickname.
@@ -97,14 +97,14 @@ const TermsOfUse = () => {
           <div className="max-w-4xl mx-auto space-y-10 sm:space-y-14">
             {POLICY_SECTIONS.map((section) => (
               <div key={section.title} className="text-center">
-                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-5">
+                <h2 className="text-xl sm:text-2xl font-bold text-[#1F2937] mb-5">
                   {section.title}
                 </h2>
                 <div className="space-y-4">
                   {section.paragraphs.map((para, idx) => (
                     <p
                       key={idx}
-                      className="text-sm sm:text-base text-gray-600 leading-relaxed"
+                      className="text-sm sm:text-base text-[#6B7280] leading-relaxed"
                     >
                       {para}
                     </p>

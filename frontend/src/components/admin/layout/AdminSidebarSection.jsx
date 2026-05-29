@@ -65,7 +65,7 @@ const AdminSidebarSection = ({
         className={`
           px-3 py-2 flex items-center justify-between
           text-[11px] font-semibold tracking-wider text-gray-400 uppercase
-          ${collapsible ? "cursor-pointer hover:text-gray-600 transition-colors" : ""}
+          ${collapsible ? "cursor-pointer hover:text-[#6B7280] transition-colors" : ""}
         `}
       >
         <span>{title}</span>

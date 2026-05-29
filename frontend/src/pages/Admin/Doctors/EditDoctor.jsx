@@ -129,7 +129,7 @@ const EditDoctor = () => {
       <div className="flex items-center justify-center py-20">
         <div className="flex flex-col items-center gap-3">
           <Loader2 size={28} className="text-indigo-600 animate-spin" />
-          <p className="text-sm text-gray-500">Loading doctor profile...</p>
+          <p className="text-sm text-[#6B7280]">Loading doctor profile...</p>
         </div>
       </div>
     );
@@ -145,7 +145,7 @@ const EditDoctor = () => {
           <div className="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center">
             <AlertCircle size={20} className="text-red-500" />
           </div>
-          <p className="text-sm font-medium text-gray-700">
+          <p className="text-sm font-medium text-[#374151]">
             {error || "Doctor not found"}
           </p>
           <button
@@ -167,7 +167,7 @@ const EditDoctor = () => {
         disabled={submitting}
         className="
           inline-flex items-center gap-1.5
-          text-sm font-medium text-gray-600 hover:text-indigo-600
+          text-sm font-medium text-[#6B7280] hover:text-indigo-600
           disabled:opacity-50 disabled:cursor-not-allowed
           transition-colors
         "

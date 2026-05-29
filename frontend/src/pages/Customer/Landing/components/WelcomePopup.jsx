@@ -25,7 +25,7 @@ export default function WelcomePopup() {
         {/* close */}
         <button
           onClick={() => setOpen(false)}
-          className="absolute top-5 right-5 text-gray-500 hover:text-gray-700"
+          className="absolute top-5 right-5 text-[#6B7280] hover:text-[#374151]"
         >
           <X size={20} />
         </button>
@@ -36,9 +36,9 @@ export default function WelcomePopup() {
         </h2>
 
         {/* text */}
-        <p className="text-gray-600 text-sm leading-relaxed mb-8">
+        <p className="text-[#6B7280] text-sm leading-relaxed mb-8">
           Browse verified specialists and book a consultation for just
-          <span className="font-semibold text-orange-500"> $20</span>.
+          <span className="font-semibold text-[#4F46E5]"> $20</span>.
           <br />
           Get instant access to Endocrinologists, Gynecologists,
           and more.
@@ -48,14 +48,14 @@ export default function WelcomePopup() {
         <div className="flex flex-col gap-3">
           <Link
             to="/signup"
-            className="bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full font-semibold transition-colors"
+            className="bg-[#4F46E5] hover:bg- [#4338CA] text-white py-3 rounded-full font-semibold transition-colors"
           >
             Register for Free
           </Link>
 
           <Link
             to="/login"
-            className="border border-gray-300 hover:border-teal-700 hover:text-teal-700 text-gray-700 py-3 rounded-full font-semibold transition-colors"
+            className="border border-gray-300 hover:border-teal-700 hover:text-[#4F46E5] text-[#374151] py-3 rounded-full font-semibold transition-colors"
           >
             Login
           </Link>

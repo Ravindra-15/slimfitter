@@ -39,20 +39,20 @@ const ConsultationRow = ({ consultation }) => {
       className="
         flex flex-col sm:flex-row sm:items-center sm:justify-between
         gap-2 px-5 py-4
-        hover:bg-gray-50/50 transition-colors
+        hover:bg-[#F6F8FC]/50 transition-colors
       "
     >
       <div className="min-w-0">
-        <p className="text-sm font-semibold text-gray-900 truncate">
+        <p className="text-sm font-semibold text-[#1F2937] truncate">
           Doctor: {doctorName}
         </p>
-        <p className="text-xs text-gray-500 mt-0.5">
+        <p className="text-xs text-[#6B7280] mt-0.5">
           Duration: {durationMinutes} mins
         </p>
       </div>
 
       <div className="flex sm:flex-col sm:items-end gap-3 sm:gap-1 text-xs">
-        <p className="font-semibold text-gray-700">{formatDate(consultedAt)}</p>
+        <p className="font-semibold text-[#374151]">{formatDate(consultedAt)}</p>
         <p className="font-bold text-indigo-600">{formatFee(fee)}</p>
       </div>
     </div>
@@ -64,13 +64,13 @@ const ConsultationRow = ({ consultation }) => {
 // ============================================
 const EmptyState = () => (
   <div className="px-6 py-16 text-center">
-    <div className="w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mx-auto mb-3">
+    <div className="w-12 h-12 rounded-full bg-[#F6F8FC] flex items-center justify-center mx-auto mb-3">
       <CalendarX size={20} className="text-gray-400" />
     </div>
-    <p className="text-sm font-medium text-gray-700 mb-1">
+    <p className="text-sm font-medium text-[#374151] mb-1">
       No consultations yet
     </p>
-    <p className="text-xs text-gray-500 max-w-xs mx-auto">
+    <p className="text-xs text-[#6B7280] max-w-xs mx-auto">
       This user hasn't had any consultations. Records will appear here once
       they book and complete one.
     </p>
@@ -84,17 +84,17 @@ const ConsultationsTab = ({ consultations = [] }) => {
   return (
     <div
       className="
-        bg-white rounded-2xl border border-gray-100
+        bg-white rounded-2xl border border-[#E7EAF3]
         shadow-[0_1px_3px_rgba(16,24,40,0.04)]
         overflow-hidden
       "
     >
       {/* Section header */}
-      <div className="px-5 py-4 border-b border-gray-100">
-        <h3 className="text-sm font-bold text-gray-900">
+      <div className="px-5 py-4 border-b border-[#E7EAF3]">
+        <h3 className="text-sm font-bold text-[#1F2937]">
           Consultation History
         </h3>
-        <p className="text-xs text-gray-500 mt-0.5">
+        <p className="text-xs text-[#6B7280] mt-0.5">
           {consultations.length} record{consultations.length !== 1 ? "s" : ""}
         </p>
       </div>

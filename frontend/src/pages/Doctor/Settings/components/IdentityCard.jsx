@@ -303,17 +303,17 @@ const IdentityCard = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white rounded-2xl border border-gray-100 shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6 sm:p-8"
+      className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6 sm:p-8"
       noValidate
     >
       {/* Card header */}
-      <div className="flex items-center gap-3 pb-5 mb-6 border-b border-gray-100">
+      <div className="flex items-center gap-3 pb-5 mb-6 border-b border-[#E7EAF3]">
         <div className="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center">
           <User size={18} className="text-indigo-500" />
         </div>
         <div className="flex-1">
-          <h2 className="text-base font-bold text-gray-900">Identity</h2>
-          <p className="text-xs text-gray-500 mt-0.5">
+          <h2 className="text-base font-bold text-[#1F2937]">Identity</h2>
+          <p className="text-xs text-[#6B7280] mt-0.5">
             Click the camera icon to upload a professional photo
           </p>
         </div>
@@ -338,7 +338,7 @@ const IdentityCard = () => {
       <div className="space-y-5">
         {/* Full Name */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-[#374151] mb-2">
             Full Name <span className="text-red-500">*</span>
           </label>
           <input
@@ -348,14 +348,14 @@ const IdentityCard = () => {
             disabled={submitting}
             maxLength={LIMITS.FULL_NAME_MAX}
             placeholder="e.g., Dr. Priya Sharma"
-            className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:bg-gray-50 disabled:cursor-not-allowed transition-colors"
+            className="w-full px-4 py-3 bg-white border border-[#D9DDF0] rounded-xl text-sm text-[#1F2937] placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:bg-[#F6F8FC] disabled:cursor-not-allowed transition-colors"
           />
         </div>
 
         {/* Domain — read-only */}
         {/* 🔒 To allow doctor editing of domain, replace this read-only block with an input or ChipsInput */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-[#374151] mb-2">
             Domain
           </label>
           <input
@@ -363,7 +363,7 @@ const IdentityCard = () => {
             value={doctor?.domain || ""}
             disabled
             readOnly
-            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-500 cursor-not-allowed"
+            className="w-full px-4 py-3 bg-[#F6F8FC] border border-[#D9DDF0] rounded-xl text-sm text-[#6B7280] cursor-not-allowed"
           />
           <p className="mt-1.5 text-xs text-gray-400">
             Set by your administrator. Contact admin to change.
@@ -386,11 +386,11 @@ const IdentityCard = () => {
 
         {/* Bio */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-[#374151] mb-2">
             Professional Summary <span className="text-red-500">*</span>
           </label>
           <div
-            className={`quill-wrapper bg-white border border-gray-200 rounded-xl overflow-hidden focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500 transition-colors ${
+            className={`quill-wrapper bg-white border border-[#D9DDF0] rounded-xl overflow-hidden focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500 transition-colors ${
               submitting ? "opacity-60 pointer-events-none" : ""
             }`}
           >
@@ -411,7 +411,7 @@ const IdentityCard = () => {
             <span
               className={`text-xs ${
                 countVisibleChars(form.shortBio) > LIMITS.BIO_MAX * 0.9
-                  ? "text-orange-500"
+                  ? "text-[#4F46E5]"
                   : "text-gray-400"
               }`}
             >
@@ -422,7 +422,7 @@ const IdentityCard = () => {
 
         {/* Personal Email */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-[#374151] mb-2">
             Personal Email <span className="text-red-500">*</span>
           </label>
           <input
@@ -431,13 +431,13 @@ const IdentityCard = () => {
             onChange={(e) => handleField("personalEmail", e.target.value)}
             disabled={submitting}
             placeholder="you@example.com"
-            className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:bg-gray-50 disabled:cursor-not-allowed transition-colors"
+            className="w-full px-4 py-3 bg-white border border-[#D9DDF0] rounded-xl text-sm text-[#1F2937] placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:bg-[#F6F8FC] disabled:cursor-not-allowed transition-colors"
           />
         </div>
 
         {/* Phone */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-[#374151] mb-2">
             Phone Number <span className="text-red-500">*</span>
           </label>
           <input
@@ -446,13 +446,13 @@ const IdentityCard = () => {
             onChange={(e) => handleField("phone", e.target.value)}
             disabled={submitting}
             placeholder="+91 98765 43210"
-            className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:bg-gray-50 disabled:cursor-not-allowed transition-colors"
+            className="w-full px-4 py-3 bg-white border border-[#D9DDF0] rounded-xl text-sm text-[#1F2937] placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:bg-[#F6F8FC] disabled:cursor-not-allowed transition-colors"
           />
         </div>
 
         {/* Qualifications */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-[#374151] mb-2">
             Qualifications <span className="text-red-500">*</span>
           </label>
           <textarea
@@ -462,7 +462,7 @@ const IdentityCard = () => {
             disabled={submitting}
             maxLength={LIMITS.QUALIFICATIONS_MAX}
             placeholder="e.g., MBBS, MD - General Medicine, Fellowship in Cardiology"
-            className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:bg-gray-50 disabled:cursor-not-allowed transition-colors resize-none"
+            className="w-full px-4 py-3 bg-white border border-[#D9DDF0] rounded-xl text-sm text-[#1F2937] placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:bg-[#F6F8FC] disabled:cursor-not-allowed transition-colors resize-none"
           />
           <div className="mt-1.5 flex justify-end">
             <span className="text-xs text-gray-400">
@@ -473,7 +473,7 @@ const IdentityCard = () => {
 
         {/* Years of Experience */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-[#374151] mb-2">
             Years of Experience <span className="text-red-500">*</span>
           </label>
           <input
@@ -486,14 +486,14 @@ const IdentityCard = () => {
             onChange={(e) => handleField("yearsOfExperience", e.target.value)}
             disabled={submitting}
             placeholder="e.g., 12"
-            className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:bg-gray-50 disabled:cursor-not-allowed transition-colors [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+            className="w-full px-4 py-3 bg-white border border-[#D9DDF0] rounded-xl text-sm text-[#1F2937] placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:bg-[#F6F8FC] disabled:cursor-not-allowed transition-colors [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           />
         </div>
       </div>
 
       {/* Submit + saved indicator */}
-      <div className="mt-7 pt-5 border-t border-gray-100 flex items-center justify-between gap-4">
-        <div className="text-xs text-gray-500 min-h-[18px]">
+      <div className="mt-7 pt-5 border-t border-[#E7EAF3] flex items-center justify-between gap-4">
+        <div className="text-xs text-[#6B7280] min-h-[18px]">
           {savedAt && (
             <span className="inline-flex items-center gap-1.5 text-green-600 font-medium">
               <CheckCircle2 className="w-3.5 h-3.5" />

@@ -20,7 +20,7 @@ const LegendChip = ({ color, label }) => (
       className={`w-2.5 h-2.5 rounded-sm border ${color}`}
       aria-hidden="true"
     />
-    <span className="text-[11px] font-medium text-gray-600">{label}</span>
+    <span className="text-[11px] font-medium text-[#6B7280]">{label}</span>
   </div>
 );
 
@@ -39,7 +39,7 @@ const WeekHeader = ({
     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
       {/* 🏷️ Title + legend */}
       <div className="flex flex-col gap-2">
-        <h2 className="text-base font-bold text-gray-900">
+        <h2 className="text-base font-bold text-[#1F2937]">
           Your Weekly Schedule
         </h2>
         <div className="flex items-center gap-3 flex-wrap">
@@ -57,8 +57,8 @@ const WeekHeader = ({
           className="
             w-8 h-8 rounded-lg
             flex items-center justify-center
-            text-gray-500 hover:text-indigo-600 hover:bg-indigo-50
-            border border-gray-200
+            text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
+            border border-[#D9DDF0]
             transition-colors
           "
           aria-label="Previous week"
@@ -66,8 +66,8 @@ const WeekHeader = ({
           <ChevronLeft size={16} />
         </button>
 
-        <div className="px-3 py-1.5 rounded-lg bg-gray-50 border border-gray-100 min-w-[160px] text-center">
-          <p className="text-xs font-semibold text-gray-700">{rangeLabel}</p>
+        <div className="px-3 py-1.5 rounded-lg bg-[#F6F8FC] border border-[#E7EAF3] min-w-[160px] text-center">
+          <p className="text-xs font-semibold text-[#374151]">{rangeLabel}</p>
           {isCurrentWeek && (
             <p className="text-[10px] text-indigo-600 font-medium">This Week</p>
           )}
@@ -79,8 +79,8 @@ const WeekHeader = ({
           className="
             w-8 h-8 rounded-lg
             flex items-center justify-center
-            text-gray-500 hover:text-indigo-600 hover:bg-indigo-50
-            border border-gray-200
+            text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
+            border border-[#D9DDF0]
             transition-colors
           "
           aria-label="Next week"

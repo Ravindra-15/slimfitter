@@ -41,7 +41,7 @@ const UserAvatar = ({ user }) => (
       w-10 h-10 rounded-full flex-shrink-0
       bg-gradient-to-br from-indigo-100 to-purple-100
       flex items-center justify-center
-      border border-gray-200
+      border border-[#D9DDF0]
     "
     aria-hidden="true"
   >
@@ -63,7 +63,7 @@ const UserTable = ({ users = [], loading = false }) => {
     return (
       <div
         className="
-          bg-white rounded-2xl border border-gray-100
+          bg-white rounded-2xl border border-[#E7EAF3]
           shadow-[0_1px_3px_rgba(16,24,40,0.04)]
           px-6 py-16 text-center
         "
@@ -71,8 +71,8 @@ const UserTable = ({ users = [], loading = false }) => {
         <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-3">
           <User size={20} className="text-gray-400" />
         </div>
-        <p className="text-sm font-medium text-gray-700 mb-1">No users found</p>
-        <p className="text-xs text-gray-500">
+        <p className="text-sm font-medium text-[#374151] mb-1">No users found</p>
+        <p className="text-xs text-[#6B7280]">
           Try adjusting your search or status filter.
         </p>
       </div>
@@ -91,7 +91,7 @@ const UserTable = ({ users = [], loading = false }) => {
   return (
     <div
       className="
-        bg-white rounded-2xl border border-gray-100
+        bg-white rounded-2xl border border-[#E7EAF3]
         shadow-[0_1px_3px_rgba(16,24,40,0.04)]
         overflow-hidden
       "
@@ -102,28 +102,28 @@ const UserTable = ({ users = [], loading = false }) => {
       <div className="hidden md:block overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-gray-100 bg-gray-50/40">
+            <tr className="border-b border-[#E7EAF3] bg-[#F6F8FC]/40">
               <th
                 scope="col"
-                className="px-6 py-3.5 text-left text-[11px] font-semibold tracking-wider text-gray-500 uppercase"
+                className="px-6 py-3.5 text-left text-[11px] font-semibold tracking-wider text-[#6B7280] uppercase"
               >
                 Name
               </th>
               <th
                 scope="col"
-                className="px-6 py-3.5 text-left text-[11px] font-semibold tracking-wider text-gray-500 uppercase"
+                className="px-6 py-3.5 text-left text-[11px] font-semibold tracking-wider text-[#6B7280] uppercase"
               >
                 Plan
               </th>
               <th
                 scope="col"
-                className="px-6 py-3.5 text-center text-[11px] font-semibold tracking-wider text-gray-500 uppercase"
+                className="px-6 py-3.5 text-center text-[11px] font-semibold tracking-wider text-[#6B7280] uppercase"
               >
                 Status
               </th>
               <th
                 scope="col"
-                className="px-6 py-3.5 text-right text-[11px] font-semibold tracking-wider text-gray-500 uppercase"
+                className="px-6 py-3.5 text-right text-[11px] font-semibold tracking-wider text-[#6B7280] uppercase"
               >
                 Actions
               </th>
@@ -134,8 +134,8 @@ const UserTable = ({ users = [], loading = false }) => {
               <tr
                 key={user._id}
                 className={`
-                  hover:bg-gray-50/50 transition-colors
-                  ${idx !== users.length - 1 ? "border-b border-gray-100" : ""}
+                  hover:bg-[#F6F8FC]/50 transition-colors
+                  ${idx !== users.length - 1 ? "border-b border-[#E7EAF3]" : ""}
                 `}
               >
                 {/* 👤 Name (avatar + name + display ID) */}
@@ -143,10 +143,10 @@ const UserTable = ({ users = [], loading = false }) => {
                   <div className="flex items-center gap-3">
                     <UserAvatar user={user} />
                     <div className="min-w-0">
-                      <p className="text-sm font-semibold text-gray-900 truncate">
+                      <p className="text-sm font-semibold text-[#1F2937] truncate">
                         {user.fullName || user.nickName || "Unnamed"}
                       </p>
-                      <p className="text-xs text-gray-500 truncate">
+                      <p className="text-xs text-[#6B7280] truncate">
                         {buildUserDisplayId(user._id)}
                       </p>
                     </div>
@@ -155,7 +155,7 @@ const UserTable = ({ users = [], loading = false }) => {
 
                 {/* 💳 Plan (hardcoded for now) */}
                 <td className="px-6 py-4">
-                  <span className="text-sm text-gray-700">Zealtho</span>
+                  <span className="text-sm text-[#374151]">Zealtho</span>
                 </td>
 
                 {/* 🟢 Status */}
@@ -171,7 +171,7 @@ const UserTable = ({ users = [], loading = false }) => {
                       className="
                         w-8 h-8 rounded-lg
                         flex items-center justify-center
-                        text-gray-500 hover:text-indigo-600 hover:bg-indigo-50
+                        text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
                         transition-colors
                       "
                       aria-label={`View profile of ${user.fullName}`}
@@ -185,7 +185,7 @@ const UserTable = ({ users = [], loading = false }) => {
                       className="
                         w-8 h-8 rounded-lg
                         flex items-center justify-center
-                        text-gray-500 hover:text-indigo-600 hover:bg-indigo-50
+                        text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
                         transition-colors
                       "
                       aria-label={`Edit ${user.fullName}`}
@@ -213,14 +213,14 @@ const UserTable = ({ users = [], loading = false }) => {
               <div className="flex-1 min-w-0">
                 {/* Top row: name + status */}
                 <div className="flex items-start justify-between gap-2 mb-1">
-                  <p className="text-sm font-semibold text-gray-900 truncate">
+                  <p className="text-sm font-semibold text-[#1F2937] truncate">
                     {user.fullName || user.nickName || "Unnamed"}
                   </p>
                   <StatusPill isActive={user.isActive} />
                 </div>
 
                 {/* Display ID */}
-                <p className="text-xs text-gray-500 truncate mb-2">
+                <p className="text-xs text-[#6B7280] truncate mb-2">
                   {buildUserDisplayId(user._id)}
                 </p>
 
@@ -229,7 +229,7 @@ const UserTable = ({ users = [], loading = false }) => {
                   <span
                     className="
                       inline-flex px-2 py-0.5 rounded-md
-                      bg-gray-100 text-gray-700
+                      bg-gray-100 text-[#374151]
                       text-xs font-medium
                     "
                   >
@@ -242,7 +242,7 @@ const UserTable = ({ users = [], loading = false }) => {
                       className="
                         w-8 h-8 rounded-lg
                         flex items-center justify-center
-                        text-gray-500 hover:text-indigo-600 hover:bg-indigo-50
+                        text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
                         transition-colors
                       "
                       aria-label={`View ${user.fullName}`}
@@ -255,7 +255,7 @@ const UserTable = ({ users = [], loading = false }) => {
                       className="
                         w-8 h-8 rounded-lg
                         flex items-center justify-center
-                        text-gray-500 hover:text-indigo-600 hover:bg-indigo-50
+                        text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
                         transition-colors
                       "
                       aria-label={`Edit ${user.fullName}`}

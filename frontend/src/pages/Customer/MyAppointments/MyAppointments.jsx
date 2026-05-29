@@ -24,7 +24,7 @@ import {
 // ============================================
 const EmptyBucket = ({ label }) => (
   <div className="px-6 py-12 text-center">
-    <p className="text-sm text-gray-500">No {label} appointments yet.</p>
+    <p className="text-sm text-[#6B7280]">No {label} appointments yet.</p>
   </div>
 );
 
@@ -34,7 +34,10 @@ const EmptyBucket = ({ label }) => (
 const ListSkeleton = () => (
   <div className="space-y-3">
     {[1, 2].map((i) => (
-      <div key={i} className="bg-white rounded-xl border border-gray-100 p-5 h-24 animate-pulse" />
+      <div
+        key={i}
+        className="bg-white rounded-[24px] border border-[#E7EAF3] p-5 h-24 animate-pulse"
+      />
     ))}
   </div>
 );
@@ -61,7 +64,7 @@ const MyAppointments = () => {
   const showBodyProfileBanner = !profileLoading && !isComplete;
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-[#F6F8FC] flex flex-col">
       <CustomerNavbar />
 
       <main className="flex-1">
@@ -70,7 +73,7 @@ const MyAppointments = () => {
           <button
             type="button"
             onClick={() => navigate(-1)}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-orange-600 transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-[#6B7280] hover:text-[#5B4FF7] transition-colors"
           >
             <ArrowLeft size={16} />
             Back
@@ -78,10 +81,10 @@ const MyAppointments = () => {
 
           {/* 🏷️ Page title */}
           <div className="text-center">
-            <h1 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight">
+            <h1 className="text-xl sm:text-2xl font-bold text-[#1F2937] tracking-tight">
               My Appointments
             </h1>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-[#6B7280] mt-1">
               Manage your consultations and follow-ups
             </p>
           </div>
@@ -93,10 +96,10 @@ const MyAppointments = () => {
             <div
               className="
                 relative overflow-hidden
-                bg-gradient-to-br from-orange-500 to-orange-600
+                bg-gradient-to-r from-[#5B4FF7] to-[#4338CA]
                 rounded-2xl p-5 sm:p-6
                 text-center
-                shadow-[0_8px_24px_rgba(249,115,22,0.18)]
+                shadow-[0_12px_30px_rgba(91,79,247,0.22)]
               "
             >
               <p className="text-base sm:text-lg font-bold text-white">
@@ -109,8 +112,8 @@ const MyAppointments = () => {
                 className="
                   mt-4 inline-flex items-center gap-1.5
                   px-5 py-2 rounded-full
-                  text-sm font-semibold text-orange-600
-                  bg-white hover:bg-gray-50
+                  text-sm font-semibold text-[#5B4FF7]
+                  bg-white hover:bg-[#F6F8FC]
                   transition-colors
                   shadow-[0_4px_14px_rgba(0,0,0,0.1)]
                 "
@@ -130,12 +133,13 @@ const MyAppointments = () => {
           {/* ============================================ */}
           <section
             className="
-              bg-white rounded-2xl border border-gray-100
-              shadow-[0_1px_3px_rgba(16,24,40,0.04)]
+              bg-white rounded-[28px]
+                border border-[#E7EAF3]
+                shadow-[0_10px_30px_rgba(15,23,42,0.05)]
               p-5 sm:p-6
             "
           >
-            <p className="text-sm font-bold text-gray-900 mb-4">
+            <p className="text-sm font-bold text-[#1F2937] mb-4">
               Upcoming Appointments
             </p>
 
@@ -150,7 +154,10 @@ const MyAppointments = () => {
                     key={apt._id}
                     appointment={apt}
                     isUpcoming
-                    onUpdated={() => { upcoming.refetch?.(); past.refetch?.(); }}
+                    onUpdated={() => {
+                      upcoming.refetch?.();
+                      past.refetch?.();
+                    }}
                   />
                 ))}
               </div>
@@ -162,12 +169,13 @@ const MyAppointments = () => {
           {/* ============================================ */}
           <section
             className="
-              bg-white rounded-2xl border border-gray-100
-              shadow-[0_1px_3px_rgba(16,24,40,0.04)]
+             bg-white rounded-[28px]
+                border border-[#E7EAF3]
+                shadow-[0_10px_30px_rgba(15,23,42,0.05)]
               p-5 sm:p-6
             "
           >
-            <p className="text-sm font-bold text-gray-900 mb-4">
+            <p className="text-sm font-bold text-[#1F2937] mb-4">
               Past Appointments
             </p>
 
@@ -182,7 +190,10 @@ const MyAppointments = () => {
                     key={apt._id}
                     appointment={apt}
                     isUpcoming={false}
-                    onUpdated={() => { upcoming.refetch?.(); past.refetch?.(); }}
+                    onUpdated={() => {
+                      upcoming.refetch?.();
+                      past.refetch?.();
+                    }}
                   />
                 ))}
               </div>

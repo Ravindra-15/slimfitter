@@ -67,7 +67,8 @@ const ProfileStepTwo = () => {
       localStorage.setItem("user", JSON.stringify(updatedUser));
       sessionStorage.setItem("user", JSON.stringify(updatedUser));
 
-      navigate(nextPath || "/home", { replace: true });
+      sessionStorage.removeItem("welcomeShown");
+      navigate(nextPath || "/book-doctor", { replace: true });
     } catch (err) {
       const message =
         err?.response?.data?.message || err.message || "Something went wrong";
@@ -88,18 +89,18 @@ const ProfileStepTwo = () => {
             Stories of <br /> Transformation
           </h2>
 
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 relative">
-            <div className="text-orange-500 text-5xl font-serif absolute top-3 left-5 leading-none">
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#E7EAF3] relative">
+            <div className="text-[#4F46E5] text-5xl font-serif absolute top-3 left-5 leading-none">
               ❝
             </div>
 
-            <p className="text-sm text-gray-600 mt-8 leading-relaxed">
+            <p className="text-sm text-[#6B7280] mt-8 leading-relaxed">
               I was struggling with stress and anxiety, but the mindfulness
               programs helped me regain balance. I finally feel like I'm
               prioritizing my well-being.
             </p>
 
-            <p className="mt-4 text-xs text-gray-500">
+            <p className="mt-4 text-xs text-[#6B7280]">
               — Anna R., 32 <br />
               (Diabmukt Member)
             </p>
@@ -144,7 +145,7 @@ const ProfileStepTwo = () => {
                 onChange={handleChange}
               />
 
-              <div className="border-t border-gray-200 mt-3 pt-6">
+              <div className="border-t border-[#D9DDF0] mt-3 pt-6">
                 <Button
                   text={loading ? "Saving..." : "Next"}
                   onClick={handleSubmit}

@@ -59,7 +59,7 @@ const AdminLayout = () => {
         className={`
           fixed lg:sticky top-0 left-0 z-50
           h-screen w-[260px] flex-shrink-0
-          bg-white border-r border-gray-200
+          bg-white border-r border-[#D9DDF0]
           transform transition-transform duration-300 ease-in-out
           ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
           lg:translate-x-0

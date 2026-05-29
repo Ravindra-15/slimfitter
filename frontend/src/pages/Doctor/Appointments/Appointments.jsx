@@ -43,7 +43,7 @@ const ListSkeleton = () => (
     {[1, 2].map((i) => (
       <div
         key={i}
-        className="bg-white rounded-2xl border border-gray-100 p-5 h-44 animate-pulse"
+        className="bg-white rounded-2xl border border-[#E7EAF3] p-5 h-44 animate-pulse"
       />
     ))}
   </div>
@@ -53,14 +53,14 @@ const ListSkeleton = () => (
 // 🚫 EMPTY STATE
 // ============================================
 const EmptyState = () => (
-  <div className="bg-white rounded-2xl border border-dashed border-gray-200 px-6 py-12 text-center">
-    <div className="w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center mx-auto mb-3">
+  <div className="bg-white rounded-2xl border border-dashed border-[#D9DDF0] px-6 py-12 text-center">
+    <div className="w-12 h-12 rounded-full bg-[#F6F8FC] flex items-center justify-center mx-auto mb-3">
       <CalendarIcon size={20} className="text-gray-400" />
     </div>
-    <p className="text-sm font-medium text-gray-700 mb-1">
+    <p className="text-sm font-medium text-[#374151] mb-1">
       No appointments for this date
     </p>
-    <p className="text-xs text-gray-500">
+    <p className="text-xs text-[#6B7280]">
       Try selecting a different day.
     </p>
   </div>
@@ -86,10 +86,10 @@ const Appointments = () => {
       {/* 🏷️ PAGE HEADER                               */}
       {/* ============================================ */}
       <div className="mb-6">
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-bold text-[#1F2937] tracking-tight">
           Overall Appointments
         </h1>
-        <p className="mt-1 text-sm text-gray-500">
+        <p className="mt-1 text-sm text-[#6B7280]">
           Manage consultation requests and today's schedule
         </p>
       </div>
@@ -99,7 +99,7 @@ const Appointments = () => {
       {/* ============================================ */}
       <div
         className="
-          bg-white rounded-2xl border border-gray-100
+          bg-white rounded-2xl border border-[#E7EAF3]
           shadow-[0_1px_3px_rgba(16,24,40,0.04)]
           p-4 mb-6
           flex items-center gap-3
@@ -110,11 +110,11 @@ const Appointments = () => {
             <CalendarIcon size={16} className="text-indigo-600" />
           </div>
           <div className="min-w-0">
-            <p className="text-xs text-gray-500 font-medium">Select Date</p>
+            <p className="text-xs text-[#6B7280] font-medium">Select Date</p>
             <p className="text-sm font-bold text-indigo-600 mt-0.5">
               {formatShortDate(date)}
               {isToday && (
-                <span className="ml-2 text-[10px] font-semibold text-gray-500">
+                <span className="ml-2 text-[10px] font-semibold text-[#6B7280]">
                   (Today)
                 </span>
               )}
@@ -129,8 +129,8 @@ const Appointments = () => {
             className="
               w-8 h-8 rounded-lg
               flex items-center justify-center
-              text-gray-500 hover:text-indigo-600 hover:bg-indigo-50
-              border border-gray-200
+              text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
+              border border-[#D9DDF0]
               transition-colors
             "
             aria-label="Previous day"
@@ -144,8 +144,8 @@ const Appointments = () => {
             onChange={(e) => e.target.value && setDate(e.target.value)}
             className="
               px-3 py-1.5 rounded-lg
-              text-xs font-medium text-gray-700
-              bg-white border border-gray-200
+              text-xs font-medium text-[#374151]
+              bg-white border border-[#D9DDF0]
               focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500
             "
           />
@@ -156,8 +156,8 @@ const Appointments = () => {
             className="
               w-8 h-8 rounded-lg
               flex items-center justify-center
-              text-gray-500 hover:text-indigo-600 hover:bg-indigo-50
-              border border-gray-200
+              text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
+              border border-[#D9DDF0]
               transition-colors
             "
             aria-label="Next day"

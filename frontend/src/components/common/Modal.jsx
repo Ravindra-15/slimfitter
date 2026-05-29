@@ -12,7 +12,7 @@ const Modal = ({ isOpen, onClose, children }) => {
 
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 text-gray-500"
+          className="absolute top-3 right-3 text-[#6B7280]"
         >
           ✕
         </button>

@@ -33,7 +33,7 @@ const AdminCard = ({
   return (
     <Tag
       className={`
-        bg-white rounded-2xl border border-gray-100
+        bg-white rounded-2xl border border-[#E7EAF3]
         shadow-[0_1px_3px_rgba(16,24,40,0.04)]
         ${className}
       `}
@@ -44,12 +44,12 @@ const AdminCard = ({
         <div className="flex items-start justify-between gap-4 px-5 sm:px-6 pt-5 sm:pt-6 pb-4">
           <div className="min-w-0 flex-1">
             {title && (
-              <h3 className="text-lg font-bold text-gray-900 leading-tight">
+              <h3 className="text-lg font-bold text-[#1F2937] leading-tight">
                 {title}
               </h3>
             )}
             {subtitle && (
-              <p className="text-xs text-gray-500 mt-0.5">{subtitle}</p>
+              <p className="text-xs text-[#6B7280] mt-0.5">{subtitle}</p>
             )}
           </div>
 

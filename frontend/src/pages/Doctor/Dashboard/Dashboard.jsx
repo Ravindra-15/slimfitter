@@ -45,17 +45,17 @@ const StatCard = ({ icon: Icon, label, value, hint, accent }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-5">
+    <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-5">
       <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${accentMap[accent]} flex items-center justify-center mb-4`}>
         <Icon className="w-5 h-5" strokeWidth={2} />
       </div>
-      <p className="text-[11px] uppercase tracking-wider text-gray-500 font-semibold">
+      <p className="text-[11px] uppercase tracking-wider text-[#6B7280] font-semibold">
         {label}
       </p>
-      <p className="mt-1.5 text-3xl font-bold text-gray-900 tracking-tight">
+      <p className="mt-1.5 text-3xl font-bold text-[#1F2937] tracking-tight">
         {value}
       </p>
-      <p className="mt-1 text-xs text-gray-500">{hint}</p>
+      <p className="mt-1 text-xs text-[#6B7280]">{hint}</p>
     </div>
   );
 };
@@ -82,15 +82,15 @@ const Dashboard = () => {
       {/* 👋 GREETING */}
       {/* ============================================ */}
       <div className="mb-8">
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-bold text-[#1F2937] tracking-tight">
           {greeting}, {displayName}
         </h1>
-        <p className="mt-1.5 text-sm text-gray-500">
+        <p className="mt-1.5 text-sm text-[#6B7280]">
           {today}
           {stats.appointments > 0 && (
             <>
               {" • "}
-              <span className="font-medium text-gray-700">
+              <span className="font-medium text-[#374151]">
                 You have {stats.appointments} appointment{stats.appointments !== 1 ? "s" : ""} today
               </span>
             </>
@@ -130,9 +130,9 @@ const Dashboard = () => {
       {/* ============================================ */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Today's Schedule (left, spans 2 cols on lg+) */}
-        <div className="lg:col-span-2 bg-white rounded-2xl border border-gray-100 shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6">
+        <div className="lg:col-span-2 bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6">
           <div className="flex items-center justify-between mb-5">
-            <h2 className="text-base font-bold text-gray-900">
+            <h2 className="text-base font-bold text-[#1F2937]">
               Today's Schedule
             </h2>
             <span className="text-[11px] text-gray-400 font-medium">
@@ -141,24 +141,24 @@ const Dashboard = () => {
           </div>
 
           <div className="flex flex-col items-center justify-center py-12 text-center">
-            <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center mb-3">
+            <div className="w-12 h-12 rounded-2xl bg-[#F6F8FC] flex items-center justify-center mb-3">
               <CalendarX className="w-5 h-5 text-gray-400" strokeWidth={2} />
             </div>
-            <p className="text-sm font-medium text-gray-700">
+            <p className="text-sm font-medium text-[#374151]">
               No appointments scheduled
             </p>
-            <p className="mt-1 text-xs text-gray-500 max-w-xs">
+            <p className="mt-1 text-xs text-[#6B7280] max-w-xs">
               Your daily schedule will appear here once the Appointments module is live.
             </p>
           </div>
         </div>
 
         {/* Quick Actions (right) */}
-        <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6">
-          <h2 className="text-base font-bold text-gray-900">
+        <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6">
+          <h2 className="text-base font-bold text-[#1F2937]">
             Quick Actions
           </h2>
-          <p className="mt-1 text-xs text-gray-500">
+          <p className="mt-1 text-xs text-[#6B7280]">
             Toggle availability for time slots
           </p>
 
@@ -166,10 +166,10 @@ const Dashboard = () => {
             <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center mb-3">
               <Clock className="w-5 h-5 text-indigo-500" strokeWidth={2} />
             </div>
-            <p className="text-sm font-medium text-gray-700">
+            <p className="text-sm font-medium text-[#374151]">
               Availability manager
             </p>
-            <p className="mt-1 text-xs text-gray-500">
+            <p className="mt-1 text-xs text-[#6B7280]">
               Coming soon
             </p>
           </div>
@@ -184,10 +184,10 @@ const Dashboard = () => {
           <Sparkles className="w-5 h-5 text-white" strokeWidth={2} />
         </div>
         <div className="flex-1 min-w-0">
-          <p className="text-sm font-semibold text-gray-900">
+          <p className="text-sm font-semibold text-[#1F2937]">
             Welcome to your portal
           </p>
-          <p className="mt-1 text-xs text-gray-600 leading-relaxed">
+          <p className="mt-1 text-xs text-[#6B7280] leading-relaxed">
             Your account is fully set up. New modules — Appointments, Patients, and
             Availability — will appear here as they roll out. You can update your
             profile anytime from Settings.

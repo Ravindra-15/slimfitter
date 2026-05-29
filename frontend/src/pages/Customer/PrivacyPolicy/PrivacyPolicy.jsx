@@ -50,7 +50,7 @@ export default function PrivacyPolicy() {
         <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 py-8 sm:py-12">
           <button
             onClick={() => navigate(-1)}
-            className="flex items-center gap-2 text-gray-500 hover:text-orange-500 text-sm mb-6 transition-colors sm:hidden"
+            className="flex items-center gap-2 text-[#6B7280] hover:text-[#4F46E5] text-sm mb-6 transition-colors sm:hidden"
           >
             <ArrowLeft size={18} />
             Back
@@ -75,7 +75,7 @@ export default function PrivacyPolicy() {
                   {section.paragraphs.map((para, i) => (
                     <p
                       key={i}
-                      className="text-sm sm:text-[15px] text-gray-600 leading-8 max-w-5xl mx-auto"
+                      className="text-sm sm:text-[15px] text-[#6B7280] leading-8 max-w-5xl mx-auto"
                     >
                       {para}
                     </p>

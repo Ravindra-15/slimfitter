@@ -161,12 +161,12 @@ const EditUser = () => {
       <div className="space-y-6">
         <button
           onClick={() => navigate(`/admin/users/${id}`)}
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-[#6B7280] hover:text-indigo-600 transition-colors"
         >
           <ArrowLeft size={16} />
           Back to User Profile
         </button>
-        <div className="bg-white rounded-2xl border border-gray-100 p-6 animate-pulse h-64" />
+        <div className="bg-white rounded-2xl border border-[#E7EAF3] p-6 animate-pulse h-64" />
       </div>
     );
   }
@@ -179,13 +179,13 @@ const EditUser = () => {
       <div className="space-y-6">
         <button
           onClick={() => navigate("/admin/users")}
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-[#6B7280] hover:text-indigo-600 transition-colors"
         >
           <ArrowLeft size={16} />
           Back to User Directory
         </button>
-        <div className="bg-white rounded-2xl border border-gray-100 px-6 py-16 text-center">
-          <p className="text-sm font-medium text-gray-700 mb-1">
+        <div className="bg-white rounded-2xl border border-[#E7EAF3] px-6 py-16 text-center">
+          <p className="text-sm font-medium text-[#374151] mb-1">
             {error || "User not found"}
           </p>
         </div>
@@ -198,7 +198,7 @@ const EditUser = () => {
       {/* 🔙 Back */}
       <button
         onClick={() => navigate(`/admin/users/${id}`)}
-        className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors"
+        className="inline-flex items-center gap-1.5 text-sm font-medium text-[#6B7280] hover:text-indigo-600 transition-colors"
       >
         <ArrowLeft size={16} />
         Back to User Profile
@@ -214,21 +214,21 @@ const EditUser = () => {
       {/* ============================================ */}
       <form
         onSubmit={handleSubmit}
-        className="bg-white rounded-2xl border border-gray-100 shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6 sm:p-8"
+        className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6 sm:p-8"
         noValidate
       >
         {/* Card header */}
-        <div className="flex items-center gap-3 pb-5 mb-6 border-b border-gray-100">
+        <div className="flex items-center gap-3 pb-5 mb-6 border-b border-[#E7EAF3]">
           <div className="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center">
             <User size={18} className="text-indigo-500" />
           </div>
-          <h2 className="text-base font-bold text-gray-900">User Information</h2>
+          <h2 className="text-base font-bold text-[#1F2937]">User Information</h2>
         </div>
 
         <div className="space-y-5">
           {/* Full Name */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-[#374151] mb-2">
               Full Name <span className="text-red-500">*</span>
             </label>
             <input
@@ -238,13 +238,13 @@ const EditUser = () => {
               disabled={submitting}
               maxLength={LIMITS.FULL_NAME_MAX}
               placeholder="e.g., Rakesh Jones"
-              className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:bg-gray-50 disabled:cursor-not-allowed transition-colors"
+              className="w-full px-4 py-3 bg-white border border-[#D9DDF0] rounded-xl text-sm text-[#1F2937] placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:bg-[#F6F8FC] disabled:cursor-not-allowed transition-colors"
             />
           </div>
 
           {/* Nickname */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-[#374151] mb-2">
               Nickname <span className="text-red-500">*</span>
             </label>
             <input
@@ -254,7 +254,7 @@ const EditUser = () => {
               disabled={submitting}
               maxLength={LIMITS.NICK_MAX}
               placeholder="e.g., Warrior_Amit"
-              className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:bg-gray-50 disabled:cursor-not-allowed transition-colors"
+              className="w-full px-4 py-3 bg-white border border-[#D9DDF0] rounded-xl text-sm text-[#1F2937] placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:bg-[#F6F8FC] disabled:cursor-not-allowed transition-colors"
             />
             <p className="mt-1.5 text-xs text-gray-400">
               Letters, numbers, and underscore only.
@@ -263,7 +263,7 @@ const EditUser = () => {
 
           {/* Email — read only */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-[#374151] mb-2">
               Email
             </label>
             <input
@@ -271,7 +271,7 @@ const EditUser = () => {
               value={user.email || ""}
               disabled
               readOnly
-              className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-500 cursor-not-allowed"
+              className="w-full px-4 py-3 bg-[#F6F8FC] border border-[#D9DDF0] rounded-xl text-sm text-[#6B7280] cursor-not-allowed"
             />
             <p className="mt-1.5 text-xs text-gray-400">
               Cannot be changed by admin (auth identifier).
@@ -280,7 +280,7 @@ const EditUser = () => {
 
           {/* Phone — read only */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-[#374151] mb-2">
               Phone
             </label>
             <input
@@ -288,13 +288,13 @@ const EditUser = () => {
               value={user.phone || ""}
               disabled
               readOnly
-              className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-500 cursor-not-allowed"
+              className="w-full px-4 py-3 bg-[#F6F8FC] border border-[#D9DDF0] rounded-xl text-sm text-[#6B7280] cursor-not-allowed"
             />
           </div>
         </div>
 
         {/* Submit row */}
-        <div className="mt-7 pt-5 border-t border-gray-100 flex items-center justify-between gap-4">
+        <div className="mt-7 pt-5 border-t border-[#E7EAF3] flex items-center justify-between gap-4">
           <p className="text-xs text-gray-400">
             {isDirty ? "Unsaved changes" : "No changes"}
           </p>

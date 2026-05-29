@@ -35,6 +35,8 @@ import ProgramCheckout from "./pages/Customer/Programs/ProgramCheckout";
 import ProgramSuccess from "./pages/Customer/Programs/ProgramSuccess";
 import ProgramDashboard from "./pages/Customer/Programs/ProgramDashboard";
 import ProtectedProgramRoute from "./components/common/ProtectedProgramRoute";
+import AddProgress from "./pages/Customer/Programs/AddProgress";
+import ProgressReport from "./pages/Customer/Programs/ProgressReport";
 
 import MyProfile from "./pages/Customer/MyProfile/MyProfile";
 import CustomerNotifications from "./pages/Customer/Notifications/Notifications";
@@ -79,7 +81,7 @@ function App() {
   return (
     <Router>
        <ScrollToTop />
-      <div className="pt-16">
+     <div>
       <Routes>
         {/* ============================================ */}
         {/* 👤 CUSTOMER ROUTES */}
@@ -197,6 +199,24 @@ function App() {
           element={
             <ProtectedProgramRoute>
               <ProgramDashboard />
+            </ProtectedProgramRoute>
+          }
+        />
+
+        <Route
+          path="/programs/:id/add-progress"
+          element={
+            <ProtectedProgramRoute>
+              <AddProgress />
+            </ProtectedProgramRoute>
+          }
+        />
+
+        <Route
+          path="/programs/:id/progress-report"
+          element={
+            <ProtectedProgramRoute>
+              <ProgressReport />
             </ProtectedProgramRoute>
           }
         />

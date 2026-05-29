@@ -27,7 +27,7 @@ const ProtectedAdminRoute = ({ children }) => {
       <div className="min-h-screen flex items-center justify-center bg-[#f5f6fa]">
         <div className="flex flex-col items-center gap-3">
           <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
-          <p className="text-sm text-gray-500">Verifying session...</p>
+          <p className="text-sm text-[#6B7280]">Verifying session...</p>
         </div>
       </div>
     );

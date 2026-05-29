@@ -73,7 +73,7 @@ const Login = () => {
     password: "",
   });
 
-  const [remember, setRemember] = useState(false);
+  // const [remember, setRemember] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -105,12 +105,17 @@ const Login = () => {
         form,
       );
 
-      login(data.data.token, remember);
+      // login(data.data.token, remember);
+
+      // // Store user
+      // const storage = remember ? localStorage : sessionStorage;
+
+      // storage.setItem("user", JSON.stringify(data.data.user));
+
+      login(data.data.token, true);
 
       // Store user
-      const storage = remember ? localStorage : sessionStorage;
-
-      storage.setItem("user", JSON.stringify(data.data.user));
+      localStorage.setItem("user", JSON.stringify(data.data.user));
 
       toast.success("Welcome back!");
 
@@ -128,7 +133,9 @@ const Login = () => {
         } else if (!profileStepTwoComplete) {
           navigate("/profile-step-2");
         } else {
-          navigate(next?.startsWith("/") ? next : "/home");
+          // 🎉 Trigger welcome popup on book-doctor page
+          sessionStorage.removeItem("welcomeShown");
+          navigate(next?.startsWith("/") ? next : "/book-doctor");
         }
       }, 300);
     } catch (err) {
@@ -147,15 +154,15 @@ const Login = () => {
     <div className="min-h-screen bg-[#f4efe8]">
       <CustomerNavbar />
 
-      <div className="flex flex-col md:flex-row items-center justify-between px-6 md:px-20 py-10 md:py-16 gap-10 md:gap-0">
+      <div className="flex flex-col md:flex-row items-center justify-between px-6 md:px-20 pt-24 md:pt-28 pb-10 md:pb-16 gap-10 md:gap-0">
         {/* LEFT */}
-        <div className="max-w-md mx-auto md:mx-0 text-center md:text-left px-2">
+        <div className="max-w-[800px] mx-auto md:mx-0 text-center md:text-left px-2">
           <h1 className="text-[38px] md:text-[52px] font-semibold text-teal-900 leading-[1.15]">
             Welcome <br />
-            <span className="text-orange-500">Back to Zealtho</span>
+            <span className="text-[#4F46E5]">Back to Diabmukt</span>
           </h1>
 
-          <p className="mt-4 text-gray-600 text-[14px] leading-[1.6] max-w-[420px] mx-auto md:mx-0">
+          <p className="mt-4 text-[#6B7280] text-[14px] leading-[1.6] max-w-[420px] mx-auto md:mx-0">
             Pick up right where you left off — your wellness goals are waiting
           </p>
         </div>
@@ -174,7 +181,7 @@ const Login = () => {
               name="email"
               value={form.email}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 text-[14px] font-normal outline-none focus:border-orange-400"
+              className="w-full border border-gray-300 rounded-xl px-4 py-3 text-[14px] font-normal outline-none focus:border-[#5B4FF7]"
             />
 
             {/* PASSWORD */}
@@ -185,7 +192,7 @@ const Login = () => {
                 name="password"
                 value={form.password}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-[14px] font-normal outline-none focus:border-orange-400"
+                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-[14px] font-normal outline-none focus:border-[#5B4FF7]"
               />
 
               <button
@@ -198,18 +205,25 @@ const Login = () => {
             </div>
 
             {/* REMEMBER */}
-            <div className="flex items-center justify-between text-[13px] text-gray-500">
+            {/* <div className="flex items-center justify-between text-[13px] text-[#6B7280]">
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={remember}
                   onChange={(e) => setRemember(e.target.checked)}
-                  className="accent-orange-500 w-4 h-4"
+                  className="accent-[#4F46E5] w-4 h-4"
                 />
                 Remember me
               </label>
 
-              <span className="text-orange-500 hover:underline cursor-pointer">
+              <span className="text-[#4F46E5] hover:underline cursor-pointer">
+                Forgot password?
+              </span>
+            </div> */}
+
+            {/* FORGOT PASSWORD */}
+            <div className="flex justify-end text-[13px]">
+              <span className="text-[#4F46E5] hover:underline cursor-pointer">
                 Forgot password?
               </span>
             </div>
@@ -218,7 +232,7 @@ const Login = () => {
             <button
               onClick={handleLogin}
               disabled={loading}
-              className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full text-[14px] font-medium transition"
+              className="w-full bg-[#4F46E5] hover:bg- [#4338CA] text-white py-3 rounded-full text-[14px] font-medium transition"
             >
               {loading ? "Logging in..." : "Log In"}
             </button>
@@ -231,23 +245,23 @@ const Login = () => {
             </div>
 
             {/* GOOGLE */}
-            <button className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-full py-2 text-[14px] font-medium hover:bg-gray-50">
+            <button className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-full py-2 text-[14px] font-medium hover:bg-[#F6F8FC]">
               <GoogleIcon />
               Continue with Google
             </button>
 
             {/* FACEBOOK */}
-            <button className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-full py-2 text-[14px] font-medium hover:bg-gray-50">
+            <button className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-full py-2 text-[14px] font-medium hover:bg-[#F6F8FC]">
               <FacebookIcon />
               Continue with Facebook
             </button>
 
             {/* SIGNUP */}
-            <p className="text-[13px] text-gray-500 text-center mt-2">
+            <p className="text-[13px] text-[#6B7280] text-center mt-2">
               Don't have an account?{" "}
               <Link
                 to="/signup"
-                className="text-orange-500 font-medium hover:underline"
+                className="text-[#4F46E5] font-medium hover:underline"
               >
                 Sign up
               </Link>

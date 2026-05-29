@@ -39,7 +39,7 @@ const Home = () => {
 
           <Button type="button" onClick={() => navigate("/book-doctor")} text="Book Doctor Consultation">
 </Button> 
-          <p className="text-xs text-gray-500 mt-3">
+          <p className="text-xs text-[#6B7280] mt-3">
             🔥 10K Users Already Registered
           </p>
         </div>

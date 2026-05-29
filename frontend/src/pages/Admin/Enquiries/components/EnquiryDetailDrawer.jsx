@@ -78,10 +78,10 @@ const EnquiryDetailDrawer = ({ enquiry, onClose }) => {
         "
       >
         {/* Header */}
-        <div className="sticky top-0 bg-white border-b border-gray-100 px-6 py-4 flex items-start justify-between gap-3">
+        <div className="sticky top-0 bg-white border-b border-[#E7EAF3] px-6 py-4 flex items-start justify-between gap-3">
           <div className="min-w-0">
             <div className="flex items-center gap-2 mb-1">
-              <h3 className="text-lg font-bold text-gray-900 truncate">
+              <h3 className="text-lg font-bold text-[#1F2937] truncate">
                 {enquiry.name}
               </h3>
               {enquiry.source && (
@@ -90,13 +90,13 @@ const EnquiryDetailDrawer = ({ enquiry, onClose }) => {
                 </span>
               )}
             </div>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-[#6B7280]">
               {formatDateTime(enquiry.createdAt)}
             </p>
           </div>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 transition-colors p-1 -m-1 rounded-lg hover:bg-gray-100"
+            className="text-gray-400 hover:text-[#6B7280] transition-colors p-1 -m-1 rounded-lg hover:bg-gray-100"
             aria-label="Close"
           >
             <X size={20} />
@@ -112,11 +112,11 @@ const EnquiryDetailDrawer = ({ enquiry, onClose }) => {
               Contact Information
             </h4>
             <div className="space-y-2.5">
-              <div className="flex items-center gap-2.5 text-sm text-gray-700">
+              <div className="flex items-center gap-2.5 text-sm text-[#374151]">
                 <Phone size={14} className="text-gray-400 shrink-0" />
                 <span className="break-all">{enquiry.phone || "—"}</span>
               </div>
-              <div className="flex items-center gap-2.5 text-sm text-gray-700">
+              <div className="flex items-center gap-2.5 text-sm text-[#374151]">
                 <Mail size={14} className="text-gray-400 shrink-0" />
                 <span className="break-all">{enquiry.email || "—"}</span>
               </div>
@@ -126,11 +126,11 @@ const EnquiryDetailDrawer = ({ enquiry, onClose }) => {
           {/* Message */}
           <div>
             <div className="flex items-center gap-1.5 mb-3">
-              <MessageSquare size={14} className="text-gray-500" />
+              <MessageSquare size={14} className="text-[#6B7280]" />
               <h4 className="text-sm font-bold text-gray-800">Message</h4>
             </div>
-            <div className="bg-gray-50 border border-gray-100 rounded-xl p-4 min-h-[120px]">
-              <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">
+            <div className="bg-[#F6F8FC] border border-[#E7EAF3] rounded-xl p-4 min-h-[120px]">
+              <p className="text-sm text-[#374151] leading-relaxed whitespace-pre-wrap">
                 {enquiry.message || (
                   <span className="text-gray-400 italic">
                     No message provided.

@@ -73,10 +73,10 @@ export default function ChangePasswordForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4 max-w-md">
-      <p className="text-xs font-semibold text-gray-700 mb-2">Change Password</p>
+      <p className="text-xs font-semibold text-[#374151] mb-2">Change Password</p>
 
       <div>
-        <label className="block text-xs font-medium text-gray-600 mb-1">
+        <label className="block text-xs font-medium text-[#6B7280] mb-1">
           Current Password
         </label>
         <input
@@ -84,13 +84,13 @@ export default function ChangePasswordForm() {
           name="currentPassword"
           value={form.currentPassword}
           onChange={handleChange}
-          className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-orange-400"
+          className="w-full border border-[#D9DDF0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C7D2FE]"
           placeholder="Enter current password"
         />
       </div>
 
       <div>
-        <label className="block text-xs font-medium text-gray-600 mb-1">
+        <label className="block text-xs font-medium text-[#6B7280] mb-1">
           New Password
         </label>
         <input
@@ -98,13 +98,13 @@ export default function ChangePasswordForm() {
           name="newPassword"
           value={form.newPassword}
           onChange={handleChange}
-          className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-orange-400"
+          className="w-full border border-[#D9DDF0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C7D2FE]"
           placeholder="Enter new password"
         />
       </div>
 
       <div>
-        <label className="block text-xs font-medium text-gray-600 mb-1">
+        <label className="block text-xs font-medium text-[#6B7280] mb-1">
           Confirm New Password
         </label>
         <input
@@ -112,7 +112,7 @@ export default function ChangePasswordForm() {
           name="confirmPassword"
           value={form.confirmPassword}
           onChange={handleChange}
-          className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-orange-400"
+          className="w-full border border-[#D9DDF0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C7D2FE]"
           placeholder="Confirm new password"
         />
       </div>
@@ -120,7 +120,7 @@ export default function ChangePasswordForm() {
       <button
         type="submit"
         disabled={saving}
-        className="w-full bg-orange-500 hover:bg-orange-600 disabled:opacity-60 text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-[0_4px_14px_rgba(249,115,22,0.35)] transition-colors"
+        className="w-full bg-[#5B4FF7] hover:bg-[#4338CA] disabled:opacity-60 text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-[0_4px_14px_rgba(91,79,247,0.35)] transition-colors"
       >
         {saving ? "Updating..." : "Update Password"}
       </button>
