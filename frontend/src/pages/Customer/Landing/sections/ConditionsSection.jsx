@@ -25,7 +25,7 @@ export default function ConditionsSection() {
         {/* HEADING */}
         <div className="text-center mb-6 sm:mb-8 lg:mb-10">
           <h2 className="text-xl sm:text-3xl lg:text-4xl font-bold text-[#0F172A]">
-            What makes <span className="text-[#4F46E5]">Diabmukt</span> Different ?
+            What makes <span className="text-[#4F46E5]">Slimfitter</span> Different ?
           </h2>
         </div>
 

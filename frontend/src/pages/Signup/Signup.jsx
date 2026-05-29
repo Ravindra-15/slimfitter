@@ -182,7 +182,7 @@ const Signup = () => {
                 className="mt-0.5 accent-[#4F46E5] w-4 h-4 flex-shrink-0"
               />
               <span>
-                I agree to Diabmukt's{" "}
+                I agree to Slimfitter's{" "}
                 <Link
                   to="/terms-of-use"
                   className="text-[#4F46E5] hover:underline"

@@ -6,7 +6,7 @@ import { CheckCircle2, Phone } from "lucide-react";
 import { getSubscriptionRedirect } from "../../../../utils/subscriptionGuard";
 import { getPublicProgramPlans } from "../../../../services/programPlanPublicService";
 
-const PROGRAM_ID = "diabmukt";
+const PROGRAM_ID = "slimfitter";
 
 // 🏷️ Hardcoded per-program feature bullets (Diabmukt)
 const features = [

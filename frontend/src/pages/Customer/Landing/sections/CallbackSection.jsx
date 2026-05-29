@@ -36,7 +36,7 @@ export default function CallbackSection() {
         email: form.email.trim(),
         phone: form.phone.trim(),
         message: form.message.trim(),
-        source: "diabmukt",
+        source: "slimfitter",
       });
       toast.success("We'll call you back within 12 hours!");
       setForm(initialForm);

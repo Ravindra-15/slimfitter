@@ -23,7 +23,7 @@ import {
 import TransactionRow from "./components/TransactionRow";
 
 // 🏢 This frontend's program — change only this line when copying to another program
-const PROGRAM_ID = "diabmukt";
+const PROGRAM_ID = "slimfitter";
 
 // 📅 Format a date as "Jan 1, 2026"
 const formatDate = (d) =>

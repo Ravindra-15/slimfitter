@@ -159,7 +159,7 @@ const Login = () => {
         <div className="max-w-[800px] mx-auto md:mx-0 text-center md:text-left px-2">
           <h1 className="text-[38px] md:text-[52px] font-semibold text-teal-900 leading-[1.15]">
             Welcome <br />
-            <span className="text-[#4F46E5]">Back to Diabmukt</span>
+            <span className="text-[#4F46E5]">Back to Slimfitter</span>
           </h1>
 
           <p className="mt-4 text-[#6B7280] text-[14px] leading-[1.6] max-w-[420px] mx-auto md:mx-0">
