@@ -34,7 +34,6 @@ export default function LandingPage() {
         <PricingSection />
         <ReviewsSection />
         <ProgramsSection />
-
         <FAQSection />
         <CallbackSection />
         <ReferAndEarnSection />
