@@ -28,15 +28,15 @@ export default function LandingPage() {
         <HeroSection />
         <WhyNotWorkedSection />
         <ConditionsSection />
-        <WhatYouGetSection />
+        {/* <WhatYouGetSection /> */}
         <TrackDailyWinsSection />
         <HealingCTASection />
         <PricingSection />
         <ReviewsSection />
-        <ProgramsSection />
-        {/* <OurStructureSection /> */}
+        {/* <ProgramsSection />
+
         <FAQSection />
-        <CallbackSection />
+        <CallbackSection /> */}
         <ReferAndEarnSection />
       </main>
 
