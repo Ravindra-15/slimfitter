@@ -74,7 +74,7 @@ const Confirmation = () => {
   // 🎨 RENDER
   // ============================================
   return (
-    <div className="min-h-screen bg-[#F6F8FC] flex flex-col">
+    <div className="min-h-screen bg-[#EFEDFA] flex flex-col">
       <CustomerNavbar />
 
       <main className="flex-1 py-14 sm:py-20">
@@ -99,7 +99,7 @@ const Confirmation = () => {
                         relative
                     "
                 >
-                  <PartyPopper size={32} className="text-[#4F46E5]" />
+                  <PartyPopper size={32} className="text-[#4E4391]" />
 
                   <CheckCircle2
                     size={20}
@@ -125,16 +125,16 @@ const Confirmation = () => {
           {/* 📋 DETAILS                                    */}
           {/* ============================================ */}
           {loading ? (
-            <div className="bg-white rounded-2xl border border-[#E7EAF3] p-6 animate-pulse h-56" />
+            <div className="bg-white rounded-2xl border border-[#E3DFF0] p-6 animate-pulse h-56" />
           ) : error || !appointment ? (
-            <div className="bg-white rounded-2xl border border-[#E7EAF3] px-6 py-12 text-center">
+            <div className="bg-white rounded-2xl border border-[#E3DFF0] px-6 py-12 text-center">
               <p className="text-sm font-medium text-[#374151] mb-1">
                 {error || "Appointment not found"}
               </p>
               <button
                 type="button"
                 onClick={() => navigate("/my-appointments")}
-                className="mt-3 text-xs font-semibold text- [#4338CA] hover:underline"
+                className="mt-3 text-xs font-semibold text- [#4E4391] hover:underline"
               >
                 View my appointments
               </button>
@@ -156,7 +156,7 @@ const Confirmation = () => {
                   className="
                     inline-flex items-center gap-1.5
                     px-5 py-2 rounded-full
-                    text-sm font-semibold text- [#4338CA]
+                    text-sm font-semibold text- [#4E4391]
                     hover:underline
                     transition-colors
                   "

@@ -32,8 +32,8 @@ export default function PastAppointmentCard({ appointment }) {
   //   : "—";
 
   return (
-    <div className="border border-[#E7EAF3] rounded-xl p-4 flex flex-col sm:flex-row sm:items-center gap-4 hover:border-orange-200 transition-colors">
-      <div className="w-12 h-12 rounded-full bg-gray-100 border border-[#D9DDF0] flex items-center justify-center shrink-0 overflow-hidden">
+    <div className="border border-[#E3DFF0] rounded-xl p-4 flex flex-col sm:flex-row sm:items-center gap-4 hover:border-orange-200 transition-colors">
+      <div className="w-12 h-12 rounded-full bg-gray-100 border border-[#D6D1EC] flex items-center justify-center shrink-0 overflow-hidden">
         {photoUrl ? (
           <img
             src={photoUrl}
@@ -52,21 +52,21 @@ export default function PastAppointmentCard({ appointment }) {
           <p className="font-semibold text-gray-800 text-sm truncate">
             {doctorName}
           </p>
-          <CheckCircle2 size={14} className="text-[#5B4FF7] shrink-0" />
+          <CheckCircle2 size={14} className="text-[#4E4391] shrink-0" />
         </div>
         {specialization && (
           <p className="text-xs text-[#6B7280] mt-0.5">{specialization}</p>
         )}
 
         <div className="flex flex-wrap gap-3 mt-3">
-          <div className="flex items-center gap-1.5 bg-[#F6F8FC] border border-[#E7EAF3] rounded-lg px-3 py-1.5">
+          <div className="flex items-center gap-1.5 bg-[#EFEDFA] border border-[#E3DFF0] rounded-lg px-3 py-1.5">
             <Calendar size={12} className="text-gray-400" />
             <div className="leading-tight">
               <p className="text-[10px] text-gray-400">Date</p>
               <p className="text-xs font-medium text-[#374151]">{formatUtcDate(appointment?.scheduledAt)}</p>
             </div>
           </div>
-          <div className="flex items-center gap-1.5 bg-[#F6F8FC] border border-[#E7EAF3] rounded-lg px-3 py-1.5">
+          <div className="flex items-center gap-1.5 bg-[#EFEDFA] border border-[#E3DFF0] rounded-lg px-3 py-1.5">
             <Clock size={12} className="text-gray-400" />
             <div className="leading-tight">
               <p className="text-[10px] text-gray-400">Time</p>

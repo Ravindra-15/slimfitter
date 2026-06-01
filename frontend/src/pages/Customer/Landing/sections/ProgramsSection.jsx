@@ -12,7 +12,7 @@ const programs = [
     textSide: "left",
     image: "/images/yoga-hero.png",
     btnBg:
-      "bg-[#4F46E5] hover:bg- [#4338CA] shadow-[0_6px_18px_rgba(79,70,229,0.28)]",
+      "bg-[#4E4391] hover:bg- [#4E4391] shadow-[0_6px_18px_rgba(90,79,159,0.28)]",
     url: import.meta.env.VITE_YOGAT20_URL || "http://localhost:5174",
   },
   {
@@ -63,7 +63,7 @@ export default function ProgramsSection() {
         <div className="text-center mb-10 lg:mb-14">
   <h2 className="text-3xl sm:text-3xl lg:text-[40px] font-bold text-[#111827] mb-3">
     Have a Look into our{" "}
-    <span className="text-[#4F46E5]">Other Programs</span>
+    <span className="text-[#4E4391]">Other Programs</span>
   </h2>
 
   <p className="text-[#083B44] text-sm sm:text-base lg:text-lg">

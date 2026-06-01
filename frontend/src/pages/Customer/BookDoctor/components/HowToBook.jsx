@@ -39,7 +39,7 @@ const HowToBook = () => {
   <div className="text-center mb-12">
     <h2 className="text-2xl sm:text-3xl font-bold text-[#1F2937] tracking-tight">
       How to book{" "}
-      <span className="text-[#5B4FF7]">
+      <span className="text-[#4E4391]">
         Doctor Consultation !
       </span>
     </h2>
@@ -59,7 +59,7 @@ const HowToBook = () => {
         hidden md:block absolute
         top-10 left-[16.66%] right-[16.66%]
         h-px border-t-2 border-dashed
-        border-[#D9DDF0]
+        border-[#D6D1EC]
         pointer-events-none
       "
       aria-hidden="true"
@@ -77,9 +77,9 @@ const HowToBook = () => {
               relative z-10
               w-[78px] h-[78px]
               rounded-full
-              bg-gradient-to-r from-[#5B4FF7] to-[#4338CA]
+              bg-gradient-to-r from-[#4E4391] to-[#4E4391]
               flex items-center justify-center
-              shadow-[0_10px_25px_rgba(91,79,247,0.22)]
+              shadow-[0_10px_25px_rgba(78,67,145,0.22)]
               ring-4 ring-white
             "
           >

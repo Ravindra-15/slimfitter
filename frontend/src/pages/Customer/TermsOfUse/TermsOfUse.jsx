@@ -70,7 +70,7 @@ const TermsOfUse = () => {
           <div className="text-center mb-10 sm:mb-12">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
               <span className="text-teal-700">Trust &amp; </span>
-              <span className="text-[#4F46E5]">Transparency Center</span>
+              <span className="text-[#4E4391]">Transparency Center</span>
             </h1>
             <p className="mt-4 text-sm sm:text-base text-[#6B7280] max-w-2xl mx-auto leading-relaxed">
               Everything you need to know about how we protect your data
@@ -80,10 +80,10 @@ const TermsOfUse = () => {
 
           {/* ---------- Identity Protected callout ---------- */}
           <div className="max-w-3xl mx-auto mb-12 sm:mb-16 text-center">
-            <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#F3F1FF] mb-3">
-              <ShieldCheck size={20} className="text-[#4F46E5]" />
+            <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#EFEDFA] mb-3">
+              <ShieldCheck size={20} className="text-[#4E4391]" />
             </div>
-            <p className="text-sm sm:text-base font-semibold text-[#4F46E5] mb-2">
+            <p className="text-sm sm:text-base font-semibold text-[#4E4391] mb-2">
               Your Identity is 100% Protected
             </p>
             <p className="text-sm sm:text-base text-[#6B7280] leading-relaxed max-w-2xl mx-auto">

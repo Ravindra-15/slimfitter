@@ -45,7 +45,7 @@ export default function Receipt() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#F6F8FC] flex items-center justify-center">
+      <div className="min-h-screen bg-[#EFEDFA] flex items-center justify-center">
         <div className="text-[#6B7280] text-sm">Loading receipt...</div>
       </div>
     );
@@ -53,12 +53,12 @@ export default function Receipt() {
 
   if (!receipt) {
     return (
-      <div className="min-h-screen bg-[#F6F8FC] flex items-center justify-center px-4">
+      <div className="min-h-screen bg-[#EFEDFA] flex items-center justify-center px-4">
         <div className="text-center">
           <p className="text-[#374151] font-semibold">Receipt not found</p>
           <button
             onClick={() => navigate(-1)}
-            className="mt-4 text-sm text-[#4F46E5] hover:text- [#4338CA]"
+            className="mt-4 text-sm text-[#4E4391] hover:text- [#4E4391]"
           >
             Go back
           </button>
@@ -68,28 +68,28 @@ export default function Receipt() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F6F8FC] py-8 print:bg-white print:py-0">
+    <div className="min-h-screen bg-[#EFEDFA] py-8 print:bg-white print:py-0">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between mb-6 print:hidden">
           <button
             onClick={() => navigate(-1)}
-            className="flex items-center gap-2 text-[#6B7280] hover:text-[#4F46E5] text-sm transition-colors"
+            className="flex items-center gap-2 text-[#6B7280] hover:text-[#4E4391] text-sm transition-colors"
           >
             <ArrowLeft size={18} />
             Back
           </button>
           <button
             onClick={() => window.print()}
-            className="flex items-center gap-2 bg-[#4F46E5] hover:bg- [#4338CA] text-white text-sm font-semibold px-5 py-2 rounded-full shadow-[0_6px_18px_rgba(79,70,229,0.28)] transition-colors"
+            className="flex items-center gap-2 bg-[#4E4391] hover:bg- [#4E4391] text-white text-sm font-semibold px-5 py-2 rounded-full shadow-[0_6px_18px_rgba(90,79,159,0.28)] transition-colors"
           >
             <Printer size={14} />
             Print / Save PDF
           </button>
         </div>
 
-        <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-8 sm:p-10 print:shadow-none print:border-0 print:rounded-none">
+        <div className="bg-white rounded-2xl border border-[#E3DFF0] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-8 sm:p-10 print:shadow-none print:border-0 print:rounded-none">
           {/* HEADER */}
-          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 pb-6 border-b border-[#E7EAF3]">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 pb-6 border-b border-[#E3DFF0]">
             <div>
               <h1 className="text-2xl font-bold text-teal-700">Zealtho</h1>
             </div>
@@ -110,7 +110,7 @@ export default function Receipt() {
           </div>
 
           {/* BILLED TO + PROFESSIONAL */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 py-6 border-b border-[#E7EAF3]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 py-6 border-b border-[#E3DFF0]">
             <div>
               <p className="text-xs text-gray-400 mb-2">Billed To:</p>
               <p className="text-sm text-[#374151]">
@@ -145,12 +145,12 @@ export default function Receipt() {
           </div>
 
           {/* SUMMARY */}
-          <div className="py-6 border-b border-[#E7EAF3]">
+          <div className="py-6 border-b border-[#E3DFF0]">
             <h3 className="text-base font-bold text-gray-800 mb-4">Consultations Summary</h3>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="text-left text-xs text-gray-400 border-b border-[#E7EAF3]">
+                  <tr className="text-left text-xs text-gray-400 border-b border-[#E3DFF0]">
                     <th className="py-2 font-medium">Description</th>
                     <th className="py-2 font-medium text-right">Amount</th>
                   </tr>
@@ -177,7 +177,7 @@ export default function Receipt() {
           </div>
 
           {/* TOTAL */}
-          <div className="flex items-center justify-between py-5 border-b border-[#E7EAF3]">
+          <div className="flex items-center justify-between py-5 border-b border-[#E3DFF0]">
             <span className="text-base font-bold text-gray-800">Total Paid</span>
             <span className="text-base font-bold text-gray-800">
               {symbol}
@@ -186,7 +186,7 @@ export default function Receipt() {
           </div>
 
           {/* APPOINTMENT */}
-          <div className="mt-6 bg-[#F6F8FC] border border-[#E7EAF3] rounded-xl px-5 py-4 text-center">
+          <div className="mt-6 bg-[#EFEDFA] border border-[#E3DFF0] rounded-xl px-5 py-4 text-center">
             <p className="text-sm text-[#374151]">
               Appointment Details Scheduled for{" "}
               <span className="font-semibold">{formatDateTime(receipt.appointment?.scheduledAt)}</span>

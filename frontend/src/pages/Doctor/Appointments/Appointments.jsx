@@ -43,7 +43,7 @@ const ListSkeleton = () => (
     {[1, 2].map((i) => (
       <div
         key={i}
-        className="bg-white rounded-2xl border border-[#E7EAF3] p-5 h-44 animate-pulse"
+        className="bg-white rounded-2xl border border-[#E3DFF0] p-5 h-44 animate-pulse"
       />
     ))}
   </div>
@@ -53,8 +53,8 @@ const ListSkeleton = () => (
 // 🚫 EMPTY STATE
 // ============================================
 const EmptyState = () => (
-  <div className="bg-white rounded-2xl border border-dashed border-[#D9DDF0] px-6 py-12 text-center">
-    <div className="w-12 h-12 rounded-full bg-[#F6F8FC] flex items-center justify-center mx-auto mb-3">
+  <div className="bg-white rounded-2xl border border-dashed border-[#D6D1EC] px-6 py-12 text-center">
+    <div className="w-12 h-12 rounded-full bg-[#EFEDFA] flex items-center justify-center mx-auto mb-3">
       <CalendarIcon size={20} className="text-gray-400" />
     </div>
     <p className="text-sm font-medium text-[#374151] mb-1">
@@ -99,19 +99,19 @@ const Appointments = () => {
       {/* ============================================ */}
       <div
         className="
-          bg-white rounded-2xl border border-[#E7EAF3]
+          bg-white rounded-2xl border border-[#E3DFF0]
           shadow-[0_1px_3px_rgba(16,24,40,0.04)]
           p-4 mb-6
           flex items-center gap-3
         "
       >
         <div className="flex items-center gap-2 flex-1 min-w-0">
-          <div className="w-9 h-9 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0">
-            <CalendarIcon size={16} className="text-indigo-600" />
+          <div className="w-9 h-9 rounded-lg bg-[#EFEDFA] flex items-center justify-center flex-shrink-0">
+            <CalendarIcon size={16} className="text-[#5A4F9F]" />
           </div>
           <div className="min-w-0">
             <p className="text-xs text-[#6B7280] font-medium">Select Date</p>
-            <p className="text-sm font-bold text-indigo-600 mt-0.5">
+            <p className="text-sm font-bold text-[#5A4F9F] mt-0.5">
               {formatShortDate(date)}
               {isToday && (
                 <span className="ml-2 text-[10px] font-semibold text-[#6B7280]">
@@ -129,8 +129,8 @@ const Appointments = () => {
             className="
               w-8 h-8 rounded-lg
               flex items-center justify-center
-              text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
-              border border-[#D9DDF0]
+              text-[#6B7280] hover:text-[#5A4F9F] hover:bg-[#EFEDFA]
+              border border-[#D6D1EC]
               transition-colors
             "
             aria-label="Previous day"
@@ -145,8 +145,8 @@ const Appointments = () => {
             className="
               px-3 py-1.5 rounded-lg
               text-xs font-medium text-[#374151]
-              bg-white border border-[#D9DDF0]
-              focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500
+              bg-white border border-[#D6D1EC]
+              focus:outline-none focus:border-[#5A4F9F] focus:ring-1 focus:ring-indigo-500
             "
           />
 
@@ -156,8 +156,8 @@ const Appointments = () => {
             className="
               w-8 h-8 rounded-lg
               flex items-center justify-center
-              text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
-              border border-[#D9DDF0]
+              text-[#6B7280] hover:text-[#5A4F9F] hover:bg-[#EFEDFA]
+              border border-[#D6D1EC]
               transition-colors
             "
             aria-label="Next day"
@@ -171,8 +171,8 @@ const Appointments = () => {
               onClick={() => setDate(todayIso())}
               className="
                 ml-1 px-3 py-1.5 rounded-lg
-                text-xs font-semibold text-indigo-600
-                border border-indigo-100 bg-indigo-50
+                text-xs font-semibold text-[#5A4F9F]
+                border border-[#D6D1EC] bg-[#EFEDFA]
                 hover:bg-indigo-100
                 transition-colors
               "

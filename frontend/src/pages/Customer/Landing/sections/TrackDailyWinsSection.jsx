@@ -1,134 +1,121 @@
-// Diabmukt - "Track Your Daily Wins" Section
+// MommyFit - "Track Your Daily Wins" Section
 
-import { useRef, useEffect } from "react";
-import { PersonStanding, Moon, Droplet, Footprints } from "lucide-react";
-
-const trackingItems = [
-  {
-    id: 1,
-    icon: PersonStanding,
-    title: "Yoga Tracking",
-    description:
-      "Cultivate mental clarity and physical flexibility through structured daily practice",
-  },
-  {
-    id: 2,
-    icon: Moon,
-    title: "Sleep Monitoring",
-    description:
-      "Optimize your body's natural recovery and metabolic repair through quality",
-  },
-  {
-    id: 3,
-    icon: Droplet,
-    title: "Water Intake",
-    description:
-      "Maintain peak cellular hydration to support detoxification and steady energy levels",
-  },
-  {
-    id: 4,
-    icon: Footprints,
-    title: "Step Counter",
-    description:
-      "Drive active fat loss and heart health through consistent, low-impact movement",
-  },
+const rings = [
+  { id: 1, label: "Yoga", color: "#F2994A", radius: 132, progress: 0.74 },
+  { id: 2, label: "Sleep", color: "#A06CD5", radius: 104, progress: 0.67 },
+  { id: 3, label: "Water", color: "#56CCF2", radius: 76, progress: 0.58 },
+  { id: 4, label: "Steps", color: "#27AE60", radius: 48, progress: 0.46 },
 ];
 
+const STROKE = 20;
+const SIZE = 340;
+const CENTER = SIZE / 2;
+
+const ActivityRings = () => (
+  <svg
+    viewBox={`0 0 ${SIZE} ${SIZE}`}
+    className="w-[300px] h-[300px] sm:w-[360px] sm:h-[360px] lg:w-[400px] lg:h-[350px]"
+  >
+    {rings.map((ring) => {
+      const circumference = 2 * Math.PI * ring.radius;
+      const dash = circumference * ring.progress;
+      // Center the filled arc on the TOP:
+      // rotate so the arc's midpoint sits at the top (12 o'clock)
+      const startAngle = -90 - (ring.progress * 360) / 2;
+      return (
+        <g key={ring.id}>
+          {/* Track */}
+          <circle
+            cx={CENTER}
+            cy={CENTER}
+            r={ring.radius}
+            fill="none"
+            stroke={ring.color}
+            strokeOpacity="0.18"
+            strokeWidth={STROKE}
+          />
+          {/* Progress — arc centered on the top, bottom stays unfilled */}
+          <circle
+            cx={CENTER}
+            cy={CENTER}
+            r={ring.radius}
+            fill="none"
+            stroke={ring.color}
+            strokeWidth={STROKE}
+            strokeLinecap="round"
+            strokeDasharray={`${dash} ${circumference}`}
+            transform={`rotate(${startAngle} ${CENTER} ${CENTER})`}
+          />
+          {/* Label — white text sits on the colored arc at the top */}
+          <text
+            x={CENTER}
+            y={CENTER - ring.radius + STROKE / 2 - 3}
+            textAnchor="middle"
+            fontSize="12"
+            fontWeight="700"
+            fill="#FFFFFF"
+          >
+            {ring.label}
+          </text>
+        </g>
+      );
+    })}
+  </svg>
+);
+
 export default function TrackDailyWinsSection() {
-  const scrollRef = useRef(null);
-
-  // Auto-center the 2nd card on mobile mount
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    if (window.innerWidth >= 640) return; // only on mobile
-
-    const secondCard = el.children[1];
-    if (secondCard) {
-      const scrollLeft =
-        secondCard.offsetLeft - (el.clientWidth - secondCard.clientWidth) / 2;
-      el.scrollTo({ left: scrollLeft, behavior: "instant" });
-    }
-  }, []);
-
   return (
-    <section className="py-10 sm:py-14 lg:py-16 bg-white overflow-hidden">
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
+    <section className="py-8 sm:py-12 lg:py-8  bg-white">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
         {/* HEADING */}
-        <div className="text-center mb-8 sm:mb-12 lg:mb-14">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0F172A]">
+        <div className="text-center mb-6 sm:mb-8">
+          <h2 className="text-[24px] sm:text-[34px] lg:text-[40px] font-bold text-[#2D3D4A]">
             Track Your Daily Wins in{" "}
-            <span className="text-[#4F46E5]">Under 30 Seconds</span>
+            <span className="text-[#5A4F9F]">Under 30 Seconds</span>
           </h2>
+          <p className="mt-2 text-[#2D3D4A] text-[13px] sm:text-[16px] lg:text-[17px] font-medium">
+            "Consistency is hard. We make it easy with our simple 3-step system.
+          </p>
         </div>
 
-        {/* DESKTOP / TABLET GRID — hidden on mobile */}
-        <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-8">
-          {trackingItems.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={item.id}
-                className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_28px_rgba(0,0,0,0.10)] transition-shadow px-5 py-7 sm:px-6 sm:py-8 flex flex-col items-center text-center min-h-[260px] sm:min-h-[280px] lg:min-h-[300px]"
-              >
-                <div className="mb-4 sm:mb-5">
-                  <Icon size={32} className="text-[#4F46E5]" strokeWidth={2} />
+        {/* CARD CONTAINER */}
+        <div className="rounded-[28px] sm:rounded-[36px] border border-[#5A4F9F] bg-white px-5 sm:px-12 lg:px-20 py-6 sm:py-10 lg:py-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16">
+            {/* LEFT — Today card */}
+            <div className="flex justify-center lg:justify-start">
+              <div className="w-full max-w-[520px] bg-white rounded-2xl border border-[#ECECEC] shadow-[0_12px_35px_rgba(90,79,159,0.16)] px-8 sm:px-10 py-9 sm:py-11">
+                <div className="flex items-center justify-between gap-5">
+                  {/* Text */}
+                  <div className="text-left">
+                    <p className="text-[#9AA5AD] text-[15px] sm:text-[16px] font-medium">
+                      Today
+                    </p>
+                    <p className="text-[#1F2937] text-[20px] sm:text-[26px] font-bold mt-1">
+                      Monday, Feb 23
+                    </p>
+                    <p className="text-[#2D3D4A] text-[14px] sm:text-[16px] mt-4 leading-snug">
+                      Click to view your
+                      <br />
+                      past logs
+                    </p>
+                  </div>
+                  {/* Calendar image */}
+                  <img
+                    src="/images/calendar.png"
+                    alt="Calendar"
+                    className="w-[110px] sm:w-[150px] h-auto object-contain shrink-0"
+                  />
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] mb-3 sm:mb-4">
-                  {item.title}
-                </h3>
-                <p className="text-[#475569] text-xl leading-relaxed font-medium">
-                  {item.description}
-                </p>
               </div>
-            );
-          })}
+            </div>
+
+            {/* RIGHT — Activity rings */}
+            <div className="flex items-center justify-center">
+              <ActivityRings />
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* MOBILE HORIZONTAL SCROLL — full screen width, no max container */}
-      <div className="sm:hidden mt-2">
-        <div
-          ref={scrollRef}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-[18%] py-6"
-          style={{
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-          }}
-        >
-          {trackingItems.map((item, idx) => {
-            const Icon = item.icon;
-            const isCenter = idx === 1;
-            return (
-              <div
-                key={item.id}
-                className={`flex-shrink-0 w-[72%] snap-center bg-white rounded-2xl border border-[#E7EAF3] px-5 py-6 flex flex-col items-center text-center min-h-[230px] transition-transform duration-300 ${
-                  isCenter
-                    ? "scale-[1.06] shadow-[0_0_40px_rgba(79,70,229,0.20)] border-[#E0DEFB]"
-                    : "scale-100 shadow-[0_0_20px_rgba(0,0,0,0.05)]"
-                }`}
-              >
-                <div className="mb-4">
-                  <Icon size={32} className="text-[#4F46E5]" strokeWidth={2} />
-                </div>
-                <h3 className="text-base font-bold text-[#0F172A] mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-[#475569] text-sm leading-relaxed font-medium">
-                  {item.description}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Hide scrollbar across browsers */}
-      <style>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </section>
   );
 }

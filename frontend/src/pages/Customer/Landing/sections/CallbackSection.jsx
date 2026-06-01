@@ -50,7 +50,7 @@ export default function CallbackSection() {
   };
 
   const inputClass =
-    "w-full border-0 border-b border-[#7C97A0] focus:border-[#5B4FF7] outline-none py-2 text-sm text-[#083B44] placeholder-[#083B44] bg-transparent transition-colors";
+    "w-full border-0 border-b border-[#7C97A0] focus:border-[#4E4391] outline-none py-2 text-sm text-[#083B44] placeholder-[#083B44] bg-transparent transition-colors";
 
   return (
     <section id="callback" className="bg-white">
@@ -58,7 +58,7 @@ export default function CallbackSection() {
         {/* Heading */}
         <div className="text-center mb-8 sm:mb-10">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#083B44] mb-2">
-            Request a <span className="text-[#4F46E5]">Callback</span>
+            Request a <span className="text-[#4E4391]">Callback</span>
           </h2>
           <p className="text-[#083B44] text-sm sm:text-base">
             We typically respond within 12 hours.
@@ -102,7 +102,7 @@ export default function CallbackSection() {
             <button
               onClick={submit}
               disabled={loading}
-              className="w-full bg-[#4F46E5] text-white py-3 rounded-full font-semibold shadow-[0_6px_18px_rgba(79,70,229,0.28)] hover:bg-[#4338CA] transition-colors disabled:opacity-60 mt-2"
+              className="w-full bg-[#4E4391] text-white py-3 rounded-full font-semibold shadow-[0_6px_18px_rgba(90,79,159,0.28)] hover:bg-[#4E4391] transition-colors disabled:opacity-60 mt-2"
             >
               {loading ? "Submitting..." : "Submit"}
             </button>

@@ -43,16 +43,13 @@ const HeroSearch = ({
       <div
         className="
           relative overflow-hidden
-          bg-gradient-to-r from-[#5B4FF7] to-[#4338CA]
+          bg-[#5A4F9F]
           rounded-[28px]
           px-5 sm:px-8 py-12 sm:py-16
-          shadow-[0_10px_30px_rgba(91,79,247,0.18)]
+          shadow-[0_10px_30px_rgba(78,67,145,0.18)]
         "
       >
-        {/* Decorative blur */}
-        <div className="absolute -top-10 -right-10 w-44 h-44 rounded-full bg-white/10 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-10 -left-10 w-52 h-52 rounded-full bg-black/10 blur-3xl pointer-events-none" />
-
+        
         <h1 className="relative text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-center tracking-tight">
           Find the right expert for your journey.
         </h1>
@@ -74,7 +71,7 @@ const HeroSearch = ({
               w-full pl-6 pr-16 py-4 sm:py-5
               bg-white rounded-full
               text-sm sm:text-base text-[#1F2937] placeholder-gray-400
-              focus:outline-none focus:ring-2 focus:ring-[#5B4FF7]/30
+              focus:outline-none focus:ring-2 focus:ring-[#4E4391]/30
               shadow-[0_10px_30px_rgba(0,0,0,0.08)]
               border border-[#ECEFF5]
             "
@@ -86,9 +83,9 @@ const HeroSearch = ({
             className="
               absolute right-2 top-1/2 -translate-y-1/2
               w-11 h-11 sm:w-12 sm:h-12 rounded-full
-              bg-[#5B4FF7] text-white
+              bg-[#4E4391] text-white
               flex items-center justify-center
-              hover:bg-[#4338CA] transition-all duration-200
+              hover:bg-[#4E4391] transition-all duration-200
               shadow-md
             "
           >
@@ -116,8 +113,8 @@ const HeroSearch = ({
               border transition-all duration-200
               ${
                 isActive
-                  ? "bg-[#5B4FF7] text-white border-[#5B4FF7] shadow-[0_6px_18px_rgba(91,79,247,0.22)]"
-                  : "bg-white text-[#374151] border-[#E7EAF3] hover:border-[#5B4FF7]/40 hover:bg-[#F7F8FF]"
+                  ? "bg-[#4E4391] text-white border-[#4E4391] shadow-[0_6px_18px_rgba(78,67,145,0.22)]"
+                  : "bg-white text-[#374151] border-[#E3DFF0] hover:border-[#4E4391]/40 hover:bg-[#EFEDFA]"
               }
             `}
           >
@@ -131,14 +128,14 @@ const HeroSearch = ({
     {specialty && (
       <p className="text-sm text-[#6B7280]">
         Filtering by{" "}
-        <span className="font-semibold text-[#5B4FF7]">
+        <span className="font-semibold text-[#4E4391]">
           {specialty}
         </span>
         {" — "}
         <button
           type="button"
           onClick={() => onSpecialtyChange("")}
-          className="text-[#4338CA] hover:underline font-medium"
+          className="text-[#4E4391] hover:underline font-medium"
         >
           clear
         </button>

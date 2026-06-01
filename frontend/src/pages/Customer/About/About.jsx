@@ -198,10 +198,10 @@ const About = () => {
           <div
             className="
               relative overflow-hidden
-              bg-gradient-to-br from-[#4F46E5] to- [#4338CA]
+              bg-gradient-to-br from-[#4E4391] to- [#4E4391]
               rounded-2xl sm:rounded-3xl
               p-6 sm:p-8 md:p-10 lg:p-14
-              shadow-[0_8px_24px_rgba(91,79,247,0.18)]
+              shadow-[0_8px_24px_rgba(78,67,145,0.18)]
             "
           >
             {/* Decorative blobs */}
@@ -375,7 +375,7 @@ const About = () => {
             <div className="w-full lg:w-[40%]">
               <h2 className="font-bold leading-[1.15] mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-[38px] xl:text-[42px] lg:whitespace-nowrap">
                 <span className="text-[#083B44]">Frequently Asked </span>
-                <span className="text-[#4F46E5]">Questions</span>
+                <span className="text-[#4E4391]">Questions</span>
               </h2>
 
               <p className="text-[#6B7280] text-xs sm:text-sm md:text-base leading-relaxed max-w-[420px] mb-5 sm:mb-6 lg:mb-8">
@@ -392,7 +392,7 @@ const About = () => {
                         bg-gradient-to-br from-[#FCE9D6] to-[#F8D4B0]
                         h-[150px] sm:h-[230px] md:h-[20px] lg:h-[300px]
                         w-full
-                        shadow-[0_20px_50px_-12px_rgba(91,79,247,0.35)]
+                        shadow-[0_20px_50px_-12px_rgba(78,67,145,0.35)]
                         "
                 />
 
@@ -480,8 +480,8 @@ const About = () => {
                   aria-label="Next testimonial"
                   className="
                     w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center
-                    bg-[#4F46E5] text-white
-                    hover:bg- [#4338CA] transition-colors
+                    bg-[#4E4391] text-white
+                    hover:bg- [#4E4391] transition-colors
                     disabled:opacity-30 disabled:cursor-not-allowed
                   "
                 >
@@ -516,8 +516,8 @@ const About = () => {
                         flex flex-col justify-between
                         ${
                           isOrange
-                            ? "bg-[#4F46E5] text-white"
-                            : "bg-[#F6F8FC] text-[#374151] border border-[#E7EAF3]"
+                            ? "bg-[#4E4391] text-white"
+                            : "bg-[#EFEDFA] text-[#374151] border border-[#E3DFF0]"
                         }
                       `}
                     >

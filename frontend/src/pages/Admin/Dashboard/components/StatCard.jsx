@@ -25,7 +25,7 @@ const StatCard = ({
   return (
     <div
       className="
-        bg-white rounded-2xl border border-[#E7EAF3]
+        bg-white rounded-2xl border border-[#E3DFF0]
         shadow-[0_1px_3px_rgba(16,24,40,0.04)]
         p-5 sm:p-6
         flex flex-col gap-3

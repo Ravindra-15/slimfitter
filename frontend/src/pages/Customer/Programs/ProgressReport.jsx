@@ -69,7 +69,7 @@ export default function ProgressReport() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F6F8FC] flex flex-col">
+    <div className="min-h-screen bg-[#EFEDFA] flex flex-col">
       <CustomerNavbar />
 
       <main className="flex-1">
@@ -79,7 +79,7 @@ export default function ProgressReport() {
           <div className="flex items-center gap-3 mb-1">
             <button
               onClick={() => navigate(`/programs/${id}/add-progress`)}
-              className="text-[#6B7280] hover:text-[#5B4FF7] transition-colors"
+              className="text-[#6B7280] hover:text-[#4E4391] transition-colors"
               aria-label="Back"
             >
               <ArrowLeft size={20} />
@@ -93,7 +93,7 @@ export default function ProgressReport() {
           </p>
 
           {loading ? (
-            <div className="bg-white rounded-[24px] border border-[#E7EAF3] py-16 text-center">
+            <div className="bg-white rounded-[24px] border border-[#E3DFF0] py-16 text-center">
               <p className="text-sm text-[#9CA3AF]">Loading your report...</p>
             </div>
           ) : (
@@ -106,7 +106,7 @@ export default function ProgressReport() {
                   {habits.map((h) => (
                     <div
                       key={h.habitId}
-                      className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] px-4 py-4 text-center"
+                      className="bg-white rounded-2xl border border-[#E3DFF0] shadow-[0_1px_3px_rgba(16,24,40,0.04)] px-4 py-4 text-center"
                     >
                       <p className="text-xs text-[#9CA3AF] font-medium mb-1.5">
                         Avg {h.trackerName}
@@ -210,7 +210,7 @@ export default function ProgressReport() {
                                 {month.habitStats.map((h) => (
                                   <div
                                     key={h.habitId}
-                                    className="bg-[#F6F8FC] border border-[#E7EAF3] rounded-xl px-3 py-3 text-center"
+                                    className="bg-[#EFEDFA] border border-[#E3DFF0] rounded-xl px-3 py-3 text-center"
                                   >
                                     <p className="text-[11px] text-[#9CA3AF] font-medium mb-1">
                                       Avg {h.trackerName}

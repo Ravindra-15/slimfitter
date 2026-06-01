@@ -17,8 +17,8 @@ const typeMeta = {
   },
   appointment_reminder: {
     icon: Calendar,
-    bg: "bg-[#F3F1FF]",
-    color: "text-[#4F46E5]",
+    bg: "bg-[#EFEDFA]",
+    color: "text-[#4E4391]",
   },
   payment_success: {
     icon: CheckCircle2,
@@ -32,12 +32,12 @@ const typeMeta = {
   },
   program_update: {
     icon: Sparkles,
-    bg: "bg-purple-50",
+    bg: "bg-[#EFEDFA]",
     color: "text-purple-500",
   },
   general: {
     icon: Bell,
-    bg: "bg-[#F6F8FC]",
+    bg: "bg-[#EFEDFA]",
     color: "text-[#6B7280]",
   },
 };
@@ -61,8 +61,8 @@ export default function NotificationItem({ notification, onClick }) {
       onClick={onClick}
       className={`w-full text-left border rounded-xl p-4 flex items-start gap-3 transition-colors ${
         notification.read
-          ? "border-[#E7EAF3] bg-white hover:border-[#D9DDF0]"
-          : "border-[#E7EAF3] bg-[#F3F1FF]/30 hover:border-orange-200"
+          ? "border-[#E3DFF0] bg-white hover:border-[#D6D1EC]"
+          : "border-[#E3DFF0] bg-[#EFEDFA]/30 hover:border-orange-200"
       }`}
     >
       <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${meta.bg}`}>
@@ -74,7 +74,7 @@ export default function NotificationItem({ notification, onClick }) {
           <p className="font-semibold text-gray-800 text-sm">
             {notification.title}
             {!notification.read && (
-              <span className="inline-block w-1.5 h-1.5 bg-[#4F46E5] rounded-full ml-2 align-middle" />
+              <span className="inline-block w-1.5 h-1.5 bg-[#4E4391] rounded-full ml-2 align-middle" />
             )}
           </p>
           <span className="text-[11px] text-gray-400 shrink-0 sm:ml-4">

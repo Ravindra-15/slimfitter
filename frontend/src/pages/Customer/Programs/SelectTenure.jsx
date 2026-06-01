@@ -143,7 +143,7 @@ export default function SelectTenure() {
   // ════════ LOADING / ERROR ════════
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#EEEBFB] flex items-center justify-center px-4">
+      <div className="min-h-screen bg-[#EEEAF7] flex items-center justify-center px-4">
         <p className="text-sm text-gray-500">Loading plans...</p>
       </div>
     );
@@ -151,7 +151,7 @@ export default function SelectTenure() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-[#EEEBFB] flex items-center justify-center px-4">
+      <div className="min-h-screen bg-[#EEEAF7] flex items-center justify-center px-4">
         <p className="text-sm text-red-500">{error}</p>
       </div>
     );
@@ -175,7 +175,7 @@ export default function SelectTenure() {
       }));
 
     return (
-      <div className="min-h-screen bg-[#EEEBFB] px-4 py-10">
+      <div className="min-h-screen bg-[#EEEAF7] px-4 py-10">
         <div className="w-full max-w-[820px] mx-auto flex flex-col gap-5">
         <div className="bg-white rounded-3xl shadow-xl w-full px-6 sm:px-10 py-9">
           {/* Heading */}
@@ -187,7 +187,7 @@ export default function SelectTenure() {
               {firstName ? (
                 <>
                   Hey{" "}
-                  <span className="text-[#4F46E5] font-semibold">
+                  <span className="text-[#4E4391] font-semibold">
                     {firstName}
                   </span>
                   ,{" "}
@@ -199,13 +199,13 @@ export default function SelectTenure() {
           </div>
 
           {/* Selected tenure box */}
-          <div className="border border-[#D9DDF0] rounded-2xl px-5 py-4 flex items-center justify-between mb-8 max-w-sm mx-auto">
+          <div className="border border-[#D6D1EC] rounded-2xl px-5 py-4 flex items-center justify-between mb-8 max-w-sm mx-auto">
             <span className="text-sm text-gray-400">Selected Tenure</span>
             <div className="flex items-center gap-2">
               <span className="text-lg font-bold text-[#0F172A]">
                 {weeks} Weeks
               </span>
-              <Calendar size={20} className="text-[#4F46E5]" />
+              <Calendar size={20} className="text-[#4E4391]" />
             </div>
           </div>
 
@@ -218,9 +218,9 @@ export default function SelectTenure() {
               step={1}
               value={weeks}
               onChange={(e) => setWeeks(Number(e.target.value))}
-              className="w-full accent-[#4F46E5] cursor-pointer"
+              className="w-full accent-[#4E4391] cursor-pointer"
               style={{
-                background: `linear-gradient(to right, #4F46E5 ${pct}%, #E5E7EB ${pct}%)`,
+                background: `linear-gradient(to right, #4E4391 ${pct}%, #E5E7EB ${pct}%)`,
               }}
             />
           </div>
@@ -257,7 +257,7 @@ export default function SelectTenure() {
          {/* Continue */}
           <button
             onClick={handleWeeklyContinue}
-            className="w-full bg-[#4F46E5] hover:bg-[#4338CA] text-white text-sm font-semibold py-3.5 rounded-full transition-colors shadow-[0_6px_18px_rgba(79,70,229,0.3)]"
+            className="w-full bg-[#4E4391] hover:bg-[#4E4391] text-white text-sm font-semibold py-3.5 rounded-full transition-colors shadow-[0_6px_18px_rgba(90,79,159,0.3)]"
           >
             Continue
           </button>
@@ -284,7 +284,7 @@ export default function SelectTenure() {
             {firstName ? (
               <>
                 Hey{" "}
-                <span className="text-[#4F46E5] font-semibold">
+                <span className="text-[#4E4391] font-semibold">
                   {firstName}
                 </span>
                 ,{" "}
@@ -315,14 +315,14 @@ export default function SelectTenure() {
                 <div
                   key={plan._id}
                   onClick={() => handleFixedSelect(plan)}
-                  className="border border-[#D9DDF0] rounded-2xl p-5 hover:border-[#4F46E5] hover:shadow-[0_8px_22px_rgba(79,70,229,0.18)] transition-all cursor-pointer flex flex-col"
+                  className="border border-[#D6D1EC] rounded-2xl p-5 hover:border-[#4E4391] hover:shadow-[0_8px_22px_rgba(90,79,159,0.18)] transition-all cursor-pointer flex flex-col"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <span className="font-semibold text-[#0F172A] text-base">
                       {plan.planName}
                     </span>
                     {plan.offerBadge && (
-                      <span className="bg-[#4F46E5] text-white text-[10px] font-bold px-2 py-0.5 rounded-md">
+                      <span className="bg-[#4E4391] text-white text-[10px] font-bold px-2 py-0.5 rounded-md">
                         {plan.offerBadge}
                       </span>
                     )}
@@ -342,7 +342,7 @@ export default function SelectTenure() {
                       e.stopPropagation();
                       handleFixedSelect(plan);
                     }}
-                    className="mt-auto w-full bg-[#4F46E5] hover:bg-[#4338CA] text-white text-sm font-semibold py-2.5 rounded-full transition-colors shadow-[0_4px_14px_rgba(79,70,229,0.32)]"
+                    className="mt-auto w-full bg-[#4E4391] hover:bg-[#4E4391] text-white text-sm font-semibold py-2.5 rounded-full transition-colors shadow-[0_4px_14px_rgba(90,79,159,0.32)]"
                   >
                     Select Plan
                   </button>

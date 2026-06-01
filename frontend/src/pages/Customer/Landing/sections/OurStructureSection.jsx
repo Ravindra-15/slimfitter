@@ -31,7 +31,7 @@ export default function OurStructureSection() {
         {/* HEADING */}
         <div className="text-center mb-10 sm:mb-14 lg:mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0F172A]">
-            Why Choose <span className="text-[#4F46E5]">us?</span>
+            Why Choose <span className="text-[#4E4391]">us?</span>
           </h2>
         </div>
 
@@ -45,7 +45,7 @@ export default function OurStructureSection() {
                 className="flex flex-col items-center text-center"
               >
                 <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                  <Icon size={22} className="text-[#4F46E5]" strokeWidth={2.2} />
+                  <Icon size={22} className="text-[#4E4391]" strokeWidth={2.2} />
                   <h3 className="text-base sm:text-lg lg:text-xl font-bold text-[#0F172A]">
                     {feature.title}
                   </h3>

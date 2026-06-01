@@ -28,7 +28,7 @@ const AdminSidebarItem = ({ icon: Icon, label, to, badge, onClick }) => {
         text-sm font-medium transition-all duration-150
         ${
           isActive
-            ? "bg-indigo-600 text-white shadow-sm shadow-indigo-200"
+            ? "bg-[#5A4F9F] text-white shadow-sm shadow-indigo-200"
             : "text-[#374151] hover:bg-gray-100 hover:text-[#1F2937]"
         }
       `}
@@ -59,7 +59,7 @@ const AdminSidebarItem = ({ icon: Icon, label, to, badge, onClick }) => {
                 text-[11px] font-bold
                 ${
                   isActive
-                    ? "bg-white text-indigo-600"
+                    ? "bg-white text-[#5A4F9F]"
                     : "bg-red-500 text-white"
                 }
               `}

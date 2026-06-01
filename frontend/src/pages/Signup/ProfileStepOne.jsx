@@ -88,8 +88,8 @@ const ProfileStepOne = () => {
             Stories of <br /> Transformation
           </h2>
 
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#E7EAF3] relative">
-            <div className="text-[#4F46E5] text-5xl font-serif absolute top-3 left-5 leading-none">
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#E3DFF0] relative">
+            <div className="text-[#4E4391] text-5xl font-serif absolute top-3 left-5 leading-none">
               ❝
             </div>
 
@@ -136,7 +136,7 @@ const ProfileStepOne = () => {
                 onChange={handleChange}
               />
 
-              <div className="border-t border-[#D9DDF0] mt-3 pt-6">
+              <div className="border-t border-[#D6D1EC] mt-3 pt-6">
                 <Button
                   text={loading ? "Saving..." : "Next"}
                   onClick={handleSubmit}

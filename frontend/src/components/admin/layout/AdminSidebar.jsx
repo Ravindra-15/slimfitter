@@ -130,7 +130,7 @@ const AdminSidebar = ({ onNavigate }) => {
     <div className="flex flex-col h-full">
       {/* 🏷️ ADMIN: Brand Block */}
       <div className="px-5 pt-6 pb-4 flex items-center gap-3">
-        <div className="w-10 h-10 rounded-lg bg-indigo-600 flex items-center justify-center flex-shrink-0">
+        <div className="w-10 h-10 rounded-lg bg-[#5A4F9F] flex items-center justify-center flex-shrink-0">
           <Shield size={20} className="text-white" />
         </div>
         <div className="min-w-0">
@@ -145,12 +145,12 @@ const AdminSidebar = ({ onNavigate }) => {
       <div className="px-4 pb-4">
         <button
           onClick={() => setIsTenantOpen((prev) => !prev)}
-          className="w-full flex items-center justify-between px-3 py-2 rounded-lg border border-[#D9DDF0] bg-white hover:bg-[#F6F8FC] transition-colors"
+          className="w-full flex items-center justify-between px-3 py-2 rounded-lg border border-[#D6D1EC] bg-white hover:bg-[#EFEDFA] transition-colors"
           aria-haspopup="listbox"
           aria-expanded={isTenantOpen}
         >
           <span className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-indigo-500" />
+            <span className="w-2 h-2 rounded-full bg-[#EFEDFA]0" />
             <span className="text-sm font-medium text-gray-800">
               {selectedTenant}
             </span>
@@ -191,7 +191,7 @@ const AdminSidebar = ({ onNavigate }) => {
       </nav>
 
       {/* 👤 ADMIN: Profile + Logout block at bottom */}
-      <div className="border-t border-[#D9DDF0] mt-auto">
+      <div className="border-t border-[#D6D1EC] mt-auto">
         {/* Admin user info */}
         <div className="flex items-center gap-3 px-5 py-4">
           <div className="w-9 h-9 rounded-full bg-gray-200 flex-shrink-0 overflow-hidden">
@@ -209,7 +209,7 @@ const AdminSidebar = ({ onNavigate }) => {
         {/* 🚪 Logout button */}
         <button
           onClick={handleLogout}
-          className="w-full flex items-center gap-2 px-5 py-3 text-red-600 hover:bg-red-50 transition-colors text-sm font-semibold border-t border-[#E7EAF3]"
+          className="w-full flex items-center gap-2 px-5 py-3 text-red-600 hover:bg-red-50 transition-colors text-sm font-semibold border-t border-[#E3DFF0]"
           aria-label="Logout from admin panel"
         >
           <LogOut size={16} />

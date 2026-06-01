@@ -72,7 +72,7 @@ const ProtectedProgramRoute = ({ children }) => {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <div className="w-12 h-12 border-4 border-[#4F46E5] border-t-transparent rounded-full animate-spin" />
+          <div className="w-12 h-12 border-4 border-[#4E4391] border-t-transparent rounded-full animate-spin" />
 
           <p className="text-sm text-[#6B7280] font-medium">
             Verifying your subscription...

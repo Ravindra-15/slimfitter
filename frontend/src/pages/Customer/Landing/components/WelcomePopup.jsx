@@ -38,7 +38,7 @@ export default function WelcomePopup() {
         {/* text */}
         <p className="text-[#6B7280] text-sm leading-relaxed mb-8">
           Browse verified specialists and book a consultation for just
-          <span className="font-semibold text-[#4F46E5]"> $20</span>.
+          <span className="font-semibold text-[#4E4391]"> $20</span>.
           <br />
           Get instant access to Endocrinologists, Gynecologists,
           and more.
@@ -48,14 +48,14 @@ export default function WelcomePopup() {
         <div className="flex flex-col gap-3">
           <Link
             to="/signup"
-            className="bg-[#4F46E5] hover:bg- [#4338CA] text-white py-3 rounded-full font-semibold transition-colors"
+            className="bg-[#4E4391] hover:bg- [#4E4391] text-white py-3 rounded-full font-semibold transition-colors"
           >
             Register for Free
           </Link>
 
           <Link
             to="/login"
-            className="border border-gray-300 hover:border-teal-700 hover:text-[#4F46E5] text-[#374151] py-3 rounded-full font-semibold transition-colors"
+            className="border border-gray-300 hover:border-teal-700 hover:text-[#4E4391] text-[#374151] py-3 rounded-full font-semibold transition-colors"
           >
             Login
           </Link>

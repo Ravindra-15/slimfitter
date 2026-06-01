@@ -84,7 +84,7 @@ export default function ChangePasswordForm() {
           name="currentPassword"
           value={form.currentPassword}
           onChange={handleChange}
-          className="w-full border border-[#D9DDF0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C7D2FE]"
+          className="w-full border border-[#D6D1EC] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9C3E8]"
           placeholder="Enter current password"
         />
       </div>
@@ -98,7 +98,7 @@ export default function ChangePasswordForm() {
           name="newPassword"
           value={form.newPassword}
           onChange={handleChange}
-          className="w-full border border-[#D9DDF0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C7D2FE]"
+          className="w-full border border-[#D6D1EC] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9C3E8]"
           placeholder="Enter new password"
         />
       </div>
@@ -112,7 +112,7 @@ export default function ChangePasswordForm() {
           name="confirmPassword"
           value={form.confirmPassword}
           onChange={handleChange}
-          className="w-full border border-[#D9DDF0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C7D2FE]"
+          className="w-full border border-[#D6D1EC] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9C3E8]"
           placeholder="Confirm new password"
         />
       </div>
@@ -120,7 +120,7 @@ export default function ChangePasswordForm() {
       <button
         type="submit"
         disabled={saving}
-        className="w-full bg-[#5B4FF7] hover:bg-[#4338CA] disabled:opacity-60 text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-[0_4px_14px_rgba(91,79,247,0.35)] transition-colors"
+        className="w-full bg-[#4E4391] hover:bg-[#4E4391] disabled:opacity-60 text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-[0_4px_14px_rgba(78,67,145,0.35)] transition-colors"
       >
         {saving ? "Updating..." : "Update Password"}
       </button>

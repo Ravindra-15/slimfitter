@@ -128,7 +128,7 @@ const EditDoctor = () => {
     return (
       <div className="flex items-center justify-center py-20">
         <div className="flex flex-col items-center gap-3">
-          <Loader2 size={28} className="text-indigo-600 animate-spin" />
+          <Loader2 size={28} className="text-[#5A4F9F] animate-spin" />
           <p className="text-sm text-[#6B7280]">Loading doctor profile...</p>
         </div>
       </div>
@@ -150,7 +150,7 @@ const EditDoctor = () => {
           </p>
           <button
             onClick={() => navigate("/admin/doctors")}
-            className="text-sm text-indigo-600 font-medium hover:underline"
+            className="text-sm text-[#5A4F9F] font-medium hover:underline"
           >
             Back to Doctor Directory
           </button>
@@ -167,7 +167,7 @@ const EditDoctor = () => {
         disabled={submitting}
         className="
           inline-flex items-center gap-1.5
-          text-sm font-medium text-[#6B7280] hover:text-indigo-600
+          text-sm font-medium text-[#6B7280] hover:text-[#5A4F9F]
           disabled:opacity-50 disabled:cursor-not-allowed
           transition-colors
         "

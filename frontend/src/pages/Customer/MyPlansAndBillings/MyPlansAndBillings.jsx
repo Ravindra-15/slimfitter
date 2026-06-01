@@ -63,13 +63,13 @@ export default function MyPlansAndBillings() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#F6F8FC] flex flex-col">
+    <div className="min-h-screen bg-[#EFEDFA] flex flex-col">
       <CustomerNavbar />
 
       <main className="flex-1 max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-10 py-8">
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-[#6B7280] hover:text-[#5B4FF7] text-sm mb-6 transition-colors"
+          className="flex items-center gap-2 text-[#6B7280] hover:text-[#4E4391] text-sm mb-6 transition-colors"
         >
           <ArrowLeft size={18} />
           Back
@@ -90,10 +90,10 @@ export default function MyPlansAndBillings() {
         <div className="flex flex-col sm:flex-row gap-4 mb-6">
           {/* Current Week — only if user has a subscription */}
           {subscription && (
-            <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-5 sm:p-6 flex flex-col w-full sm:w-auto sm:min-w-[220px]">
+            <div className="bg-white rounded-2xl border border-[#E3DFF0] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-5 sm:p-6 flex flex-col w-full sm:w-auto sm:min-w-[220px]">
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-8 h-8 bg-[#F5F7FF] rounded-lg flex items-center justify-center">
-                  <CalendarClock size={16} className="text-[#5B4FF7]" />
+                <div className="w-8 h-8 bg-[#EFEDFA] rounded-lg flex items-center justify-center">
+                  <CalendarClock size={16} className="text-[#4E4391]" />
                 </div>
                 <span className="text-sm font-semibold text-gray-800">
                   Current Week
@@ -109,7 +109,7 @@ export default function MyPlansAndBillings() {
           )}
 
           {/* Consultations */}
-          <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-5 sm:p-6 flex flex-col w-full sm:w-auto sm:min-w-[220px]">
+          <div className="bg-white rounded-2xl border border-[#E3DFF0] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-5 sm:p-6 flex flex-col w-full sm:w-auto sm:min-w-[220px]">
             <div className="flex items-center gap-2 mb-3">
               <div className="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center">
                 <Activity size={16} className="text-green-500" />
@@ -129,11 +129,11 @@ export default function MyPlansAndBillings() {
         {/* 🏆 MY CURRENT PROGRAM — progress card        */}
         {/* ============================================ */}
         {subscription && (
-          <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-5 sm:p-6 mb-6">
+          <div className="bg-white rounded-2xl border border-[#E3DFF0] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-5 sm:p-6 mb-6">
             {/* Header row */}
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">
               <div className="flex items-start gap-3">
-                <div className="w-9 h-9 bg-[#5B4FF7] rounded-xl flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 bg-[#4E4391] rounded-xl flex items-center justify-center shrink-0">
                   <Award size={18} className="text-white" />
                 </div>
                 <div>
@@ -154,7 +154,7 @@ export default function MyPlansAndBillings() {
                   onClick={() =>
                     navigate(`/programs/${PROGRAM_ID}/dashboard`)
                   }
-                  className="inline-flex items-center justify-center gap-2 bg-[#5B4FF7] hover:bg-[#4338CA] text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-[0_4px_14px_rgba(91,79,247,0.25)] transition-colors shrink-0"
+                  className="inline-flex items-center justify-center gap-2 bg-[#4E4391] hover:bg-[#4E4391] text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-[0_4px_14px_rgba(78,67,145,0.25)] transition-colors shrink-0"
                 >
                   <PlayCircle size={15} />
                   Go to Dashboard
@@ -162,7 +162,7 @@ export default function MyPlansAndBillings() {
               ) : (
                 <button
                   onClick={() => navigate(`/programs/${PROGRAM_ID}/tenure`)}
-                  className="inline-flex items-center justify-center gap-2 border border-[#5B4FF7] text-[#5B4FF7] hover:bg-[#F5F7FF] text-sm font-semibold px-5 py-2.5 rounded-full transition-colors shrink-0"
+                  className="inline-flex items-center justify-center gap-2 border border-[#4E4391] text-[#4E4391] hover:bg-[#EFEDFA] text-sm font-semibold px-5 py-2.5 rounded-full transition-colors shrink-0"
                 >
                   Renew Program
                 </button>
@@ -176,7 +176,7 @@ export default function MyPlansAndBillings() {
             </div>
             <div className="w-full h-3 bg-[#EEF0F6] rounded-full overflow-hidden">
               <div
-                className="h-full bg-[#5B4FF7] rounded-full transition-all duration-500"
+                className="h-full bg-[#4E4391] rounded-full transition-all duration-500"
                 style={{ width: `${subscription.progressPercent}%` }}
               />
             </div>
@@ -191,10 +191,10 @@ export default function MyPlansAndBillings() {
         {/* ============================================ */}
         {/* 💳 RECENT TRANSACTIONS                        */}
         {/* ============================================ */}
-        <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-5 sm:p-6">
+        <div className="bg-white rounded-2xl border border-[#E3DFF0] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-5 sm:p-6">
           <div className="flex items-center gap-2 mb-1">
-            <div className="w-8 h-8 bg-[#F5F7FF] rounded-lg flex items-center justify-center">
-              <Receipt size={16} className="text-[#5B4FF7]" />
+            <div className="w-8 h-8 bg-[#EFEDFA] rounded-lg flex items-center justify-center">
+              <Receipt size={16} className="text-[#4E4391]" />
             </div>
             <h3 className="text-base font-bold text-gray-800">
               Recent Transactions
@@ -208,7 +208,7 @@ export default function MyPlansAndBillings() {
           <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="text-left text-[11px] uppercase tracking-wider text-gray-400 border-b border-[#E7EAF3]">
+                <tr className="text-left text-[11px] uppercase tracking-wider text-gray-400 border-b border-[#E3DFF0]">
                   <th className="py-3 pr-4 font-medium">Date</th>
                   <th className="py-3 pr-4 font-medium">Description</th>
                   <th className="py-3 pr-4 font-medium">Amount</th>

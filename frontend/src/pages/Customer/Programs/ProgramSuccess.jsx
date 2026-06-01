@@ -26,7 +26,7 @@ export default function ProgramSuccess() {
   // }, [id, navigate]);
 
   return (
-    <div className="min-h-screen bg-[#F6F8FC]0/60 flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen bg-[#EFEDFA]0/60 flex items-center justify-center px-4 py-12">
       <div className="bg-white rounded-3xl shadow-xl w-full max-w-lg overflow-hidden border-2 border-teal-400">
         <div className="h-1.5 w-full bg-gradient-to-r from-teal-400 to-teal-600" />
 
@@ -45,7 +45,7 @@ export default function ProgramSuccess() {
 
           <p className="text-[#6B7280] text-sm sm:text-base mb-10">
             Welcome to{" "}
-            <span className="text-[#4F46E5] font-semibold">{programName}</span>
+            <span className="text-[#4E4391] font-semibold">{programName}</span>
             {tenure && (
               <>
                 {" "}
@@ -57,7 +57,7 @@ export default function ProgramSuccess() {
 
           <button
             onClick={() => navigate(`/programs/${id}/dashboard`)}
-            className="w-full bg-[#4F46E5] hover:bg- [#4338CA] text-white font-semibold py-3.5 rounded-full transition-colors shadow-[0_6px_18px_rgba(79,70,229,0.28)]"
+            className="w-full bg-[#4E4391] hover:bg- [#4E4391] text-white font-semibold py-3.5 rounded-full transition-colors shadow-[0_6px_18px_rgba(90,79,159,0.28)]"
           >
             Go To Dashboard
           </button>

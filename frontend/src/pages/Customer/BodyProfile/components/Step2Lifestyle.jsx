@@ -39,7 +39,7 @@ const StepSlider = ({ label, value, options, onChange }) => {
     <div className="bg-white border border-gray-200 rounded-xl p-4">
       <div className="flex items-center justify-between mb-3">
         <label className="text-xs font-semibold text-gray-700">{label}</label>
-        <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-md">
+        <span className="text-xs font-bold text-[#5A4F9F] bg-[#EFEDFA] px-2 py-0.5 rounded-md">
           {options[current]}
         </span>
       </div>
@@ -47,7 +47,7 @@ const StepSlider = ({ label, value, options, onChange }) => {
       <div className="relative h-9 flex items-center">
         <div className="absolute inset-x-0 h-1.5 rounded-full bg-gray-200" />
         <div
-          className="absolute h-1.5 rounded-full bg-indigo-600 pointer-events-none"
+          className="absolute h-1.5 rounded-full bg-[#5A4F9F] pointer-events-none"
           style={{ width: `${pct}%` }}
         />
         {options.map((_, i) => {
@@ -56,14 +56,14 @@ const StepSlider = ({ label, value, options, onChange }) => {
             <div
               key={i}
               className={`absolute w-2 h-2 rounded-full -translate-x-1/2 pointer-events-none ${
-                i <= current ? "bg-indigo-600" : "bg-gray-300"
+                i <= current ? "bg-[#5A4F9F]" : "bg-gray-300"
               }`}
               style={{ left: `${dotPct}%` }}
             />
           );
         })}
         <div
-          className="absolute w-4 h-4 rounded-full bg-white border-[3px] border-indigo-600 shadow-[0_2px_6px_rgba(79,70,229,0.4)] pointer-events-none -translate-x-1/2"
+          className="absolute w-4 h-4 rounded-full bg-white border-[3px] border-indigo-600 shadow-[0_2px_6px_rgba(90,79,159,0.4)] pointer-events-none -translate-x-1/2"
           style={{ left: `${pct}%` }}
         />
         <input
@@ -83,7 +83,7 @@ const StepSlider = ({ label, value, options, onChange }) => {
             key={opt}
             className={`text-[10px] ${
               i === current
-                ? "text-indigo-600 font-semibold"
+                ? "text-[#5A4F9F] font-semibold"
                 : "text-gray-400"
             }`}
           >
@@ -134,11 +134,11 @@ const ValueSlider = ({ label, value, onChange, range, suffix = "", unit = "" }) 
       <div className="relative h-9 flex items-center">
         <div className="absolute inset-x-0 h-1.5 rounded-full bg-gray-200" />
         <div
-          className="absolute h-1.5 rounded-full bg-indigo-600 pointer-events-none"
+          className="absolute h-1.5 rounded-full bg-[#5A4F9F] pointer-events-none"
           style={{ width: `${pct}%` }}
         />
         <div
-          className="absolute w-4 h-4 rounded-full bg-white border-[3px] border-indigo-600 shadow-[0_2px_6px_rgba(79,70,229,0.4)] pointer-events-none -translate-x-1/2"
+          className="absolute w-4 h-4 rounded-full bg-white border-[3px] border-indigo-600 shadow-[0_2px_6px_rgba(90,79,159,0.4)] pointer-events-none -translate-x-1/2"
           style={{ left: `${pct}%` }}
         />
         <input
@@ -187,7 +187,7 @@ const ChipPicker = ({ label, value, options, onChange }) => (
               transition-colors
               ${
                 isActive
-                  ? "bg-indigo-600 text-white border-indigo-600 shadow-[0_4px_10px_rgba(79,70,229,0.25)]"
+                  ? "bg-[#5A4F9F] text-white border-indigo-600 shadow-[0_4px_10px_rgba(90,79,159,0.25)]"
                   : "bg-white text-gray-700 border-gray-200 hover:border-indigo-300"
               }
             `}

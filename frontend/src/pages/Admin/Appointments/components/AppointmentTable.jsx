@@ -31,7 +31,7 @@ const STATUS_STYLES = {
   },
   no_show: {
     label: "No-show",
-    className: "bg-gray-100 text-[#6B7280] border-[#D9DDF0]",
+    className: "bg-gray-100 text-[#6B7280] border-[#D6D1EC]",
   },
 };
 
@@ -85,7 +85,7 @@ const AppointmentTable = ({ appointments = [], loading = false }) => {
     return (
       <div
         className="
-          bg-white rounded-2xl border border-[#E7EAF3]
+          bg-white rounded-2xl border border-[#E3DFF0]
           shadow-[0_1px_3px_rgba(16,24,40,0.04)]
           px-6 py-16 text-center
         "
@@ -106,7 +106,7 @@ const AppointmentTable = ({ appointments = [], loading = false }) => {
   return (
     <div
       className="
-        bg-white rounded-2xl border border-[#E7EAF3]
+        bg-white rounded-2xl border border-[#E3DFF0]
         shadow-[0_1px_3px_rgba(16,24,40,0.04)]
         overflow-hidden
       "
@@ -117,7 +117,7 @@ const AppointmentTable = ({ appointments = [], loading = false }) => {
       <div className="hidden md:block overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-[#E7EAF3] bg-[#F6F8FC]/40">
+            <tr className="border-b border-[#E3DFF0] bg-[#EFEDFA]/40">
               <th className="px-6 py-3.5 text-left text-[11px] font-semibold tracking-wider text-[#6B7280] uppercase">
                 Patient
               </th>
@@ -140,8 +140,8 @@ const AppointmentTable = ({ appointments = [], loading = false }) => {
               <tr
                 key={apt._id}
                 className={`
-                  hover:bg-[#F6F8FC]/50 transition-colors
-                  ${idx !== appointments.length - 1 ? "border-b border-[#E7EAF3]" : ""}
+                  hover:bg-[#EFEDFA]/50 transition-colors
+                  ${idx !== appointments.length - 1 ? "border-b border-[#E3DFF0]" : ""}
                 `}
               >
                 <td className="px-6 py-4">
@@ -158,7 +158,7 @@ const AppointmentTable = ({ appointments = [], loading = false }) => {
                   </span>
                 </td>
                 <td className="px-6 py-4">
-                  <span className="text-sm font-semibold text-indigo-600">
+                  <span className="text-sm font-semibold text-[#5A4F9F]">
                     {formatFee(apt.fee, apt.currency)}
                   </span>
                 </td>
@@ -188,7 +188,7 @@ const AppointmentTable = ({ appointments = [], loading = false }) => {
             </p>
             <div className="flex items-center justify-between gap-2 text-xs">
               <span className="text-[#374151]">{formatDateTime(apt.scheduledAt)}</span>
-              <span className="font-semibold text-indigo-600">
+              <span className="font-semibold text-[#5A4F9F]">
                 {formatFee(apt.fee, apt.currency)}
               </span>
             </div>

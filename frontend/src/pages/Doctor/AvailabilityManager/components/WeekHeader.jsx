@@ -43,7 +43,7 @@ const WeekHeader = ({
           Your Weekly Schedule
         </h2>
         <div className="flex items-center gap-3 flex-wrap">
-          <LegendChip color="bg-indigo-600 border-indigo-600" label="Available" />
+          <LegendChip color="bg-[#5A4F9F] border-indigo-600" label="Available" />
           <LegendChip color="bg-emerald-100 border-emerald-300" label="Booked" />
           <LegendChip color="bg-gray-100 border-gray-300" label="Blocked" />
         </div>
@@ -57,8 +57,8 @@ const WeekHeader = ({
           className="
             w-8 h-8 rounded-lg
             flex items-center justify-center
-            text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
-            border border-[#D9DDF0]
+            text-[#6B7280] hover:text-[#5A4F9F] hover:bg-[#EFEDFA]
+            border border-[#D6D1EC]
             transition-colors
           "
           aria-label="Previous week"
@@ -66,10 +66,10 @@ const WeekHeader = ({
           <ChevronLeft size={16} />
         </button>
 
-        <div className="px-3 py-1.5 rounded-lg bg-[#F6F8FC] border border-[#E7EAF3] min-w-[160px] text-center">
+        <div className="px-3 py-1.5 rounded-lg bg-[#EFEDFA] border border-[#E3DFF0] min-w-[160px] text-center">
           <p className="text-xs font-semibold text-[#374151]">{rangeLabel}</p>
           {isCurrentWeek && (
-            <p className="text-[10px] text-indigo-600 font-medium">This Week</p>
+            <p className="text-[10px] text-[#5A4F9F] font-medium">This Week</p>
           )}
         </div>
 
@@ -79,8 +79,8 @@ const WeekHeader = ({
           className="
             w-8 h-8 rounded-lg
             flex items-center justify-center
-            text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
-            border border-[#D9DDF0]
+            text-[#6B7280] hover:text-[#5A4F9F] hover:bg-[#EFEDFA]
+            border border-[#D6D1EC]
             transition-colors
           "
           aria-label="Next week"
@@ -95,8 +95,8 @@ const WeekHeader = ({
             className="
               inline-flex items-center gap-1.5
               px-3 py-1.5 rounded-lg
-              text-xs font-semibold text-indigo-600
-              border border-indigo-100 bg-indigo-50
+              text-xs font-semibold text-[#5A4F9F]
+              border border-[#D6D1EC] bg-[#EFEDFA]
               hover:bg-indigo-100
               transition-colors
             "

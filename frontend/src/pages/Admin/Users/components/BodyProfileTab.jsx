@@ -19,18 +19,18 @@ import {
 // 🎨 Section icon styles
 // ============================================
 const SECTION_STYLES = {
-  metabolic: { icon: Activity, color: "text-[#4F46E5]", bg: "bg-[#F3F1FF]" },
+  metabolic: { icon: Activity, color: "text-[#4E4391]", bg: "bg-[#EFEDFA]" },
   physical: { icon: Ruler, color: "text-blue-500", bg: "bg-blue-50" },
   lifestyle: { icon: Leaf, color: "text-emerald-500", bg: "bg-emerald-50" },
   symptoms: { icon: Heart, color: "text-amber-500", bg: "bg-amber-50" },
-  family: { icon: Dna, color: "text-purple-500", bg: "bg-purple-50" },
+  family: { icon: Dna, color: "text-purple-500", bg: "bg-[#EFEDFA]" },
 };
 
 // ============================================
 // 🏷️ Field row (label + value)
 // ============================================
 const Field = ({ label, value }) => (
-  <div className="bg-white border border-[#E7EAF3] rounded-xl px-4 py-3">
+  <div className="bg-white border border-[#E3DFF0] rounded-xl px-4 py-3">
     <p className="text-[11px] uppercase tracking-wider text-gray-400 font-semibold">
       {label}
     </p>
@@ -66,11 +66,11 @@ const Section = ({ kind, title, children }) => {
 const EmptyState = () => (
   <div
     className="
-      bg-white rounded-2xl border border-dashed border-[#D9DDF0]
+      bg-white rounded-2xl border border-dashed border-[#D6D1EC]
       px-6 py-16 text-center
     "
   >
-    <div className="w-12 h-12 rounded-full bg-[#F6F8FC] flex items-center justify-center mx-auto mb-3">
+    <div className="w-12 h-12 rounded-full bg-[#EFEDFA] flex items-center justify-center mx-auto mb-3">
       <ClipboardX size={20} className="text-gray-400" />
     </div>
     <p className="text-sm font-medium text-[#374151] mb-1">
@@ -94,7 +94,7 @@ const BodyProfileTab = ({ bodyProfile }) => {
   return (
     <div
       className="
-        bg-white rounded-2xl border border-[#E7EAF3]
+        bg-white rounded-2xl border border-[#E3DFF0]
         shadow-[0_1px_3px_rgba(16,24,40,0.04)]
         p-5 sm:p-6
         space-y-7

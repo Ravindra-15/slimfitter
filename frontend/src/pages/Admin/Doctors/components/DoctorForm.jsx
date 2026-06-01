@@ -231,15 +231,15 @@ const DoctorForm = ({
       {/* ============================================ */}
       <div
         className="
-          bg-white rounded-2xl border border-[#E7EAF3]
+          bg-white rounded-2xl border border-[#E3DFF0]
           shadow-[0_1px_3px_rgba(16,24,40,0.04)]
           p-6 sm:p-8
         "
       >
         {/* 📋 Section header */}
-        <div className="flex items-center gap-3 pb-5 mb-6 border-b border-[#E7EAF3]">
-          <div className="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center">
-            <User size={18} className="text-indigo-500" />
+        <div className="flex items-center gap-3 pb-5 mb-6 border-b border-[#E3DFF0]">
+          <div className="w-10 h-10 rounded-lg bg-[#EFEDFA] flex items-center justify-center">
+            <User size={18} className="text-[#5A4F9F]" />
           </div>
           <h2 className="text-base font-bold text-[#1F2937]">
             Create Doctor Profile
@@ -288,10 +288,10 @@ const DoctorForm = ({
               placeholder="e.g., Dr. Sarah Johnson"
               className="
                 w-full px-4 py-3
-                bg-white border border-[#D9DDF0] rounded-xl
+                bg-white border border-[#D6D1EC] rounded-xl
                 text-sm text-[#1F2937] placeholder-gray-400
-                focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500
-                disabled:bg-[#F6F8FC] disabled:cursor-not-allowed
+                focus:outline-none focus:border-[#5A4F9F] focus:ring-1 focus:ring-indigo-500
+                disabled:bg-[#EFEDFA] disabled:cursor-not-allowed
                 transition-colors
               "
             />
@@ -346,8 +346,8 @@ const DoctorForm = ({
             <div
               className={`
                 quill-wrapper
-                bg-white border border-[#D9DDF0] rounded-xl overflow-hidden
-                focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500
+                bg-white border border-[#D6D1EC] rounded-xl overflow-hidden
+                focus-within:border-[#5A4F9F] focus-within:ring-1 focus-within:ring-indigo-500
                 transition-colors
                 ${submitting ? "opacity-60 pointer-events-none" : ""}
               `}
@@ -371,7 +371,7 @@ const DoctorForm = ({
               <span
                 className={`text-xs ${
                   countVisibleChars(form.shortBio) > LIMITS.BIO_MAX * 0.9
-                    ? "text-[#4F46E5]"
+                    ? "text-[#4E4391]"
                     : "text-gray-400"
                 }`}
               >
@@ -387,7 +387,7 @@ const DoctorForm = ({
       {/* ============================================ */}
       <div
         className="
-          bg-white rounded-2xl border border-[#E7EAF3]
+          bg-white rounded-2xl border border-[#E3DFF0]
           shadow-[0_1px_3px_rgba(16,24,40,0.04)]
           p-4 sm:p-5
           flex flex-col sm:flex-row gap-3 sm:justify-between
@@ -399,9 +399,9 @@ const DoctorForm = ({
           disabled={submitting}
           className="
             px-6 py-2.5 rounded-xl
-            bg-white border border-[#D9DDF0]
+            bg-white border border-[#D6D1EC]
             text-sm font-semibold text-[#374151]
-            hover:bg-[#F6F8FC]
+            hover:bg-[#EFEDFA]
             disabled:opacity-50 disabled:cursor-not-allowed
             transition-colors
           "
@@ -414,7 +414,7 @@ const DoctorForm = ({
           disabled={submitting}
           className="
             px-6 py-2.5 rounded-xl
-            bg-indigo-600 hover:bg-indigo-700
+            bg-[#5A4F9F] hover:bg-indigo-700
             disabled:bg-indigo-400 disabled:cursor-not-allowed
             text-sm font-semibold text-white
             shadow-sm shadow-indigo-200

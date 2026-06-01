@@ -1,4 +1,4 @@
-// Diabmukt - Pricing Section
+// Slimfitter - Pricing Section
 
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +8,7 @@ import { getPublicProgramPlans } from "../../../../services/programPlanPublicSer
 
 const PROGRAM_ID = "slimfitter";
 
-// 🏷️ Hardcoded per-program feature bullets (Diabmukt)
+// 🏷️ Hardcoded per-program feature bullets (Slimfitter)
 const features = [
   "Community Sessions",
   "health activity tracking",
@@ -18,28 +18,21 @@ const features = [
 
 const formatPrice = (n) => `$${Number(n || 0).toLocaleString("en-US")}`;
 
-// 🧮 Monthly display price — handles both fixed and weekly plans
-const calcMonthlyPrice = (plan) => {
-  // Weekly plan: price at minWeeks, converted to per-month
+// 🧮 Returns { amount, unit, helper } based on plan type
+const getDisplayPrice = (plan) => {
+  if (!plan) return { amount: 0, unit: "/month", helper: "" };
+
+  // Weekly plan → show base rate per week
   if ((plan.pricingType || "fixed") === "weekly") {
     const base = Number(plan.baseRatePerWeek) || 0;
-    const weeks = Number(plan.minWeeks) || 1;
-
-    // best discount applicable at minWeeks
-    let discount = 0;
-    if (Array.isArray(plan.breakpoints)) {
-      plan.breakpoints.forEach((bp) => {
-        if (weeks >= bp.minWeeks && bp.discountPercent > discount) {
-          discount = bp.discountPercent;
-        }
-      });
-    }
-    const total = base * weeks * (1 - discount / 100);
-    const months = Math.max(1, Math.round(weeks / 4));
-    return Math.round(total / months);
+    return {
+      amount: base,
+      unit: "/week",
+      helper: `Starts from ${plan.minWeeks || 1} weeks`,
+    };
   }
 
-  // Fixed plan
+  // Fixed plan → per-month conversion
   let months = 1;
   if (plan.durationMonths && Number(plan.durationMonths) > 0) {
     months = Number(plan.durationMonths);
@@ -50,8 +43,9 @@ const calcMonthlyPrice = (plan) => {
     if (m) months = parseInt(m[1], 10);
     else if (w) months = Math.max(1, Math.round(parseInt(w[1], 10) / 4));
   }
-  if (months <= 0) return plan.offerPrice;
-  return Math.round(plan.offerPrice / months);
+  const amount =
+    months > 0 ? Math.round(plan.offerPrice / months) : plan.offerPrice;
+  return { amount, unit: "/month", helper: "" };
 };
 
 export default function PricingSection() {
@@ -86,9 +80,11 @@ export default function PricingSection() {
   const cheapestPlan =
     plans.length > 0
       ? [...plans].sort(
-          (a, b) => calcMonthlyPrice(a) - calcMonthlyPrice(b)
+          (a, b) => getDisplayPrice(a).amount - getDisplayPrice(b).amount
         )[0]
       : null;
+
+  const { amount, unit, helper } = getDisplayPrice(cheapestPlan);
 
   const handleGetStarted = () => {
     const intendedPath = `/programs/${PROGRAM_ID}/tenure`;
@@ -111,7 +107,7 @@ export default function PricingSection() {
         <div className="text-center mb-10 sm:mb-12 lg:mb-14">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0F172A]">
             Simple,{" "}
-            <span className="text-[#4F46E5]">transparent pricing</span>
+            <span className="text-[#4E4391]">transparent pricing</span>
           </h2>
         </div>
 
@@ -123,24 +119,28 @@ export default function PricingSection() {
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-5 sm:gap-6 items-stretch">
             {/* LEFT — Price + Features Card */}
-            <div className="bg-white rounded-3xl border border-[#D9DDF0] px-6 sm:px-8 lg:px-10 py-7 sm:py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-8">
+            <div className="bg-white rounded-3xl border border-[#D6D1EC] px-6 sm:px-8 lg:px-10 py-7 sm:py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-8">
               {/* Price block */}
               <div className="flex flex-col items-start">
                 <div className="flex items-start">
                   <span className="text-[36px] sm:text-[42px] lg:text-[48px] font-bold text-[#0F172A] leading-none">
-                    {cheapestPlan
-                      ? formatPrice(calcMonthlyPrice(cheapestPlan))
-                      : "$0"}
+                    {cheapestPlan ? formatPrice(amount) : "$0"}
                   </span>
                   <span className="text-[12px] sm:text-[13px] text-[#475569] font-medium ml-1 mt-2">
-                    /month
+                    {unit}
                   </span>
                   <span className="text-red-500 text-xs ml-0.5 mt-1">*</span>
                 </div>
 
+                {helper && (
+                  <p className="text-[11px] sm:text-xs text-[#6B7280] mt-1">
+                    {helper}
+                  </p>
+                )}
+
                 <button
                   onClick={handleGetStarted}
-                  className="mt-5 bg-[#4F46E5] hover:bg-[#4338CA] text-white text-[13px] sm:text-sm font-semibold px-6 sm:px-7 py-2.5 rounded-full shadow-[0_6px_18px_rgba(79,70,229,0.28)] transition-all"
+                  className="mt-5 bg-[#4E4391] hover:bg-[#4E4391] text-white text-[13px] sm:text-sm font-semibold px-6 sm:px-7 py-2.5 rounded-full shadow-[0_6px_18px_rgba(90,79,159,0.28)] transition-all"
                 >
                   Get Started
                 </button>
@@ -155,7 +155,7 @@ export default function PricingSection() {
                   >
                     <CheckCircle2
                       size={18}
-                      className="text-[#4F46E5] flex-shrink-0"
+                      className="text-[#4E4391] flex-shrink-0"
                       strokeWidth={2.2}
                     />
                     {f}
@@ -165,7 +165,7 @@ export default function PricingSection() {
             </div>
 
             {/* RIGHT — Contact Us Card */}
-            <div className="bg-gradient-to-br from-[#4F46E5] to-[#6366F1] rounded-3xl px-6 sm:px-7 py-7 sm:py-8 flex flex-col items-center text-center text-white shadow-[0_8px_24px_rgba(79,70,229,0.22)]">
+            <div className="bg-gradient-to-br from-[#4E4391] to-[#6D5FC4] rounded-3xl px-6 sm:px-7 py-7 sm:py-8 flex flex-col items-center text-center text-white shadow-[0_8px_24px_rgba(90,79,159,0.22)]">
               <div className="w-11 h-11 rounded-full bg-white/15 flex items-center justify-center mb-3">
                 <Phone size={20} className="text-white" strokeWidth={2.2} />
               </div>
@@ -181,7 +181,7 @@ export default function PricingSection() {
 
               <button
                 onClick={handleConnect}
-                className="bg-white hover:bg-[#F6F8FC] text-[#4F46E5] text-sm font-semibold px-7 py-2.5 rounded-full transition-colors shadow-sm"
+                className="bg-white hover:bg-[#EFEDFA] text-[#4E4391] text-sm font-semibold px-7 py-2.5 rounded-full transition-colors shadow-sm"
               >
                 Connect
               </button>

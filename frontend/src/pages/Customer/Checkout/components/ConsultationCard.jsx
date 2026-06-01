@@ -41,7 +41,7 @@ const ConsultationCard = ({
     <div
       className="
         bg-white rounded-[28px]
-        border border-[#E7EAF3]
+        border border-[#E3DFF0]
         shadow-[0_10px_30px_rgba(15,23,42,0.05)]
         p-5 sm:p-6
       "
@@ -49,8 +49,8 @@ const ConsultationCard = ({
       <p className="text-sm font-bold text-[#1F2937] mb-4">Consultation Details</p>
 
       {/* 🩺 Doctor row — soft orange highlight */}
-      <div className="flex items-center gap-3 p-3 rounded-xl bg-[#F5F7FF] border border-[#D9DDF0]">
-        <div className="w-12 h-12 rounded-full overflow-hidden border border-white bg-gradient-to-br from-[#EEF2FF] to-[#F5F3FF] flex-shrink-0">
+      <div className="flex items-center gap-3 p-3 rounded-xl bg-[#EFEDFA] border border-[#D6D1EC]">
+        <div className="w-12 h-12 rounded-full overflow-hidden border border-white bg-gradient-to-br from-[#EFEDFA] to-[#EFEDFA] flex-shrink-0">
           {photoUrl ? (
             <img
               src={photoUrl}
@@ -61,7 +61,7 @@ const ConsultationCard = ({
               }}
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-[#5B4FF7]">
+            <div className="w-full h-full flex items-center justify-center text-[#4E4391]">
               <User size={20} />
             </div>
           )}
@@ -71,7 +71,7 @@ const ConsultationCard = ({
             <p className="text-sm font-bold text-[#1F2937] truncate">
               {doctor?.fullName || "Doctor"}
             </p>
-            <CheckCircle2 size={13} className="text-[#5B4FF7] flex-shrink-0" />
+            <CheckCircle2 size={13} className="text-[#4E4391] flex-shrink-0" />
           </div>
           {doctor?.domain && (
             <p className="text-xs text-[#6B7280] truncate">{doctor.domain}</p>
@@ -81,7 +81,7 @@ const ConsultationCard = ({
 
       {/* 📅 Date + Time */}
       <div className="grid grid-cols-2 gap-3 mt-4">
-        <div className="border border-[#E7EAF3] rounded-xl px-3 py-2.5">
+        <div className="border border-[#E3DFF0] rounded-xl px-3 py-2.5">
           <div className="flex items-center gap-1.5 text-[11px] text-[#6B7280] font-semibold tracking-wide uppercase">
             <Calendar size={11} />
             Date
@@ -91,7 +91,7 @@ const ConsultationCard = ({
           </p>
         </div>
 
-        <div className="border border-[#D9DDF0] rounded-xl px-3 py-2.5">
+        <div className="border border-[#D6D1EC] rounded-xl px-3 py-2.5">
           <div className="flex items-center gap-1.5 text-[11px] text-[#6B7280] font-semibold tracking-wide uppercase">
             <Clock size={11} />
             Time
@@ -111,7 +111,7 @@ const ConsultationCard = ({
           </div>
           <div className="flex items-center justify-between text-sm">
             <span className="text-[#374151] font-semibold">Total</span>
-            <span className="font-bold text-[#5B4FF7] text-base">${fee}</span>
+            <span className="font-bold text-[#4E4391] text-base">${fee}</span>
           </div>
         </div>
       )}

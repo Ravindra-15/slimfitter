@@ -31,7 +31,7 @@ const DoctorLayout = () => {
   }, [isMobileMenuOpen]);
 
   return (
-    <div className="min-h-screen bg-[#F6F8FC] flex">
+    <div className="min-h-screen bg-[#EFEDFA] flex">
       {/* ============================================ */}
       {/* 🖥️ DESKTOP SIDEBAR (lg+) */}
       {/* ============================================ */}
@@ -62,11 +62,11 @@ const DoctorLayout = () => {
       {/* ============================================ */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Mobile top bar */}
-        <header className="lg:hidden sticky top-0 z-30 bg-white border-b border-[#E7EAF3] px-4 py-3 flex items-center justify-between">
+        <header className="lg:hidden sticky top-0 z-30 bg-white border-b border-[#E3DFF0] px-4 py-3 flex items-center justify-between">
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(true)}
-            className="p-2 rounded-lg text-[#6B7280] hover:bg-[#F6F8FC] transition-colors"
+            className="p-2 rounded-lg text-[#6B7280] hover:bg-[#EFEDFA] transition-colors"
             aria-label="Open menu"
           >
             <Menu className="w-5 h-5" />

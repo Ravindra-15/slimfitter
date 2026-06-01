@@ -39,7 +39,7 @@ const ConsultationRow = ({ consultation }) => {
       className="
         flex flex-col sm:flex-row sm:items-center sm:justify-between
         gap-2 px-5 py-4
-        hover:bg-[#F6F8FC]/50 transition-colors
+        hover:bg-[#EFEDFA]/50 transition-colors
       "
     >
       <div className="min-w-0">
@@ -53,7 +53,7 @@ const ConsultationRow = ({ consultation }) => {
 
       <div className="flex sm:flex-col sm:items-end gap-3 sm:gap-1 text-xs">
         <p className="font-semibold text-[#374151]">{formatDate(consultedAt)}</p>
-        <p className="font-bold text-indigo-600">{formatFee(fee)}</p>
+        <p className="font-bold text-[#5A4F9F]">{formatFee(fee)}</p>
       </div>
     </div>
   );
@@ -64,7 +64,7 @@ const ConsultationRow = ({ consultation }) => {
 // ============================================
 const EmptyState = () => (
   <div className="px-6 py-16 text-center">
-    <div className="w-12 h-12 rounded-full bg-[#F6F8FC] flex items-center justify-center mx-auto mb-3">
+    <div className="w-12 h-12 rounded-full bg-[#EFEDFA] flex items-center justify-center mx-auto mb-3">
       <CalendarX size={20} className="text-gray-400" />
     </div>
     <p className="text-sm font-medium text-[#374151] mb-1">
@@ -84,13 +84,13 @@ const ConsultationsTab = ({ consultations = [] }) => {
   return (
     <div
       className="
-        bg-white rounded-2xl border border-[#E7EAF3]
+        bg-white rounded-2xl border border-[#E3DFF0]
         shadow-[0_1px_3px_rgba(16,24,40,0.04)]
         overflow-hidden
       "
     >
       {/* Section header */}
-      <div className="px-5 py-4 border-b border-[#E7EAF3]">
+      <div className="px-5 py-4 border-b border-[#E3DFF0]">
         <h3 className="text-sm font-bold text-[#1F2937]">
           Consultation History
         </h3>

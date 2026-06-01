@@ -159,7 +159,7 @@ const Login = () => {
         <div className="max-w-[800px] mx-auto md:mx-0 text-center md:text-left px-2">
           <h1 className="text-[38px] md:text-[52px] font-semibold text-teal-900 leading-[1.15]">
             Welcome <br />
-            <span className="text-[#4F46E5]">Back to Slimfitter</span>
+            <span className="text-[#4E4391]">Back to Slimfitter</span>
           </h1>
 
           <p className="mt-4 text-[#6B7280] text-[14px] leading-[1.6] max-w-[420px] mx-auto md:mx-0">
@@ -181,7 +181,7 @@ const Login = () => {
               name="email"
               value={form.email}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 text-[14px] font-normal outline-none focus:border-[#5B4FF7]"
+              className="w-full border border-gray-300 rounded-xl px-4 py-3 text-[14px] font-normal outline-none focus:border-[#4E4391]"
             />
 
             {/* PASSWORD */}
@@ -192,7 +192,7 @@ const Login = () => {
                 name="password"
                 value={form.password}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-[14px] font-normal outline-none focus:border-[#5B4FF7]"
+                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-[14px] font-normal outline-none focus:border-[#4E4391]"
               />
 
               <button
@@ -211,19 +211,19 @@ const Login = () => {
                   type="checkbox"
                   checked={remember}
                   onChange={(e) => setRemember(e.target.checked)}
-                  className="accent-[#4F46E5] w-4 h-4"
+                  className="accent-[#4E4391] w-4 h-4"
                 />
                 Remember me
               </label>
 
-              <span className="text-[#4F46E5] hover:underline cursor-pointer">
+              <span className="text-[#4E4391] hover:underline cursor-pointer">
                 Forgot password?
               </span>
             </div> */}
 
             {/* FORGOT PASSWORD */}
             <div className="flex justify-end text-[13px]">
-              <span className="text-[#4F46E5] hover:underline cursor-pointer">
+              <span className="text-[#4E4391] hover:underline cursor-pointer">
                 Forgot password?
               </span>
             </div>
@@ -232,7 +232,7 @@ const Login = () => {
             <button
               onClick={handleLogin}
               disabled={loading}
-              className="w-full bg-[#4F46E5] hover:bg- [#4338CA] text-white py-3 rounded-full text-[14px] font-medium transition"
+              className="w-full bg-[#4E4391] hover:bg- [#4E4391] text-white py-3 rounded-full text-[14px] font-medium transition"
             >
               {loading ? "Logging in..." : "Log In"}
             </button>
@@ -245,13 +245,13 @@ const Login = () => {
             </div>
 
             {/* GOOGLE */}
-            <button className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-full py-2 text-[14px] font-medium hover:bg-[#F6F8FC]">
+            <button className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-full py-2 text-[14px] font-medium hover:bg-[#EFEDFA]">
               <GoogleIcon />
               Continue with Google
             </button>
 
             {/* FACEBOOK */}
-            <button className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-full py-2 text-[14px] font-medium hover:bg-[#F6F8FC]">
+            <button className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-full py-2 text-[14px] font-medium hover:bg-[#EFEDFA]">
               <FacebookIcon />
               Continue with Facebook
             </button>
@@ -261,7 +261,7 @@ const Login = () => {
               Don't have an account?{" "}
               <Link
                 to="/signup"
-                className="text-[#4F46E5] font-medium hover:underline"
+                className="text-[#4E4391] font-medium hover:underline"
               >
                 Sign up
               </Link>

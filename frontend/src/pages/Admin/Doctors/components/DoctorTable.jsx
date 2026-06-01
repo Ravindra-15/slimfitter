@@ -50,7 +50,7 @@ const DoctorAvatar = ({ doctor }) => {
       <img
         src={photoUrl}
         alt={`${doctor.fullName} photo`}
-        className="w-10 h-10 rounded-full object-cover flex-shrink-0 border border-[#D9DDF0]"
+        className="w-10 h-10 rounded-full object-cover flex-shrink-0 border border-[#D6D1EC]"
         onError={(e) => {
           // 🛡️ If image fails to load, hide it (fallback handled by parent)
           e.target.style.display = "none";
@@ -65,7 +65,7 @@ const DoctorAvatar = ({ doctor }) => {
         w-10 h-10 rounded-full flex-shrink-0
         bg-gradient-to-br from-gray-200 to-gray-300
         flex items-center justify-center
-        border border-[#D9DDF0]
+        border border-[#D6D1EC]
       "
       aria-hidden="true"
     >
@@ -90,7 +90,7 @@ const DoctorTable = ({ doctors = [], loading = false }) => {
     return (
       <div
         className="
-          bg-white rounded-2xl border border-[#E7EAF3]
+          bg-white rounded-2xl border border-[#E3DFF0]
           shadow-[0_1px_3px_rgba(16,24,40,0.04)]
           px-6 py-16 text-center
         "
@@ -120,7 +120,7 @@ const DoctorTable = ({ doctors = [], loading = false }) => {
   return (
     <div
       className="
-        bg-white rounded-2xl border border-[#E7EAF3]
+        bg-white rounded-2xl border border-[#E3DFF0]
         shadow-[0_1px_3px_rgba(16,24,40,0.04)]
         overflow-hidden
       "
@@ -131,7 +131,7 @@ const DoctorTable = ({ doctors = [], loading = false }) => {
       <div className="hidden md:block overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-[#E7EAF3] bg-[#F6F8FC]/40">
+            <tr className="border-b border-[#E3DFF0] bg-[#EFEDFA]/40">
               <th
                 scope="col"
                 className="px-6 py-3.5 text-left text-[11px] font-semibold tracking-wider text-[#6B7280] uppercase"
@@ -163,8 +163,8 @@ const DoctorTable = ({ doctors = [], loading = false }) => {
               <tr
                 key={doctor._id}
                 className={`
-                  hover:bg-[#F6F8FC]/50 transition-colors
-                  ${idx !== doctors.length - 1 ? "border-b border-[#E7EAF3]" : ""}
+                  hover:bg-[#EFEDFA]/50 transition-colors
+                  ${idx !== doctors.length - 1 ? "border-b border-[#E3DFF0]" : ""}
                 `}
               >
                 {/* 👤 Doctor (avatar + name + email) */}
@@ -201,7 +201,7 @@ const DoctorTable = ({ doctors = [], loading = false }) => {
                       className="
                       w-8 h-8 rounded-lg
                       flex items-center justify-center
-                      text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
+                      text-[#6B7280] hover:text-[#5A4F9F] hover:bg-[#EFEDFA]
                       transition-colors
                     "
                       aria-label={`View profile of ${doctor.fullName}`}
@@ -215,7 +215,7 @@ const DoctorTable = ({ doctors = [], loading = false }) => {
                       className="
                       w-8 h-8 rounded-lg
                       flex items-center justify-center
-                      text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
+                      text-[#6B7280] hover:text-[#5A4F9F] hover:bg-[#EFEDFA]
                       transition-colors
                     "
                       aria-label={`Edit ${doctor.fullName}`}
@@ -272,7 +272,7 @@ const DoctorTable = ({ doctors = [], loading = false }) => {
                       className="
                     w-8 h-8 rounded-lg
                     flex items-center justify-center
-                    text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
+                    text-[#6B7280] hover:text-[#5A4F9F] hover:bg-[#EFEDFA]
                     transition-colors
                   "
                       aria-label={`View ${doctor.fullName}`}
@@ -285,7 +285,7 @@ const DoctorTable = ({ doctors = [], loading = false }) => {
                       className="
                     w-8 h-8 rounded-lg
                     flex items-center justify-center
-                    text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
+                    text-[#6B7280] hover:text-[#5A4F9F] hover:bg-[#EFEDFA]
                     transition-colors
                   "
                       aria-label={`Edit ${doctor.fullName}`}

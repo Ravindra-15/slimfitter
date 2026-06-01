@@ -112,7 +112,7 @@ const Signup = () => {
         <div className="max-w-md mx-auto md:mx-0 text-center md:text-left px-2">
           <h1 className="text-[38px] md:text-[52px] font-semibold text-teal-900 leading-[1.15]">
             Your Wellness <br />
-            <span className="text-[#4F46E5]">Journey Begins</span>
+            <span className="text-[#4E4391]">Journey Begins</span>
           </h1>
 
           <p className="mt-4 text-[#6B7280] text-[14px] leading-[1.6] max-w-[420px] mx-auto md:mx-0">
@@ -135,7 +135,7 @@ const Signup = () => {
               name="email"
               value={form.email}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 text-[14px] font-normal outline-none focus:border-[#5B4FF7]"
+              className="w-full border border-gray-300 rounded-xl px-4 py-3 text-[14px] font-normal outline-none focus:border-[#4E4391]"
             />
 
             {/* Password */}
@@ -146,7 +146,7 @@ const Signup = () => {
                 name="password"
                 value={form.password}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-[14px] font-normal outline-none focus:border-[#5B4FF7]"
+                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-[14px] font-normal outline-none focus:border-[#4E4391]"
               />
               <button
                 type="button"
@@ -168,7 +168,7 @@ const Signup = () => {
                 name="phone"
                 value={form.phone}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-[14px] font-normal outline-none focus:border-[#5B4FF7]"
+                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-[14px] font-normal outline-none focus:border-[#4E4391]"
               />
             </div>
 
@@ -179,20 +179,20 @@ const Signup = () => {
                 type="checkbox"
                 checked={agreed}
                 onChange={(e) => setAgreed(e.target.checked)}
-                className="mt-0.5 accent-[#4F46E5] w-4 h-4 flex-shrink-0"
+                className="mt-0.5 accent-[#4E4391] w-4 h-4 flex-shrink-0"
               />
               <span>
                 I agree to Slimfitter's{" "}
                 <Link
                   to="/terms-of-use"
-                  className="text-[#4F46E5] hover:underline"
+                  className="text-[#4E4391] hover:underline"
                 >
                   Terms of Service
                 </Link>{" "}
                 and{" "}
                 <Link
                   to="/privacy-policy"
-                  className="text-[#4F46E5] hover:underline"
+                  className="text-[#4E4391] hover:underline"
                 >
                   Privacy Policy
                 </Link>
@@ -202,7 +202,7 @@ const Signup = () => {
             <button
               onClick={handleSignup}
               disabled={loading || !agreed}
-              className="w-full bg-[#4F46E5] hover:bg-[#4338CA] text-white py-3 rounded-full text-[14px] font-medium transition disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-[#4E4391] hover:bg-[#4E4391] text-white py-3 rounded-full text-[14px] font-medium transition disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? "Creating..." : "Create Account"}
             </button>
@@ -215,13 +215,13 @@ const Signup = () => {
             </div>
 
             {/* Google */}
-            <button className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-full py-2 text-[14px] font-medium hover:bg-[#F6F8FC]">
+            <button className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-full py-2 text-[14px] font-medium hover:bg-[#EFEDFA]">
               <GoogleIcon />
               Continue with Google
             </button>
 
             {/* Facebook */}
-            <button className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-full py-2 text-[14px] font-medium hover:bg-[#F6F8FC]">
+            <button className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-full py-2 text-[14px] font-medium hover:bg-[#EFEDFA]">
               <FacebookIcon />
               Continue with Facebook
             </button>
@@ -229,7 +229,7 @@ const Signup = () => {
               Already have an account?{" "}
               <Link
                 to="/login"
-                className="text-[#4F46E5] font-medium hover:underline"
+                className="text-[#4E4391] font-medium hover:underline"
               >
                 Log in
               </Link>

@@ -50,7 +50,7 @@ export default function PrivacyPolicy() {
         <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 py-8 sm:py-12">
           <button
             onClick={() => navigate(-1)}
-            className="flex items-center gap-2 text-[#6B7280] hover:text-[#4F46E5] text-sm mb-6 transition-colors sm:hidden"
+            className="flex items-center gap-2 text-[#6B7280] hover:text-[#4E4391] text-sm mb-6 transition-colors sm:hidden"
           >
             <ArrowLeft size={18} />
             Back

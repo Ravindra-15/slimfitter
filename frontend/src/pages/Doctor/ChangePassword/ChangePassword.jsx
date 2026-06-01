@@ -33,7 +33,7 @@ const getPasswordChecks = (pw) => ({
 const getStrengthLevel = (checks) => {
   const score = Object.values(checks).filter(Boolean).length;
   if (score <= 1) return { level: 1, label: "Weak", color: "bg-red-400" };
-  if (score === 2) return { level: 2, label: "Fair", color: "bg-[#4F46E5]" };
+  if (score === 2) return { level: 2, label: "Fair", color: "bg-[#4E4391]" };
   if (score === 3) return { level: 3, label: "Good", color: "bg-yellow-400" };
   return { level: 4, label: "Strong", color: "bg-green-500" };
 };
@@ -173,7 +173,7 @@ const ChangePassword = () => {
           className={`w-full pl-11 pr-11 py-3 text-sm rounded-xl border transition-colors bg-white text-[#1F2937] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 disabled:opacity-60 ${
             error
               ? "border-red-300 focus:border-red-400"
-              : "border-[#D9DDF0] focus:border-indigo-500"
+              : "border-[#D6D1EC] focus:border-[#5A4F9F]"
           }`}
         />
         <button
@@ -199,7 +199,7 @@ const ChangePassword = () => {
       {/* ============================================ */}
       {/* 🔝 TOP BAR */}
       {/* ============================================ */}
-      <header className="border-b border-[#E7EAF3] bg-white/70 backdrop-blur-sm">
+      <header className="border-b border-[#E3DFF0] bg-white/70 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center shadow-md">
@@ -209,7 +209,7 @@ const ChangePassword = () => {
               <p className="text-sm font-bold text-[#1F2937] leading-tight">
                 Zealtho
               </p>
-              <p className="text-[10px] tracking-[0.18em] text-indigo-600 font-semibold">
+              <p className="text-[10px] tracking-[0.18em] text-[#5A4F9F] font-semibold">
                 DOCTOR PORTAL
               </p>
             </div>
@@ -239,11 +239,11 @@ const ChangePassword = () => {
             </p>
           )}
 
-          <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_4px_24px_rgba(16,24,40,0.06)] p-8 sm:p-10">
+          <div className="bg-white rounded-2xl border border-[#E3DFF0] shadow-[0_4px_24px_rgba(16,24,40,0.06)] p-8 sm:p-10">
             {/* Lock icon header */}
             <div className="flex justify-center">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center">
-                <Lock className="w-6 h-6 text-indigo-600" strokeWidth={2.2} />
+                <Lock className="w-6 h-6 text-[#5A4F9F]" strokeWidth={2.2} />
               </div>
             </div>
 
@@ -342,7 +342,7 @@ const ChangePassword = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 active:scale-[0.99] transition-all shadow-[0_4px_14px_rgba(79,70,229,0.35)] disabled:opacity-60 disabled:cursor-not-allowed disabled:active:scale-100 flex items-center justify-center gap-2"
+                className="w-full py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 active:scale-[0.99] transition-all shadow-[0_4px_14px_rgba(90,79,159,0.35)] disabled:opacity-60 disabled:cursor-not-allowed disabled:active:scale-100 flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>

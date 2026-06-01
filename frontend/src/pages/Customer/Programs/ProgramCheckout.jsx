@@ -83,13 +83,13 @@ export default function ProgramCheckout() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F6F8FC] flex items-center justify-center px-4 py-10">
-      <div className="bg-white rounded-[32px] shadow-[0_18px_50px_rgba(15,23,42,0.08)] w-full max-w-3xl overflow-hidden border border-[#E7EAF3]">
+    <div className="min-h-screen bg-[#EFEDFA] flex items-center justify-center px-4 py-10">
+      <div className="bg-white rounded-[32px] shadow-[0_18px_50px_rgba(15,23,42,0.08)] w-full max-w-3xl overflow-hidden border border-[#E3DFF0]">
         {/* HEADER */}
-        <div className="bg-gradient-to-r from-[#5B4FF7] to-[#4338CA] px-8 py-7 relative">
+        <div className="bg-gradient-to-r from-[#4E4391] to-[#4E4391] px-8 py-7 relative">
           <button
             onClick={() => navigate(-1)}
-            className="absolute top-4 right-4 bg-white text-[#5B4FF7] rounded-full p-1.5 transition-all hover:bg-[#EEF2FF]"
+            className="absolute top-4 right-4 bg-white text-[#4E4391] rounded-full p-1.5 transition-all hover:bg-[#EFEDFA]"
           >
             <X size={16} />
           </button>
@@ -108,7 +108,7 @@ export default function ProgramCheckout() {
             <div className="flex items-start justify-between gap-4 mb-6">
               <div>
                 <h3 className="text-2xl font-bold text-[#1F2937] leading-snug">
-                  Your <span className="text-[#5B4FF7]">{tenure}</span> Wellness
+                  Your <span className="text-[#4E4391]">{tenure}</span> Wellness
                   Plan
                 </h3>
                 <p className="text-[#6B7280] mt-2 text-sm leading-relaxed">
@@ -116,15 +116,15 @@ export default function ProgramCheckout() {
                   expert-led sessions and progress tracking.
                 </p>
               </div>
-              <div className="bg-[#F5F7FF] border border-[#E7EAF3] rounded-2xl px-4 py-3 flex flex-col items-center gap-1 shrink-0">
-                <Calendar size={18} className="text-[#5B4FF7]" />
+              <div className="bg-[#EFEDFA] border border-[#E3DFF0] rounded-2xl px-4 py-3 flex flex-col items-center gap-1 shrink-0">
+                <Calendar size={18} className="text-[#4E4391]" />
                 <span className="text-xs font-semibold text-[#374151] text-center leading-tight">
                   {tenure}
                 </span>
               </div>
             </div>
 
-            <div className="bg-white border border-[#D9DDF0] rounded-2xl p-5 mb-5">
+            <div className="bg-white border border-[#D6D1EC] rounded-2xl p-5 mb-5">
               <h4 className="font-bold text-[#1F2937] mb-4 text-base">
                 Order Summary
               </h4>
@@ -139,9 +139,9 @@ export default function ProgramCheckout() {
                   <span className="text-[#6B7280]">Duration</span>
                   <span className="font-semibold text-gray-800">{tenure}</span>
                 </div>
-                <div className="border-t border-[#E7EAF3] pt-3 flex items-center justify-between">
+                <div className="border-t border-[#E3DFF0] pt-3 flex items-center justify-between">
                   <span className="font-bold text-gray-800">Total</span>
-                  <span className="text-3xl font-bold text-[#5B4FF7]">
+                  <span className="text-3xl font-bold text-[#4E4391]">
                     ${price}
                   </span>
                 </div>
@@ -158,9 +158,9 @@ export default function ProgramCheckout() {
                   value={form.referralCode}
                   onChange={handle}
                   placeholder="Enter referral code"
-                  className="flex-1 border border-[#D9DDF0] rounded-2xl px-4 py-3 text-sm outline-none focus:border-[#5B4FF7] transition-colors"
+                  className="flex-1 border border-[#D6D1EC] rounded-2xl px-4 py-3 text-sm outline-none focus:border-[#4E4391] transition-colors"
                 />
-                <button className="px-5 rounded-2xl border border-[#D9DDF0] text-[#5B4FF7] font-semibold hover:bg-[#F5F7FF] transition-colors text-sm">
+                <button className="px-5 rounded-2xl border border-[#D6D1EC] text-[#4E4391] font-semibold hover:bg-[#EFEDFA] transition-colors text-sm">
                   Apply
                 </button>
               </div>
@@ -185,7 +185,7 @@ export default function ProgramCheckout() {
                     setForm({ ...form, cardNumber: formatCard(e.target.value) })
                   }
                   placeholder="1234 5678 9012 3456"
-                  className="w-full border border-[#D9DDF0] rounded-2xl px-5 py-3.5 text-sm outline-none focus:border-[#5B4FF7] transition-colors"
+                  className="w-full border border-[#D6D1EC] rounded-2xl px-5 py-3.5 text-sm outline-none focus:border-[#4E4391] transition-colors"
                 />
               </div>
 
@@ -201,7 +201,7 @@ export default function ProgramCheckout() {
                       setForm({ ...form, expiry: formatExpiry(e.target.value) })
                     }
                     placeholder="MM/YY"
-                    className="w-full border border-[#D9DDF0] rounded-2xl px-5 py-3.5 text-sm outline-none focus:border-[#5B4FF7] transition-colors"
+                    className="w-full border border-[#D6D1EC] rounded-2xl px-5 py-3.5 text-sm outline-none focus:border-[#4E4391] transition-colors"
                   />
                 </div>
                 <div>
@@ -218,7 +218,7 @@ export default function ProgramCheckout() {
                       })
                     }
                     placeholder="123"
-                    className="w-full border border-[#D9DDF0] rounded-2xl px-5 py-3.5 text-sm outline-none focus:border-[#5B4FF7] transition-colors"
+                    className="w-full border border-[#D6D1EC] rounded-2xl px-5 py-3.5 text-sm outline-none focus:border-[#4E4391] transition-colors"
                   />
                 </div>
               </div>
@@ -232,7 +232,7 @@ export default function ProgramCheckout() {
                   value={form.cardHolder}
                   onChange={handle}
                   placeholder="Rahul Sharma"
-                  className="w-full border border-[#D9DDF0] rounded-2xl px-5 py-3.5 text-sm outline-none focus:border-[#5B4FF7] transition-colors"
+                  className="w-full border border-[#D6D1EC] rounded-2xl px-5 py-3.5 text-sm outline-none focus:border-[#4E4391] transition-colors"
                 />
               </div>
 
@@ -240,12 +240,12 @@ export default function ProgramCheckout() {
                 onClick={submit}
                 disabled={loading}
                 className="
-                  w-full bg-[#5B4FF7]
-                  hover:bg-[#4338CA]
+                  w-full bg-[#4E4391]
+                  hover:bg-[#4E4391]
                   text-white font-bold
                   py-4 rounded-full
                   transition-all duration-200
-                  shadow-[0_10px_28px_rgba(91,79,247,0.28)]
+                  shadow-[0_10px_28px_rgba(78,67,145,0.28)]
                   disabled:opacity-60
                   mt-2
                 "

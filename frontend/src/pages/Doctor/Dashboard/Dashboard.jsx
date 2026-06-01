@@ -39,13 +39,13 @@ const formatToday = () => {
 // ============================================
 const StatCard = ({ icon: Icon, label, value, hint, accent }) => {
   const accentMap = {
-    indigo: "from-indigo-50 to-indigo-100/50 text-indigo-600",
+    indigo: "from-indigo-50 to-indigo-100/50 text-[#5A4F9F]",
     blue: "from-blue-50 to-blue-100/50 text-blue-600",
     green: "from-green-50 to-green-100/50 text-green-600",
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-5">
+    <div className="bg-white rounded-2xl border border-[#E3DFF0] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-5">
       <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${accentMap[accent]} flex items-center justify-center mb-4`}>
         <Icon className="w-5 h-5" strokeWidth={2} />
       </div>
@@ -130,7 +130,7 @@ const Dashboard = () => {
       {/* ============================================ */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Today's Schedule (left, spans 2 cols on lg+) */}
-        <div className="lg:col-span-2 bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6">
+        <div className="lg:col-span-2 bg-white rounded-2xl border border-[#E3DFF0] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6">
           <div className="flex items-center justify-between mb-5">
             <h2 className="text-base font-bold text-[#1F2937]">
               Today's Schedule
@@ -141,7 +141,7 @@ const Dashboard = () => {
           </div>
 
           <div className="flex flex-col items-center justify-center py-12 text-center">
-            <div className="w-12 h-12 rounded-2xl bg-[#F6F8FC] flex items-center justify-center mb-3">
+            <div className="w-12 h-12 rounded-2xl bg-[#EFEDFA] flex items-center justify-center mb-3">
               <CalendarX className="w-5 h-5 text-gray-400" strokeWidth={2} />
             </div>
             <p className="text-sm font-medium text-[#374151]">
@@ -154,7 +154,7 @@ const Dashboard = () => {
         </div>
 
         {/* Quick Actions (right) */}
-        <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6">
+        <div className="bg-white rounded-2xl border border-[#E3DFF0] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6">
           <h2 className="text-base font-bold text-[#1F2937]">
             Quick Actions
           </h2>
@@ -164,7 +164,7 @@ const Dashboard = () => {
 
           <div className="mt-5 flex flex-col items-center justify-center py-8 text-center">
             <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center mb-3">
-              <Clock className="w-5 h-5 text-indigo-500" strokeWidth={2} />
+              <Clock className="w-5 h-5 text-[#5A4F9F]" strokeWidth={2} />
             </div>
             <p className="text-sm font-medium text-[#374151]">
               Availability manager
@@ -179,7 +179,7 @@ const Dashboard = () => {
       {/* ============================================ */}
       {/* 🎉 ONBOARDING WELCOME (optional polish) */}
       {/* ============================================ */}
-      <div className="mt-6 bg-gradient-to-br from-indigo-50 via-white to-purple-50 rounded-2xl border border-indigo-100 p-5 flex items-start gap-4">
+      <div className="mt-6 bg-gradient-to-br from-indigo-50 via-white to-purple-50 rounded-2xl border border-[#D6D1EC] p-5 flex items-start gap-4">
         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center flex-shrink-0">
           <Sparkles className="w-5 h-5 text-white" strokeWidth={2} />
         </div>

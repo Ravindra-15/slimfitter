@@ -15,7 +15,7 @@ import { Menu, Shield } from "lucide-react";
 
 const AdminMobileTopbar = ({ onMenuClick }) => {
   return (
-    <header className="lg:hidden sticky top-0 z-30 bg-white border-b border-[#D9DDF0] px-4 py-3 flex items-center justify-between">
+    <header className="lg:hidden sticky top-0 z-30 bg-white border-b border-[#D6D1EC] px-4 py-3 flex items-center justify-between">
       {/* 🍔 ADMIN: Hamburger menu button */}
       <button
         onClick={onMenuClick}
@@ -27,7 +27,7 @@ const AdminMobileTopbar = ({ onMenuClick }) => {
 
       {/* 🏷️ ADMIN: Brand name (mobile only) */}
       <div className="flex items-center gap-2">
-        <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center">
+        <div className="w-8 h-8 rounded-lg bg-[#5A4F9F] flex items-center justify-center">
           <Shield size={16} className="text-white" />
         </div>
         <span className="font-bold text-[#1F2937]">Zealtho</span>

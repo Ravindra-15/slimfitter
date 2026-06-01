@@ -249,22 +249,22 @@ export default function ProgramDashboard() {
   const completedToday = videoData?.completedToday;
 
   return (
-    <div className="min-h-screen bg-[#F6F8FC] flex flex-col">
+    <div className="min-h-screen bg-[#EFEDFA] flex flex-col">
       <CustomerNavbar />
 
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-5">
           {/* Greeting Card */}
-          <div className="bg-white rounded-[28px] border border-[#E7EAF3] shadow-[0_10px_30px_rgba(15,23,42,0.05)] px-6 py-7 sm:px-8">
+          <div className="bg-white rounded-[28px] border border-[#E3DFF0] shadow-[0_10px_30px_rgba(15,23,42,0.05)] px-6 py-7 sm:px-8">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
               <div className="flex-1 min-w-0">
-                <p className="text-[#5B4FF7] font-semibold text-sm mb-1">
+                <p className="text-[#4E4391] font-semibold text-sm mb-1">
                   {programTitle}
                 </p>
 
                 <h2 className="text-2xl sm:text-3xl font-bold text-[#1F2937] leading-tight">
                   {getGreeting()},{" "}
-                  <span className="text-[#5B4FF7]">
+                  <span className="text-[#4E4391]">
                     {userName || "there"}
                   </span>
                 </h2>
@@ -275,7 +275,7 @@ export default function ProgramDashboard() {
 
                <button
                   onClick={() => navigate(`/programs/${id}/progress-report`)}
-                  className="mt-5 bg-[#F6F8FC] border border-[#E7EAF3] rounded-2xl px-4 py-3 inline-flex items-center gap-4 w-full sm:w-auto text-left hover:border-[#5B4FF7] transition-colors"
+                  className="mt-5 bg-[#EFEDFA] border border-[#E3DFF0] rounded-2xl px-4 py-3 inline-flex items-center gap-4 w-full sm:w-auto text-left hover:border-[#4E4391] transition-colors"
                 >
                   <div>
                     <p className="text-xs text-[#9CA3AF] mb-0.5">
@@ -297,7 +297,7 @@ export default function ProgramDashboard() {
 
                 <button
                   onClick={() => navigate(`/programs/${id}/add-progress`)}
-                  className="mt-5 flex items-center gap-2 bg-[#5B4FF7] hover:bg-[#4338CA] text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-[0_8px_20px_rgba(91,79,247,0.22)] transition-all duration-200"
+                  className="mt-5 flex items-center gap-2 bg-[#4E4391] hover:bg-[#4E4391] text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-[0_8px_20px_rgba(78,67,145,0.22)] transition-all duration-200"
                 >
                   <Plus size={15} />
                   Add Progress
@@ -311,7 +311,7 @@ export default function ProgramDashboard() {
           </div>
 
           {/* Video Card */}
-          <div className="bg-white rounded-[28px] border border-[#E7EAF3] shadow-[0_10px_30px_rgba(15,23,42,0.05)] p-5">
+          <div className="bg-white rounded-[28px] border border-[#E3DFF0] shadow-[0_10px_30px_rgba(15,23,42,0.05)] p-5">
             {loadingVideo ? (
               <p className="py-10 text-center text-sm text-[#9CA3AF]">
                 Loading video...
@@ -358,11 +358,11 @@ export default function ProgramDashboard() {
 
                 {/* Video Info */}
                 <div className="flex-1 min-w-0">
-                  <p className="text-[#5B4FF7] font-semibold text-sm">
+                  <p className="text-[#4E4391] font-semibold text-sm">
                     {programTitle}
 
                     {videoData?.isScheduled && (
-                      <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-md bg-[#F5F7FF] text-[#5B4FF7] text-[10px] font-bold">
+                      <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-md bg-[#EFEDFA] text-[#4E4391] text-[10px] font-bold">
                         Today's Special
                       </span>
                     )}
@@ -383,7 +383,7 @@ export default function ProgramDashboard() {
                       href={video.videoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-[#5B4FF7] hover:bg-[#4338CA] text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-[0_8px_20px_rgba(91,79,247,0.22)] transition-all duration-200"
+                      className="inline-flex items-center gap-2 bg-[#4E4391] hover:bg-[#4E4391] text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-[0_8px_20px_rgba(78,67,145,0.22)] transition-all duration-200"
                     >
                       <Play size={13} fill="white" />
                       Play Video
@@ -395,7 +395,7 @@ export default function ProgramDashboard() {
                       className={`inline-flex items-center gap-2 text-sm font-semibold px-6 py-2.5 rounded-full border transition-colors disabled:cursor-not-allowed ${
                         completedToday
                           ? "bg-[#ECFDF3] border-[#ABEFC6] text-[#027A48]"
-                          : "border-[#D9DDF0] text-[#6B7280] hover:border-[#5B4FF7] hover:text-[#5B4FF7]"
+                          : "border-[#D6D1EC] text-[#6B7280] hover:border-[#4E4391] hover:text-[#4E4391]"
                       }`}
                     >
                       <Check size={13} />
@@ -419,10 +419,10 @@ export default function ProgramDashboard() {
           </div>
 
           {/* Next Consultation */}
-          <div className="bg-white rounded-[28px] border border-[#E7EAF3] shadow-[0_10px_30px_rgba(15,23,42,0.05)] p-6">
+          <div className="bg-white rounded-[28px] border border-[#E3DFF0] shadow-[0_10px_30px_rgba(15,23,42,0.05)] p-6">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-7 h-7 bg-[#F5F7FF] rounded-lg flex items-center justify-center">
-                <Calendar size={15} className="text-[#5B4FF7]" />
+              <div className="w-7 h-7 bg-[#EFEDFA] rounded-lg flex items-center justify-center">
+                <Calendar size={15} className="text-[#4E4391]" />
               </div>
 
               <span className="font-semibold text-[#1F2937] text-sm">
@@ -431,9 +431,9 @@ export default function ProgramDashboard() {
             </div>
 
             {nextAppointment ? (
-              <div className="bg-[#F5F7FF] rounded-2xl px-5 py-4 border border-[#E7EAF3]">
+              <div className="bg-[#EFEDFA] rounded-2xl px-5 py-4 border border-[#E3DFF0]">
                 <p className="text-xs text-[#6B7280] flex items-center gap-1 mb-1">
-                  <Bell size={11} className="text-[#5B4FF7]" />
+                  <Bell size={11} className="text-[#4E4391]" />
                   Upcoming Check-in
                 </p>
 
@@ -445,7 +445,7 @@ export default function ProgramDashboard() {
                 </p>
               </div>
             ) : (
-              <div className="bg-[#F6F8FC] rounded-2xl px-5 py-4 text-center border border-[#E7EAF3]">
+              <div className="bg-[#EFEDFA] rounded-2xl px-5 py-4 text-center border border-[#E3DFF0]">
                 <p className="text-sm text-[#6B7280]">
                   No upcoming appointments. Book a doctor consultation anytime.
                 </p>

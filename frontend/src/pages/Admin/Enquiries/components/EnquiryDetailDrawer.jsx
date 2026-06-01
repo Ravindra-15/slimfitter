@@ -78,7 +78,7 @@ const EnquiryDetailDrawer = ({ enquiry, onClose }) => {
         "
       >
         {/* Header */}
-        <div className="sticky top-0 bg-white border-b border-[#E7EAF3] px-6 py-4 flex items-start justify-between gap-3">
+        <div className="sticky top-0 bg-white border-b border-[#E3DFF0] px-6 py-4 flex items-start justify-between gap-3">
           <div className="min-w-0">
             <div className="flex items-center gap-2 mb-1">
               <h3 className="text-lg font-bold text-[#1F2937] truncate">
@@ -129,7 +129,7 @@ const EnquiryDetailDrawer = ({ enquiry, onClose }) => {
               <MessageSquare size={14} className="text-[#6B7280]" />
               <h4 className="text-sm font-bold text-gray-800">Message</h4>
             </div>
-            <div className="bg-[#F6F8FC] border border-[#E7EAF3] rounded-xl p-4 min-h-[120px]">
+            <div className="bg-[#EFEDFA] border border-[#E3DFF0] rounded-xl p-4 min-h-[120px]">
               <p className="text-sm text-[#374151] leading-relaxed whitespace-pre-wrap">
                 {enquiry.message || (
                   <span className="text-gray-400 italic">

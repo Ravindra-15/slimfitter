@@ -85,7 +85,7 @@ export default function EditProfileModal({ user, onClose, onUpdated }) {
   return (
     <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center px-4 py-6 overflow-y-auto">
       <div className="bg-white rounded-2xl w-full max-w-lg shadow-xl my-auto">
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#E7EAF3]">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#E3DFF0]">
           <h3 className="text-lg font-bold text-gray-800">Edit Profile</h3>
           <button
             onClick={onClose}
@@ -105,7 +105,7 @@ export default function EditProfileModal({ user, onClose, onUpdated }) {
               value={form.fullName}
               onChange={handleChange}
               required
-              className="w-full border border-[#D9DDF0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C7D2FE]"
+              className="w-full border border-[#D6D1EC] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9C3E8]"
               placeholder="Your full name"
             />
           </div>
@@ -119,7 +119,7 @@ export default function EditProfileModal({ user, onClose, onUpdated }) {
               value={form.nickName}
               onChange={handleChange}
               required
-              className="w-full border border-[#D9DDF0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C7D2FE]"
+              className="w-full border border-[#D6D1EC] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9C3E8]"
               placeholder="Display name"
             />
           </div>
@@ -135,7 +135,7 @@ export default function EditProfileModal({ user, onClose, onUpdated }) {
               onChange={handleChange}
               required
               max={new Date().toISOString().split("T")[0]}
-              className="w-full border border-[#D9DDF0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C7D2FE]"
+              className="w-full border border-[#D6D1EC] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9C3E8]"
             />
           </div>
 
@@ -149,7 +149,7 @@ export default function EditProfileModal({ user, onClose, onUpdated }) {
                 value={form.country}
                 onChange={handleChange}
                 required
-                className="w-full border border-[#D9DDF0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C7D2FE]"
+                className="w-full border border-[#D6D1EC] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9C3E8]"
                 placeholder="India"
               />
             </div>
@@ -162,7 +162,7 @@ export default function EditProfileModal({ user, onClose, onUpdated }) {
                 value={form.city}
                 onChange={handleChange}
                 required
-                className="w-full border border-[#D9DDF0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C7D2FE]"
+                className="w-full border border-[#D6D1EC] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9C3E8]"
                 placeholder="Mumbai"
               />
             </div>
@@ -177,7 +177,7 @@ export default function EditProfileModal({ user, onClose, onUpdated }) {
               value={form.whatsapp}
               onChange={handleChange}
               required
-              className="w-full border border-[#D9DDF0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C7D2FE]"
+              className="w-full border border-[#D6D1EC] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9C3E8]"
               placeholder="+91 9876543210"
             />
           </div>
@@ -186,7 +186,7 @@ export default function EditProfileModal({ user, onClose, onUpdated }) {
             <button
               type="submit"
               disabled={saving}
-              className="flex-1 bg-[#5B4FF7] hover:bg-[#4338CA] disabled:opacity-60 text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-[0_4px_14px_rgba(91,79,247,0.35)] transition-colors"
+              className="flex-1 bg-[#4E4391] hover:bg-[#4E4391] disabled:opacity-60 text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-[0_4px_14px_rgba(78,67,145,0.35)] transition-colors"
             >
               {saving ? "Saving..." : "Save Changes"}
             </button>

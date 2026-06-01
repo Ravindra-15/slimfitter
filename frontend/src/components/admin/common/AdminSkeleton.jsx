@@ -42,7 +42,7 @@ export const SkeletonBox = ({ className = "", rounded = "rounded-md" }) => (
 export const StatCardSkeleton = () => (
   <div
     className="
-      bg-white rounded-2xl border border-[#E7EAF3]
+      bg-white rounded-2xl border border-[#E3DFF0]
       shadow-[0_1px_3px_rgba(16,24,40,0.04)]
       p-5 sm:p-6
       flex flex-col gap-3
@@ -65,7 +65,7 @@ export const StatCardSkeleton = () => (
 export const ChartSkeleton = () => (
   <div
     className="
-      bg-white rounded-2xl border border-[#E7EAF3]
+      bg-white rounded-2xl border border-[#E3DFF0]
       shadow-[0_1px_3px_rgba(16,24,40,0.04)]
       px-5 sm:px-6 pt-5 sm:pt-6 pb-5 sm:pb-6
     "
@@ -112,7 +112,7 @@ export const ChartSkeleton = () => (
 export const TableSkeleton = ({ rows = 3 }) => (
   <div
     className="
-      bg-white rounded-2xl border border-[#E7EAF3]
+      bg-white rounded-2xl border border-[#E3DFF0]
       shadow-[0_1px_3px_rgba(16,24,40,0.04)]
     "
   >
@@ -123,7 +123,7 @@ export const TableSkeleton = ({ rows = 3 }) => (
     </div>
 
     {/* Table column headers */}
-    <div className="hidden md:flex items-center px-6 py-3 border-y border-[#E7EAF3] bg-[#F6F8FC]/50">
+    <div className="hidden md:flex items-center px-6 py-3 border-y border-[#E3DFF0] bg-[#EFEDFA]/50">
       <div className="flex-1"><SkeletonBox className="h-3 w-12" /></div>
       <div className="flex-1 flex justify-center"><SkeletonBox className="h-3 w-12" /></div>
       <div className="flex-1 flex justify-center"><SkeletonBox className="h-3 w-20" /></div>
@@ -137,7 +137,7 @@ export const TableSkeleton = ({ rows = 3 }) => (
           key={idx}
           className={`
             flex items-center px-6 py-4
-            ${idx !== rows - 1 ? "border-b border-[#E7EAF3]" : ""}
+            ${idx !== rows - 1 ? "border-b border-[#E3DFF0]" : ""}
           `}
         >
           {/* Avatar + name */}

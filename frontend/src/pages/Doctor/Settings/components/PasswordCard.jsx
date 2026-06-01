@@ -25,7 +25,7 @@ const getPasswordChecks = (pw) => ({
 const getStrengthLevel = (checks) => {
   const score = Object.values(checks).filter(Boolean).length;
   if (score <= 1) return { level: 1, label: "Weak", color: "bg-red-400" };
-  if (score === 2) return { level: 2, label: "Fair", color: "bg-[#4F46E5]" };
+  if (score === 2) return { level: 2, label: "Fair", color: "bg-[#4E4391]" };
   if (score === 3) return { level: 3, label: "Good", color: "bg-yellow-400" };
   return { level: 4, label: "Strong", color: "bg-green-500" };
 };
@@ -166,10 +166,10 @@ const PasswordCard = () => {
           value={formData[name]}
           onChange={handleChange}
           disabled={isSubmitting}
-          className={`w-full pl-11 pr-11 py-3 text-sm rounded-xl border bg-white text-[#1F2937] placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors disabled:bg-[#F6F8FC] disabled:cursor-not-allowed ${
+          className={`w-full pl-11 pr-11 py-3 text-sm rounded-xl border bg-white text-[#1F2937] placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors disabled:bg-[#EFEDFA] disabled:cursor-not-allowed ${
             error
               ? "border-red-300 focus:border-red-400 focus:ring-red-300"
-              : "border-[#D9DDF0] focus:border-indigo-500 focus:ring-indigo-500"
+              : "border-[#D6D1EC] focus:border-[#5A4F9F] focus:ring-indigo-500"
           }`}
         />
         <button
@@ -193,11 +193,11 @@ const PasswordCard = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6 sm:p-8"
+      className="bg-white rounded-2xl border border-[#E3DFF0] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6 sm:p-8"
       noValidate
     >
       {/* Card header */}
-      <div className="flex items-center gap-3 pb-5 mb-6 border-b border-[#E7EAF3]">
+      <div className="flex items-center gap-3 pb-5 mb-6 border-b border-[#E3DFF0]">
         <div className="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center">
           <Lock size={18} className="text-red-500" />
         </div>
@@ -310,11 +310,11 @@ const PasswordCard = () => {
       </div>
 
       {/* Submit */}
-      <div className="mt-7 pt-5 border-t border-[#E7EAF3] flex justify-end">
+      <div className="mt-7 pt-5 border-t border-[#E3DFF0] flex justify-end">
         <button
           type="submit"
           disabled={isSubmitting || !isFormFilled}
-          className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 active:scale-[0.99] transition-all shadow-[0_4px_14px_rgba(79,70,229,0.35)] disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100"
+          className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 active:scale-[0.99] transition-all shadow-[0_4px_14px_rgba(90,79,159,0.35)] disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100"
         >
           {isSubmitting ? (
             <>

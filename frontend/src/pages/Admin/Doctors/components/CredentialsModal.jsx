@@ -122,7 +122,7 @@ const CredentialsModal = ({
         </button>
 
         {/* 🎉 Header with success icon */}
-        <div className="px-6 pt-8 pb-4 text-center border-b border-[#E7EAF3]">
+        <div className="px-6 pt-8 pb-4 text-center border-b border-[#E3DFF0]">
           <div className="w-14 h-14 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-3">
             <CheckCircle size={28} className="text-emerald-500" />
           </div>
@@ -168,7 +168,7 @@ const CredentialsModal = ({
                 readOnly
                 className="
                   w-full pl-4 pr-12 py-3
-                  bg-[#F6F8FC] border border-[#D9DDF0] rounded-xl
+                  bg-[#EFEDFA] border border-[#D6D1EC] rounded-xl
                   text-sm font-mono text-[#1F2937]
                   focus:outline-none
                 "
@@ -181,7 +181,7 @@ const CredentialsModal = ({
                 className="
                   absolute right-2 top-1/2 -translate-y-1/2
                   w-8 h-8 rounded-lg
-                  text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
+                  text-[#6B7280] hover:text-[#5A4F9F] hover:bg-[#EFEDFA]
                   flex items-center justify-center
                   transition-colors
                 "
@@ -208,7 +208,7 @@ const CredentialsModal = ({
                 readOnly
                 className="
                   w-full pl-4 pr-12 py-3
-                  bg-[#F6F8FC] border border-[#D9DDF0] rounded-xl
+                  bg-[#EFEDFA] border border-[#D6D1EC] rounded-xl
                   text-sm font-mono text-[#1F2937]
                   focus:outline-none
                 "
@@ -221,7 +221,7 @@ const CredentialsModal = ({
                 className="
                   absolute right-2 top-1/2 -translate-y-1/2
                   w-8 h-8 rounded-lg
-                  text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
+                  text-[#6B7280] hover:text-[#5A4F9F] hover:bg-[#EFEDFA]
                   flex items-center justify-center
                   transition-colors
                 "
@@ -244,15 +244,15 @@ const CredentialsModal = ({
         </div>
 
         {/* 🎯 Actions */}
-        <div className="px-6 py-5 mt-2 border-t border-[#E7EAF3] flex flex-col-reverse sm:flex-row gap-2.5 sm:justify-between">
+        <div className="px-6 py-5 mt-2 border-t border-[#E3DFF0] flex flex-col-reverse sm:flex-row gap-2.5 sm:justify-between">
           <button
             type="button"
             onClick={handleCopyBoth}
             className="
               px-5 py-2.5 rounded-xl
-              bg-white border border-[#D9DDF0]
+              bg-white border border-[#D6D1EC]
               text-sm font-semibold text-[#374151]
-              hover:bg-[#F6F8FC]
+              hover:bg-[#EFEDFA]
               transition-colors
               inline-flex items-center justify-center gap-2
             "
@@ -266,7 +266,7 @@ const CredentialsModal = ({
             onClick={onClose}
             className="
               px-5 py-2.5 rounded-xl
-              bg-indigo-600 hover:bg-indigo-700
+              bg-[#5A4F9F] hover:bg-indigo-700
               text-sm font-semibold text-white
               shadow-sm shadow-indigo-200
               transition-colors

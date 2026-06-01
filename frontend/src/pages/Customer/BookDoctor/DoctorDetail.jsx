@@ -108,7 +108,7 @@ const DoctorDetail = () => {
   // 🎨 RENDER
   // ============================================
   return (
-    <div className="min-h-screen bg-[#F6F8FC] flex flex-col">
+    <div className="min-h-screen bg-[#EFEDFA] flex flex-col">
       <CustomerNavbar />
 
       <main className="flex-1">
@@ -117,7 +117,7 @@ const DoctorDetail = () => {
           <button
             type="button"
             onClick={() => navigate("/book-doctor")}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-[#6B7280] hover:text-[#5B4FF7] transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-[#6B7280] hover:text-[#4E4391] transition-colors"
           >
             <ArrowLeft size={16} />
             Back to doctors
@@ -125,17 +125,17 @@ const DoctorDetail = () => {
 
           {/* 🏷️ Page title */}
           <h1 className="text-xl sm:text-2xl font-bold text-[#1F2937] text-center tracking-tight">
-            Book Doctor <span className="text-[#5B4FF7]">Consultations</span>
+            Book Doctor <span className="text-[#4E4391]">Consultations</span>
           </h1>
 
           {/* ============================================ */}
           {/* 👤 DOCTOR HEADER                              */}
           {/* ============================================ */}
           {doctorLoading ? (
-            <div className="bg-white rounded-[28px] border border-[#E7EAF3] p-6 animate-pulse h-44 shadow-sm" />
+            <div className="bg-white rounded-[28px] border border-[#E3DFF0] p-6 animate-pulse h-44 shadow-sm" />
           ) : doctorError || !doctor ? (
             <div
-              className="bg-white rounded-[28px] border border-[#E7EAF3]
+              className="bg-white rounded-[28px] border border-[#E3DFF0]
                shadow-smpx-6 py-12 text-center"
             >
               <p className="text-sm font-medium text-[#1F2937] mb-1">
@@ -155,7 +155,7 @@ const DoctorDetail = () => {
               <div
                 className="
                                           bg-white rounded-[32px]
-                        border border-[#E7EAF3]
+                        border border-[#E3DFF0]
                         shadow-[0_10px_30px_rgba(15,23,42,0.05)]
                         p-5 sm:p-7
                                         "
@@ -197,10 +197,10 @@ const DoctorDetail = () => {
                           inline-flex items-center justify-center gap-2
                           px-10 py-3 rounded-full
                           text-sm font-semibold text-white
-                          bg-[#5B4FF7]
-                          hover:bg-[#4338CA]
+                          bg-[#4E4391]
+                          hover:bg-[#4E4391]
                           transition-all duration-200
-                          shadow-[0_10px_25px_rgba(91,79,247,0.22)]
+                          shadow-[0_10px_25px_rgba(78,67,145,0.22)]
                           disabled:opacity-50 disabled:cursor-not-allowed
                           w-full sm:w-auto
                         "

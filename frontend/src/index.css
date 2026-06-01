@@ -51,12 +51,12 @@ body {
 
 .quill-wrapper .ql-toolbar button:hover .ql-stroke,
 .quill-wrapper .ql-toolbar button.ql-active .ql-stroke {
-  stroke: #6366f1;
+  stroke: #6D5FC4;
 }
 
 .quill-wrapper .ql-toolbar button:hover .ql-fill,
 .quill-wrapper .ql-toolbar button.ql-active .ql-fill {
-  fill: #6366f1;
+  fill: #6D5FC4;
 }
 
 .quill-wrapper .ql-toolbar button {
@@ -66,7 +66,7 @@ body {
 }
 
 .quill-wrapper .ql-toolbar button:hover {
-  background-color: #eef2ff;
+  background-color: #EFEDFA;
 }
 
 /* ============================================
@@ -112,12 +112,12 @@ body {
 }
 
 .bio-content a {
-  color: #6366f1;
+  color: #6D5FC4;
   text-decoration: underline;
 }
 
 .bio-content a:hover {
-  color: #4f46e5;
+  color: #4E4391;
 }
 
 .bio-content blockquote {

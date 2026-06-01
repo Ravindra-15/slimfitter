@@ -113,7 +113,7 @@ const DateCalendar = ({ selectedDate, onSelect }) => {
   return (
     <div
       className="
-        bg-[#F8FAFF] rounded-[24px] border border-[#E7EAF3]
+        bg-[#F8FAFF] rounded-[24px] border border-[#E3DFF0]
         p-4 sm:p-5
       "
     >
@@ -126,7 +126,7 @@ const DateCalendar = ({ selectedDate, onSelect }) => {
           className="
             w-7 h-7 rounded-lg
             flex items-center justify-center
-            text-[#6B7280] hover:bg-white hover:text-[#5B4FF7]
+            text-[#6B7280] hover:bg-white hover:text-[#4E4391]
             disabled:opacity-30 disabled:cursor-not-allowed
             transition-colors
           "
@@ -146,7 +146,7 @@ const DateCalendar = ({ selectedDate, onSelect }) => {
           className="
             w-7 h-7 rounded-lg
             flex items-center justify-center
-            text-[#6B7280] hover:bg-white hover:text-[#4338CA]
+            text-[#6B7280] hover:bg-white hover:text-[#4E4391]
             disabled:opacity-30 disabled:cursor-not-allowed
             transition-colors
           "
@@ -189,12 +189,12 @@ const DateCalendar = ({ selectedDate, onSelect }) => {
                 transition-colors
                 ${
                  isSelected
-                    ? "bg-[#5B4FF7] text-white shadow-[0_8px_18px_rgba(91,79,247,0.22)]"
+                    ? "bg-[#4E4391] text-white shadow-[0_8px_18px_rgba(78,67,145,0.22)]"
                     : isToday
-                    ? "bg-white text-[#5B4FF7] border border-[#C7D2FE]"
+                    ? "bg-white text-[#4E4391] border border-[#C9C3E8]"
                     : disabled
                     ? "text-[#D1D5DB] cursor-not-allowed"
-                    : "text-[#374151] hover:bg-white hover:text-[#5B4FF7]"
+                    : "text-[#374151] hover:bg-white hover:text-[#4E4391]"
                 }
               `}
               aria-pressed={isSelected}

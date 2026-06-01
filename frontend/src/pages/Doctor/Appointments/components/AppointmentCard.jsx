@@ -178,7 +178,7 @@ const AppointmentCard = ({ appointment, onUpdated }) => {
   return (
     <div
       className="
-        bg-white rounded-2xl border border-[#E7EAF3]
+        bg-white rounded-2xl border border-[#E3DFF0]
         shadow-[0_1px_3px_rgba(16,24,40,0.04)]
         p-5
       "
@@ -211,7 +211,7 @@ const AppointmentCard = ({ appointment, onUpdated }) => {
 
       {/* ⏰ SCHEDULE */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
-        <div className="border border-[#D9DDF0] rounded-xl px-3 py-2.5 bg-[#F6F8FC]/30">
+        <div className="border border-[#D6D1EC] rounded-xl px-3 py-2.5 bg-[#EFEDFA]/30">
           <div className="flex items-center gap-1.5 text-[11px] text-[#6B7280] font-semibold tracking-wide">
             <Clock size={11} />
             Scheduled Time
@@ -223,7 +223,7 @@ const AppointmentCard = ({ appointment, onUpdated }) => {
         </div>
 
         {/* Placeholder Program */}
-        <div className="border border-[#D9DDF0] rounded-xl px-3 py-2.5 bg-[#F6F8FC]/30">
+        <div className="border border-[#D6D1EC] rounded-xl px-3 py-2.5 bg-[#EFEDFA]/30">
           <div className="text-[11px] text-[#6B7280] font-semibold tracking-wide">
             Program
           </div>
@@ -265,10 +265,10 @@ const AppointmentCard = ({ appointment, onUpdated }) => {
               disabled={savingLink || sending}
               className="
                 w-full pl-9 pr-3 py-2.5
-                bg-white border border-[#D9DDF0] rounded-xl
+                bg-white border border-[#D6D1EC] rounded-xl
                 text-xs text-[#1F2937] placeholder-gray-400
-                focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500
-                disabled:bg-[#F6F8FC] disabled:cursor-not-allowed
+                focus:outline-none focus:border-[#5A4F9F] focus:ring-1 focus:ring-indigo-500
+                disabled:bg-[#EFEDFA] disabled:cursor-not-allowed
                 transition-colors
               "
             />
@@ -284,7 +284,7 @@ const AppointmentCard = ({ appointment, onUpdated }) => {
                 inline-flex items-center justify-center gap-1.5
                 px-4 py-2 rounded-xl
                 text-xs font-semibold text-white
-                bg-indigo-600 hover:bg-indigo-700
+                bg-[#5A4F9F] hover:bg-indigo-700
                 transition-colors
                 disabled:opacity-50 disabled:cursor-not-allowed
                 flex-shrink-0
@@ -305,7 +305,7 @@ const AppointmentCard = ({ appointment, onUpdated }) => {
                 inline-flex items-center justify-center gap-1.5
                 px-4 py-2 rounded-xl
                 text-xs font-semibold text-[#6B7280]
-                bg-gray-100 border border-[#D9DDF0]
+                bg-gray-100 border border-[#D6D1EC]
                 hover:bg-gray-200
                 transition-colors
                 flex-shrink-0
@@ -324,7 +324,7 @@ const AppointmentCard = ({ appointment, onUpdated }) => {
                 inline-flex items-center justify-center gap-1.5
                 px-4 py-2 rounded-xl
                 text-xs font-semibold text-white
-                bg-indigo-600 hover:bg-indigo-700
+                bg-[#5A4F9F] hover:bg-indigo-700
                 transition-colors
                 disabled:opacity-50 disabled:cursor-not-allowed
                 flex-shrink-0
@@ -350,9 +350,9 @@ const AppointmentCard = ({ appointment, onUpdated }) => {
               mt-2 inline-flex items-center gap-1.5
               px-4 py-2 rounded-xl
               text-xs font-semibold text-white
-              bg-indigo-600 hover:bg-indigo-700
+              bg-[#5A4F9F] hover:bg-indigo-700
               transition-colors
-              shadow-[0_4px_10px_rgba(79,70,229,0.25)]
+              shadow-[0_4px_10px_rgba(90,79,159,0.25)]
             "
           >
             <Video size={12} />

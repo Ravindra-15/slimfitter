@@ -24,11 +24,11 @@ const CustomTooltip = ({ active, payload, label }) => {
 
   return (
     <div
-      className="bg-white border border-[#D9DDF0] rounded-lg shadow-lg px-3 py-2 text-xs"
+      className="bg-white border border-[#D6D1EC] rounded-lg shadow-lg px-3 py-2 text-xs"
       role="tooltip"
     >
       <p className="font-semibold text-[#1F2937] mb-0.5">{label}</p>
-      <p className="text-indigo-600 font-medium">
+      <p className="text-[#5A4F9F] font-medium">
         {payload[0].value.toLocaleString()} users
       </p>
     </div>
@@ -94,7 +94,7 @@ const UsersChart = ({ data, loading = false }) => {
             {/* 🎨 ADMIN: Indigo gradient fill */}
             <defs>
               <linearGradient id="usersGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#6366f1" stopOpacity={0.5} />
+                <stop offset="0%" stopColor="#6D5FC4" stopOpacity={0.5} />
                 <stop offset="50%" stopColor="#818cf8" stopOpacity={0.25} />
                 <stop offset="100%" stopColor="#a5b4fc" stopOpacity={0.05} />
               </linearGradient>
@@ -134,7 +134,7 @@ const UsersChart = ({ data, loading = false }) => {
             <Tooltip
               content={<CustomTooltip />}
               cursor={{
-                stroke: "#6366f1",
+                stroke: "#6D5FC4",
                 strokeWidth: 1,
                 strokeDasharray: "4 4",
               }}
@@ -144,12 +144,12 @@ const UsersChart = ({ data, loading = false }) => {
             <Area
               type="monotone"
               dataKey="users"
-              stroke="#6366f1"
+              stroke="#6D5FC4"
               strokeWidth={2}
               fill="url(#usersGradient)"
               activeDot={{
                 r: 5,
-                fill: "#6366f1",
+                fill: "#6D5FC4",
                 stroke: "#fff",
                 strokeWidth: 2,
               }}

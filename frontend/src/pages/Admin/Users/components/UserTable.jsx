@@ -41,7 +41,7 @@ const UserAvatar = ({ user }) => (
       w-10 h-10 rounded-full flex-shrink-0
       bg-gradient-to-br from-indigo-100 to-purple-100
       flex items-center justify-center
-      border border-[#D9DDF0]
+      border border-[#D6D1EC]
     "
     aria-hidden="true"
   >
@@ -63,7 +63,7 @@ const UserTable = ({ users = [], loading = false }) => {
     return (
       <div
         className="
-          bg-white rounded-2xl border border-[#E7EAF3]
+          bg-white rounded-2xl border border-[#E3DFF0]
           shadow-[0_1px_3px_rgba(16,24,40,0.04)]
           px-6 py-16 text-center
         "
@@ -91,7 +91,7 @@ const UserTable = ({ users = [], loading = false }) => {
   return (
     <div
       className="
-        bg-white rounded-2xl border border-[#E7EAF3]
+        bg-white rounded-2xl border border-[#E3DFF0]
         shadow-[0_1px_3px_rgba(16,24,40,0.04)]
         overflow-hidden
       "
@@ -102,7 +102,7 @@ const UserTable = ({ users = [], loading = false }) => {
       <div className="hidden md:block overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-[#E7EAF3] bg-[#F6F8FC]/40">
+            <tr className="border-b border-[#E3DFF0] bg-[#EFEDFA]/40">
               <th
                 scope="col"
                 className="px-6 py-3.5 text-left text-[11px] font-semibold tracking-wider text-[#6B7280] uppercase"
@@ -134,8 +134,8 @@ const UserTable = ({ users = [], loading = false }) => {
               <tr
                 key={user._id}
                 className={`
-                  hover:bg-[#F6F8FC]/50 transition-colors
-                  ${idx !== users.length - 1 ? "border-b border-[#E7EAF3]" : ""}
+                  hover:bg-[#EFEDFA]/50 transition-colors
+                  ${idx !== users.length - 1 ? "border-b border-[#E3DFF0]" : ""}
                 `}
               >
                 {/* 👤 Name (avatar + name + display ID) */}
@@ -171,7 +171,7 @@ const UserTable = ({ users = [], loading = false }) => {
                       className="
                         w-8 h-8 rounded-lg
                         flex items-center justify-center
-                        text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
+                        text-[#6B7280] hover:text-[#5A4F9F] hover:bg-[#EFEDFA]
                         transition-colors
                       "
                       aria-label={`View profile of ${user.fullName}`}
@@ -185,7 +185,7 @@ const UserTable = ({ users = [], loading = false }) => {
                       className="
                         w-8 h-8 rounded-lg
                         flex items-center justify-center
-                        text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
+                        text-[#6B7280] hover:text-[#5A4F9F] hover:bg-[#EFEDFA]
                         transition-colors
                       "
                       aria-label={`Edit ${user.fullName}`}
@@ -242,7 +242,7 @@ const UserTable = ({ users = [], loading = false }) => {
                       className="
                         w-8 h-8 rounded-lg
                         flex items-center justify-center
-                        text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
+                        text-[#6B7280] hover:text-[#5A4F9F] hover:bg-[#EFEDFA]
                         transition-colors
                       "
                       aria-label={`View ${user.fullName}`}
@@ -255,7 +255,7 @@ const UserTable = ({ users = [], loading = false }) => {
                       className="
                         w-8 h-8 rounded-lg
                         flex items-center justify-center
-                        text-[#6B7280] hover:text-indigo-600 hover:bg-indigo-50
+                        text-[#6B7280] hover:text-[#5A4F9F] hover:bg-[#EFEDFA]
                         transition-colors
                       "
                       aria-label={`Edit ${user.fullName}`}

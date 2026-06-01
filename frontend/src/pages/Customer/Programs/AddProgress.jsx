@@ -131,7 +131,7 @@ export default function AddProgress() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F6F8FC] flex flex-col">
+    <div className="min-h-screen bg-[#EFEDFA] flex flex-col">
       <CustomerNavbar />
 
       <main className="flex-1">
@@ -139,7 +139,7 @@ export default function AddProgress() {
           {/* 🔙 Back link */}
           <button
             onClick={() => navigate(`/programs/${id}/dashboard`)}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-[#6B7280] hover:text-[#5B4FF7] transition-colors mb-5"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-[#6B7280] hover:text-[#4E4391] transition-colors mb-5"
           >
             <ArrowLeft size={16} />
             Back to Dashboard
@@ -147,12 +147,12 @@ export default function AddProgress() {
 
           {/* 🧾 Greeting header */}
           <div className="mb-6">
-            <p className="text-[#5B4FF7] font-semibold text-sm mb-1">
+            <p className="text-[#4E4391] font-semibold text-sm mb-1">
               {programTitle}
             </p>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#1F2937] leading-tight">
               {getGreeting()},{" "}
-              <span className="text-[#5B4FF7]">{userName || "there"}</span>
+              <span className="text-[#4E4391]">{userName || "there"}</span>
             </h2>
 
             <p className="text-[#9CA3AF] text-sm mt-1">
@@ -162,11 +162,11 @@ export default function AddProgress() {
 
           {/* 📋 Habit sliders */}
           {loading ? (
-            <div className="bg-white rounded-[24px] border border-[#E7EAF3] py-16 text-center">
+            <div className="bg-white rounded-[24px] border border-[#E3DFF0] py-16 text-center">
               <p className="text-sm text-[#9CA3AF]">Loading your trackers...</p>
             </div>
           ) : habits.length === 0 ? (
-            <div className="bg-white rounded-[24px] border border-[#E7EAF3] py-16 text-center">
+            <div className="bg-white rounded-[24px] border border-[#E3DFF0] py-16 text-center">
               <p className="text-sm text-[#6B7280] mb-1">
                 No trackers available yet.
               </p>
@@ -179,12 +179,12 @@ export default function AddProgress() {
               {habits.map((habit) => {
                 const { min, max, avg } = getRange(habit);
                 const current = values[habit._id] ?? avg;
-                const color = habit.colorHex || "#5B4FF7";
+                const color = habit.colorHex || "#4E4391";
 
                 return (
                   <div
                     key={habit._id}
-                    className="bg-white rounded-[24px] border border-[#E7EAF3] shadow-[0_8px_24px_rgba(15,23,42,0.04)] p-5 sm:p-6"
+                    className="bg-white rounded-[24px] border border-[#E3DFF0] shadow-[0_8px_24px_rgba(15,23,42,0.04)] p-5 sm:p-6"
                   >
                     {/* Habit name + icon + current value */}
                     <div className="flex items-center justify-between gap-3 mb-5">
@@ -236,9 +236,9 @@ export default function AddProgress() {
                         accentColor: color,
                         background: `linear-gradient(to right, ${color} 0%, ${color} ${
                           ((current - min) / (max - min || 1)) * 100
-                        }%, #E7EAF3 ${
+                        }%, #E3DFF0 ${
                           ((current - min) / (max - min || 1)) * 100
-                        }%, #E7EAF3 100%)`,
+                        }%, #E3DFF0 100%)`,
                       }}
                     />
 
@@ -277,7 +277,7 @@ export default function AddProgress() {
               <button
                 onClick={handleSaveAll}
                 disabled={saving}
-                className="w-full bg-[#5B4FF7] hover:bg-[#4338CA] text-white text-sm font-semibold py-3.5 rounded-full shadow-[0_8px_20px_rgba(91,79,247,0.22)] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full bg-[#4E4391] hover:bg-[#4E4391] text-white text-sm font-semibold py-3.5 rounded-full shadow-[0_8px_20px_rgba(78,67,145,0.22)] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {saving ? "Saving..." : "Save All Progress"}
               </button>

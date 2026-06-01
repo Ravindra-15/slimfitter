@@ -26,7 +26,7 @@ const Input = ({
         name={name}
         value={value}
         onChange={onChange}
-        className="w-full border border-[#D9DDF0] rounded-xl px-4 py-3 text-sm text-[#374151] placeholder-gray-400 outline-none focus:border-teal-600 focus:ring-1 focus:ring-teal-600 transition-colors"
+        className="w-full border border-[#D6D1EC] rounded-xl px-4 py-3 text-sm text-[#374151] placeholder-gray-400 outline-none focus:border-teal-600 focus:ring-1 focus:ring-teal-600 transition-colors"
       />
     </div>
   );

@@ -51,9 +51,9 @@ const FilterDropdown = ({ value, onChange }) => {
         onClick={() => setIsOpen((prev) => !prev)}
         className="
           flex items-center gap-2 px-3 py-2
-          bg-white border border-[#D9DDF0] rounded-lg
+          bg-white border border-[#D6D1EC] rounded-lg
           text-sm font-medium text-[#374151]
-          hover:bg-[#F6F8FC] transition-colors
+          hover:bg-[#EFEDFA] transition-colors
         "
         aria-haspopup="listbox"
         aria-expanded={isOpen}
@@ -73,7 +73,7 @@ const FilterDropdown = ({ value, onChange }) => {
           className="
             absolute right-0 top-full mt-1 z-10
             min-w-[140px] py-1
-            bg-white border border-[#D9DDF0] rounded-lg
+            bg-white border border-[#D6D1EC] rounded-lg
             shadow-lg
           "
         >
@@ -88,10 +88,10 @@ const FilterDropdown = ({ value, onChange }) => {
               }}
               className={`
                 px-3 py-2 text-sm cursor-pointer
-                hover:bg-[#F6F8FC] transition-colors
+                hover:bg-[#EFEDFA] transition-colors
                 ${
                   option.value === value
-                    ? "text-indigo-600 font-medium"
+                    ? "text-[#5A4F9F] font-medium"
                     : "text-[#374151]"
                 }
               `}
@@ -176,7 +176,7 @@ const RemindUsersTable = ({
           <div className="hidden md:block overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-y border-[#E7EAF3] bg-[#F6F8FC]/50">
+                <tr className="border-y border-[#E3DFF0] bg-[#EFEDFA]/50">
                   <th
                     scope="col"
                     className="px-6 py-3 text-left text-[11px] font-semibold tracking-wider text-[#6B7280] uppercase"
@@ -208,10 +208,10 @@ const RemindUsersTable = ({
                   <tr
                     key={user.id}
                     className={`
-                      hover:bg-[#F6F8FC] transition-colors
+                      hover:bg-[#EFEDFA] transition-colors
                       ${
                         idx !== users.length - 1
-                          ? "border-b border-[#E7EAF3]"
+                          ? "border-b border-[#E3DFF0]"
                           : ""
                       }
                     `}
@@ -244,8 +244,8 @@ const RemindUsersTable = ({
                       <button
                         onClick={() => handleMessage(user)}
                         className="
-                          text-sm font-medium text-indigo-600
-                          hover:text-indigo-700 hover:underline
+                          text-sm font-medium text-[#5A4F9F]
+                          hover:text-[#4E4391] hover:underline
                           transition-colors
                         "
                         aria-label={`Send message to ${user.name}`}
@@ -277,8 +277,8 @@ const RemindUsersTable = ({
                   <button
                     onClick={() => handleMessage(user)}
                     className="
-                      flex-shrink-0 text-sm font-medium text-indigo-600
-                      hover:text-indigo-700 hover:underline
+                      flex-shrink-0 text-sm font-medium text-[#5A4F9F]
+                      hover:text-[#4E4391] hover:underline
                       transition-colors
                     "
                     aria-label={`Send message to ${user.name}`}

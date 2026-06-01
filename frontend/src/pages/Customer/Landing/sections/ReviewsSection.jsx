@@ -51,7 +51,7 @@ const reviews = [
 function ReviewCard({ review }) {
   return (
     <div className="bg-[#FAFAFA] rounded-2xl border border-[#F1F1F1] shadow-[0_8px_24px_rgba(16,24,40,0.06)] p-5 sm:p-6 flex flex-col gap-3 h-[260px] sm:h-[280px] w-[300px] sm:w-[340px]">
-     <span className="text-[#4F46E5] text-6xl font-serif leading-none select-none -mb-2">
+     <span className="text-[#4E4391] text-6xl font-serif leading-none select-none -mb-2">
         &ldquo;
       </span>
       <p className="text-[#374151] text-sm leading-relaxed flex-1 line-clamp-5">
@@ -143,14 +143,14 @@ function LoopingRow({ items }) {
       <div className="flex justify-center gap-3 mt-6">
         <button
           onClick={() => scrollBy(-1)}
-          className="w-10 h-10 rounded-full border border-gray-300 hover:border-[#4F46E5] hover:text-[#4F46E5] text-[#6B7280] flex items-center justify-center transition-colors"
+          className="w-10 h-10 rounded-full border border-gray-300 hover:border-[#4E4391] hover:text-[#4E4391] text-[#6B7280] flex items-center justify-center transition-colors"
           aria-label="Previous"
         >
           <ChevronLeft size={18} />
         </button>
         <button
           onClick={() => scrollBy(1)}
-          className="w-10 h-10 rounded-full border border-gray-300 hover:border-[#4F46E5] hover:text-[#4F46E5] text-[#6B7280] flex items-center justify-center transition-colors"
+          className="w-10 h-10 rounded-full border border-gray-300 hover:border-[#4E4391] hover:text-[#4E4391] text-[#6B7280] flex items-center justify-center transition-colors"
           aria-label="Next"
         >
           <ChevronRight size={18} />
@@ -169,7 +169,7 @@ export default function ReviewsSection() {
       <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-3">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#111827]">
-            Reviews from <span className="text-[#4F46E5]">Real People</span>
+            Reviews from <span className="text-[#4E4391]">Real People</span>
           </h2>
         </div>
 

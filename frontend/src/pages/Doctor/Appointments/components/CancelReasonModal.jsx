@@ -46,7 +46,7 @@ const CancelReasonModal = ({ open, onClose, onConfirm, loading }) => {
           placeholder="e.g. Personal emergency, will be back tomorrow"
           disabled={loading}
           maxLength={500}
-          className="w-full px-3 py-2.5 text-sm text-[#1F2937] bg-white border border-[#D9DDF0] rounded-xl focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 resize-none disabled:bg-[#F6F8FC]"
+          className="w-full px-3 py-2.5 text-sm text-[#1F2937] bg-white border border-[#D6D1EC] rounded-xl focus:outline-none focus:border-[#5A4F9F] focus:ring-1 focus:ring-indigo-500 resize-none disabled:bg-[#EFEDFA]"
         />
         <p className="text-[10px] text-gray-400 mt-1 text-right">
           {reason.length}/500
@@ -57,7 +57,7 @@ const CancelReasonModal = ({ open, onClose, onConfirm, loading }) => {
             type="button"
             onClick={onClose}
             disabled={loading}
-            className="flex-1 px-4 py-2.5 rounded-xl text-sm font-semibold text-[#374151] border border-[#D9DDF0] hover:bg-[#F6F8FC] transition-colors disabled:opacity-50"
+            className="flex-1 px-4 py-2.5 rounded-xl text-sm font-semibold text-[#374151] border border-[#D6D1EC] hover:bg-[#EFEDFA] transition-colors disabled:opacity-50"
           >
             Keep Appointment
           </button>

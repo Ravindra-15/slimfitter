@@ -47,7 +47,7 @@ const AppointmentLog = () => {
       {/* ============================================ */}
       <div
         className="
-          bg-white rounded-2xl border border-[#E7EAF3]
+          bg-white rounded-2xl border border-[#E3DFF0]
           shadow-[0_1px_3px_rgba(16,24,40,0.04)]
           p-4 sm:p-5
           flex flex-col sm:flex-row sm:items-center gap-3
@@ -66,9 +66,9 @@ const AppointmentLog = () => {
             placeholder="Search appointments by patient or doctor..."
             className="
               w-full pl-10 pr-4 py-2.5
-              bg-white border border-[#D9DDF0] rounded-xl
+              bg-white border border-[#D6D1EC] rounded-xl
               text-sm text-[#1F2937] placeholder-gray-400
-              focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500
+              focus:outline-none focus:border-[#5A4F9F] focus:ring-1 focus:ring-indigo-500
               transition-colors
             "
           />
@@ -81,9 +81,9 @@ const AppointmentLog = () => {
             onChange={(e) => setStatus(e.target.value)}
             className="
               w-full appearance-none pl-4 pr-10 py-2.5
-              bg-white border border-[#D9DDF0] rounded-xl
+              bg-white border border-[#D6D1EC] rounded-xl
               text-sm text-[#1F2937]
-              focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500
+              focus:outline-none focus:border-[#5A4F9F] focus:ring-1 focus:ring-indigo-500
               transition-colors cursor-pointer
             "
           >
@@ -111,7 +111,7 @@ const AppointmentLog = () => {
       {pagination.totalPages > 1 && (
         <div
           className="
-            bg-white rounded-2xl border border-[#E7EAF3]
+            bg-white rounded-2xl border border-[#E3DFF0]
             shadow-[0_1px_3px_rgba(16,24,40,0.04)]
             px-5 py-3
             flex items-center justify-between gap-3
@@ -132,8 +132,8 @@ const AppointmentLog = () => {
                 inline-flex items-center gap-1
                 px-3 py-1.5 rounded-lg
                 text-sm font-medium text-[#374151]
-                bg-white border border-[#D9DDF0]
-                hover:bg-[#F6F8FC]
+                bg-white border border-[#D6D1EC]
+                hover:bg-[#EFEDFA]
                 disabled:opacity-40 disabled:cursor-not-allowed
                 transition-colors
               "
@@ -150,8 +150,8 @@ const AppointmentLog = () => {
                 inline-flex items-center gap-1
                 px-3 py-1.5 rounded-lg
                 text-sm font-medium text-[#374151]
-                bg-white border border-[#D9DDF0]
-                hover:bg-[#F6F8FC]
+                bg-white border border-[#D6D1EC]
+                hover:bg-[#EFEDFA]
                 disabled:opacity-40 disabled:cursor-not-allowed
                 transition-colors
               "

@@ -104,7 +104,7 @@ export default function SubscriptionCallbackCTA({ programId }) {
               className={`text-sm font-semibold px-6 py-2.5 rounded-full transition-colors border ${
                 requested
                   ? "border-green-400 text-green-600 bg-green-50 cursor-default"
-                  : "border-[#4F46E5] text-[#4F46E5] hover:bg-[#4F46E5] hover:text-white disabled:opacity-60"
+                  : "border-[#4E4391] text-[#4E4391] hover:bg-[#4E4391] hover:text-white disabled:opacity-60"
               }`}
             >
               {requested
@@ -152,7 +152,7 @@ export default function SubscriptionCallbackCTA({ programId }) {
 
             <button
               onClick={() => setShowThanks(false)}
-              className="w-full bg-[#4F46E5] hover:bg-[#4338CA] text-white text-sm font-semibold py-3 rounded-full transition-colors"
+              className="w-full bg-[#4E4391] hover:bg-[#4E4391] text-white text-sm font-semibold py-3 rounded-full transition-colors"
             >
               Go Back
             </button>

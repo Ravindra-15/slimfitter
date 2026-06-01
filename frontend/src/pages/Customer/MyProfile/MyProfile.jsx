@@ -180,7 +180,7 @@ export default function MyProfile() {
   // ============================================
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#F6F8FC] flex items-center justify-center">
+      <div className="min-h-screen bg-[#EFEDFA] flex items-center justify-center">
         <div className="text-[#6B7280] text-sm">
           Loading your profile...
         </div>
@@ -189,14 +189,14 @@ export default function MyProfile() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F6F8FC] flex flex-col">
+    <div className="min-h-screen bg-[#EFEDFA] flex flex-col">
       <CustomerNavbar />
 
       <main className="flex-1 max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-10 py-8">
         {/* BACK BUTTON */}
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-[#6B7280] hover:text-[#5B4FF7] text-sm mb-6 transition-colors"
+          className="flex items-center gap-2 text-[#6B7280] hover:text-[#4E4391] text-sm mb-6 transition-colors"
         >
           <ArrowLeft size={18} />
           Back
@@ -216,13 +216,13 @@ export default function MyProfile() {
         {/* ============================================ */}
         {/* 👤 PROFILE CARD */}
         {/* ============================================ */}
-        <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6 sm:p-8 mb-6">
+        <div className="bg-white rounded-2xl border border-[#E3DFF0] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6 sm:p-8 mb-6">
           {/* PHOTO */}
           <div className="flex flex-col items-center mb-6">
             <div className="relative">
               <div
                 onClick={handlePhotoClick}
-                className="w-24 h-24 rounded-full bg-gray-100 border border-[#D9DDF0] flex items-center justify-center overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
+                className="w-24 h-24 rounded-full bg-gray-100 border border-[#D6D1EC] flex items-center justify-center overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
               >
                 {user?.profilePhoto ? (
                   <img
@@ -258,7 +258,7 @@ export default function MyProfile() {
 
             <button
               onClick={handlePhotoClick}
-              className="mt-3 text-sm text-[#6B7280] hover:text-[#5B4FF7] transition-colors"
+              className="mt-3 text-sm text-[#6B7280] hover:text-[#4E4391] transition-colors"
             >
               {uploadingPhoto ? "Uploading..." : "Add Profile Photo"}
             </button>
@@ -274,14 +274,14 @@ export default function MyProfile() {
           </div>
 
           {/* INFO CARD */}
-          <div className="bg-[#F6F8FC] border border-[#E7EAF3] rounded-xl p-5 mb-5">
+          <div className="bg-[#EFEDFA] border border-[#E3DFF0] rounded-xl p-5 mb-5">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
               <div className="flex-1 min-w-0">
                 <h2 className="text-lg font-bold text-gray-800">
                   {user?.fullName || "—"}
                 </h2>
 
-                <p className="text-[#5B4FF7] text-sm font-medium mt-0.5">
+                <p className="text-[#4E4391] text-sm font-medium mt-0.5">
                   {user?.nickName || "—"}
                 </p>
 
@@ -315,14 +315,14 @@ export default function MyProfile() {
               <div className="flex flex-col gap-2 shrink-0">
                 <button
                   onClick={() => setEditOpen(true)}
-                  className="border border-[#D9DDF0] hover:border-[#C7D2FE] hover:text-[#5B4FF7] text-[#374151] text-sm font-semibold px-6 py-2.5 rounded-full transition-colors"
+                  className="border border-[#D6D1EC] hover:border-[#C9C3E8] hover:text-[#4E4391] text-[#374151] text-sm font-semibold px-6 py-2.5 rounded-full transition-colors"
                 >
                   Edit Profile
                 </button>
 
                 <button
                   onClick={() => navigate("/my-plans-and-billings")}
-                  className="bg-[#5B4FF7] hover:bg-[#4338CA] text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-[0_4px_14px_rgba(91,79,247,0.35)] transition-colors"
+                  className="bg-[#4E4391] hover:bg-[#4E4391] text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-[0_4px_14px_rgba(78,67,145,0.35)] transition-colors"
                 >
                   My Plans and Billings
                 </button>
@@ -331,8 +331,8 @@ export default function MyProfile() {
           </div>
 
           {/* PRIVACY */}
-          <div className="bg-[#F5F7FF] border border-[#E7EAF3] rounded-xl p-4 flex items-start gap-3">
-            <Shield size={18} className="text-[#5B4FF7] shrink-0 mt-0.5" />
+          <div className="bg-[#EFEDFA] border border-[#E3DFF0] rounded-xl p-4 flex items-start gap-3">
+            <Shield size={18} className="text-[#4E4391] shrink-0 mt-0.5" />
 
             <div>
               <p className="font-semibold text-gray-800 text-sm">
@@ -350,7 +350,7 @@ export default function MyProfile() {
         {/* ============================================ */}
         {/* 📅 PAST APPOINTMENTS */}
         {/* ============================================ */}
-        <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6 sm:p-8 mb-6">
+        <div className="bg-white rounded-2xl border border-[#E3DFF0] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6 sm:p-8 mb-6">
           <h3 className="text-base font-bold text-gray-800 mb-5">
             Past Appointments
           </h3>
@@ -372,9 +372,9 @@ export default function MyProfile() {
         {/* ============================================ */}
         {/* ⚙️ SETTINGS */}
         {/* ============================================ */}
-        <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6 sm:p-8">
+        <div className="bg-white rounded-2xl border border-[#E3DFF0] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-6 sm:p-8">
           <div className="flex items-center gap-2 mb-1">
-            <Shield size={16} className="text-[#5B4FF7]" />
+            <Shield size={16} className="text-[#4E4391]" />
 
             <h3 className="text-base font-bold text-gray-800">Settings</h3>
           </div>
@@ -385,7 +385,7 @@ export default function MyProfile() {
 
           <ChangePasswordForm />
 
-          <div className="mt-8 pt-6 border-t border-[#E7EAF3]">
+          <div className="mt-8 pt-6 border-t border-[#E3DFF0]">
             <button
               onClick={handleLogout}
               className="flex items-center justify-center gap-2 w-full sm:w-auto border border-red-200 hover:bg-red-50 text-red-600 text-sm font-semibold px-6 py-2.5 rounded-full transition-colors"

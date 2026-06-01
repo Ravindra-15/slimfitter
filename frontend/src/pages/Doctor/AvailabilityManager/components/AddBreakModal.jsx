@@ -138,16 +138,16 @@ const AddBreakModal = ({ open, onClose, onCreated }) => {
       aria-modal="true"
     >
       <div
-        className="bg-white rounded-2xl border border-[#E7EAF3] shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto"
+        className="bg-white rounded-2xl border border-[#E3DFF0] shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#E7EAF3]">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#E3DFF0]">
           <h2 className="text-lg font-bold text-[#1F2937]">Add a Break</h2>
           <button
             type="button"
             onClick={onClose}
-            className="p-1.5 rounded-lg text-gray-400 hover:text-[#374151] hover:bg-[#F6F8FC] transition-colors"
+            className="p-1.5 rounded-lg text-gray-400 hover:text-[#374151] hover:bg-[#EFEDFA] transition-colors"
             aria-label="Close"
           >
             <X size={18} />
@@ -162,7 +162,7 @@ const AddBreakModal = ({ open, onClose, onCreated }) => {
               onClick={() => setMode("slot")}
               className={`px-4 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                 mode === "slot"
-                  ? "bg-white text-indigo-600 shadow-sm"
+                  ? "bg-white text-[#5A4F9F] shadow-sm"
                   : "text-[#6B7280] hover:text-[#1F2937]"
               }`}
             >
@@ -173,7 +173,7 @@ const AddBreakModal = ({ open, onClose, onCreated }) => {
               onClick={() => setMode("days")}
               className={`px-4 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                 mode === "days"
-                  ? "bg-white text-indigo-600 shadow-sm"
+                  ? "bg-white text-[#5A4F9F] shadow-sm"
                   : "text-[#6B7280] hover:text-[#1F2937]"
               }`}
             >
@@ -202,7 +202,7 @@ const AddBreakModal = ({ open, onClose, onCreated }) => {
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-4 border-t border-[#E7EAF3] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div className="px-6 py-4 border-t border-[#E3DFF0] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <p className="text-xs text-[#6B7280] truncate">
             <span className="font-semibold text-[#374151]">Selected:</span> {summary}
           </p>
@@ -210,7 +210,7 @@ const AddBreakModal = ({ open, onClose, onCreated }) => {
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 rounded-xl text-sm font-medium text-[#6B7280] hover:bg-[#F6F8FC] transition-colors"
+              className="px-4 py-2 rounded-xl text-sm font-medium text-[#6B7280] hover:bg-[#EFEDFA] transition-colors"
             >
               Cancel
             </button>
@@ -243,20 +243,20 @@ const SlotMode = ({ slotDate, setSlotDate, selectedSlots, toggleSlot }) => (
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div>
       <p className="text-sm font-semibold text-[#1F2937] mb-2 flex items-center gap-1.5">
-        <CalIcon size={14} className="text-indigo-500" />
+        <CalIcon size={14} className="text-[#5A4F9F]" />
         1. Select a Date
       </p>
       <input
         type="date"
         value={slotDate}
         onChange={(e) => setSlotDate(e.target.value)}
-        className="w-full px-4 py-2.5 bg-white border border-[#D9DDF0] rounded-xl text-sm text-[#1F2937] focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+        className="w-full px-4 py-2.5 bg-white border border-[#D6D1EC] rounded-xl text-sm text-[#1F2937] focus:outline-none focus:border-[#5A4F9F] focus:ring-1 focus:ring-indigo-500"
       />
     </div>
 
     <div>
       <p className="text-sm font-semibold text-[#1F2937] mb-3 flex items-center gap-1.5">
-        <Clock size={14} className="text-indigo-500" />
+        <Clock size={14} className="text-[#5A4F9F]" />
         Select Slots
       </p>
 
@@ -283,8 +283,8 @@ const SlotGroup = ({ label, slots, selected, onToggle }) => (
             onClick={() => onToggle(slot)}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors border ${
               isSelected
-                ? "bg-indigo-600 text-white border-indigo-600"
-                : "bg-white text-[#374151] border-[#D9DDF0] hover:border-indigo-300"
+                ? "bg-[#5A4F9F] text-white border-indigo-600"
+                : "bg-white text-[#374151] border-[#D6D1EC] hover:border-indigo-300"
             }`}
           >
             {hour12}:00 {period}
@@ -302,27 +302,27 @@ const DaysMode = ({ fromDate, setFromDate, toDate, setToDate }) => (
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div>
       <p className="text-sm font-semibold text-[#1F2937] mb-2 flex items-center gap-1.5">
-        <CalIcon size={14} className="text-indigo-500" />
+        <CalIcon size={14} className="text-[#5A4F9F]" />
         From
       </p>
       <input
         type="date"
         value={fromDate}
         onChange={(e) => setFromDate(e.target.value)}
-        className="w-full px-4 py-2.5 bg-white border border-[#D9DDF0] rounded-xl text-sm text-[#1F2937] focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+        className="w-full px-4 py-2.5 bg-white border border-[#D6D1EC] rounded-xl text-sm text-[#1F2937] focus:outline-none focus:border-[#5A4F9F] focus:ring-1 focus:ring-indigo-500"
       />
     </div>
 
     <div>
       <p className="text-sm font-semibold text-[#1F2937] mb-2 flex items-center gap-1.5">
-        <CalIcon size={14} className="text-indigo-500" />
+        <CalIcon size={14} className="text-[#5A4F9F]" />
         To
       </p>
       <input
         type="date"
         value={toDate}
         onChange={(e) => setToDate(e.target.value)}
-        className="w-full px-4 py-2.5 bg-white border border-[#D9DDF0] rounded-xl text-sm text-[#1F2937] focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+        className="w-full px-4 py-2.5 bg-white border border-[#D6D1EC] rounded-xl text-sm text-[#1F2937] focus:outline-none focus:border-[#5A4F9F] focus:ring-1 focus:ring-indigo-500"
       />
     </div>
   </div>

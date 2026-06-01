@@ -110,12 +110,12 @@ const ProfileSlider = ({
         </div>
 
         <div
-          className="absolute h-1.5 rounded-full bg-indigo-600 pointer-events-none"
+          className="absolute h-1.5 rounded-full bg-[#5A4F9F] pointer-events-none"
           style={{ width: `${pct}%` }}
         />
 
         <div
-          className="absolute w-4 h-4 rounded-full bg-white border-[3px] border-indigo-600 shadow-[0_2px_6px_rgba(79,70,229,0.4)] pointer-events-none -translate-x-1/2"
+          className="absolute w-4 h-4 rounded-full bg-white border-[3px] border-indigo-600 shadow-[0_2px_6px_rgba(90,79,159,0.4)] pointer-events-none -translate-x-1/2"
           style={{ left: `${pct}%` }}
         />
 
@@ -164,8 +164,8 @@ const Step1Physical = ({ data, onChange }) => {
       {/* 📏 PHYSICAL MEASUREMENTS */}
       <section>
         <div className="flex items-center gap-2 mb-4">
-          <div className="w-7 h-7 rounded-lg bg-indigo-50 flex items-center justify-center">
-            <Ruler size={14} className="text-indigo-500" />
+          <div className="w-7 h-7 rounded-lg bg-[#EFEDFA] flex items-center justify-center">
+            <Ruler size={14} className="text-[#5A4F9F]" />
           </div>
           <h3 className="text-sm font-bold text-gray-900">
             Physical Measurements
@@ -231,7 +231,7 @@ const Step1Physical = ({ data, onChange }) => {
       {/* 🩸 METABOLIC MARKERS — all String fields */}
       <section>
         <div className="flex items-center gap-2 mb-4">
-          <div className="w-7 h-7 rounded-lg bg-purple-50 flex items-center justify-center">
+          <div className="w-7 h-7 rounded-lg bg-[#EFEDFA] flex items-center justify-center">
             <Activity size={14} className="text-purple-500" />
           </div>
           <h3 className="text-sm font-bold text-gray-900">

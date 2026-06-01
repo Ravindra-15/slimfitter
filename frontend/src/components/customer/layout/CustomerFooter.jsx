@@ -88,7 +88,7 @@ const FooterLink = ({ link }) => {
   };
 
   const className =
-  "text-sm text-[#083B44] hover:text-[#4F46E5] transition-colors";
+  "text-sm text-[#083B44] hover:text-[#4E4391] transition-colors";
 
   if (link.type === "external") {
     return (
@@ -127,7 +127,7 @@ const FooterLink = ({ link }) => {
 // ============================================
 const CustomerFooter = () => {
   return (
-    <footer className="bg-white border-t border-[#E7EAF3]">
+    <footer className="bg-white border-t border-[#E3DFF0]">
       <div className="max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-12 py-10 sm:py-8">
         {/* TOP GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 lg:gap-16">
@@ -139,7 +139,7 @@ const CustomerFooter = () => {
                 <span className="font-bold">Email:</span>{" "}
                 <a
                   href="mailto:support@zealtho.com"
-                  className="hover:text-[#4F46E5] transition-colors"
+                  className="hover:text-[#4E4391] transition-colors"
                 >
                   support@zealtho.com
                 </a>
@@ -165,7 +165,7 @@ const CustomerFooter = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="text-[#083B44] hover:text-[#4F46E5] transition-colors"
+                  className="text-[#083B44] hover:text-[#4E4391] transition-colors"
                 >
                   <Icon size={20} />
                 </a>
@@ -207,7 +207,7 @@ const CustomerFooter = () => {
           <div
             className="
               relative overflow-hidden
-              bg-[#4F46E5]
+              bg-[#4E4391]
               rounded-tl-3xl rounded-bl-3xl rounded-br-3xl rounded-tr-none
               p-8 sm:p-10
               flex flex-col justify-between gap-8
@@ -247,7 +247,7 @@ const CustomerFooter = () => {
                 relative z-10 inline-flex items-center justify-center
                 w-full px-6 py-3.5 rounded-full
                 text-sm sm:text-base font-bold text-[#083B44]
-                bg-white hover:bg-[#F6F8FC]
+                bg-white hover:bg-[#EFEDFA]
                 shadow-[0_2px_8px_rgba(0,0,0,0.08)]
                 transition-colors
               "
@@ -258,7 +258,7 @@ const CustomerFooter = () => {
         </div>
 
         {/* BOTTOM BAR */}
-        <div className="mt-10 pt-6 border-t border-[#E7EAF3] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+        <div className="mt-10 pt-6 border-t border-[#E3DFF0] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
           <p className="text-xs text-gray-400">
             © {new Date().getFullYear()} Zealtho. All rights reserved.
           </p>

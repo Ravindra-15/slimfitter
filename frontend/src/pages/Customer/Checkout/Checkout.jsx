@@ -145,7 +145,7 @@ const Checkout = () => {
   // 🎨 RENDER
   // ============================================
   return (
-    <div className="min-h-screen bg-[#F6F8FC] flex flex-col">
+    <div className="min-h-screen bg-[#EFEDFA] flex flex-col">
       <CustomerNavbar />
 
       <main className="flex-1">
@@ -154,7 +154,7 @@ const Checkout = () => {
           <button
             type="button"
             onClick={() => navigate(-1)}
-            className="inline-flex items-center gap-1.5 text-sm font-mediumtext-[#6B7280] hover:text-[#5B4FF7] transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm font-mediumtext-[#6B7280] hover:text-[#4E4391] transition-colors"
           >
             <ArrowLeft size={16} />
             Back
@@ -175,14 +175,14 @@ const Checkout = () => {
           {/* 📋 CHECKOUT BODY                              */}
           {/* ============================================ */}
           {loading ? (
-            <div className="bg-white rounded-2xl border border-[#E7EAF3] p-6 animate-pulse h-72" />
+            <div className="bg-white rounded-2xl border border-[#E3DFF0] p-6 animate-pulse h-72" />
           ) : error ? (
-            <div className="bg-white rounded-2xl border border-[#E7EAF3] px-6 py-12 text-center">
+            <div className="bg-white rounded-2xl border border-[#E3DFF0] px-6 py-12 text-center">
               <p className="text-sm font-medium text-[#374151] mb-1">{error}</p>
               <button
                 type="button"
                 onClick={() => navigate("/book-doctor")}
-                className="mt-3 text-xs font-semibold text- [#4338CA] hover:underline"
+                className="mt-3 text-xs font-semibold text- [#4E4391] hover:underline"
               >
                 Browse doctors
               </button>
@@ -223,10 +223,10 @@ const Checkout = () => {
                   w-full inline-flex items-center justify-center gap-2
                   px-8 py-3.5 rounded-full
                   text-sm font-semibold text-white
-                  bg-[#5B4FF7]
-                  hover:bg-[#4338CA]
+                  bg-[#4E4391]
+                  hover:bg-[#4E4391]
                   transition-all duration-200
-                  shadow-[0_10px_25px_rgba(91,79,247,0.22)]
+                  shadow-[0_10px_25px_rgba(78,67,145,0.22)]
                   disabled:opacity-50 disabled:cursor-not-allowed
                 "
               >

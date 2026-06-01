@@ -148,8 +148,8 @@ const DoctorDangerZone = ({ doctor, onStatusChange, onPasswordReset }) => {
               inline-flex items-center justify-center gap-2
               px-4 py-2.5 rounded-xl
               text-sm font-semibold
-              bg-white border border-[#D9DDF0] text-[#374151]
-              hover:bg-[#F6F8FC] hover:border-gray-300
+              bg-white border border-[#D6D1EC] text-[#374151]
+              hover:bg-[#EFEDFA] hover:border-gray-300
               disabled:opacity-50 disabled:cursor-not-allowed
               transition-colors
               flex-shrink-0

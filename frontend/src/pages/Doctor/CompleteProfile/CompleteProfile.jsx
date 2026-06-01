@@ -140,7 +140,7 @@ const CompleteProfile = () => {
       {/* ============================================ */}
       {/* 🔝 TOP BAR */}
       {/* ============================================ */}
-      <header className="border-b border-[#E7EAF3] bg-white/70 backdrop-blur-sm">
+      <header className="border-b border-[#E3DFF0] bg-white/70 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center shadow-md">
@@ -148,7 +148,7 @@ const CompleteProfile = () => {
             </div>
             <div>
               <p className="text-sm font-bold text-[#1F2937] leading-tight">Zealtho</p>
-              <p className="text-[10px] tracking-[0.18em] text-indigo-600 font-semibold">
+              <p className="text-[10px] tracking-[0.18em] text-[#5A4F9F] font-semibold">
                 DOCTOR PORTAL
               </p>
             </div>
@@ -178,16 +178,16 @@ const CompleteProfile = () => {
               Password set
             </span>
             <span className="text-gray-300">›</span>
-            <span className="text-indigo-600 font-semibold">Complete profile</span>
+            <span className="text-[#5A4F9F] font-semibold">Complete profile</span>
             <span className="text-gray-300">›</span>
             <span>Dashboard</span>
           </div>
 
-          <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_4px_24px_rgba(16,24,40,0.06)] p-8 sm:p-10">
+          <div className="bg-white rounded-2xl border border-[#E3DFF0] shadow-[0_4px_24px_rgba(16,24,40,0.06)] p-8 sm:p-10">
             {/* Header */}
             <div className="flex justify-center">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center">
-                <UserCircle2 className="w-7 h-7 text-indigo-600" strokeWidth={2} />
+                <UserCircle2 className="w-7 h-7 text-[#5A4F9F]" strokeWidth={2} />
               </div>
             </div>
 
@@ -200,7 +200,7 @@ const CompleteProfile = () => {
 
             {/* Admin-set context (read-only) */}
             {doctor && (
-              <div className="mt-6 rounded-xl bg-[#F6F8FC] border border-[#E7EAF3] p-4">
+              <div className="mt-6 rounded-xl bg-[#EFEDFA] border border-[#E3DFF0] p-4">
                 <p className="text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-2">
                   Set by your administrator
                 </p>
@@ -209,11 +209,11 @@ const CompleteProfile = () => {
                     <img
                       src={`${import.meta.env.VITE_API_BASE_URL?.replace("/api", "") || "http://localhost:5000"}${doctor.photo}`}
                       alt={doctor.fullName}
-                      className="w-12 h-12 rounded-full object-cover border border-[#D9DDF0] flex-shrink-0"
+                      className="w-12 h-12 rounded-full object-cover border border-[#D6D1EC] flex-shrink-0"
                     />
                   ) : (
                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center flex-shrink-0">
-                      <UserCircle2 className="w-6 h-6 text-indigo-500" />
+                      <UserCircle2 className="w-6 h-6 text-[#5A4F9F]" />
                     </div>
                   )}
                   <div className="min-w-0 flex-1">
@@ -228,7 +228,7 @@ const CompleteProfile = () => {
                         {doctor.specializations.slice(0, 4).map((spec) => (
                           <span
                             key={spec}
-                            className="inline-block px-2 py-0.5 text-[10px] font-medium bg-white border border-[#D9DDF0] text-[#6B7280] rounded-full"
+                            className="inline-block px-2 py-0.5 text-[10px] font-medium bg-white border border-[#D6D1EC] text-[#6B7280] rounded-full"
                           >
                             {spec}
                           </span>
@@ -265,7 +265,7 @@ const CompleteProfile = () => {
                     className={`w-full pl-11 pr-4 py-3 text-sm rounded-xl border transition-colors bg-white text-[#1F2937] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 disabled:opacity-60 ${
                       errors.personalEmail
                         ? "border-red-300 focus:border-red-400"
-                        : "border-[#D9DDF0] focus:border-indigo-500"
+                        : "border-[#D6D1EC] focus:border-[#5A4F9F]"
                     }`}
                   />
                 </div>
@@ -296,7 +296,7 @@ const CompleteProfile = () => {
                     className={`w-full pl-11 pr-4 py-3 text-sm rounded-xl border transition-colors bg-white text-[#1F2937] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 disabled:opacity-60 ${
                       errors.phone
                         ? "border-red-300 focus:border-red-400"
-                        : "border-[#D9DDF0] focus:border-indigo-500"
+                        : "border-[#D6D1EC] focus:border-[#5A4F9F]"
                     }`}
                   />
                 </div>
@@ -324,7 +324,7 @@ const CompleteProfile = () => {
                     className={`w-full pl-11 pr-4 py-3 text-sm rounded-xl border transition-colors bg-white text-[#1F2937] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 disabled:opacity-60 resize-none ${
                       errors.qualifications
                         ? "border-red-300 focus:border-red-400"
-                        : "border-[#D9DDF0] focus:border-indigo-500"
+                        : "border-[#D6D1EC] focus:border-[#5A4F9F]"
                     }`}
                   />
                 </div>
@@ -362,7 +362,7 @@ const CompleteProfile = () => {
                     className={`w-full pl-11 pr-4 py-3 text-sm rounded-xl border transition-colors bg-white text-[#1F2937] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 disabled:opacity-60 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${
                       errors.yearsOfExperience
                         ? "border-red-300 focus:border-red-400"
-                        : "border-[#D9DDF0] focus:border-indigo-500"
+                        : "border-[#D6D1EC] focus:border-[#5A4F9F]"
                     }`}
                   />
                 </div>
@@ -375,7 +375,7 @@ const CompleteProfile = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 active:scale-[0.99] transition-all shadow-[0_4px_14px_rgba(79,70,229,0.35)] disabled:opacity-60 disabled:cursor-not-allowed disabled:active:scale-100 flex items-center justify-center gap-2 mt-2"
+                className="w-full py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 active:scale-[0.99] transition-all shadow-[0_4px_14px_rgba(90,79,159,0.35)] disabled:opacity-60 disabled:cursor-not-allowed disabled:active:scale-100 flex items-center justify-center gap-2 mt-2"
               >
                 {isSubmitting ? (
                   <>

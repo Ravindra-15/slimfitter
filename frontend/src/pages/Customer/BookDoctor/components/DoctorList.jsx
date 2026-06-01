@@ -20,7 +20,7 @@ import DoctorCard from "./DoctorCard";
 // 💀 LOADING SKELETON (single card shape)
 // ============================================
 const CardSkeleton = () => (
-  <div className="bg-white rounded-2xl border border-[#E7EAF3] p-5 sm:p-6 animate-pulse">
+  <div className="bg-white rounded-2xl border border-[#E3DFF0] p-5 sm:p-6 animate-pulse">
     <div className="flex flex-col lg:flex-row gap-5">
       <div className="flex flex-col items-center lg:w-44">
         <div className="w-20 h-20 rounded-full bg-gray-200" />
@@ -48,8 +48,8 @@ const CardSkeleton = () => (
 // 🚫 EMPTY STATE
 // ============================================
 const EmptyState = ({ onClearFilters }) => (
-  <div className="bg-white rounded-[28px] border border-dashed border-[#D9DDF0] px-6 py-16 text-center shadow-sm">
-    <div className="w-12 h-12 rounded-full bg-[#F5F7FF] flex items-center justify-center mx-auto mb-3">
+  <div className="bg-white rounded-[28px] border border-dashed border-[#D6D1EC] px-6 py-16 text-center shadow-sm">
+    <div className="w-12 h-12 rounded-full bg-[#EFEDFA] flex items-center justify-center mx-auto mb-3">
       <Stethoscope size={20} className="text-gray-400" />
     </div>
     <p className="text-sm font-medium text-[#1F2937] mb-1">No doctors found</p>
@@ -60,7 +60,7 @@ const EmptyState = ({ onClearFilters }) => (
       <button
         type="button"
         onClick={onClearFilters}
-        className="text-xs font-semibold text-[#5B4FF7] hover:underline"
+        className="text-xs font-semibold text-[#4E4391] hover:underline"
       >
         Clear filters
       </button>
@@ -85,7 +85,7 @@ const DoctorList = ({
       <div className="flex items-end justify-between gap-3">
         <div>
           <h2 className="text-lg sm:text-xl font-bold text-[#1F2937] tracking-tight">
-            Top Doctors ! <span className="text-[#5B4FF7]">Zero Stress</span>
+            Top Doctors ! <span className="text-[#4E4391]">Zero Stress</span>
           </h2>
           <p className="text-xs text-[#6B7280] mt-0.5">
             Find the right expert for your journey
@@ -100,9 +100,9 @@ const DoctorList = ({
           className="
               w-10 h-10 rounded-xl
               flex items-center justify-center
-              text-[#5B4FF7]
-              bg-[#F5F7FF]
-              border border-[#E7EAF3]
+              text-[#4E4391]
+              bg-[#EFEDFA]
+              border border-[#E3DFF0]
               shadow-sm
               cursor-default
             "
@@ -152,8 +152,8 @@ const DoctorList = ({
                 inline-flex items-center gap-1
                 px-3 py-1.5 rounded-lg
                 text-sm font-medium text-[#374151]
-                bg-white border border-[#E7EAF3]
-                hover:bg-[#F7F8FF]
+                bg-white border border-[#E3DFF0]
+                hover:bg-[#EFEDFA]
                 disabled:opacity-40 disabled:cursor-not-allowed
                 transition-colors
               "
@@ -170,8 +170,8 @@ const DoctorList = ({
                 inline-flex items-center gap-1
                 px-3 py-1.5 rounded-lg
                 text-sm font-medium text-[#374151]
-                bg-white border border-[#E7EAF3]
-                hover:bg-[#F7F8FF]
+                bg-white border border-[#E3DFF0]
+                hover:bg-[#EFEDFA]
                 disabled:opacity-40 disabled:cursor-not-allowed
                 transition-colors
               "

@@ -24,11 +24,11 @@ const OnBreakOverlay = ({ onBreak, onDismiss, onEndBreak }) => {
       role="dialog"
       aria-modal="true"
     >
-      <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-xl w-full max-w-md p-8 relative">
+      <div className="bg-white rounded-2xl border border-[#E3DFF0] shadow-xl w-full max-w-md p-8 relative">
         <button
           type="button"
           onClick={onDismiss}
-          className="absolute top-3 right-3 p-1.5 rounded-lg text-gray-400 hover:text-[#374151] hover:bg-[#F6F8FC] transition-colors"
+          className="absolute top-3 right-3 p-1.5 rounded-lg text-gray-400 hover:text-[#374151] hover:bg-[#EFEDFA] transition-colors"
           aria-label="Dismiss"
         >
           <X size={18} />
@@ -37,7 +37,7 @@ const OnBreakOverlay = ({ onBreak, onDismiss, onEndBreak }) => {
         {/* Illustration placeholder — Coffee icon for now */}
         <div className="flex justify-center mb-5">
           <div className="w-24 h-24 rounded-full bg-gradient-to-br from-orange-100 to-pink-100 flex items-center justify-center">
-            <Coffee size={36} className="text-[#4F46E5]" />
+            <Coffee size={36} className="text-[#4E4391]" />
           </div>
         </div>
 
@@ -61,7 +61,7 @@ const OnBreakOverlay = ({ onBreak, onDismiss, onEndBreak }) => {
           <button
             type="button"
             onClick={onDismiss}
-            className="flex-1 px-4 py-2.5 rounded-xl text-sm font-medium text-[#374151] bg-[#F6F8FC] hover:bg-gray-100 transition-colors"
+            className="flex-1 px-4 py-2.5 rounded-xl text-sm font-medium text-[#374151] bg-[#EFEDFA] hover:bg-gray-100 transition-colors"
           >
             View Calendar
           </button>

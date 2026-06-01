@@ -36,7 +36,7 @@ const ListSkeleton = () => (
     {[1, 2].map((i) => (
       <div
         key={i}
-        className="bg-white rounded-[24px] border border-[#E7EAF3] p-5 h-24 animate-pulse"
+        className="bg-white rounded-[24px] border border-[#E3DFF0] p-5 h-24 animate-pulse"
       />
     ))}
   </div>
@@ -64,7 +64,7 @@ const MyAppointments = () => {
   const showBodyProfileBanner = !profileLoading && !isComplete;
 
   return (
-    <div className="min-h-screen bg-[#F6F8FC] flex flex-col">
+    <div className="min-h-screen bg-[#EFEDFA] flex flex-col">
       <CustomerNavbar />
 
       <main className="flex-1">
@@ -73,7 +73,7 @@ const MyAppointments = () => {
           <button
             type="button"
             onClick={() => navigate(-1)}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-[#6B7280] hover:text-[#5B4FF7] transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-[#6B7280] hover:text-[#4E4391] transition-colors"
           >
             <ArrowLeft size={16} />
             Back
@@ -96,10 +96,10 @@ const MyAppointments = () => {
             <div
               className="
                 relative overflow-hidden
-                bg-gradient-to-r from-[#5B4FF7] to-[#4338CA]
+                bg-gradient-to-r from-[#4E4391] to-[#4E4391]
                 rounded-2xl p-5 sm:p-6
                 text-center
-                shadow-[0_12px_30px_rgba(91,79,247,0.22)]
+                shadow-[0_12px_30px_rgba(78,67,145,0.22)]
               "
             >
               <p className="text-base sm:text-lg font-bold text-white">
@@ -112,8 +112,8 @@ const MyAppointments = () => {
                 className="
                   mt-4 inline-flex items-center gap-1.5
                   px-5 py-2 rounded-full
-                  text-sm font-semibold text-[#5B4FF7]
-                  bg-white hover:bg-[#F6F8FC]
+                  text-sm font-semibold text-[#4E4391]
+                  bg-white hover:bg-[#EFEDFA]
                   transition-colors
                   shadow-[0_4px_14px_rgba(0,0,0,0.1)]
                 "
@@ -134,7 +134,7 @@ const MyAppointments = () => {
           <section
             className="
               bg-white rounded-[28px]
-                border border-[#E7EAF3]
+                border border-[#E3DFF0]
                 shadow-[0_10px_30px_rgba(15,23,42,0.05)]
               p-5 sm:p-6
             "
@@ -170,7 +170,7 @@ const MyAppointments = () => {
           <section
             className="
              bg-white rounded-[28px]
-                border border-[#E7EAF3]
+                border border-[#E3DFF0]
                 shadow-[0_10px_30px_rgba(15,23,42,0.05)]
               p-5 sm:p-6
             "

@@ -160,7 +160,7 @@ const AvailabilityManager = () => {
             <button
               type="button"
               onClick={discardChanges}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-[#6B7280] bg-[#F6F8FC] border border-[#D9DDF0] hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-[#6B7280] bg-[#EFEDFA] border border-[#D6D1EC] hover:bg-gray-100 transition-colors"
             >
               <RotateCcw size={13} />
               Discard
@@ -222,7 +222,7 @@ const AvailabilityManager = () => {
           <button
             type="button"
             onClick={handleEndBreak}
-            className="text-xs font-semibold text-indigo-600 hover:text-indigo-700"
+            className="text-xs font-semibold text-[#5A4F9F] hover:text-[#4E4391]"
           >
             End Break
           </button>
@@ -232,7 +232,7 @@ const AvailabilityManager = () => {
       {/* ============================================ */}
       {/* 📆 CARD: Header + Legend + Calendar           */}
       {/* ============================================ */}
-      <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-5 sm:p-6">
+      <div className="bg-white rounded-2xl border border-[#E3DFF0] shadow-[0_1px_3px_rgba(16,24,40,0.04)] p-5 sm:p-6">
         <WeekHeader
           weekData={weekData}
           isCurrentWeek={isCurrentWeek}

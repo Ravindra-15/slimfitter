@@ -5,7 +5,7 @@ const SettingsHeader = () => {
   return (
     <div className="flex items-start gap-3 mb-6">
       <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center flex-shrink-0">
-        <SettingsIcon className="w-5 h-5 text-indigo-600" strokeWidth={2} />
+        <SettingsIcon className="w-5 h-5 text-[#5A4F9F]" strokeWidth={2} />
       </div>
       <div>
         <h1 className="text-2xl font-bold text-[#1F2937] tracking-tight">

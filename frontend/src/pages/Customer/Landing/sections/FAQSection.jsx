@@ -1,4 +1,3 @@
-
 import FAQAccordion from "../../../../components/customer/common/FAQAccordion";
 
 const faqs = [
@@ -34,18 +33,17 @@ export default function FAQSection() {
     <section className="bg-white">
       <div className="max-w-[1600px] mx-auto px-5 sm:px-8 lg:px-12 py-6 lg:py-8">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
-          
           {/* LEFT */}
           <div className="w-full lg:w-[40%]">
-          <h2 className="font-bold leading-[1.15] mb-4 text-3xl sm:text-4xl lg:text-[38px] xl:text-[42px] lg:whitespace-nowrap">
-  <span className="text-[#083B44]">Frequently Asked </span>
-  <span className="text-[#4F46E5]">Questions</span>
-</h2>
+            <h2 className="font-bold leading-[1.15] mb-4 text-3xl sm:text-4xl lg:text-[38px] xl:text-[42px] lg:whitespace-nowrap">
+              <span className="text-[#083B44]">Frequently Asked </span>
+              <span className="text-[#4E4391]">Questions</span>
+            </h2>
 
-<p className="text-[#083B44] text-sm sm:text-base leading-relaxed max-w-[420px] mb-6 lg:mb-8">
-  Find answers to common questions about our services,
-  therapy, and mental well-being.
-</p>
+            <p className="text-[#083B44] text-sm sm:text-base leading-relaxed max-w-[420px] mb-6 lg:mb-8">
+              Find answers to common questions about our services, therapy, and
+              mental well-being.
+            </p>
 
             {/* IMAGE */}
             <div className="rounded-[40px] overflow-hidden">

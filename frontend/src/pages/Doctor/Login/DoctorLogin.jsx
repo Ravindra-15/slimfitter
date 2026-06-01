@@ -104,7 +104,7 @@ const DoctorLogin = () => {
   };
 
   return (
-    <div className="min-h-screen flex bg-[#F6F8FC]">
+    <div className="min-h-screen flex bg-[#EFEDFA]">
       {/* ============================================ */}
       {/* 🎨 LEFT PANEL — gradient + branding */}
       {/* ============================================ */}
@@ -162,13 +162,13 @@ const DoctorLogin = () => {
               <p className="text-base font-bold text-[#1F2937] leading-tight">
                 Zealtho
               </p>
-              <p className="text-[10px] tracking-[0.18em] text-indigo-600 font-semibold">
+              <p className="text-[10px] tracking-[0.18em] text-[#5A4F9F] font-semibold">
                 DOCTOR PORTAL
               </p>
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl border border-[#E7EAF3] shadow-[0_4px_24px_rgba(16,24,40,0.06)] p-8 sm:p-10">
+          <div className="bg-white rounded-2xl border border-[#E3DFF0] shadow-[0_4px_24px_rgba(16,24,40,0.06)] p-8 sm:p-10">
             <h2 className="text-3xl font-bold text-[#1F2937] tracking-tight">
               Log In
 
@@ -201,7 +201,7 @@ const DoctorLogin = () => {
                     className={`w-full pl-11 pr-4 py-3 text-sm rounded-xl border transition-colors bg-white text-[#1F2937] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 disabled:opacity-60 ${
                       errors.username
                         ? "border-red-300 focus:border-red-400"
-                        : "border-[#D9DDF0] focus:border-indigo-500"
+                        : "border-[#D6D1EC] focus:border-[#5A4F9F]"
                     }`}
                   />
                 </div>
@@ -234,7 +234,7 @@ const DoctorLogin = () => {
                     className={`w-full pl-11 pr-11 py-3 text-sm rounded-xl border transition-colors bg-white text-[#1F2937] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 disabled:opacity-60 ${
                       errors.password
                         ? "border-red-300 focus:border-red-400"
-                        : "border-[#D9DDF0] focus:border-indigo-500"
+                        : "border-[#D6D1EC] focus:border-[#5A4F9F]"
                     }`}
                   />
                   <button
@@ -267,7 +267,7 @@ const DoctorLogin = () => {
                   checked={rememberMe}
                   onChange={(e) => setRememberMe(e.target.checked)}
                   disabled={isSubmitting}
-                  className="w-4 h-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500/30 cursor-pointer"
+                  className="w-4 h-4 rounded border-gray-300 text-[#5A4F9F] focus:ring-indigo-500/30 cursor-pointer"
                 />
                 Remember me
               </label>
@@ -276,7 +276,7 @@ const DoctorLogin = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 active:scale-[0.99] transition-all shadow-[0_4px_14px_rgba(79,70,229,0.35)] disabled:opacity-60 disabled:cursor-not-allowed disabled:active:scale-100 flex items-center justify-center gap-2"
+                className="w-full py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 active:scale-[0.99] transition-all shadow-[0_4px_14px_rgba(90,79,159,0.35)] disabled:opacity-60 disabled:cursor-not-allowed disabled:active:scale-100 flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>

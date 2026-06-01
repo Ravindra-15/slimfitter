@@ -53,9 +53,9 @@ const DoctorDirectory = () => {
             placeholder="Search doctors..."
             className="
               w-full pl-10 pr-4 py-2.5
-              bg-white border border-[#D9DDF0] rounded-xl
+              bg-white border border-[#D6D1EC] rounded-xl
               text-sm text-[#1F2937] placeholder-gray-400
-              focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500
+              focus:outline-none focus:border-[#5A4F9F] focus:ring-1 focus:ring-indigo-500
               transition-colors
             "
             aria-label="Search doctors"
@@ -66,7 +66,7 @@ const DoctorDirectory = () => {
           onClick={handleAddDoctor}
           className="
             inline-flex items-center justify-center gap-2
-            bg-indigo-600 hover:bg-indigo-700
+            bg-[#5A4F9F] hover:bg-indigo-700
             text-white text-sm font-semibold
             px-5 py-2.5 rounded-xl
             shadow-sm shadow-indigo-200
@@ -105,9 +105,9 @@ const DoctorDirectory = () => {
               className="
                 inline-flex items-center gap-1
                 px-3 py-2 rounded-lg
-                bg-white border border-[#D9DDF0]
+                bg-white border border-[#D6D1EC]
                 text-sm font-medium text-[#374151]
-                hover:bg-[#F6F8FC]
+                hover:bg-[#EFEDFA]
                 disabled:opacity-40 disabled:cursor-not-allowed
                 transition-colors
               "
@@ -123,9 +123,9 @@ const DoctorDirectory = () => {
               className="
                 inline-flex items-center gap-1
                 px-3 py-2 rounded-lg
-                bg-white border border-[#D9DDF0]
+                bg-white border border-[#D6D1EC]
                 text-sm font-medium text-[#374151]
-                hover:bg-[#F6F8FC]
+                hover:bg-[#EFEDFA]
                 disabled:opacity-40 disabled:cursor-not-allowed
                 transition-colors
               "

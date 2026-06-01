@@ -28,7 +28,7 @@ const DoctorDetailHeader = ({ doctor }) => {
     <div
       className="
                     bg-white rounded-[28px]
-            border border-[#E7EAF3]
+            border border-[#E3DFF0]
             shadow-[0_10px_30px_rgba(15,23,42,0.05)]
         p-5 sm:p-6
         flex flex-col lg:flex-row gap-5
@@ -36,7 +36,7 @@ const DoctorDetailHeader = ({ doctor }) => {
     >
       {/* 👤 Avatar + Name + Specialty */}
       <div className="flex flex-col items-center text-center lg:w-44 flex-shrink-0">
-        <div className="w-20 h-20 rounded-full overflow-hidden border border-[#D9DDF0] bg-gradient-to-br from-[#EEF2FF] to-[#F5F3FF]">
+        <div className="w-20 h-20 rounded-full overflow-hidden border border-[#D6D1EC] bg-gradient-to-br from-[#EFEDFA] to-[#EFEDFA]">
           {photoUrl ? (
             <img
               src={photoUrl}
@@ -47,7 +47,7 @@ const DoctorDetailHeader = ({ doctor }) => {
               }}
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-[#5B4FF7]">
+            <div className="w-full h-full flex items-center justify-center text-[#4E4391]">
               <User size={28} />
             </div>
           )}
@@ -57,7 +57,7 @@ const DoctorDetailHeader = ({ doctor }) => {
           <h2 className="text-sm font-bold text-[#1F2937]">
             {doctor.fullName}
           </h2>
-          <CheckCircle2 size={14} className="text-[#5B4FF7]" />
+          <CheckCircle2 size={14} className="text-[#4E4391]" />
         </div>
         {doctor.domain && (
           <p className="text-xs text-[#6B7280]mt-0.5">{doctor.domain}</p>
@@ -86,9 +86,9 @@ const DoctorDetailHeader = ({ doctor }) => {
                inline-flex items-center
                 px-3 py-1 rounded-full
                 text-[11px] font-semibold
-                bg-[#F5F7FF]
-                text-[#5B4FF7]
-                border border-[#D9DDF0]
+                bg-[#EFEDFA]
+                text-[#4E4391]
+                border border-[#D6D1EC]
                 "
               >
                 {tag}

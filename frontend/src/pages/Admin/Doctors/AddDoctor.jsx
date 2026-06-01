@@ -83,7 +83,7 @@ const AddDoctor = () => {
         disabled={submitting}
         className="
           inline-flex items-center gap-1.5
-          text-sm font-medium text-[#6B7280] hover:text-indigo-600
+          text-sm font-medium text-[#6B7280] hover:text-[#5A4F9F]
           disabled:opacity-50 disabled:cursor-not-allowed
           transition-colors
         "

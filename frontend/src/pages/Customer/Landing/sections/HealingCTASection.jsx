@@ -32,7 +32,7 @@ export default function HealingCTASection() {
                   Start your healing journey
                   <br />
                   by Booking{" "}
-                  <span className="text-[#4F46E5]">Health Expert</span>
+                  <span className="text-[#4E4391]">Health Expert</span>
                 </h2>
 
                 <ul className="space-y-3 mb-7">
@@ -57,8 +57,8 @@ export default function HealingCTASection() {
                 <button
                   onClick={handleBookConsultation}
                   className="
-                bg-[#4F46E5]
-                hover:bg-[#4338CA]
+                bg-[#4E4391]
+                hover:bg-[#4E4391]
                 text-white
                 text-sm
                 sm:text-[15px]
@@ -66,7 +66,7 @@ export default function HealingCTASection() {
                 px-7
                 py-3.5
                 rounded-full
-                shadow-[0_6px_18px_rgba(79,70,229,0.28)]
+                shadow-[0_6px_18px_rgba(90,79,159,0.28)]
                 transition-all
                 self-start
               "
