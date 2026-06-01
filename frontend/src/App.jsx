@@ -119,7 +119,7 @@ function App() {
         />
         <Route path="/home" element={<LandingPage />} />
 
-        <Route path="/book-doctor" element={<BookDoctor />} />
+        {/* <Route path="/book-doctor" element={<BookDoctor />} />
         <Route path="/book-doctor/:id" element={<DoctorDetail />} />
         <Route
           path="/checkout"
@@ -128,9 +128,9 @@ function App() {
               <Checkout />
             </ProtectedRoute>
           }
-        />
+        /> */}
 
-        <Route
+        {/* <Route
           path="/booking/confirmation/:id"
           element={
             <ProtectedRoute>
@@ -146,8 +146,8 @@ function App() {
               <MyAppointments />
             </ProtectedRoute>
           }
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/my-profile"
           element={
             <ProtectedRoute>
@@ -163,9 +163,9 @@ function App() {
               <CustomerNotifications />
             </ProtectedRoute>
           }
-        />
+        /> */}
 
-        <Route
+        {/* <Route
           path="/my-plans-and-billings"
           element={
             <ProtectedRoute>
@@ -181,9 +181,9 @@ function App() {
               <Receipt />
             </ProtectedRoute>
           }
-        />
+        /> */}
 
-        <Route
+        {/* <Route
           path="/body-profile"
           element={
             <ProtectedRoute>
@@ -201,9 +201,9 @@ function App() {
               <ProgramDashboard />
             </ProtectedProgramRoute>
           }
-        />
+        /> */}
 
-        <Route
+        {/* <Route
           path="/programs/:id/add-progress"
           element={
             <ProtectedProgramRoute>
@@ -219,7 +219,7 @@ function App() {
               <ProgressReport />
             </ProtectedProgramRoute>
           }
-        />
+        /> */}
 
         {/* ============================================ */}
         {/* 🔐 ADMIN ROUTES */}
