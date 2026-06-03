@@ -130,7 +130,7 @@ function App() {
           }
         />
 
-        {/* <Route
+        <Route
           path="/booking/confirmation/:id"
           element={
             <ProtectedRoute>
@@ -146,8 +146,8 @@ function App() {
               <MyAppointments />
             </ProtectedRoute>
           }
-        /> */}
-        {/* <Route
+        />
+        <Route
           path="/my-profile"
           element={
             <ProtectedRoute>
@@ -163,7 +163,7 @@ function App() {
               <CustomerNotifications />
             </ProtectedRoute>
           }
-        /> */}
+        />
 
         {/* <Route
           path="/my-plans-and-billings"
