@@ -165,7 +165,7 @@ function App() {
           }
         />
 
-        {/* <Route
+        <Route
           path="/my-plans-and-billings"
           element={
             <ProtectedRoute>
@@ -181,7 +181,7 @@ function App() {
               <Receipt />
             </ProtectedRoute>
           }
-        /> */}
+        />
 
         {/* <Route
           path="/body-profile"
