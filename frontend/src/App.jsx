@@ -183,7 +183,7 @@ function App() {
           }
         />
 
-        {/* <Route
+        <Route
           path="/body-profile"
           element={
             <ProtectedRoute>
@@ -191,9 +191,9 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/programs/:id/tenure" element={<SelectTenure />} />
+        {/* <Route path="/programs/:id/tenure" element={<SelectTenure />} />
         <Route path="/programs/:id/checkout" element={<ProgramCheckout />} />
-        <Route path="/programs/:id/success" element={<ProgramSuccess />} />
+        <Route path="/programs/:id/success" element={<ProgramSuccess />} /> */}
         <Route
           path="/programs/:id/dashboard"
           element={
@@ -201,7 +201,7 @@ function App() {
               <ProgramDashboard />
             </ProtectedProgramRoute>
           }
-        /> */}
+        />
 
         {/* <Route
           path="/programs/:id/add-progress"
