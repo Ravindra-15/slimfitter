@@ -212,14 +212,14 @@ function App() {
           }
         />
 
-        {/* <Route
+        <Route
           path="/programs/:id/progress-report"
           element={
             <ProtectedProgramRoute>
               <ProgressReport />
             </ProtectedProgramRoute>
           }
-        /> */}
+        />
 
         {/* ============================================ */}
         {/* 🔐 ADMIN ROUTES */}
