@@ -16,6 +16,11 @@ import DoctorDetailHeader from "./components/DoctorDetailHeader";
 import DateCalendar from "./components/DateCalendar";
 import TimeSlotGrid from "./components/TimeSlotGrid";
 
+import {
+  isCustomerLoggedIn,
+  buildLoginRedirect,
+} from "../../../utils/customerAuthHelper";
+
 import { getPublicDoctor } from "../../../services/customerDoctorService";
 import useDoctorDayAvailability from "../../../hooks/useDoctorDayAvailability";
 
@@ -100,6 +105,11 @@ const DoctorDetail = () => {
       ).toISOString(),
     };
     sessionStorage.setItem("bookingIntent", JSON.stringify(intent));
+
+    if (!isCustomerLoggedIn()) {
+      navigate(buildLoginRedirect("/checkout"));
+      return;
+    }
 
     navigate("/checkout");
   };
