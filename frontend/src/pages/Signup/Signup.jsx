@@ -115,7 +115,7 @@ const Signup = () => {
             <span className="text-[#4E4391]">Journey Begins</span>
           </h1>
 
-          <p className="mt-4 text-[#6B7280] text-[14px] leading-[1.6] max-w-[420px] mx-auto md:mx-0">
+          <p className="mt-4 text-[#6B7280] text-[20px] leading-[1.6] max-w-[420px] mx-auto md:mx-0">
             Join thousands building sustainable health habits through
             expert-guided programs
           </p>
@@ -234,8 +234,6 @@ const Signup = () => {
                 Log in
               </Link>
             </p>
-
-            
           </div>
         </div>
       </div>
