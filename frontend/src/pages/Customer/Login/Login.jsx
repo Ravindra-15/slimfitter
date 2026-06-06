@@ -135,7 +135,9 @@ const Login = () => {
         } else {
           // 🎉 Trigger welcome popup on book-doctor page
           sessionStorage.removeItem("welcomeShown");
-          navigate(next?.startsWith("/") ? next : "/book-doctor");
+          navigate(next?.startsWith("/") ? next : "/book-doctor", {
+            replace: true,
+          });
         }
       }, 300);
     } catch (err) {
