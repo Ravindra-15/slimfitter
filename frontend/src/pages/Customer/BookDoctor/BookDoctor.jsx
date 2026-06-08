@@ -315,7 +315,7 @@ const BookDoctor = () => {
               <button
                 type="button"
                 onClick={handlePhotoClick}
-                className="mt-2 text-sm text-orange-500 hover:underline font-medium"
+                className="mt-2 text-sm text-[#4E4391] hover:underline font-medium"
               >
                 {uploadingPhoto ? "Uploading…" : "Upload your pic"}
               </button>
