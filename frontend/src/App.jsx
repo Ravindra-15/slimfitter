@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 
 import LandingPage from "./pages/Customer/Landing/LandingPage";
+import RootGate from "./components/common/RootGate";
 // 👤 CUSTOMER PAGES
 import Signup from "./pages/Signup/Signup";
 import ScrollToTop from "./components/common/ScrollToTop";
@@ -90,7 +91,14 @@ function App() {
         {/* ============================================ */}
         {/* 👤 CUSTOMER ROUTES */}
         {/* ============================================ */}
-        <Route path="/" element={<LandingPage />} />
+       <Route
+          path="/"
+          element={
+            <RootGate>
+              <LandingPage />
+            </RootGate>
+          }
+        />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/verify-otp" element={<OtpVerification />} />
