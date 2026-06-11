@@ -2,9 +2,10 @@
 // Single daily video stream (no yoga-type queues) + 24hr cooldown
 // Uses real clinical videos from admin CMS + real upcoming appointment
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Play, Check, Plus, Bell, Calendar } from "lucide-react";
+import { Play, Check, Plus, Bell, Calendar, ChevronUp } from "lucide-react";
+import HabitTrackerForm from "./components/HabitTrackerForm";
 import toast from "react-hot-toast";
 
 import CustomerNavbar from "../../../components/customer/layout/CustomerNavbar";
@@ -144,6 +145,15 @@ export default function ProgramDashboard() {
   const navigate = useNavigate();
 
   const programTitle = programTitles[id] || "Program";
+  // 📈 inline Add-Progress expand state
+  const [showProgress, setShowProgress] = useState(false);
+  const topRef = useRef(null); // scroll target after saving
+
+  // called after habits saved → collapse + scroll user to top
+  const handleProgressSaved = () => {
+    setShowProgress(false);
+    topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   const [videoData, setVideoData] = useState(null);
   const [loadingVideo, setLoadingVideo] = useState(true);
@@ -255,7 +265,7 @@ export default function ProgramDashboard() {
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-5">
           {/* Greeting Card */}
-          <div className="bg-white rounded-[28px] border border-[#E3DFF0] shadow-[0_10px_30px_rgba(15,23,42,0.05)] px-6 py-7 sm:px-8">
+          <div ref={topRef} className="bg-white rounded-[28px] border border-[#E3DFF0] shadow-[0_10px_30px_rgba(15,23,42,0.05)] px-6 py-7 sm:px-8">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
               <div className="flex-1 min-w-0">
                 <p className="text-[#4E4391] font-semibold text-sm mb-1">
@@ -296,19 +306,41 @@ export default function ProgramDashboard() {
                 </button>
 
                 <button
-                  onClick={() => navigate(`/programs/${id}/add-progress`)}
+                  onClick={() => setShowProgress((v) => !v)}
                   className="mt-5 flex items-center gap-2 bg-[#4E4391] hover:bg-[#4E4391] text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-[0_8px_20px_rgba(78,67,145,0.22)] transition-all duration-200"
                 >
-                  <Plus size={15} />
-                  Add Progress
+                  {showProgress ? <ChevronUp size={15} /> : <Plus size={15} />}
+                  {showProgress ? "Hide Progress" : "Add Progress"}
                 </button>
               </div>
 
+              {/* Right — progress ring fully inside the card */}
               <div className="shrink-0 mx-auto sm:mx-0">
                 <ProgressRing />
               </div>
             </div>
           </div>
+
+          {/* ══════════════════════════════════════════════════ */}
+          {/* 📈 INLINE ADD-PROGRESS (animated expand)            */}
+          {/* ══════════════════════════════════════════════════ */}
+          <div
+            className={`grid transition-all duration-300 ease-in-out ${
+              showProgress ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+            }`}
+          >
+            <div className="overflow-hidden">
+              <div className="pt-1 pb-1">
+                <p className="text-sm font-bold text-gray-800 mb-3 px-1">
+                  Log Today's Progress
+                </p>
+                <HabitTrackerForm programId={id} onSaved={handleProgressSaved} />
+              </div>
+            </div>
+          </div>
+
+          {/* ══════════════════════════════════════════════════ */}
+          {/* 🎬 VIDEO CARD                                       */}
 
           {/* Video Card */}
           <div className="bg-white rounded-[28px] border border-[#E3DFF0] shadow-[0_10px_30px_rgba(15,23,42,0.05)] p-5">
