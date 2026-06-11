@@ -282,6 +282,10 @@ export default function ProgramDashboard() {
                 <p className="text-[#9CA3AF] text-sm mt-1">
                   Let's track your wellness journey for today
                 </p>
+                {/* 📊 ring shown here on mobile only (below greeting) */}
+                <div className="sm:hidden mt-5 flex justify-center">
+                  <ProgressRing />
+                </div>
 
                <button
                   onClick={() => navigate(`/programs/${id}/progress-report`)}
@@ -314,8 +318,8 @@ export default function ProgramDashboard() {
                 </button>
               </div>
 
-              {/* Right — progress ring fully inside the card */}
-              <div className="shrink-0 mx-auto sm:mx-0">
+              {/* Right — progress ring (desktop only; mobile renders it under the greeting) */}
+              <div className="shrink-0 mx-auto sm:mx-0 hidden sm:block">
                 <ProgressRing />
               </div>
             </div>
