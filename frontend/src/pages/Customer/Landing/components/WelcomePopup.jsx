@@ -7,12 +7,14 @@ export default function WelcomePopup() {
 
   useEffect(() => {
     const token =
-      localStorage.getItem("token") ||
-      sessionStorage.getItem("token");
+      localStorage.getItem("token") || sessionStorage.getItem("token");
 
-    // show popup only for guest users
-    if (!token) {
+    const alreadyShown = sessionStorage.getItem("landingWelcomeShown");
+
+    // show popup only for guest users, once per session
+    if (!token && !alreadyShown) {
       setOpen(true);
+      sessionStorage.setItem("landingWelcomeShown", "true");
     }
   }, []);
 
@@ -21,7 +23,6 @@ export default function WelcomePopup() {
   return (
     <div className="fixed inset-0 z-[100] bg-black/50 flex items-center justify-center px-4">
       <div className="relative bg-white rounded-3xl w-full max-w-md p-8 text-center shadow-2xl animate-in fade-in zoom-in duration-300">
-
         {/* close */}
         <button
           onClick={() => setOpen(false)}
@@ -40,8 +41,7 @@ export default function WelcomePopup() {
           Browse verified specialists and book a consultation for just
           <span className="font-semibold text-[#4E4391]"> $20</span>.
           <br />
-          Get instant access to Endocrinologists, Gynecologists,
-          and more.
+          Get instant access to Endocrinologists, Gynecologists, and more.
         </p>
 
         {/* buttons */}
@@ -69,4 +69,3 @@ export default function WelcomePopup() {
     </div>
   );
 }
-
