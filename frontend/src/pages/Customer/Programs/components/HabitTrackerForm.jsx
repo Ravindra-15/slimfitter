@@ -197,7 +197,7 @@ const HabitTrackerForm = ({ programId, onSaved }) => {
       <button
         onClick={handleSaveAll}
         disabled={saving}
-        className="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold py-3.5 rounded-full shadow-[0_8px_20px_rgba(91,79,247,0.22)] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full bg-[#4E4391] hover:bg-[#40367A] text-white text-sm font-semibold py-3.5 rounded-full shadow-[0_8px_20px_rgba(91,79,247,0.22)] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {saving ? "Saving..." : "Save All Progress"}
       </button>
