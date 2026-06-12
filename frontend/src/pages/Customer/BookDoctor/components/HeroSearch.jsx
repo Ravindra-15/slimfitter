@@ -50,14 +50,24 @@ const HeroSearch = ({
         "
       >
         
-        <h1 className="relative text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-center tracking-tight">
-          Find the right expert for your journey.
-        </h1>
+        {/* 🔗 How to book — scrolls to the 3-step section */}
+      <button
+        type="button"
+        onClick={() =>
+          document.getElementById("how-to-book")?.scrollIntoView({ behavior: "smooth", block: "start" })
+        }
+        className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 text-[11px] sm:text-xs font-semibold text-white/90 hover:text-white underline underline-offset-2 transition-colors"
+      >
+        How to book?
+      </button>
 
-        <p className="relative text-white/80 text-center mt-3 text-sm sm:text-base">
+      <h1 className="relative text-xl sm:text-2xl lg:text-3xl font-bold text-white text-center tracking-tight">
+        Find the right expert for your journey.
+      </h1>
+      <p className="relative text-white/80 text-center mt-3 text-sm sm:text-base">
           Connect with trusted doctors and specialists instantly.
         </p>
-      </div>
+    </div>
 
       {/* Search Bar */}
       <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[95%] max-w-4xl px-2">
