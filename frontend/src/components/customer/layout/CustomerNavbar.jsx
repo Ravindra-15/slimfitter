@@ -222,7 +222,7 @@ const CustomerNavbar = () => {
                     onClick={handleAddProgressClick}
                     className="
                       relative text-sm font-medium tracking-wide whitespace-nowrap
-                      text-gray-600 hover:text-teal-700
+                      text-[#6B7280] hover:text-[#4E4391]
                       transition-all duration-300 hover:-translate-y-[1px]
                       after:absolute after:left-0 after:-bottom-1
                       after:h-[2px] after:w-0 after:bg-[#4E4391] after:rounded-full
@@ -254,7 +254,7 @@ const CustomerNavbar = () => {
                     onClick={handleProgramsClick}
                     className="
                     relative text-sm font-medium tracking-wide whitespace-nowrap
-                    text-gray-600 hover:text-teal-700
+                    text-[#6B7280] hover:text-[#4E4391]
                     transition-all duration-300 hover:-translate-y-[1px]
                     after:absolute after:left-0 after:-bottom-1
                     after:h-[2px] after:w-0 after:bg-[#4E4391] after:rounded-full
@@ -274,11 +274,7 @@ const CustomerNavbar = () => {
                       after:h-[2px] after:w-0
                       after:bg-[#4E4391] after:rounded-full
                       after:transition-all after:duration-300
-                      hover:after:w-full ${
-                        isActive
-                          ? "text-[#083B44] hover:text-[#4E4391]"
-                          : "text-[#6B7280] hover:text-[#4E4391]"
-                      }`
+                      hover:after:w-full text-[#6B7280] hover:text-[#4E4391]`
                     }
                   >
                     {link.label}
@@ -356,39 +352,7 @@ const CustomerNavbar = () => {
         {mobileOpen && (
           <div className="lg:hidden border-t border-[#E3DFF0] bg-white">
             <div className="px-4 py-3 flex flex-col gap-1">
-              {/* {links.map((link) =>
-                link.to.includes("#") ? (
-                  <a
-                    key={link.to}
-                    href={link.to}
-                    onClick={handleProgramsClick}
-                    className="
-        px-3 py-2 rounded-lg text-sm font-medium
-        text-[#6B7280]
-        hover:bg-[#EEF2FF]
-        hover:text-[#4F46E5]
-        transition-all duration-300
-      "
-                  >
-                    {link.label}
-                  </a>
-                ) : (
-                  <NavLink
-                    key={link.to}
-                    to={link.to}
-                    onClick={closeMobile}
-                    className={({ isActive }) =>
-                      `px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                        isActive
-                          ? "bg-[#EEF2FF] text-[#4F46E5]"
-                          : "text-[#374151] hover:bg-[#EEF2FF] hover:text-[#4F46E5]"
-                      }`
-                    }
-                  >
-                    {link.label}
-                  </NavLink>
-                ),
-              )} */}
+            
               {links.map((link) =>
                 link.isAddProgress ? (
                   <a
@@ -414,12 +378,12 @@ const CustomerNavbar = () => {
                     href={link.to}
                     onClick={handleProgramsClick}
                     className="
-        px-3 py-2 rounded-lg text-sm font-medium
-        text-gray-600
-        hover:bg-teal-50
-        hover:text-teal-700
-        transition-all duration-300
-      "
+                      px-3 py-2 rounded-lg text-sm font-medium
+                      text-gray-600
+                      hover:bg-teal-50
+                      hover:text-teal-700
+                      transition-all duration-300
+                    "
                   >
                     {link.label}
                   </a>
@@ -428,13 +392,7 @@ const CustomerNavbar = () => {
                     key={link.to}
                     to={link.to}
                     onClick={closeMobile}
-                    className={({ isActive }) =>
-                      `px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                        isActive
-                          ? "bg-[#EEF2FF] text-[#4F46E5]"
-                          : "text-gray-700 hover:bg-gray-50"
-                      }`
-                    }
+                    className="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-gray-700 hover:bg-gray-50"
                   >
                     {link.label}
                   </NavLink>
@@ -446,7 +404,7 @@ const CustomerNavbar = () => {
                   <NavLink
                     to="/notifications"
                     onClick={closeMobile}
-                    className="px-3 py-2 rounded-lg text-sm font-medium text-[#374151] hover:bg-[#EEF2FF] hover:text-[#4F46E5]"
+                    className="px-3 py-2 rounded-lg text-sm font-medium text-[#374151] hover:bg-[#EFEDFA] hover:text-[#4E4391]"
                   >
                     Notifications
                   </NavLink>
@@ -460,7 +418,7 @@ const CustomerNavbar = () => {
                     className="
                       mt-1 px-4 py-2 rounded-full self-start
                       text-xs font-semibold text-white
-                      bg-[#4E4391] hover:bg- [#4E4391]
+                      bg-[#4E4391] hover:bg-[#4E4391]
                       transition-colors
                     "
                   >
@@ -477,7 +435,7 @@ const CustomerNavbar = () => {
                   className="
                     mt-1 px-4 py-2 rounded-full self-start
                     text-xs font-semibold text-white
-                    bg-[#4E4391] hover:bg- [#4E4391]
+                    bg-[#4E4391] hover:bg-[#4E4391]
                     transition-colors
                   "
                 >
