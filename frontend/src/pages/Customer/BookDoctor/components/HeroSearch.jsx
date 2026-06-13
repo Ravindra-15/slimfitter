@@ -5,7 +5,7 @@
  * Below: clickable specialty chips that filter the doctor list.
  */
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Search } from "lucide-react";
 
 // ============================================
@@ -32,6 +32,30 @@ const HeroSearch = ({
     // Click again to clear (toggle off)
     onSpecialtyChange(specialty === value ? "" : value);
   };
+
+  // 🔎 Auto-select a chip when the search text (3+ chars) partially matches it.
+  // Auto-deselects when the search no longer matches any chip.
+  useEffect(() => {
+    const q = search.trim().toLowerCase();
+
+    // too short → clear any auto-selected chip
+    if (q.length < 3) {
+      if (specialty) onSpecialtyChange("");
+      return;
+    }
+
+    // find first chip whose name contains the typed text
+    const matched = SPECIALTIES.find((item) =>
+      item.toLowerCase().includes(q)
+    );
+
+    if (matched && matched !== specialty) {
+      onSpecialtyChange(matched); // select the match
+    } else if (!matched && specialty) {
+      onSpecialtyChange(""); // no match → clear
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search]);
 
  return (
   <div className="space-y-5">
