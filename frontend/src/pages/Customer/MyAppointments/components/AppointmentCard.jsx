@@ -215,7 +215,7 @@ const AppointmentCard = ({ appointment, isUpcoming = false, onUpdated }) => {
       <div className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center gap-4">
         {/* 🩺 Doctor info */}
         <div className="flex items-center gap-3 flex-1 min-w-0">
-          <div className="w-14 h-14 rounded-full overflow-hidden border border-gray-200 bg-gradient-to-br from-orange-100 to-pink-100 flex-shrink-0">
+          <div className="w-14 h-14 rounded-full overflow-hidden border border-gray-200 bg-gradient-to-br from-purple-100 to-pink-100 flex-shrink-0">
             {photoUrl ? (
               <img
                 src={photoUrl}
@@ -226,7 +226,7 @@ const AppointmentCard = ({ appointment, isUpcoming = false, onUpdated }) => {
                 }}
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center text-orange-400">
+              <div className="w-full h-full flex items-center justify-center text-[#4E4391]">
                 <User size={22} />
               </div>
             )}
@@ -239,7 +239,7 @@ const AppointmentCard = ({ appointment, isUpcoming = false, onUpdated }) => {
               </p>
               <CheckCircle2
                 size={13}
-                className="text-orange-500 flex-shrink-0"
+                className="text-[#4E4391] flex-shrink-0"
               />
             </div>
 
@@ -281,16 +281,16 @@ const AppointmentCard = ({ appointment, isUpcoming = false, onUpdated }) => {
       {/* ============================================ */}
       {(canJoinVideo || canMarkComplete || canCancel) && (
         <div className="px-4 sm:px-5 pb-4 flex flex-wrap gap-2">
+        
           {canJoinVideo && (
-            <a
-              href={meetingLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-white bg-[#4E4391] hover:bg-[#3E356F] transition-colors shadow-[0_4px_10px_rgba(78,67,145,0.25)]"
+            <button
+              type="button"
+              onClick={() => setExpanded(true)}
+              className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-white bg-[#4E4391] hover:bg-[#3E356F] transition-colors shadow-[0_4px_10px_rgba(249,115,22,0.25)]"
             >
               <Video size={12} />
-              Join Video Call
-            </a>
+              See Link
+            </button>
           )}
 
           {canMarkComplete && (
@@ -368,11 +368,40 @@ const AppointmentCard = ({ appointment, isUpcoming = false, onUpdated }) => {
       >
         <div className="overflow-hidden">
           <div className="px-4 sm:px-5 pb-5 pt-1 space-y-3">
+            {/* 🔗 MEETING LINK (visible once doctor sends it) */}
+            {canJoinVideo && (
+              <div className="rounded-xl border border-purple-200 bg-purple-50/40 p-3">
+                <p className="text-[11px] text-gray-500 font-semibold tracking-wide flex items-center gap-1.5 mb-1.5">
+                  <Video size={12} className="text-[#4E4391]" />
+                  Meeting Link
+                </p>
+                <a
+                  href={meetingLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[#4E4391] hover:underline break-all"
+                >
+                  {meetingLink}
+                </a>
+                <div className="mt-2.5">
+                  <a
+                    href={meetingLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-white bg-[#4E4391] hover:bg-[#3E356F] transition-colors shadow-[0_4px_10px_rgba(249,115,22,0.25)]"
+                  >
+                    <Video size={12} />
+                    Join Now
+                  </a>
+                </div>
+              </div>
+            )}
+
             {/* 📝 PROBLEM */}
             <div className="rounded-xl border border-gray-200 bg-gray-50/40 p-3">
               <div className="flex items-center justify-between gap-2 mb-1.5">
                 <p className="text-[11px] text-gray-500 font-semibold tracking-wide flex items-center gap-1.5">
-                  <FileText size={12} className="text-orange-500" />
+                  <FileText size={12} className="text-[#4E4391]" />
                   Your Problem
                 </p>
                 {/* edit button — only while upcoming */}
@@ -380,7 +409,7 @@ const AppointmentCard = ({ appointment, isUpcoming = false, onUpdated }) => {
                   <button
                     type="button"
                     onClick={openProblemModal}
-                    className="inline-flex items-center gap-1 text-[11px] font-semibold text-orange-600 hover:underline flex-shrink-0"
+                    className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#4E4391] hover:underline flex-shrink-0"
                   >
                     <Pencil size={11} />
                     {localNotes ? "Edit" : "Add"}
@@ -463,7 +492,7 @@ const AppointmentCard = ({ appointment, isUpcoming = false, onUpdated }) => {
             type="button"
             onClick={handleSaveNotes}
             disabled={!draft.trim() || savingNotes}
-            className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full text-sm font-semibold text-white bg-[#4E4391] hover:bg-[#3E356F] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {savingNotes && <Loader2 size={14} className="animate-spin" />}
             Save
