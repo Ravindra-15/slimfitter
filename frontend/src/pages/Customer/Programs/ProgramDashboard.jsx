@@ -421,113 +421,150 @@ export default function ProgramDashboard() {
           {/* ══════════════════════════════════════════════════ */}
           {/* 🎬 VIDEO CARD                                       */}
 
-          {/* Video Card */}
-          <div className="bg-white rounded-[28px] border border-[#E3DFF0] shadow-[0_10px_30px_rgba(15,23,42,0.05)] p-5">
-            {loadingVideo ? (
-              <p className="py-10 text-center text-sm text-[#9CA3AF]">
-                Loading video...
-              </p>
-            ) : !video ? (
-              <div className="py-10 text-center">
-                <p className="text-sm text-[#6B7280] mb-2">
-                  No videos available yet.
-                </p>
+          {/* ══════════════════════════════════════════════════ */}
+{/* 🎬 VIDEO CARD + DAILY MOTIVATION                    */}
+{/* ══════════════════════════════════════════════════ */}
+{(() => {
+  // Opens today's video AND starts the 24hr countdown (advances the queue).
+  // Visiting the video IS the trigger — no separate "Mark Complete".
+  const startVideo = () => {
+    if (!video?.videoUrl) return;
+    // open synchronously so the browser doesn't block the popup
+    window.open(video.videoUrl, "_blank", "noopener,noreferrer");
+    if (completedToday || markingComplete) return;
+    setMarkingComplete(true);
+    markVideoComplete(video._id)
+      .then(() => loadVideo())
+      .catch(() => {})
+      .finally(() => setMarkingComplete(false));
+  };
 
-                <p className="text-xs text-[#9CA3AF]">
-                  Check back soon — new content is uploaded regularly.
-                </p>
-              </div>
-            ) : (
-              <div className="flex flex-col sm:flex-row items-start gap-5">
-                {/* Thumbnail */}
-                <a
-                  href={video.videoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative w-full sm:w-52 h-32 rounded-2xl overflow-hidden shrink-0 group"
-                >
-                  <img
-                    src={buildThumbnailSrc(video.thumbnailUrl)}
-                    alt={video.title}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.src =
-                        "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80";
-                    }}
-                  />
-
-                  <div className="absolute inset-0 bg-black/25 group-hover:bg-black/40 flex items-center justify-center transition-colors">
-                    <div className="w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center">
-                      <Play
-                        size={18}
-                        className="text-white ml-0.5"
-                        fill="white"
-                      />
-                    </div>
-                  </div>
-                </a>
-
-                {/* Video Info */}
-                <div className="flex-1 min-w-0">
-                  <p className="text-[#4E4391] font-semibold text-sm">
-                    {programTitle}
-
-                    {videoData?.isScheduled && (
-                      <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-md bg-[#EFEDFA] text-[#4E4391] text-[10px] font-bold">
-                        Today's Special
-                      </span>
-                    )}
-                  </p>
-
-                  <p className="text-[#1F2937] font-semibold text-base mt-0.5 leading-snug">
-                    {video.title}
-                  </p>
-
-                  {video.duration && (
-                    <p className="text-xs text-[#9CA3AF] mt-1">
-                      {video.duration}
-                    </p>
-                  )}
-
-                  <div className="flex flex-wrap gap-3 mt-4">
-                    <a
-                      href={video.videoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-[#4E4391] hover:bg-[#4E4391] text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-[0_8px_20px_rgba(78,67,145,0.22)] transition-all duration-200"
-                    >
-                      <Play size={13} fill="white" />
-                      Play Video
-                    </a>
-
-                    <button
-                      onClick={handleMarkComplete}
-                      disabled={completedToday || markingComplete}
-                      className={`inline-flex items-center gap-2 text-sm font-semibold px-6 py-2.5 rounded-full border transition-colors disabled:cursor-not-allowed ${
-                        completedToday
-                          ? "bg-[#ECFDF3] border-[#ABEFC6] text-[#027A48]"
-                          : "border-[#D6D1EC] text-[#6B7280] hover:border-[#4E4391] hover:text-[#4E4391]"
-                      }`}
-                    >
-                      <Check size={13} />
-
-                      {completedToday
-                        ? "Completed ✓"
-                        : markingComplete
-                          ? "Saving..."
-                          : "Mark as Complete"}
-                    </button>
-                  </div>
-
-                  {completedToday && (
-                    <p className="text-xs text-[#9CA3AF] mt-3">
-                      Great job! Your next video unlocks tomorrow.
-                    </p>
-                  )}
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch">
+      {/* ── LEFT: Video Card ───────────────────────── */}
+      <div className="bg-white rounded-[28px] border border-[#E3DFF0] shadow-[0_10px_30px_rgba(15,23,42,0.05)] p-5 sm:p-6 flex flex-col">
+        {loadingVideo ? (
+          <div className="flex-1 flex items-center justify-center py-10">
+            <p className="text-sm text-[#9CA3AF]">Loading video...</p>
+          </div>
+        ) : !video ? (
+          <div className="flex-1 flex flex-col items-center justify-center py-10 text-center">
+            <p className="text-sm text-[#6B7280] mb-2">No videos available yet.</p>
+            <p className="text-xs text-[#9CA3AF]">
+              Check back soon — new content is uploaded regularly.
+            </p>
+          </div>
+        ) : (
+          <>
+            {/* Thumbnail (click = start) */}
+            <button
+              type="button"
+              onClick={startVideo}
+              className="relative w-full h-48 sm:h-56 rounded-2xl overflow-hidden group"
+            >
+              <img
+                src={buildThumbnailSrc(video.thumbnailUrl)}
+                alt={video.title}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.currentTarget.src =
+                    "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80";
+                }}
+              />
+              <div className="absolute inset-0 bg-black/25 group-hover:bg-black/40 flex items-center justify-center transition-colors">
+                <div className="w-12 h-12 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center">
+                  <Play size={20} className="text-white ml-0.5" fill="white" />
                 </div>
               </div>
-            )}
-          </div>
+            </button>
+
+            {/* Info + CTA */}
+            <div className="mt-4 flex-1 flex flex-col">
+              <p className="text-[#4E4391] font-semibold text-sm">
+                {programTitle}
+                {videoData?.isScheduled && (
+                  <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-md bg-[#EFEDFA] text-[#4E4391] text-[10px] font-bold">
+                    Today's Special
+                  </span>
+                )}
+              </p>
+
+              <p className="text-[#1F2937] font-semibold text-base mt-0.5 leading-snug">
+                {video.title}
+              </p>
+
+              {video.duration && (
+                <p className="text-xs text-[#9CA3AF] mt-1">{video.duration}</p>
+              )}
+
+              <div className="mt-auto pt-4">
+                <button
+                  type="button"
+                  onClick={startVideo}
+                  disabled={markingComplete}
+                  className={`inline-flex items-center gap-2 text-sm font-semibold px-8 py-2.5 rounded-full transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-70 ${
+                    completedToday
+                      ? "bg-[#ECFDF3] border border-[#ABEFC6] text-[#027A48]"
+                      : "bg-[#4E4391] hover:bg-[#3E356F] text-white shadow-[0_8px_20px_rgba(78,67,145,0.22)]"
+                  }`}
+                >
+                  <Play size={13} fill={completedToday ? "#027A48" : "white"} />
+                  {markingComplete
+                    ? "Opening..."
+                    : completedToday
+                      ? "Watch Again"
+                      : "Start"}
+                </button>
+
+                {completedToday && (
+                  <p className="text-xs text-[#9CA3AF] mt-3">
+                    Great job! Your next video unlocks tomorrow.
+                  </p>
+                )}
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+
+      {/* ── RIGHT: Daily Motivation (desktop only) ──── */}
+      <div className="hidden lg:flex flex-col justify-between relative overflow-hidden rounded-[28px] p-8 text-white bg-gradient-to-br from-[#4E4391] to-[#3E356F] shadow-[0_10px_30px_rgba(78,67,145,0.25)]">
+        {/* decorative circles */}
+        <div className="absolute -top-12 -right-10 w-44 h-44 rounded-full bg-white/10" />
+        <div className="absolute -bottom-14 -left-10 w-48 h-48 rounded-full bg-white/5" />
+
+        <div className="relative">
+          <span className="inline-flex items-center gap-1.5 text-[11px] font-bold tracking-wide uppercase bg-white/15 px-3 py-1 rounded-full">
+            ✨ Daily Motivation
+          </span>
+
+          <h3 className="text-2xl font-bold mt-5 leading-snug">
+            Small steps, big change.
+          </h3>
+
+          <p className="text-white/85 text-sm mt-3 leading-relaxed">
+            {
+              [
+                "Rest fuels progress — a calm mind today sets up a strong week.",
+                "Fresh week, fresh start. One small habit today compounds into big change.",
+                "Consistency beats intensity — just show up today, even for a few minutes.",
+                "Halfway through the week. Keep the momentum going with today's session.",
+                "Progress isn't always visible, but every day counts. Stay with it.",
+                "Finish the week strong — your future self will thank you.",
+                "A little movement today keeps your streak alive. You've got this.",
+              ][new Date().getDay()]
+            }
+          </p>
+        </div>
+
+        <div className="relative mt-6 flex items-center gap-2 text-sm font-semibold text-white/90">
+          <span className="text-lg leading-none">←</span>
+          Today's session is waiting
+        </div>
+      </div>
+    </div>
+  );
+})()}
 
          {/* 📅 UPCOMING APPOINTMENT (any booking) */}
           {/* <div className="bg-white rounded-[28px] border border-[#E3DFF0] shadow-[0_10px_30px_rgba(15,23,42,0.05)] p-6">
