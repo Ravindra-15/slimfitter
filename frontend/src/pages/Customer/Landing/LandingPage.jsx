@@ -1,6 +1,8 @@
 // Yoga T20 - Landing Page
 // Final section order matching figma flow
 
+import { useEffect } from "react";
+import { captureReferralFromUrl } from "../../../utils/referral";
 import CustomerNavbar from "../../../components/customer/layout/CustomerNavbar";
 import CustomerFooter from "../../../components/customer/layout/CustomerFooter";
 import HeroSection from "./sections/HeroSection";
@@ -19,6 +21,11 @@ import TrackDailyWinsSection from "./sections/TrackDailyWinsSection";
 import WhyNotWorkedSection from "./sections/WhyNotWorkedSection";
 
 export default function LandingPage() {
+  // 🔗 capture ?ref= referral code from the URL on landing
+  useEffect(() => {
+    captureReferralFromUrl();
+  }, []);
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <CustomerNavbar />
