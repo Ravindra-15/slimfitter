@@ -257,10 +257,21 @@ export default function ProgramDashboard() {
         const appointments = result?.appointments || [];
 
         // free-consult appointments for THIS program (any state) → fill cards, oldest first
+        // const planAppts = appointments
+        //   .filter((a) => a.paidWithPlanCredit && a.platform === id)
+        //   .sort((a, b) => new Date(a.scheduledAt) - new Date(b.scheduledAt));
+        // setUpcomingAppointments(planAppts);
         const planAppts = appointments
-          .filter((a) => a.paidWithPlanCredit && a.platform === id)
-          .sort((a, b) => new Date(a.scheduledAt) - new Date(b.scheduledAt));
-        setUpcomingAppointments(planAppts);
+  .filter((a) => a.paidWithPlanCredit && a.platform === id)
+  .sort((a, b) => {
+    const aCancelled = a.status === "cancelled" ? 1 : 0;
+    const bCancelled = b.status === "cancelled" ? 1 : 0;
+    // active cards first; cancelled pushed to the end
+    if (aCancelled !== bCancelled) return aCancelled - bCancelled;
+    // within the same group, keep chronological order
+    return new Date(a.scheduledAt) - new Date(b.scheduledAt);
+  });
+setUpcomingAppointments(planAppts);
 
         // upcoming (any booking, not cancelled) → separate "Upcoming Appointment" card
         const upcoming = appointments
@@ -792,15 +803,38 @@ export default function ProgramDashboard() {
                   </div>
                 )}
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-                  {Array.from({ length: 4 }).map((_, i) => {
-                    const isWithinPlan = i < entitlement;
-                    const appt = upcomingAppointments[i];
-                    const slotNo = i + 1;
-                    const cardBase =
-                      "rounded-2xl border-2 px-5 py-5 min-h-[120px] flex flex-col justify-center transition-all";
+                {(() => {
+                  // top group: genuinely active (booked/pending/confirmed)
+                  const activeAppts = upcomingAppointments.filter(
+                    (a) => !["cancelled", "completed"].includes(a.status)
+                  );
+                  // bottom group: completed/cancelled → pushed below bookable slots
+                  const doneAppts = upcomingAppointments.filter(
+                    (a) => ["cancelled", "completed"].includes(a.status)
+                  );
+                  const openCount = Math.max(
+                    0,
+                    entitlement - activeAppts.length - doneAppts.length
+                  );
+                  // order: active → bookable (open) → completed/cancelled last
+                  const slots = [
+                    ...activeAppts.map((appt) => ({ kind: "appt", appt })),
+                    ...Array.from({ length: openCount }, () => ({ kind: "open" })),
+                    ...doneAppts.map((appt) => ({ kind: "appt", appt })),
+                  ].slice(0, 4);
+                  while (slots.length < 4) slots.push({ kind: "locked" });
 
-                    if (!isWithinPlan) {
+                  return (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+                      {slots.map((slot, i) => {
+                        const isWithinPlan = i < entitlement || slot.kind === "appt";
+                        const appt = slot.kind === "appt" ? slot.appt : null;
+                        const slotNo = i + 1;
+                        const cardBase =
+                          "rounded-2xl border-2 px-5 py-5 min-h-[120px] flex flex-col justify-center transition-all";
+
+                        // Locked slot (beyond plan entitlement)
+                        if (slot.kind === "locked") {
                       return (
                         <div
                           key={i}
@@ -890,7 +924,7 @@ export default function ProgramDashboard() {
                       );
                     }
 
-                    if (planCreditsLeft > 0) {
+                    if (slot.kind === "open" && planCreditsLeft > 0) {
                       return (
                         <button
                           key={i}
@@ -934,9 +968,11 @@ export default function ProgramDashboard() {
                           </div>
                         </div>
                       </div>
-                    );
-                  })}
-                </div>
+                   );
+                      })}
+                    </div>
+                  );
+                })()}
               </>
             )}
           </div>
