@@ -57,7 +57,7 @@ export default function MyPlansAndBillings() {
         ]);
         setSummary(s?.consultations || { totalCompleted: 0 });
         setTransactions(t || []);
-        ssetSubscription(sub?.subscription || null);
+        setSubscription(sub?.subscription || null);
         setPendingRenewal(sub?.pendingRenewal || null);
         setPendingList(sub?.pendingList || []);
       } catch {
