@@ -434,9 +434,10 @@ const AppointmentCard = ({ appointment, isUpcoming = false, onUpdated }) => {
                   <Pill size={12} className="text-indigo-500" />
                   Prescription from Doctor
                 </p>
-                <p className="text-sm text-gray-800 whitespace-pre-wrap break-words leading-relaxed">
-                  {prescription}
-                </p>
+                <div
+                  className="text-sm text-gray-800 break-words leading-relaxed rx-content"
+                  dangerouslySetInnerHTML={{ __html: prescription }}
+                />
               </div>
             ) : (
               <div className="rounded-xl border border-gray-200 bg-gray-50/40 p-3">
@@ -554,6 +555,18 @@ const AppointmentCard = ({ appointment, isUpcoming = false, onUpdated }) => {
         doctorId={doctorIdForSlots}
         themeColor="#4E4391"
       />
+      <style>{`
+        .rx-content ul { list-style: disc; padding-left: 1.25rem; margin: 0.25rem 0; }
+        .rx-content ol { list-style: decimal; padding-left: 1.25rem; margin: 0.25rem 0; }
+        .rx-content li { margin: 0.15rem 0; }
+        .rx-content h1 { font-size: 1.125rem; font-weight: 700; margin: 0.4rem 0; }
+        .rx-content h2 { font-size: 1rem; font-weight: 700; margin: 0.4rem 0; }
+        .rx-content h3 { font-size: 0.95rem; font-weight: 600; margin: 0.3rem 0; }
+        .rx-content p { margin: 0.2rem 0; }
+        .rx-content a { color: #4F46E5; text-decoration: underline; }
+        .rx-content strong { font-weight: 700; }
+        .rx-content em { font-style: italic; }
+      `}</style>
     </div>
   );
 };
