@@ -5,10 +5,11 @@
 
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { X, Shield, CreditCard, Calendar } from "lucide-react";
+import { X, Shield, CreditCard, Calendar, Lock } from "lucide-react";
 import toast from "react-hot-toast";
 import { subscribeToProgram } from "../../../services/programService";
 import { getSubscriptionRedirect } from "../../../utils/subscriptionGuard";
+import { fetchMyReferrer } from "../../../services/customerReferralService";
 
 export default function ProgramCheckout() {
   const { id } = useParams();
@@ -26,9 +27,10 @@ export default function ProgramCheckout() {
     expiry: "",
     cvv: "",
     cardHolder: "",
-    referralCode: "",
   });
   const [loading, setLoading] = useState(false);
+  // 🔒 name of whoever sent the referral link (read-only; empty if nobody did)
+  const [referrerName, setReferrerName] = useState("");
 
   // ============================================
   // 🔒 ACCESS GATE
@@ -38,6 +40,25 @@ export default function ProgramCheckout() {
     const redirect = getSubscriptionRedirect(`/programs/${id}/checkout`);
     if (redirect) navigate(redirect, { replace: true });
   }, [id, navigate]);
+
+  // ============================================
+  // 👤 REFERRAL NAME
+  // Who sent the link — shown read-only so the friend knows (hidden if nobody)
+  // ============================================
+  useEffect(() => {
+    let mounted = true;
+    (async () => {
+      try {
+        const name = await fetchMyReferrer();
+        if (mounted && name) setReferrerName(name);
+      } catch {
+        // soft fail — checkout works fine without the referral name
+      }
+    })();
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   const handle = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -65,7 +86,6 @@ export default function ProgramCheckout() {
         programId: id,
         // weekly programs send weeks; fixed programs send tenure
         ...(pricingType === "weekly" ? { weeks } : { tenure }),
-        referralCode: form.referralCode || null,
       });
       toast.success("Subscription activated successfully!");
       setTimeout(() => {
@@ -148,23 +168,26 @@ export default function ProgramCheckout() {
               </div>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-[#374151] mb-2">
-                Referral Code
-              </label>
-              <div className="flex gap-3">
-                <input
-                  name="referralCode"
-                  value={form.referralCode}
-                  onChange={handle}
-                  placeholder="Enter referral code"
-                  className="flex-1 border border-[#D6D1EC] rounded-2xl px-4 py-3 text-sm outline-none focus:border-[#4E4391] transition-colors"
-                />
-                <button className="px-5 rounded-2xl border border-[#D6D1EC] text-[#4E4391] font-semibold hover:bg-[#EFEDFA] transition-colors text-sm">
-                  Apply
-                </button>
+            {/* 🔒 Read-only — shows who sent the referral link (hidden if nobody did) */}
+            {referrerName && (
+              <div>
+                <label className="block text-sm font-medium text-[#374151] mb-2">
+                  Referral Name
+                </label>
+                <div className="relative">
+                  <input
+                    value={referrerName}
+                    readOnly
+                    aria-readonly="true"
+                    className="w-full border border-[#D6D1EC] bg-[#EFEDFA] rounded-2xl pl-4 pr-11 py-3 text-sm font-medium text-[#374151] outline-none cursor-not-allowed"
+                  />
+                  <Lock
+                    size={15}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
+                  />
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           {/* RIGHT */}
