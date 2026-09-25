@@ -2,11 +2,35 @@
  * CUSTOMER MODULE — Time Slot Grid
  * 3-column grid of slot times. Selected = orange filled, available = gray, blocked = dimmed.
  * Receives slots from useDoctorDayAvailability and emits selection upward.
+ *
+ * 🌍 Timezone: the backend sends each slot's "time" as the DOCTOR's own
+ * local wall-clock label (e.g. "09:00" = 9 AM where they practice), and
+ * `doctorTimezone` alongside it. We convert that through the doctor's zone
+ * into the real instant, then display it in the VIEWER's own detected
+ * zone — so a patient in another country sees their own local time, not
+ * the doctor's raw number. If that real instant falls on a different
+ * calendar day for the viewer than the doctor's `date` (very possible
+ * across a big zone gap), a small "+1 day"/"-1 day" badge makes that
+ * explicit instead of leaving it ambiguous.
+ *
+ * ⏰ Staleness: the slot list is fetched once per date change, but the
+ * clock keeps moving while the patient sits on the page. A slot the
+ * server said was bookable a few minutes ago can become past without a
+ * refetch. We re-check every 30s client-side and HIDE (not just gray
+ * out) anything that's now in the past — matching the doctor's own
+ * calendar, which already hides past slots.
  */
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { CalendarOff } from "lucide-react";
-import { formatSlot24h } from "../../../../services/doctorAvailabilityService";
+import {
+  formatUtcTime12h,
+  buildZonedSlotDate,
+  getZonedDateStr,
+  DEFAULT_TIMEZONE,
+} from "../../../../utils/time";
+
+const SLOT_DURATION_MINUTES = 30;
 
 // ============================================
 // 📋 COMPONENT
@@ -17,7 +41,17 @@ const TimeSlotGrid = ({
   onSelect,
   loading = false,
   noDateSelected = false,
+  date, // "YYYY-MM-DD" — the doctor-local calendar date these slots belong to
+  doctorTimezone = DEFAULT_TIMEZONE,
 }) => {
+  // ⏰ Ticks every 30s so slots disappear live as their time passes,
+  // without needing a full refetch of the day's availability.
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => {
+    const id = setInterval(() => setNow(Date.now()), 30_000);
+    return () => clearInterval(id);
+  }, []);
+
   // ⏳ Loading state
   if (loading) {
     return (
@@ -40,9 +74,20 @@ const TimeSlotGrid = ({
     );
   }
 
-  // 🚫 Empty (doctor not open this day, or fully booked/blocked)
-  const hasAnyBookable = slots.some((s) => s.isBookable);
-  if (!hasAnyBookable) {
+  // 🌍 Real instant for each slot + whether it's already past RIGHT NOW
+  // (not just as of whenever the data was fetched).
+  const withInstants = slots.map((slot) => {
+    const instant = date ? buildZonedSlotDate(date, slot.time, doctorTimezone) : null;
+    const isPastNow = instant
+      ? instant.getTime() + SLOT_DURATION_MINUTES * 60000 <= now
+      : false;
+    return { ...slot, instant, isPastNow };
+  });
+
+  // 🚫 Empty (doctor not open this day, fully booked/blocked, or everything
+  // remaining has just ticked into the past)
+  const bookableSlots = withInstants.filter((s) => s.isBookable && !s.isPastNow);
+  if (bookableSlots.length === 0) {
     return (
       <div className="text-center py-10">
         <div className="w-10 h-10 rounded-full bg-[#EFEDFA] flex items-center justify-center mx-auto mb-3">
@@ -58,36 +103,52 @@ const TimeSlotGrid = ({
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
-      {slots
-        .filter((slot) => slot.isBookable)
-        .map((slot) => {
-          const isSelected = selectedTime === slot.time;
-          const disabled = !slot.isBookable;
+      {bookableSlots.map((slot) => {
+        const isSelected = selectedTime === slot.time;
 
-          return (
-            <button
-              key={slot.time}
-              type="button"
-              onClick={() => !disabled && onSelect(slot.time)}
-              disabled={disabled}
-              className={`
-              h-10 rounded-lg
+        // 🌍 Convert the doctor-local "HH:MM" label into the real instant,
+        // then show it in the viewer's own zone.
+        const label = slot.instant ? formatUtcTime12h(slot.instant.toISOString()) : slot.time;
+        const dayShift =
+          slot.instant && date
+            ? (() => {
+                const viewerDate = getZonedDateStr(slot.instant);
+                if (viewerDate === date) return 0;
+                return viewerDate > date ? 1 : -1;
+              })()
+            : 0;
+
+        return (
+          <button
+            key={slot.time}
+            type="button"
+            onClick={() => onSelect(slot.time)}
+            className={`
+              relative h-10 rounded-lg
               text-xs sm:text-sm font-semibold
               transition-colors border
               ${
                 isSelected
                   ? "bg-[#4E4391] text-white border-[#4E4391] shadow-[0_8px_18px_rgba(78,67,145,0.22)]"
-                  : disabled
-                    ? "bg-[#EFEDFA] text-gray-300 border-[#E3DFF0] cursor-not-allowed"
-                    : "bg-white text-[#374151] border-[#E3DFF0] hover:border-[#4E4391]/40 hover:bg-[#EFEDFA]"
+                  : "bg-white text-[#374151] border-[#E3DFF0] hover:border-[#4E4391]/40 hover:bg-[#EFEDFA]"
               }
             `}
-              aria-pressed={isSelected}
-            >
-              {formatSlot24h(slot.time)}
-            </button>
-          );
-        })}
+            aria-pressed={isSelected}
+            title={
+              dayShift
+                ? `${label} your time (${dayShift > 0 ? "next" : "previous"} day)`
+                : `${label} your time`
+            }
+          >
+            {label}
+            {dayShift !== 0 && (
+              <sup className="ml-0.5 text-[9px] font-bold align-super">
+                {dayShift > 0 ? "+1" : "-1"}
+              </sup>
+            )}
+          </button>
+        );
+      })}
     </div>
   );
 };

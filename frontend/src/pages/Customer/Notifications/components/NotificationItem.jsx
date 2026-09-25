@@ -12,6 +12,7 @@ import {
   Clock,
 } from "lucide-react";
 import { PROGRAM_ID } from "../../../../utils/programConfig";
+import { formatUtcDate } from "../../../../utils/time";
 
 const typeMeta = {
   appointment_confirmed: {
@@ -63,7 +64,7 @@ const formatTimeAgo = (date) => {
   if (diff < 3600) return `${Math.floor(diff / 60)} min ago`;
   if (diff < 86400) return `${Math.floor(diff / 3600)} hours ago`;
   if (diff < 604800) return `${Math.floor(diff / 86400)} days ago`;
-  return new Date(date).toLocaleDateString();
+  return formatUtcDate(date); // 🌍 viewer's own zone, older than a week
 };
 
 export default function NotificationItem({ notification, onClick }) {
