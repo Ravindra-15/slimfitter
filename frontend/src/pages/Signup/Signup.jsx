@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 import { useGoogleLogin } from "@react-oauth/google";
 import { googleAuth } from "../../services/authService";
 import { useAuth } from "../../context/AuthContext";
+import CountryCodeSelect from "../../components/common/CountryCodeSelect";
+import { DEFAULT_COUNTRY } from "../../data/countries";
 import { hasActiveProgramSubscription } from "../../utils/subscriptionCheck";
 import { PROGRAM_ID } from "../../utils/programConfig";
 import {
@@ -86,6 +88,7 @@ const Signup = () => {
   }, []);
 
   const [form, setForm] = useState({ email: "", password: "", phone: "" });
+  const [country, setCountry] = useState(DEFAULT_COUNTRY);
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [agreed, setAgreed] = useState(false);
@@ -93,11 +96,14 @@ const Signup = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // ✅ Normalize email on input
-    setForm({
-      ...form,
-      [name]: name === "email" ? value.toLowerCase().trim() : value,
-    });
+    let nextValue = value;
+    if (name === "email") nextValue = value.toLowerCase().trim();
+    // 📱 Phone — digits only, capped at the selected country's max length
+    if (name === "phone") {
+      nextValue = value.replace(/\D/g, "").slice(0, country.max);
+    }
+
+    setForm({ ...form, [name]: nextValue });
 
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: false }));
   };
@@ -121,7 +127,7 @@ const Signup = () => {
       else phoneRef.current?.focus();
     }
 
-    const error = validateSignup(form);
+    const error = validateSignup({ ...form, country });
     if (error) {
       // validator failed — if it's about a specific field, ring it
       const lower = error.toLowerCase();
@@ -138,7 +144,7 @@ const Signup = () => {
     try {
       setLoading(true);
       const { ref, refProgram } = getStoredReferral();
-      await signupUser({ ...form, ref, refProgram });
+      await signupUser({ ...form, ref, refProgram, countryCode: `+${country.dialCode}` });
 
       // ✅ Clear old session so OTP page doesn't redirect to home
       localStorage.removeItem("token");
@@ -283,13 +289,21 @@ const Signup = () => {
 
             {/* Phone */}
             <div className="flex w-full gap-2">
-              <div className="border border-gray-300 rounded-xl px-3 flex items-center text-sm bg-gray-100">
-                +91
-              </div>
+              <CountryCodeSelect
+                value={country}
+                onChange={(c) => {
+                  setCountry(c);
+                  // 🔁 Re-cap the already-typed number to the new country's max length
+                  setForm((prev) => ({ ...prev, phone: prev.phone.slice(0, c.max) }));
+                  if (errors.phone) setErrors((prev) => ({ ...prev, phone: false }));
+                }}
+                hasError={errors.phone}
+              />
               <input
                 ref={phoneRef}
                 type="tel"
-                placeholder="Whatsapp Number"
+                inputMode="numeric"
+                placeholder="Phone Number"
                 name="phone"
                 value={form.phone}
                 onChange={handleChange}
