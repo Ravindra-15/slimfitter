@@ -10,6 +10,7 @@ import { Calendar } from "lucide-react";
 import { getPublicProgramPlans } from "../../../services/programPlanPublicService";
 import { getSubscriptionRedirect } from "../../../utils/subscriptionGuard";
 import SubscriptionCallbackCTA from "./components/SubscriptionCallbackCTA";
+import { useCurrency } from "../../../hooks/useCurrency";
 
 const programNames = {
   yogat20: "Yoga T20",
@@ -18,7 +19,6 @@ const programNames = {
   slimfitter: "Slimfitter",
 };
 
-const formatPrice = (n) => `$${Number(n || 0).toLocaleString("en-US")}`;
 
 // 🧮 Discount for a given weeks count (mirrors backend logic)
 const getDiscount = (breakpoints, weeks) => {
@@ -50,6 +50,7 @@ export default function SelectTenure() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [weeks, setWeeks] = useState(null);
+  const { convert } = useCurrency();
 
   // 🙋 First name for heading
   let firstName = "";
@@ -246,10 +247,10 @@ export default function SelectTenure() {
           {/* Price */}
           <div className="text-center mb-7">
             <span className="text-[34px] sm:text-[40px] font-bold text-[#0F172A] leading-none">
-              {formatPrice(amount)}
+              {convert(amount)}
             </span>
             <p className="text-xs text-gray-400 mt-1">
-              for {weeks} weeks ({formatPrice(weeklyPlan.baseRatePerWeek)}/week
+              for {weeks} weeks ({convert(weeklyPlan.baseRatePerWeek)}/week
               base)
             </p>
           </div>
@@ -332,10 +333,10 @@ export default function SelectTenure() {
                       hasDiscount ? "" : "invisible"
                     }`}
                   >
-                    {formatPrice(plan.originalPrice)}
+                    {convert(plan.originalPrice)}
                   </p>
                   <p className="text-2xl font-bold text-[#0F172A] mb-4">
-                    {formatPrice(plan.offerPrice)}
+                    {convert(plan.offerPrice)}
                   </p>
                   <button
                     onClick={(e) => {

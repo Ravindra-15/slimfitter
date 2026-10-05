@@ -8,6 +8,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { X, Shield, CreditCard, Calendar, Lock } from "lucide-react";
 import toast from "react-hot-toast";
 import { subscribeToProgram } from "../../../services/programService";
+import { useCurrency } from "../../../hooks/useCurrency";
 import { getSubscriptionRedirect } from "../../../utils/subscriptionGuard";
 import { fetchMyReferrer } from "../../../services/customerReferralService";
 
@@ -18,6 +19,7 @@ export default function ProgramCheckout() {
 
   const tenure = state?.tenure || "12 Months";
   const price = state?.price || 84;
+  const { convert } = useCurrency();
   const programName = state?.programName || id;
   const pricingType = state?.pricingType || "fixed";
   const weeks = state?.weeks || null;
@@ -162,7 +164,7 @@ export default function ProgramCheckout() {
                 <div className="border-t border-[#E3DFF0] pt-3 flex items-center justify-between">
                   <span className="font-bold text-gray-800">Total</span>
                   <span className="text-3xl font-bold text-[#4E4391]">
-                    ${price}
+                    {convert(price)}
                   </span>
                 </div>
               </div>
@@ -273,7 +275,7 @@ export default function ProgramCheckout() {
                   mt-2
                 "
               >
-                {loading ? "Processing..." : `Pay $${price}`}
+                {loading ? "Processing..." : `Pay ${convert(price)}`}
               </button>
 
               <div className="flex flex-wrap items-center justify-center gap-5 pt-2">

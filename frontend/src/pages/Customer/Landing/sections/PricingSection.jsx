@@ -1,6 +1,7 @@
 // Slimfitter - Pricing Section
 
 import { useEffect, useState } from "react";
+import { useCurrency } from "../../../../hooks/useCurrency";
 import { useNavigate } from "react-router-dom";
 import { CheckCircle2, Phone } from "lucide-react";
 import { getSubscriptionRedirect } from "../../../../utils/subscriptionGuard";
@@ -16,7 +17,6 @@ const features = [
   "stand and move reminder",
 ];
 
-const formatPrice = (n) => `$${Number(n || 0).toLocaleString("en-US")}`;
 
 // 🧮 Returns { amount, unit, helper } based on plan type
 const getDisplayPrice = (plan) => {
@@ -52,6 +52,7 @@ export default function PricingSection() {
   const navigate = useNavigate();
   const [plans, setPlans] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { convert } = useCurrency();
 
   useEffect(() => {
     let mounted = true;
@@ -124,7 +125,7 @@ export default function PricingSection() {
               <div className="flex flex-col items-start">
                 <div className="flex items-start">
                   <span className="text-[36px] sm:text-[42px] lg:text-[48px] font-bold text-[#0F172A] leading-none">
-                    {cheapestPlan ? formatPrice(amount) : "$0"}
+                    {cheapestPlan ? convert(amount) : "$0"}
                   </span>
                   <span className="text-[12px] sm:text-[13px] text-[#475569] font-medium ml-1 mt-2">
                     {unit}

@@ -5,6 +5,7 @@
 import { useNavigate } from "react-router-dom";
 import { CheckCircle2, XCircle, Clock, Download } from "lucide-react";
 import { formatUtcDate } from "../../../../utils/time";
+import { formatCurrency } from "../../../../utils/currency";
 
 const statusMeta = {
   successful: { label: "Successful", icon: CheckCircle2, bg: "bg-green-50", color: "text-green-600", border: "border-green-200" },
@@ -15,11 +16,6 @@ const statusMeta = {
 
 // 🌍 Viewer's own detected zone — auto-detected, no forced UTC
 const formatDate = (date) => formatUtcDate(date);
-
-const formatAmount = (amount, currency = "USD") => {
-  const symbol = currency === "USD" ? "$" : currency === "INR" ? "₹" : "";
-  return `${symbol}${Number(amount || 0).toFixed(2)}`;
-};
 
 export default function TransactionRow({ tx, variant = "desktop" }) {
   const navigate = useNavigate();
@@ -33,7 +29,7 @@ export default function TransactionRow({ tx, variant = "desktop" }) {
 
   if (variant === "mobile") {
     return (
-      <div className="border border-[#E3DFF0] rounded-xl p-4">
+      <div className="border border-gray-100 rounded-xl p-4">
         <div className="flex items-start justify-between gap-3 mb-3">
           <div className="min-w-0">
             <p className="text-xs text-gray-400">{formatDate(tx.date)}</p>
@@ -42,7 +38,7 @@ export default function TransactionRow({ tx, variant = "desktop" }) {
             </p>
           </div>
           <p className="text-sm font-bold text-gray-800 shrink-0">
-            {formatAmount(tx.amount, tx.currency)}
+            {formatCurrency(tx.amount, tx.currency)}
           </p>
         </div>
 
@@ -56,7 +52,7 @@ export default function TransactionRow({ tx, variant = "desktop" }) {
           {canDownload ? (
             <button
               onClick={handleDownload}
-              className="flex items-center gap-1.5 bg-[#4E4391] hover:bg-[#4E4391] text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-[0_4px_14px_rgba(78,67,145,0.25)] transition-colors"
+              className="flex items-center gap-1.5 bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-[0_4px_14px_rgba(249,115,22,0.25)] transition-colors"
             >
               <Download size={12} />
               Download
@@ -70,11 +66,11 @@ export default function TransactionRow({ tx, variant = "desktop" }) {
   }
 
   return (
-    <tr className="border-b border-[#E3DFF0] last:border-0 hover:bg-[#EFEDFA]/50 transition-colors">
-      <td className="py-4 pr-4 text-xs text-[#374151]">{formatDate(tx.date)}</td>
-      <td className="py-4 pr-4 text-xs text-[#374151]">{tx.description}</td>
+    <tr className="border-b border-gray-100 last:border-0 hover:bg-gray-50/50 transition-colors">
+      <td className="py-4 pr-4 text-xs text-gray-700">{formatDate(tx.date)}</td>
+      <td className="py-4 pr-4 text-xs text-gray-700">{tx.description}</td>
       <td className="py-4 pr-4 text-xs font-semibold text-gray-800">
-        {formatAmount(tx.amount, tx.currency)}
+        {formatCurrency(tx.amount, tx.currency)}
       </td>
       <td className="py-4 pr-4">
         <span
@@ -88,7 +84,7 @@ export default function TransactionRow({ tx, variant = "desktop" }) {
         {canDownload ? (
           <button
             onClick={handleDownload}
-            className="flex items-center gap-1.5 bg-[#4E4391] hover:bg-[#4E4391] text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-[0_4px_14px_rgba(78,67,145,0.25)] transition-colors"
+            className="flex items-center gap-1.5 bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-[0_4px_14px_rgba(249,115,22,0.25)] transition-colors"
           >
             <Download size={12} />
             Download
