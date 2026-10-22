@@ -36,6 +36,7 @@ import {
 
 import Modal from "../../../../components/common/Modal";
 import RescheduleModal from "./RescheduleModal";
+import AppointmentReports from "./AppointmentReports";
 
 const PROBLEM_MAX = 200; // max characters for problem description
 
@@ -543,6 +544,9 @@ const AppointmentCard = ({ appointment, isUpcoming = false, onUpdated, onRateCon
                 </p>
               )}
             </div>
+
+            {/* 📄 MY REPORTS (add / replace while upcoming) */}
+            <AppointmentReports appointment={appointment} />
 
             {/* 💊 PRESCRIPTION (only if doctor sent it) */}
             {showPrescription ? (
