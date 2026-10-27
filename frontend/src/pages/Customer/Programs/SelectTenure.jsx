@@ -8,6 +8,7 @@ import { useEffect, useState, useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Calendar } from "lucide-react";
 import { getPublicProgramPlans } from "../../../services/programPlanPublicService";
+import { getPurchaseRules } from "../../../services/programService";
 import { getSubscriptionRedirect } from "../../../utils/subscriptionGuard";
 import SubscriptionCallbackCTA from "./components/SubscriptionCallbackCTA";
 import { useCurrency } from "../../../hooks/useCurrency";
@@ -41,6 +42,9 @@ const calcWeeklyPrice = (plan, weeks) => {
   return Math.round(base * weeks * (1 - discount / 100));
 };
 
+// 📏 plan length in months (0 = unknown → never hidden)
+const planMonths = (p) => Number(p?.durationMonths) || parseInt(p?.planName, 10) || 0;
+
 export default function SelectTenure() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -50,6 +54,7 @@ export default function SelectTenure() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [weeks, setWeeks] = useState(null);
+  const [rules, setRules] = useState(null); // 📏 new-subscriber minimum / extension steps
   const { convert } = useCurrency();
 
   // 🙋 First name for heading
@@ -69,7 +74,11 @@ export default function SelectTenure() {
       setLoading(true);
       setError(null);
       try {
-        const fetched = await getPublicProgramPlans(id);
+        const [fetched, purchaseRules] = await Promise.all([
+          getPublicProgramPlans(id),
+          getPurchaseRules(id).catch(() => null),
+        ]);
+        if (mounted) setRules(purchaseRules);
         if (!mounted) return;
         setPlans(fetched || []);
       } catch (err) {
@@ -93,14 +102,17 @@ export default function SelectTenure() {
 
   // 🟧 Fixed plans (yogat20)
   const fixedPlans = useMemo(
-    () => plans.filter((p) => (p.pricingType || "fixed") === "fixed"),
-    [plans]
+    () =>
+      plans
+        .filter((p) => (p.pricingType || "fixed") === "fixed")
+        .filter((p) => rules?.isExtension || !planMonths(p) || planMonths(p) >= 3),
+    [plans, rules]
   );
 
   // 🎚️ Initialize slider to minWeeks once weekly plan loads
   useEffect(() => {
     if (weeklyPlan && weeks === null) {
-      setWeeks(weeklyPlan.minWeeks || 5);
+      setWeeks(rules?.weekly?.minWeeks ?? (weeklyPlan.minWeeks || 5));
     }
   }, [weeklyPlan, weeks]);
 
@@ -162,7 +174,7 @@ export default function SelectTenure() {
   // 🟦 WEEKLY SLIDER VIEW
   // ════════════════════════════════════════
   if (weeklyPlan && weeks !== null) {
-    const min = weeklyPlan.minWeeks || 5;
+    const min = rules?.weekly?.minWeeks ?? (weeklyPlan.minWeeks || 5);
     const max = weeklyPlan.maxWeeks || 24;
     const amount = calcWeeklyPrice(weeklyPlan, weeks);
     const pct = max > min ? ((weeks - min) / (max - min)) * 100 : 0;
@@ -194,7 +206,9 @@ export default function SelectTenure() {
                   ,{" "}
                 </>
               ) : null}
-              Select your Program Duration . Minimum Commitment should be{" "}
+              {rules?.isExtension
+                ? "Extend your current plan in monthly steps — from"
+                : "Select your Program Duration . Minimum Commitment should be"}{" "}
               {min} weeks
             </p>
           </div>
@@ -216,7 +230,7 @@ export default function SelectTenure() {
               type="range"
               min={min}
               max={max}
-              step={1}
+              step={rules?.weekly?.stepWeeks || 1}
               value={weeks}
               onChange={(e) => setWeeks(Number(e.target.value))}
               className="w-full accent-[#4E4391] cursor-pointer"
