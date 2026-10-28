@@ -44,7 +44,7 @@ export default function HeroSection() {
                 onClick={handleConsultDoctor}
                 className="border border-gray-300 hover:border-[#4E4391] hover:text-[#4E4391] text-[#1F2937] text-[14px] sm:text-[15px] font-semibold px-6 py-3 sm:py-3.5 rounded-full bg-white transition-all"
               >
-                Consult A Doctor Now
+                Get a Free Consultation
               </button>
             </div>
           </div>
