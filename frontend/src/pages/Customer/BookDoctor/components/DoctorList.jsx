@@ -82,8 +82,8 @@ const DoctorList = ({
   return (
     <section className="space-y-5">
       {/* 🏷️ Header */}
-      <div className="flex items-end justify-between gap-3">
-        <div>
+      <div className="relative flex items-end justify-center gap-3">
+        <div className="text-center px-12">
           <h2 className="text-lg sm:text-xl font-bold text-[#1F2937] tracking-tight">
             Top Doctors ! <span className="text-[#4E4391]">Zero Stress</span>
           </h2>
@@ -98,6 +98,7 @@ const DoctorList = ({
           aria-label="Grid view"
           disabled
           className="
+              absolute right-0 bottom-0
               w-10 h-10 rounded-xl
               flex items-center justify-center
               text-[#4E4391]
