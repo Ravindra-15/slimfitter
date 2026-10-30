@@ -37,8 +37,7 @@ const CardSkeleton = () => (
       </div>
       <div className="flex flex-col gap-2 lg:w-56">
         <div className="h-5 w-32 bg-gray-200 rounded-full self-end" />
-        <div className="h-9 w-full bg-gray-200 rounded-full" />
-        <div className="h-9 w-full bg-gray-200 rounded-full" />
+        <div className="h-10 w-full bg-gray-200 rounded-full" />
       </div>
     </div>
   </div>
@@ -84,10 +83,10 @@ const DoctorList = ({
       {/* 🏷️ Header */}
       <div className="relative flex items-end justify-center gap-3">
         <div className="text-center px-12">
-          <h2 className="text-lg sm:text-xl font-bold text-[#1F2937] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1F2937] tracking-tight">
             Top Doctors ! <span className="text-[#4E4391]">Zero Stress</span>
           </h2>
-          <p className="text-xs text-[#6B7280] mt-0.5">
+          <p className="text-xs sm:text-sm text-[#6B7280] mt-1">
             Find the right expert for your journey
           </p>
         </div>
