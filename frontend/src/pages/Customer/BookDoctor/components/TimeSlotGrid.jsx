@@ -57,7 +57,7 @@ const TimeSlotGrid = ({
     return (
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
         {Array.from({ length: 9 }).map((_, i) => (
-          <div key={i} className="h-10 rounded-lg bg-[#EFEDFA] animate-pulse" />
+          <div key={i} className="h-11 bg-[#EFEDFA] animate-pulse" />
         ))}
       </div>
     );
@@ -126,13 +126,13 @@ const TimeSlotGrid = ({
             type="button"
             onClick={() => onSelect(slot.time)}
             className={`
-              relative h-10 rounded-lg
+              relative h-11
               text-xs sm:text-sm font-semibold
               transition-colors border
               ${
                 isSelected
-                  ? "bg-[#4E4391] text-white border-[#4E4391] shadow-[0_8px_18px_rgba(78,67,145,0.22)]"
-                  : "bg-white text-[#374151] border-[#E3DFF0] hover:border-[#4E4391]/40 hover:bg-[#EFEDFA]"
+                  ? "bg-[#4E4391] text-white border-[#4E4391]"
+                  : "bg-[#F4F2FB] text-[#374151] border-transparent hover:border-[#4E4391]/40 hover:bg-[#EFEDFA]"
               }
             `}
             aria-pressed={isSelected}
