@@ -1,5 +1,5 @@
 /**
- * Diabmukt — Subscription Callback CTA
+ * Slimfitter — Subscription Callback CTA
  * One-click callback request for logged-in users.
  * Locks permanently once requested (verified against backend on mount).
  */
@@ -94,7 +94,7 @@ export default function SubscriptionCallbackCTA({ programId }) {
               Unsure which tenure is right for your health goals?
             </h3>
             <p className="text-[#475569] text-sm leading-relaxed mb-5">
-              Everyone's diabetes journey is unique. Speak with a Diabmukt
+              Everyone's weight loss journey is unique. Speak with a Slimfitter
               specialist to determine if you need a 12, 24, or 48-week protocol
               based on your body profile.
             </p>

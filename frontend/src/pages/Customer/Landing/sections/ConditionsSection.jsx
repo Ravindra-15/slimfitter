@@ -10,7 +10,7 @@ export default function ConditionsSection() {
   const navigate = useNavigate();
 
   const handleStartJourney = () => {
-    const intendedPath = "/programs/diabmukt/tenure";
+    const intendedPath = "/programs/slimfitter/tenure";
     const redirect = getSubscriptionRedirect(intendedPath);
     navigate(redirect || intendedPath);
   };
