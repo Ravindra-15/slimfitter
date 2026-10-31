@@ -5,8 +5,8 @@
  */
 
 import { useEffect, useState, useMemo } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { Calendar } from "lucide-react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { ArrowLeft, Calendar } from "lucide-react";
 import { getPublicProgramPlans } from "../../../services/programPlanPublicService";
 import { getPurchaseRules } from "../../../services/programService";
 import { getSubscriptionRedirect } from "../../../utils/subscriptionGuard";
@@ -48,7 +48,28 @@ const planMonths = (p) => Number(p?.durationMonths) || parseInt(p?.planName, 10)
 export default function SelectTenure() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const programName = programNames[id] || id;
+
+  // ⬅️ Back: pages that link here pass `canGoBack`, so the previous history entry
+  // is a real page to return to. Everyone else goes to the landing page — after
+  // sign-up or a failed payment the previous entry is a profile step or PayPal.
+  const handleBack = () => {
+    if (location.state?.canGoBack) navigate(-1);
+    else navigate("/", { replace: true });
+  };
+
+  const backArrow = (
+    <button
+      type="button"
+      onClick={handleBack}
+      aria-label="Go back"
+      title="Back"
+      className="absolute top-2 left-2 sm:top-4 sm:left-4 w-8 h-8 flex items-center justify-center rounded-full text-gray-500 hover:text-[#4E4391] hover:bg-[#EFEDFA] transition-colors"
+    >
+      <ArrowLeft size={20} />
+    </button>
+  );
 
   const [plans, setPlans] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -164,7 +185,8 @@ export default function SelectTenure() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-[#EEEAF7] flex items-center justify-center px-4">
+      <div className="relative min-h-screen bg-[#EEEAF7] flex items-center justify-center px-4">
+        {backArrow}
         <p className="text-sm text-red-500">{error}</p>
       </div>
     );
@@ -190,7 +212,9 @@ export default function SelectTenure() {
     return (
       <div className="min-h-screen bg-[#EEEAF7] px-4 py-10">
         <div className="w-full max-w-[820px] mx-auto flex flex-col gap-5">
-        <div className="bg-white rounded-3xl shadow-xl w-full px-6 sm:px-10 py-9">
+        <div className="relative bg-white rounded-3xl shadow-xl w-full px-6 sm:px-10 pt-11 pb-9 sm:py-9">
+          {backArrow}
+
           {/* Heading */}
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0F172A] mb-2">
@@ -290,7 +314,9 @@ export default function SelectTenure() {
   // ════════════════════════════════════════
   return (
     <div className="min-h-screen bg-gray-900/80 flex items-center justify-center px-4 py-12">
-      <div className="bg-white rounded-3xl shadow-xl w-full max-w-3xl px-6 sm:px-10 py-10">
+      <div className="relative bg-white rounded-3xl shadow-xl w-full max-w-3xl px-6 sm:px-10 py-10">
+        {backArrow}
+
         <div className="text-center mb-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#0F172A] mb-2">
             Select your Tenure
