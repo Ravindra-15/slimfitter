@@ -175,7 +175,7 @@ const OtpVerification = () => {
             <p className="text-center text-sm text-[#6B7280] mb-1">
               We've sent a secure code to
             </p>
-            <p className="text-center text-sm font-medium text-[#374151] mb-6 break-all">
+            <p className="text-center text-base sm:text-lg font-semibold text-[#374151] mb-6 break-all">
               {email}
             </p>
 
