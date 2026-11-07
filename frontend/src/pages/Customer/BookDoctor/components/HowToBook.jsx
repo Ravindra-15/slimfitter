@@ -7,7 +7,6 @@
 
 import React from "react";
 import { Search, Calendar, Sparkles } from "lucide-react";
-import { useCurrency } from "../../../../hooks/useCurrency";
 import { useConsultationFee } from "../../../../hooks/useConsultationFee";
 
 
@@ -37,8 +36,7 @@ const STEPS = [
 ];
 
 const HowToBook = () => {
-  const { convert } = useCurrency();
-  const { fee: bookingFee } = useConsultationFee(); // USD, by the visitor's country
+  const { label: bookingFeeLabel } = useConsultationFee(); // in the visitor's own currency
 
   return (
     <section className="py-12 sm:py-16">
@@ -118,7 +116,7 @@ const HowToBook = () => {
             "
           >
             {typeof description === "function"
-              ? description(convert(bookingFee))
+              ? description(bookingFeeLabel)
               : description}
           </p>
         </div>
