@@ -5,10 +5,11 @@ import React, { useState, useContext, useEffect, useRef, useMemo } from "react";
 
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 
-import { Menu, X, Bell } from "lucide-react";
+import { Bell } from "lucide-react";
 import toast from "react-hot-toast";
 
 import AuthContext from "../../../context/AuthContext";
+import MobileBottomNav from "./MobileBottomNav";
 import { hasActiveProgramSubscription } from "../../../utils/subscriptionCheck";
 import { PROGRAM_ID } from "../../../utils/programConfig";
 import { fetchMyNotifications } from "../../../services/customerNotificationService";
@@ -350,7 +351,7 @@ const CustomerNavbar = () => {
                   <NavLink
                     to="/notifications"
                     className={({ isActive }) =>
-                      `relative hidden sm:inline-flex w-10 h-10 rounded-full items-center justify-center transition-colors ${
+                      `relative inline-flex w-10 h-10 rounded-full items-center justify-center transition-colors ${
                         isActive
                           ? "bg-teal-50 text-[#083B44]"
                           : "text-[#6B7280] hover:bg-[#F6F8FC]"
@@ -371,8 +372,8 @@ const CustomerNavbar = () => {
                     type="button"
                     onClick={openProfile}
                     className="
-                      hidden sm:inline-flex items-center
-                      px-5 py-2 rounded-full
+                      inline-flex items-center
+                      px-4 sm:px-5 py-2 rounded-full
                       text-sm font-semibold text-white
                       bg-[#4E4391] hover:bg-[#4E4391]
                       transition-colors
@@ -383,7 +384,7 @@ const CustomerNavbar = () => {
                   </button>
                 </>
               ) : !hideAuthUI ? (
-                <div className="hidden sm:flex items-center gap-3">
+                <div className="flex items-center gap-3">
                   <button
                     type="button"
                     onClick={() => navigate("/login")}
@@ -396,7 +397,7 @@ const CustomerNavbar = () => {
                     onClick={() => navigate("/signup")}
                     className="
                       inline-flex items-center
-                      px-5 py-2 rounded-full
+                      px-4 sm:px-5 py-2 rounded-full
                       text-sm font-semibold text-white
                      bg-[#4E4391] hover:bg-[#4E4391]
                       transition-colors
@@ -408,135 +409,21 @@ const CustomerNavbar = () => {
                 </div>
               ) : null}
 
-              {/* 📱 MOBILE MENU */}
-              <button
-                type="button"
-                onClick={() => setMobileOpen((v) => !v)}
-                className="lg:hidden w-10 h-10 rounded-lg flex items-center justify-center text-[#6B7280] hover:bg-[#EFEDFA]"
-                aria-label="Toggle menu"
-              >
-                {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-              </button>
             </div>
           </div>
         </div>
 
-        {/* 📱 MOBILE DRAWER */}
-        {mobileOpen && (
-          <div className="lg:hidden border-t border-[#E3DFF0] bg-white">
-            <div className="px-4 py-3 flex flex-col gap-1">
-            
-              {links.map((link) =>
-                link.isAddProgress ? (
-                  <a
-                    key="add-progress-m"
-                    href={link.to}
-                    onClick={handleAddProgressClick}
-                    className="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-teal-50 hover:text-teal-700 transition-all duration-300"
-                  >
-                    {link.label}
-                  </a>
-                ) : link.label === "Home" ? (
-                  <a
-                    key="home-mobile"
-                    href={link.to}
-                    onClick={handleHomeClick}
-                    className="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-teal-50 hover:text-teal-700 transition-all duration-300"
-                  >
-                    {link.label}
-                  </a>
-                ) : link.to.includes("#") ? (
-                  <a
-                    key={link.to}
-                    href={link.to}
-                    onClick={handleProgramsClick}
-                    className="
-                      px-3 py-2 rounded-lg text-sm font-medium
-                      text-gray-600
-                      hover:bg-teal-50
-                      hover:text-teal-700
-                      transition-all duration-300
-                    "
-                  >
-                    {link.label}
-                  </a>
-                ) : (
-                  <NavLink
-                    key={link.to}
-                    to={link.to}
-                    onClick={closeMobile}
-                    className="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-gray-700 hover:bg-gray-50"
-                  >
-                    {link.label}
-                    {appointmentsBadge(link)}
-                  </NavLink>
-                ),
-              )}
-
-              {!hideAuthUI && isLoggedIn && profileCompleted ? (
-                <>
-                  <NavLink
-                    to="/notifications"
-                    onClick={closeMobile}
-                    className="px-3 py-2 rounded-lg text-sm font-medium text-[#374151] hover:bg-[#F6F8FC] flex items-center gap-2"
-                  >
-                    Notifications
-                    {unreadCount > 0 && (
-                      <span className="min-w-[18px] h-[18px] px-1 flex items-center justify-center bg-red-500 text-white text-[10px] font-bold rounded-full">
-                        {unreadCount > 9 ? "9+" : unreadCount}
-                      </span>
-                    )}
-                  </NavLink>
-
-                  <button
-                    type="button"
-                    onClick={() => {
-                      closeMobile();
-                      openProfile();
-                    }}
-                    className="
-                      mt-1 px-4 py-2 rounded-full self-start
-                      text-xs font-semibold text-white
-                      bg-[#4E4391] hover:bg-[#4E4391]
-                      transition-colors
-                    "
-                  >
-                    Profile
-                  </button>
-                </>
-              ) : !hideAuthUI ? (
-                <div className="mt-1 flex items-center gap-3 self-start">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      closeMobile();
-                      navigate("/login");
-                    }}
-                    className="text-xs font-semibold text-gray-700 hover:text-[#4E4391] transition-colors"
-                  >
-                    Sign in
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      closeMobile();
-                      navigate("/signup");
-                    }}
-                    className="
-                      px-4 py-2 rounded-full
-                      text-xs font-semibold text-white
-                      bg-[#4E4391] hover:bg-[#4E4391]
-                      transition-colors
-                    "
-                  >
-                    Sign up
-                  </button>
-                </div>
-              ) : null}
-            </div>
-          </div>
-        )}
       </header>
+      {/* 📱 phones / tablets: every link in a bottom tab bar (no hamburger) */}
+      <MobileBottomNav
+        links={links}
+        onHomeClick={handleHomeClick}
+        onProgramsClick={handleProgramsClick}
+        onProgressClick={handleAddProgressClick}
+        dashboardPath={dashboardPath}
+        appointmentsCount={upcomingCount}
+        activeClass="text-[#4E4391]"
+      />
       {profileNudgeModal}
       <div className="h-16" />
     </div>
