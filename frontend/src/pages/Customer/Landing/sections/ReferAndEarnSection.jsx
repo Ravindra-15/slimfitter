@@ -23,7 +23,9 @@ function StepCircle({ icon: Icon, title, subtitle }) {
   );
 }
 
-export default function ReferAndEarnSection() {
+// embedded → used inside the program dashboard (no landing-page padding / container)
+export default function ReferAndEarnSection({ embedded = false }) {
+  const Heading = embedded ? "h2" : "h1";
   const navigate = useNavigate();
 
   // 🔐 logged-in → refer page; otherwise → login with return path
@@ -37,9 +39,9 @@ export default function ReferAndEarnSection() {
   };
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-white">
-      <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden bg-[#EFEDFA] rounded-3xl border border-[#E3DFF0] px-6 sm:px-12 py-10 sm:py-14 mb-10">
+    <section aria-label="Refer and Earn" className={embedded ? "" : "py-12 sm:py-16 lg:py-20 bg-white"}>
+      <div className={embedded ? "" : "max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8"}>
+        <div className={`relative overflow-hidden bg-[#EFEDFA] rounded-3xl border border-[#E3DFF0] px-6 sm:px-12 py-10 sm:py-14${embedded ? "" : " mb-10"}`}>
           {/* Top-right decorative image */}
           <img
             src="/images/referandearndiab.png"
@@ -48,9 +50,9 @@ export default function ReferAndEarnSection() {
           />
 
           <div className="relative z-10 text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl sm:text-3xl lg:text-4xl font-bold text-[#1F2937] mb-2">
+            <Heading className="text-3xl sm:text-3xl lg:text-4xl font-bold text-[#1F2937] mb-2">
               Refer and Earn
-            </h1>
+            </Heading>
             <p className="text-base sm:text-lg text-[#6B7280]">
               Wellness is better with friends{" "}
               <span className="inline-block">👋</span>
