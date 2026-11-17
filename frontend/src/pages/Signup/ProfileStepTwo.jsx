@@ -7,10 +7,12 @@ import Input from "../../components/common/Input";
 import Button from "../../components/common/Button";
 import ProgressBar from "../../components/common/ProgressBar";
 import LocationSelect from "../../components/common/LocationSelect";
+import PincodeField from "../../components/common/PincodeField";
 import { loadCountries, loadStates, loadCities, POPULAR_COUNTRY_CODES } from "../../data/location";
 import { profileStepTwo } from "../../services/authService";
 import { clearMyCurrencyCache } from "../../services/currencyService";
 import { validateProfileStep2 } from "../../utils/validators";
+import { needsPostalCode, normalizePostalCode, pincodeSubmitError, postalLabel } from "../../utils/postalCode";
 import toast from "react-hot-toast";
 
 const ProfileStepTwo = () => {
@@ -37,6 +39,10 @@ const ProfileStepTwo = () => {
   // free-text field for that level once we know the dropdown has nothing.
   const [manualState, setManualState] = useState(false);
   const [manualCity, setManualCity] = useState(false);
+
+  // 📮 Pincode (next to City) + the live check result from <PincodeField>
+  const [pincode, setPincode] = useState("");
+  const [pinStatus, setPinStatus] = useState({ status: "idle", message: "" });
 
   const [loading, setLoading] = useState(false);
 
@@ -80,6 +86,7 @@ const ProfileStepTwo = () => {
     setCities([]);
     setManualState(false);
     setManualCity(false);
+    setPincode(""); // a pincode from another country can't be right
 
     if (!country) return;
 
@@ -129,10 +136,14 @@ const ProfileStepTwo = () => {
       countryIso: country?.code || "",
       state: manualState ? form.stateManual?.trim() || "" : state?.name || "",
       city: manualCity ? form.cityManual?.trim() || "" : city?.name || "",
+      pincode: needsPostalCode(country?.code) ? normalizePostalCode(country?.code, pincode) : "",
     };
 
     const error = validateProfileStep2(payload);
     if (error) return toast.error(error);
+
+    const pinError = pincodeSubmitError(country?.code, pincode, pinStatus);
+    if (pinError) return toast.error(pinError);
 
     try {
       setLoading(true);
@@ -149,6 +160,7 @@ const ProfileStepTwo = () => {
         country: payload.country,
         state: payload.state,
         city: payload.city,
+        pincode: payload.pincode,
       };
 
       localStorage.setItem("user", JSON.stringify(updatedUser));
@@ -271,6 +283,17 @@ const ProfileStepTwo = () => {
                   loading={citiesLoading}
                 />
               )}
+
+              <PincodeField
+                label={`Enter your ${postalLabel(country?.code)}`}
+                value={pincode}
+                onChange={setPincode}
+                countryIso={country?.code}
+                stateName={manualState ? form.stateManual || "" : state?.name || ""}
+                onStatus={setPinStatus}
+                labelClassName="text-sm font-medium text-[#374151]"
+                inputClassName="w-full border border-[#D6D1EC] rounded-xl px-4 py-3 text-sm text-[#374151] placeholder-gray-400 outline-none focus:border-[#4E4391] focus:ring-1 focus:ring-[#4E4391] transition-colors"
+              />
 
               <div className="border-t border-[#D6D1EC] mt-3 pt-6">
                 <Button
