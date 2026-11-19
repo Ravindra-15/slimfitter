@@ -22,6 +22,7 @@ import {
   Star,
 } from "lucide-react";
 import html2pdf from "html2pdf.js";
+import DOMPurify from "dompurify";
 
 import { buildDoctorPhotoUrl } from "../../../../services/customerDoctorService";
 import { formatUtcDate, formatUtcTime24h } from "../../../../utils/time";
@@ -245,6 +246,8 @@ const AppointmentCard = ({ appointment, isUpcoming = false, onUpdated, onRateCon
 
   // only show prescription to patient once doctor has sent it
   const showPrescription = !!prescriptionSentAt && !!prescription;
+  // 🛡️ the prescription is HTML from the doctor's editor — strip anything that could run code
+  const safePrescription = prescription ? DOMPurify.sanitize(prescription) : "";
 
   // 📄 prescription PDF download
   const [downloadingPdf, setDownloadingPdf] = useState(false);
@@ -294,7 +297,7 @@ const AppointmentCard = ({ appointment, isUpcoming = false, onUpdated, onRateCon
           </table>
 
           <div style="font-size:13px; font-weight:700; color:#4F46E5; letter-spacing:0.04em; text-transform:uppercase; margin-bottom:8px;">Prescription (Rx)</div>
-          <div style="font-size:14px; line-height:1.6;">${prescription}</div>
+          <div style="font-size:14px; line-height:1.6;">${safePrescription}</div>
 
           <div style="margin-top:40px; border-top:1px solid #e5e7eb; padding-top:12px; font-size:11px; color:#9ca3af;">
             This prescription was issued digitally via ${programLabel}. Keep it for your records.
@@ -587,7 +590,7 @@ const AppointmentCard = ({ appointment, isUpcoming = false, onUpdated, onRateCon
                 </div>
                 <div
                   className="text-sm text-gray-800 break-words leading-relaxed rx-content"
-                  dangerouslySetInnerHTML={{ __html: prescription }}
+                  dangerouslySetInnerHTML={{ __html: safePrescription }}
                 />
               </div>
             ) : (
