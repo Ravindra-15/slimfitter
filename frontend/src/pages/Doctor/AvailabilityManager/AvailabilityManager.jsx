@@ -22,6 +22,7 @@ import SlotContextMenu from "./components/SlotContextMenu";
 import AddBreakModal from "./components/AddBreakModal";
 import OnBreakOverlay from "./components/OnBreakOverlay";
 import CalendarLegendInfo from "./components/CalendarLegendInfo";
+import { confirmDialog } from "../../../utils/confirmDialog";
 
 const AvailabilityManager = () => {
   const {
@@ -109,7 +110,14 @@ const AvailabilityManager = () => {
   };
 
   const handleCancelAppointment = async (appointmentId) => {
-    if (!window.confirm("Cancel this appointment?")) return;
+    const ok = await confirmDialog({
+      title: "Cancel this appointment?",
+      message: "The patient will be told it was cancelled by the doctor.",
+      confirmLabel: "Cancel appointment",
+      cancelLabel: "Keep appointment",
+      tone: "danger",
+    });
+    if (!ok) return;
     try {
       await cancelAppointment(appointmentId, "Cancelled by doctor");
       toast.success("Appointment cancelled");
@@ -127,7 +135,12 @@ const AvailabilityManager = () => {
 
   const handleEndBreak = async () => {
     if (!weekData?.onBreak?.id) return;
-    if (!window.confirm("End your break now? You'll be available again immediately.")) return;
+    const ok = await confirmDialog({
+      title: "End your break now?",
+      message: "You'll be available for bookings again right away.",
+      confirmLabel: "End break",
+    });
+    if (!ok) return;
     try {
       await deleteTimeOff(weekData.onBreak.id);
       toast.success("Break ended");

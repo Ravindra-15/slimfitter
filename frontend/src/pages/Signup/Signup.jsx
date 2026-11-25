@@ -7,6 +7,8 @@ import CustomerNavbar from "../../components/customer/layout/CustomerNavbar";
 import { signupUser } from "../../services/authService";
 import { validateSignup } from "../../utils/validators";
 import toast from "react-hot-toast";
+import useLegalContent from "../../hooks/useLegalContent";
+import { LegalInline, LegalNotices } from "../../components/customer/legal/LegalText";
 import { Link } from "react-router-dom";
 
 import { useGoogleLogin } from "@react-oauth/google";
@@ -92,6 +94,8 @@ const Signup = () => {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [agreed, setAgreed] = useState(false);
+  const legal = useLegalContent();
+  const consentText = legal.notice("signup_consent")?.text || "I agree to {brand}'s {terms} and {privacy}";
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -331,22 +335,11 @@ const Signup = () => {
                 className="mt-0.5 accent-[#4E4391] w-4 h-4 flex-shrink-0"
               />
               <span>
-                I agree to Slimfitter's{" "}
-                <Link
-                  to="/terms-of-use"
-                  className="text-[#4E4391] hover:underline"
-                >
-                  Terms of Service
-                </Link>{" "}
-                and{" "}
-                <Link
-                  to="/privacy-policy"
-                  className="text-[#4E4391] hover:underline"
-                >
-                  Privacy Policy
-                </Link>
+                <LegalInline text={consentText} brand={legal.content.brand} linkClassName="text-[#4E4391] hover:underline" />
               </span>
             </label>
+
+            <LegalNotices notices={legal.noticesAt("signup")} brand={legal.content.brand} />
 
             <button
               onClick={handleSignup}
