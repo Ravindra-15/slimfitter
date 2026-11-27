@@ -46,6 +46,8 @@ import ProgressReport from "./pages/Customer/Programs/ProgressReport";
 
 import MyProfile from "./pages/Customer/MyProfile/MyProfile";
 import CustomerNotifications from "./pages/Customer/Notifications/Notifications";
+import MyEnquiries from "./pages/Customer/MyEnquiries/MyEnquiries";
+import MyEnquiryDetail from "./pages/Customer/MyEnquiries/MyEnquiryDetail";
 import MyPlansAndBillings from "./pages/Customer/MyPlansAndBillings/MyPlansAndBillings";
 import Receipt from "./pages/Customer/Receipt/Receipt";
 
@@ -189,6 +191,24 @@ function App() {
           element={
             <ProtectedRoute>
               <CustomerNotifications />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* 👤 My Enquiries — the customer's enquiries, issues and our replies */}
+        <Route
+          path="/my-enquiries"
+          element={
+            <ProtectedRoute>
+              <MyEnquiries />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/my-enquiries/:ticketNo"
+          element={
+            <ProtectedRoute>
+              <MyEnquiryDetail />
             </ProtectedRoute>
           }
         />
