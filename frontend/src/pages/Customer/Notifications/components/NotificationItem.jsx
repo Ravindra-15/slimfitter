@@ -10,6 +10,8 @@ import {
   Calendar,
   Sparkles,
   Clock,
+  ListChecks,
+  Activity,
 } from "lucide-react";
 import { PROGRAM_ID } from "../../../../utils/programConfig";
 import { formatUtcDate } from "../../../../utils/time";
@@ -64,6 +66,16 @@ const typeMeta = {
     icon: MessageSquare,
     bg: "bg-amber-50",
     color: "text-amber-500",
+  },
+  habit_reminder: {
+    icon: ListChecks,
+    bg: "bg-orange-50",
+    color: "text-orange-500",
+  },
+  habit_update: {
+    icon: Activity,
+    bg: "bg-[#EFEDFA]",
+    color: "text-purple-500",
   },
   general: {
     icon: Bell,
@@ -121,6 +133,12 @@ export default function NotificationItem({ notification, onClick }) {
             Click here to renew your program →
           </span>
         )}
+        {(notification.type === "habit_reminder" || notification.type === "habit_update") &&
+          notification?.metadata?.programId === PROGRAM_ID && (
+            <span className="inline-block text-xs font-semibold text-[#4E4391] mt-1.5 hover:underline">
+              {notification.type === "habit_reminder" ? "Log today's habits →" : "Open Add Progress →"}
+            </span>
+          )}
       </div>
     </button>
   );
